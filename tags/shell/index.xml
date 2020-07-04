@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Shell on shishuoCh`s Blog</title>
+    <link>https://shishuochen.github.io/tags/shell/</link>
+    <description>Recent content in Shell on shishuoCh`s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 28 May 2020 22:32:24 +0000</lastBuildDate>
+    
+	<atom:link href="https://shishuochen.github.io/tags/shell/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>批量&#34;左右&#34;合并txt文件</title>
+      <link>https://shishuochen.github.io/2020/r_e_e13ck/</link>
+      <pubDate>Thu, 28 May 2020 22:32:24 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/r_e_e13ck/</guid>
+      <description>&amp;emsp;&amp;emsp;合并txt文件有很多种方法，如果文件数目不多手动复制也不是不可，但是文件多的时候就显得有点力不从心了；有的时候不光如</description>
+    </item>
+    
+  </channel>
+</rss>
