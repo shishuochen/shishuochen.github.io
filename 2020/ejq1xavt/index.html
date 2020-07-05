@@ -465,16 +465,16 @@ $$
 <ul>
 <li>就最近邻插值的实现而言，效果还不错，至少在 SSIM 值的表现上与 imresize 的结果保持着高度相似。最近邻的插值图像实则复制像素，它的的边缘更清晰，但大部分图像为块状，锯齿感较强。</li>
 <li>关于双线性插值，它的实现效果与最近邻比较差点，而且在它的效果还与图片的内容有所关联。双线性插值的边缘易模糊，但大多数图像更平滑，整体看起来好。</li>
-
-<li><p>双立方被认为是放大图像的最佳插值方法，MATLAB中函数<code>imresize</code>的默认方法也是<code>bicubic</code>。但本文实现的方法在放大倍数较大时程序运行耗时较长，这是一个缺点。</p>
+<li>双立方被认为是放大图像的最佳插值方法，MATLAB中函数<code>imresize</code>的默认方法也是<code>bicubic</code>。但本文实现的方法在放大倍数较大时程序运行耗时较长，这是一个缺点。</li>
+</ul>
 
 <h1 id="6-参考文献"><strong>6 参考文献</strong></h1>
 
-<hr /></li>
+<hr />
 
-<li><p>[1] <a href="http://www.giassa.net/?page_id=200" rel="nofollow noreferrer" target="_blank">Giassa M. Upsampling Interpolation.</a></p></li>
-
-<li><p>[2] <a href="https://ia802707.us.archive.org/23/items/Lectures_on_Image_Processing/EECE_4353_15_Resampling.pdf" rel="nofollow noreferrer" target="_blank">EECE_4353_15_Resampling.pdf</a></p></li>
+<ul>
+<li>[1] <a href="http://www.giassa.net/?page_id=200" rel="nofollow noreferrer" target="_blank">Giassa M. Upsampling Interpolation.</a></li>
+<li>[2] <a href="https://ia802707.us.archive.org/23/items/Lectures_on_Image_Processing/EECE_4353_15_Resampling.pdf" rel="nofollow noreferrer" target="_blank">EECE_4353_15_Resampling.pdf</a></li>
 </ul>
 <div class="footnotes">
 
@@ -570,23 +570,84 @@ $$
 </article>
                 </div>
             </main>
-            <footer class="footer">
-    <div class="copyright">
-        &copy;
-        
-        <span itemprop="copyrightYear">2019 - 2020</span>
-        
-        <span class="with-love">
-    	 <i class="iconfont icon-love"></i>
-         </span>
-         
-            <span class="author" itemprop="copyrightHolder"><a href="https://shishuochen.github.io">ANY_ME</a> | </span>
-         
-
-         
-		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/Mogeko/Mogege" target="_blank" rel="external nofollow">Mogege</a></span>
-    </div>
+            
+<div class="footer-box">
+<footer class="footer">
+   <div class="copyright">
+      &copy;
+      
+      <span itemprop="copyrightYear">2019 - 2020</span>
+      
+      <span class="with-love">
+         <i class="iconfont icon-love"></i>
+      </span>
+      
+      <span class="author" itemprop="copyrightHolder"><a href="https://shishuochen.github.io">ANY_ME</a> |
+      </span>
+      
+      
+      <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a
+            href="https://github.com/Mogeko/Mogege" target="_blank" rel="external nofollow">Mogege</a></span>
 </footer>
+
+      <div class="back-to-top" id="back_to_top">
+         
+         <span>&#8593;</span>
+         
+         <span class="scrollpercent">
+            <span id="back_to_top_text">0</span>%
+         </span>
+      </div>
+</div>
+<script>
+
+   let sideBarOpen = 'sidebar-open';
+   let body = document.body;
+   let back2Top = document.querySelector('#back_to_top'),
+      back2TopText = document.querySelector('#back_to_top_text'),
+      drawerBox = document.querySelector('#drawer_box'),
+      rightSideBar = document.querySelector('.sidebar'),
+      viewport = document.querySelector('body');
+
+   function scrollAnimation(currentY, targetY) {
+
+      let needScrollTop = targetY - currentY
+      let _currentY = currentY
+      setTimeout(() => {
+         const dist = Math.ceil(needScrollTop / 10)
+         _currentY += dist
+         window.scrollTo(_currentY, currentY)
+         if (needScrollTop > 10 || needScrollTop < -10) {
+            scrollAnimation(_currentY, targetY)
+         } else {
+            window.scrollTo(_currentY, targetY)
+         }
+      }, 1)
+   }
+
+   back2Top.addEventListener("click", function (e) {
+      scrollAnimation(document.scrollingElement.scrollTop, 0);
+      e.stopPropagation();
+      return false;
+   });
+
+   window.addEventListener('scroll', function (e) {
+      let percent = document.scrollingElement.scrollTop / (document.scrollingElement.scrollHeight - document.scrollingElement.clientHeight) * 100;
+      if (percent > 1 && !back2Top.classList.contains('back-top-active')) {
+         back2Top.classList.add('back-top-active');
+      }
+      if (percent == 0) {
+         back2Top.classList.remove('back-top-active');
+      }
+      if (back2TopText) {
+         back2TopText.textContent = Math.floor(percent);
+      }
+   });
+   let hasCacu = false;
+  window.onresize = function () {
+    calcuHeight();
+  }
+</script>
 
 
 
@@ -617,7 +678,6 @@ $$
 
 <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
 <script> pangu.spacingPage();</script>
-
 
 
 
