@@ -82,13 +82,13 @@
                 
                 <span class="menu">
                 
-                <a class="menu-item" href="/posts/" title="">Blog</a>
+                <a class="menu-item" href="/posts/" title="">⌛️Blog</a>
                 
-                <a class="menu-item" href="/categories/" title="">Categories</a>
+                <a class="menu-item" href="/categories/" title="">📁Categories</a>
                 
-                <a class="menu-item" href="/tags/" title="">Tags</a>
+                <a class="menu-item" href="/tags/" title="">🎨Tags</a>
                 
-                <a class="menu-item" href="/about/" title="">About</a>
+                <a class="menu-item" href="/about/" title="">💬About</a>
                 
                 <a class="menu-item" href="/about/" title="">ANY_ME</a>
                 
@@ -120,22 +120,22 @@
                     
                     
                         <a class="menu-item" href="/posts/" title="">
-                            <h3>Blog</h3>
+                            <h3>⌛️Blog</h3>
                             <div class="menu-active"></div>
                         </a>
                     
                         <a class="menu-item" href="/categories/" title="">
-                            <h3>Categories</h3>
+                            <h3>📁Categories</h3>
                             <div class="menu-active"></div>
                         </a>
                     
                         <a class="menu-item" href="/tags/" title="">
-                            <h3>Tags</h3>
+                            <h3>🎨Tags</h3>
                             <div class="menu-active"></div>
                         </a>
                     
                         <a class="menu-item" href="/about/" title="">
-                            <h3>About</h3>
+                            <h3>💬About</h3>
                             <div class="menu-active"></div>
                         </a>
                     
@@ -320,16 +320,41 @@
     <div class="post-comment">
         
             
-                <div id="gitalk-container"></div>
-
-  <span id="/2020/evcfke7nv/" class="leancloud_visitors" data-flag-title="如何在ms-word中优雅的插入代码">
-    <p></p>
-  </span>
-  <div id="vcomments"></div>
-  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+                <br />
 <script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
-  <script type="text/javascript">
-    new Valine({
+<div id="vcomments" style="padding: 10px 0px 0px 0px"></div>
+<style>
+  .v .veditor {
+    min-height: 10rem;
+    background-image: url('<%= site.customConfig.valineimage %>');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+    background-color: rgba(255, 255, 255, 0);
+    resize: none;
+  }
+
+  .v .vwrap {
+    border: 1px solid #000 !important;
+  }
+
+  .v .vbtn {
+    padding: .4rem 1.2rem !important;
+    border-color: #fff !important;
+    background-color: #49b1f5 !important;
+    color: #fff !important;
+    font-size: .7rem !important;
+  }
+
+  .v .vcards .vcard .vh .vmeta .vat {
+    padding: 0 .8rem !important;
+    border: 1px solid #00c4b6 !important;
+    border-radius: 5px !important;
+    color: #00c4b6 !important;
+  }
+</style>
+<script>
+  new Valine({
         el: '#vcomments' ,
         appId: 'WfSBqbaIFwwLUytPuTLtMKu9-MdYXbMMI',
         appKey: 'ELF39FBTTfSuVVLOHMM4uqWf',
@@ -337,10 +362,11 @@
         verify:  true , 
         avatar:'mm', 
 		enableQQ: true,
-        placeholder: '说点什么吧...',
+        placeholder: '【在昵称处填写企鹅号会自动拉取昵称、头像和邮箱，这样你就可以通过邮箱收到留言回复了，因此请检查自己的输入的企鹅号是否正确，方便自己的同时也避免给他人带来不便，Thanks♪(･ω･)ﾉ】',
         visitor:  true 
-    });
-  </script>
+  });
+</script>
+
             
         
     </div>
