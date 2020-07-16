@@ -209,8 +209,9 @@
 
 <p>&emsp;&emsp;Write program to automatic count the number of wood dowel plugs and calculate their diameters.
 <center>
-<img src="https://s1.ax1x.com/2020/05/17/YRneij.png" style="zoom: 40%;"/>
-图 1.1. 测试图像
+<a data-fancybox="gallery" href="https://s1.ax1x.com/2020/05/17/YRneij.png"><img src="https://s1.ax1x.com/2020/05/17/YRneij.png" style="zoom: 40%;"/></a></p>
+
+<p>图 1.1. 测试图像
 </center></p>
 
 <h1 id="2-solutions">2. Solutions</h1>
@@ -233,8 +234,9 @@
 f=imbinarize(I);                <span style="color:#75715e">% 转换为二值图像</span></code></pre></div>
 <p>结果如下图所示：
 <center>
-<img src="https://s1.ax1x.com/2020/05/17/YR0AmD.png" style="zoom: 40%;"/>
-图 2.1.  二值图像
+<a data-fancybox="gallery" href="https://s1.ax1x.com/2020/05/17/YR0AmD.png"><img src="https://s1.ax1x.com/2020/05/17/YR0AmD.png" style="zoom: 40%;"/></a></p>
+
+<p>图 2.1.  二值图像
 </center></p>
 
 <h2 id="2-2-开闭运算-填充孔洞">2.2 开闭运算、填充孔洞</h2>
@@ -251,8 +253,8 @@ f = imfill(f,<span style="color:#e6db74">&#39;holes&#39;</span>);          <span
 <table>
 <thead>
 <tr>
-<th align="center"><img src="https://s1.ax1x.com/2020/05/17/YR0mtA.png" style="zoom: 60%;"/></th>
-<th align="center"><img src="https://s1.ax1x.com/2020/05/17/YR0E0e.png" style="zoom: 60%;"/></th>
+<th align="center"><a data-fancybox="gallery" href= "https://s1.ax1x.com/2020/05/17/YR0mtA.png"><img src="https://s1.ax1x.com/2020/05/17/YR0mtA.png" style="zoom: 60%;"/></a></th>
+<th align="center"><a data-fancybox="gallery" href=https://s1.ax1x.com/2020/05/17/YR0E0e.png ><img src="https://s1.ax1x.com/2020/05/17/YR0E0e.png" style="zoom: 60%;"/></a></th>
 </tr>
 </thead>
 
@@ -268,8 +270,9 @@ f = imfill(f,<span style="color:#e6db74">&#39;holes&#39;</span>);          <span
 
 <p>&emsp;&emsp;由图 <a href="#2.3">2.3</a>可以看出，图中一些木塞并没有分割开来，此时进行统计显然不能得到好的结果，如图 <a href="#2.4">2.4</a> 所示。
 <center>
-<img src="https://s1.ax1x.com/2020/05/17/YRrYAe.png" style="zoom: 50%;"/>
-图 2.4：分割后统计结果
+<a data-fancybox="gallery" href="https://s1.ax1x.com/2020/05/17/YRrYAe.png" ><img src="https://s1.ax1x.com/2020/05/17/YRrYAe.png" style="zoom: 50%;"/></a></p>
+
+<p>图 2.4：分割后统计结果
 </center></p>
 
 <h2 id="2-3-分水岭变换">2.3 分水岭变换</h2>
@@ -288,8 +291,8 @@ f(Posi<span style="color:#f92672">==</span><span style="color:#ae81ff">0</span>)
 <table>
 <thead>
 <tr>
-<th align="center"><img src="https://s1.ax1x.com/2020/05/17/YR0VTH.png" style="zoom: 60%;"/></th>
-<th align="center"><img src="https://s1.ax1x.com/2020/05/17/YR0ekd.png" style="zoom: 60%;"/></th>
+<th align="center"><a data-fancybox="gallery" href= "https://s1.ax1x.com/2020/05/17/YR0VTH.png"><img src="https://s1.ax1x.com/2020/05/17/YR0VTH.png" style="zoom: 60%;"/></a></th>
+<th align="center"><a data-fancybox="gallery" href="https://s1.ax1x.com/2020/05/17/YR0ekd.png" ><img src="https://s1.ax1x.com/2020/05/17/YR0ekd.png" style="zoom: 60%;"/></a></th>
 </tr>
 </thead>
 
@@ -326,7 +329,7 @@ text(<span style="color:#ae81ff">30</span>,<span style="color:#ae81ff">30</span>
 <center></p>
 
 <p><a name="2.7"></a>
-<img src="https://s1.ax1x.com/2020/05/17/YR0nfI.png" style="zoom: 40%;"/>
+<a data-fancybox="gallery" href="https://s1.ax1x.com/2020/05/17/YR0nfI.png" ><img src="https://s1.ax1x.com/2020/05/17/YR0nfI.png" style="zoom: 40%;"/></a>
 图 2.7：统计标记结果
 </center></p>
 
@@ -560,6 +563,10 @@ text(<span style="color:#ae81ff">30</span>,<span style="color:#ae81ff">30</span>
 
 
 
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 
         </div>
     </body>
