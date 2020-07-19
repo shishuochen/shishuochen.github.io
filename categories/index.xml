@@ -6,10 +6,19 @@
     <description>Recent content in Categories on shishuoCh&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 28 May 2020 22:32:24 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 17 Jul 2020 23:45:32 +0800</lastBuildDate>
     
 	<atom:link href="https://shishuochen.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>线性代数笔记</title>
+      <link>https://shishuochen.github.io/categories/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Fri, 17 Jul 2020 23:45:32 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/categories/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%AC%94%E8%AE%B0/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>解决问题篇</title>

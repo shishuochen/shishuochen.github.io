@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>线性代数 on shishuoCh&#39;s Blog</title>
+    <link>https://shishuochen.github.io/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/</link>
+    <description>Recent content in 线性代数 on shishuoCh&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 17 Jul 2020 23:45:32 +0800</lastBuildDate>
+    
+	<atom:link href="https://shishuochen.github.io/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>线代学习笔记摘录</title>
+      <link>https://shishuochen.github.io/2020/oktyklte8/</link>
+      <pubDate>Fri, 17 Jul 2020 23:45:32 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/oktyklte8/</guid>
+      <description>&amp;emsp;&amp;emsp;最近再次重温了@3Blue1Brown的“课程”：线性代数的本质&amp;mdash;&amp;mdash;系列合集（顺便说一下，这</description>
+    </item>
+    
+  </channel>
+</rss>
