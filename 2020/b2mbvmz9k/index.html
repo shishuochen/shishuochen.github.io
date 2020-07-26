@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="ANY_ME">
+    <meta name="description" content="shishuoCh的个人博客">
+    
+    <meta name="google-site-verification" content=" " />
+    <link rel="prev" href="https://shishuochen.github.io/2020/uffick8u1/" />
+    
+    <link rel="canonical" href="https://shishuochen.github.io/2020/b2mbvmz9k/" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+        
+        
+            傅里叶变换的性质及常用变换对 | shishuoCh&#39;s Blog
+        
+    </title>
+    <meta name="title" content="傅里叶变换的性质及常用变换对 | shishuoCh&#39;s Blog">
+    
+<link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/shishuochen.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "傅里叶变换的性质及常用变换对",
+    "headline" : "傅里叶变换的性质及常用变换对",
+    "description" : "\u0026emsp;\u0026emsp;近来的随机信号分析“预习”过程中，总要用到一些傅里叶变换对，记录在此方便查阅。 1. 傅里叶变换的性质 名称 时域 频域 定义 $f(t)=\\frac{1}{2\\pi}\\int_{-\\infty}^{\u002b\\infty}F(jw)e^{jwt}dw$ $F(jw)=\\int_{-\\infty}^{\u002b\\infty}f(t)e^{-jwt}dt$",
+    "inLanguage" : "en-us",
+    "author" : "ANY_ME",
+    "creator" : "ANY_ME",
+    "publisher": "ANY_ME",
+    "accountablePerson" : "ANY_ME",
+    "copyrightHolder" : "ANY_ME",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-07-25 21:56:44 \u002b0000 UTC",
+    "dateModified" : "2020-07-25 21:56:44 \u002b0000 UTC",
+    "url" : "https:\/\/shishuochen.github.io\/2020\/b2mbvmz9k\/",
+    "wordCount" : "251",
+    "keywords" : [ "信号与系统", "shishuoCh\u0027s Blog"]
+}
+</script>
+
+  </head>
+    <body class="">
+        <div class="wrapper">
+            <nav class="navbar">
+    
+        <progress class="content_progress" max="0" value="0"></progress>
+    
+    <div class="container">
+        
+            <div class="navbar-header header-back2home-logo">
+                <span class="logo_mark" >>$</span>
+                <a href="https://shishuochen.github.io">
+                    <span class="logo_text" >cd /home/</span>
+                    <span class="logo_cursor" ></span>
+                </a>
+            </div>
+        
+        <div class="navbar-right">
+                
+                <span class="menu">
+                
+                <a class="menu-item" href="/posts/" title="">⌛Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">📁Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">🎨Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">💬About</a>
+                
+                <a class="menu-item" href="/about/" title="">ANY_ME</a>
+                
+                <span class="divide"></span>
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-dark-mode"></i></a>
+                </span>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display:none">
+    
+        <progress class="content_progress" max="0" value="0"></progress>
+    
+     <div class="container">
+        <div class="navbar">
+            <div class="navbar-header header-logo">
+                    <a href="https://shishuochen.github.io">shishuoCh&#39;s Blog</a>
+            </div>
+            <div class="navbar-right">
+                <div><a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-dark-mode"></i></a></div>
+                <div class="menu-toggle">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                <nav class="mb-md">
+                    
+                    
+                        <a class="menu-item" href="/posts/" title="" white-space="nowrap">
+						<nobr>⌛Blog</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/categories/" title="" white-space="nowrap">
+						<nobr>📁Categories</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/tags/" title="" white-space="nowrap">
+						<nobr>🎨Tags</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/about/" title="" white-space="nowrap">
+						<nobr>💬About</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/about/" title="" white-space="nowrap">
+						<nobr>ANY_ME</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                </nav>
+        </div>
+    </div>
+</nav>
+            <main class="main">
+                <div class="container">
+                    
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">傅里叶变换的性质及常用变换对</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://shishuochen.github.io" rel="author">ANY_ME</a> with ♥
+                <span class="post-time">
+                on <time datetime=2020-07-25 itemprop="datePublished">July 25, 2020</time>
+                </span>
+                in
+                
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        
+                        
+                        
+                          <a href="https://shishuochen.github.io/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"> 课程笔记, </a>
+                        
+                        
+                </span>
+                <span class="post-word-count">251 words</span>
+        </div>
+    </header>
+
+    <div class="post-content">
+        
+
+        
+        
+
+        
+        
+        
+        
+        
+
+        
+        
+        
+
+        
+
+<p><strong>&emsp;&emsp;近来的随机信号分析“预习”过程中，总要用到一些傅里叶变换对，记录在此方便查阅。</strong></p>
+
+<h2 id="1-傅里叶变换的性质">1. 傅里叶变换的性质</h2>
+
+<hr />
+
+<p><center></p>
+
+<table>
+<thead>
+<tr>
+<th align="center"><strong>名称</strong></th>
+<th align="center"><strong>时域</strong></th>
+<th align="center"><strong>频域</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center"><strong>定义</strong></td>
+<td align="center">$f(t)=\frac{1}{2\pi}\int_{-\infty}^{+\infty}F(jw)e^{jwt}dw$</td>
+<td align="center">$F(jw)=\int_{-\infty}^{+\infty}f(t)e^{-jwt}dt$</td>
+</tr>
+
+<tr>
+<td align="center"><strong>反转</strong></td>
+<td align="center">$f(-t)$</td>
+<td align="center">$F(-jw)$</td>
+</tr>
+
+<tr>
+<td align="center"><strong>对称性</strong></td>
+<td align="center">$F(jt)$</td>
+<td align="center">$2\pi f(-w)$</td>
+</tr>
+
+<tr>
+<td align="center"><strong>尺度变换</strong></td>
+<td align="center">$f(at), \quad a\neq 0$</td>
+<td align="center">$\frac{1}{|a|}F(j\frac{w}{a})$</td>
+</tr>
+
+<tr>
+<td align="center"><strong>时移特性</strong></td>
+<td align="center">$f(t\pm t_0)$</td>
+<td align="center">$F(jw)e^{\pm jwt_0}$</td>
+</tr>
+
+<tr>
+<td align="center"><strong>频移特性</strong></td>
+<td align="center">$f(t)e^{\mp jw_0 t}$</td>
+<td align="center">$F[j(w\pm w_0)]$</td>
+</tr>
+
+<tr>
+<td align="center"><strong>时域卷积</strong></td>
+<td align="center">$f_1(t)*f_1(t)$</td>
+<td align="center">$F_1(jw)F_2(jw)$</td>
+</tr>
+
+<tr>
+<td align="center"><strong>频域卷积</strong></td>
+<td align="center">$f_1(t)f_1(t)$</td>
+<td align="center">$\frac{1}{2\pi}F_1(jw)*F_2(jw)$</td>
+</tr>
+
+<tr>
+<td align="center"><strong>时域微分</strong></td>
+<td align="center">$f^{(n)}(t)$</td>
+<td align="center">$(jw)^{n}F(jw)$</td>
+</tr>
+
+<tr>
+<td align="center"><strong>频域微分</strong></td>
+<td align="center">$(-jt)^{n}f(t)$</td>
+<td align="center">$F^{(n)}(jw)$</td>
+</tr>
+
+<tr>
+<td align="center"><strong>相关定理1</strong></td>
+<td align="center">$R _ {12}(\tau)=\int _ {-\infty}^{+\infty}f _ {1}(t)f _ 2(t-\tau)dt$</td>
+<td align="center">$\mathscr{F}[R_{12}(\tau)]=F_1(jw)F_2^{*}(jw)$</td>
+</tr>
+
+<tr>
+<td align="center"><strong>相关定理2</strong></td>
+<td align="center">$R _ {21}(\tau)=\int _ {-\infty}^{+\infty}f _ 1(t-\tau)f _ 2 (t)dt$</td>
+<td align="center">$\mathscr{F}[R_{21}(\tau)]=F_1^{*}(jw)F_2(jw)$</td>
+</tr>
+</tbody>
+</table>
+
+<p></center></p>
+
+<h2 id="2-常用傅里叶变换对">2. 常用傅里叶变换对</h2>
+
+<hr />
+
+<p><center></p>
+
+<table>
+<thead>
+<tr>
+<th align="center"><strong>名称</strong></th>
+<th align="center"><strong>时域</strong></th>
+<th align="center"><strong>频域</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center"><strong>门函数</strong></td>
+<td align="center">$g_{\tau}(t)$</td>
+<td align="center">$\tau Sa(\frac{w\tau}{2})$</td>
+</tr>
+
+<tr>
+<td align="center"><strong>单边指数函数</strong></td>
+<td align="center">$e^{-\alpha t}\varepsilon(t)$</td>
+<td align="center">$\frac{1}{\alpha+jw}$</td>
+</tr>
+
+<tr>
+<td align="center"><strong>双边指数函数</strong></td>
+<td align="center">$e^{\alpha|t|}$</td>
+<td align="center">$\frac{2 \alpha}{\alpha ^ 2+w^2}$</td>
+</tr>
+
+<tr>
+<td align="center"><strong>冲激函数</strong></td>
+<td align="center">$\delta(t)$</td>
+<td align="center">$1$</td>
+</tr>
+
+<tr>
+<td align="center"><strong>常数1</strong></td>
+<td align="center">$1$</td>
+<td align="center">$2\pi\delta(w)$</td>
+</tr>
+
+<tr>
+<td align="center"><strong>符号函数</strong></td>
+<td align="center">$sgn(t)$</td>
+<td align="center">$\frac{2}{jw}$</td>
+</tr>
+
+<tr>
+<td align="center"><strong>阶跃函数</strong></td>
+<td align="center">$\varepsilon(t)$</td>
+<td align="center">$\pi\delta(w)+\frac{1}{jw}$</td>
+</tr>
+
+<tr>
+<td align="center"><strong>余弦函数</strong></td>
+<td align="center">$cos(w_0 t)=\frac{1}{2}(e^{jw_0t+e^{-jw_0t}})$</td>
+<td align="center">$\pi[\delta(w+w_0)+\delta(w-w_0)]$</td>
+</tr>
+
+<tr>
+<td align="center"><strong>正弦函数</strong></td>
+<td align="center">$sin(w_0 t)=\frac{1}{2j}(e^{jw_0t+e^{-jw_0t}})$</td>
+<td align="center">$j\pi[\delta(w+w_0)-\delta(w-w_0)]$</td>
+</tr>
+
+<tr>
+<td align="center"><strong>周期单位冲激函数</strong></td>
+<td align="center">$$\delta _ {T}(t)=\sum\limits_{m=-\infty}^{+\infty}\delta(t-mT)$$</td>
+<td align="center">$$\frac{2\pi}{T}\sum\limits_{n=-\infty}^{+\infty}\delta(w-n\Omega)$$</td>
+</tr>
+</tbody>
+</table>
+
+<p></center></p>
+
+    </div>
+
+    <div class="post-copyright">
+            
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>ANY_ME </span>
+                </p>
+            
+
+            
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://shishuochen.github.io/2020/b2mbvmz9k/>https://shishuochen.github.io/2020/b2mbvmz9k/</span>
+            </p>
+            
+            
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://shishuochen.github.io/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/">
+                    #信号与系统</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> ·
+                <span><a href="https://shishuochen.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://shishuochen.github.io/2020/uffick8u1/" class="prev" rel="prev" title="Hugo博客自定义优化"><i class="iconfont icon-left"></i>&nbsp;Hugo博客自定义优化</a>
+        
+        
+    </div>
+
+    <div class="post-comment">
+        
+            
+                <br />
+<br />
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
+<div id="vcomments" style="padding: 10px 0px 0px 0px"></div>
+<style>
+  .v .veditor {
+    min-height: 10rem;
+    background-image: url('<%= site.customConfig.valineimage %>');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+    background-color: rgba(255, 255, 255, 0);
+    resize: none;
+  }
+
+  .v .vwrap {
+    border: 1px solid #000 !important;
+  }
+
+  .v .vbtn {
+    padding: .4rem 1.2rem !important;
+    border-color: #fff !important;
+    background-color: #49b1f5 !important;
+    color: #fff !important;
+    font-size: .7rem !important;
+  }
+
+  .v .vcards .vcard .vh .vmeta .vat {
+    padding: 0 .8rem !important;
+    border: 1px solid #00c4b6 !important;
+    border-radius: 5px !important;
+    color: #00c4b6 !important;
+  }
+</style>
+<script>
+  new Valine({
+        el: '#vcomments' ,
+        appId: 'WfSBqbaIFwwLUytPuTLtMKu9-MdYXbMMI',
+        appKey: 'ELF39FBTTfSuVVLOHMM4uqWf',
+        notify:  true ,
+        verify:  true , 
+        avatar:'mm', 
+		enableQQ: true,
+        placeholder: '【在昵称处填写企鹅号会自动拉取昵称、头像和邮箱，这样你就可以通过邮箱收到留言回复了，因此请检查自己的输入的企鹅号是否正确，方便自己的同时也避免给他人带来不便，Thanks♪(･ω･)ﾉ】',
+        visitor:  true 
+  });
+</script>
+
+            
+        
+    </div>
+</article>
+                </div>
+            </main>
+            
+<div class="footer-box">
+<footer class="footer">
+   <div class="copyright">
+      &copy;
+      
+      <span itemprop="copyrightYear">2019 - 2020</span>
+      
+      <span class="with-love">
+         <i class="iconfont icon-love"></i>
+      </span>
+      
+      <span class="author" itemprop="copyrightHolder"><a href="https://shishuochen.github.io">ANY_ME</a> |
+      </span>
+      
+      
+      <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a
+            href="https://github.com/Mogeko/Mogege" target="_blank" rel="external nofollow">Mogege</a></span>
+</footer>
+
+      <div class="back-to-top" id="back_to_top">
+         
+         <span>&#8593;</span>
+         
+         <span class="scrollpercent">
+            <span id="back_to_top_text">0</span>%
+         </span>
+      </div>
+</div>
+<script>
+
+   let sideBarOpen = 'sidebar-open';
+   let body = document.body;
+   let back2Top = document.querySelector('#back_to_top'),
+      back2TopText = document.querySelector('#back_to_top_text'),
+      drawerBox = document.querySelector('#drawer_box'),
+      rightSideBar = document.querySelector('.sidebar'),
+      viewport = document.querySelector('body');
+
+   function scrollAnimation(currentY, targetY) {
+
+      let needScrollTop = targetY - currentY
+      let _currentY = currentY
+      setTimeout(() => {
+         const dist = Math.ceil(needScrollTop / 10)
+         _currentY += dist
+         window.scrollTo(_currentY, currentY)
+         if (needScrollTop > 10 || needScrollTop < -10) {
+            scrollAnimation(_currentY, targetY)
+         } else {
+            window.scrollTo(_currentY, targetY)
+         }
+      }, 1)
+   }
+
+   back2Top.addEventListener("click", function (e) {
+      scrollAnimation(document.scrollingElement.scrollTop, 0);
+      e.stopPropagation();
+      return false;
+   });
+
+   window.addEventListener('scroll', function (e) {
+      let percent = document.scrollingElement.scrollTop / (document.scrollingElement.scrollHeight - document.scrollingElement.clientHeight) * 100;
+      if (percent > 1 && !back2Top.classList.contains('back-top-active')) {
+         back2Top.classList.add('back-top-active');
+      }
+      if (percent == 0) {
+         back2Top.classList.remove('back-top-active');
+      }
+      if (back2TopText) {
+         back2TopText.textContent = Math.floor(percent);
+      }
+   });
+</script>
+
+
+
+
+
+
+<script defer src="/js/vendor_main.min.js"></script>
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/love.min.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha256-V8SV2MO1FUb63Bwht5Wx9x6PVHNa02gv8BgH/uH3ung=" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha256-F/Xda58SPdcUCr+xhSGz9MA2zQBPb0ASEYKohl8UCHc=" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha256-90d2pnfw0r4K8CZAWPko4rpFXQsZvJhTBGYNkipDprI=" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+           delimiters: [
+     {left: "$$", right: "$$", display: true},
+     {left: "$", right: "$", display: false},
+   ],
+        });
+    });
+</script>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script> pangu.spacingPage();</script>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+        </div>
+    </body>
+</html>

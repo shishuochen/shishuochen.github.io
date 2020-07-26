@@ -6,10 +6,19 @@
     <description>Recent content in Posts on shishuoCh&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 23 Jul 2020 23:31:01 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 25 Jul 2020 21:56:44 +0000</lastBuildDate>
     
 	<atom:link href="https://shishuochen.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>傅里叶变换的性质及常用变换对</title>
+      <link>https://shishuochen.github.io/2020/b2mbvmz9k/</link>
+      <pubDate>Sat, 25 Jul 2020 21:56:44 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/b2mbvmz9k/</guid>
+      <description>&amp;emsp;&amp;emsp;近来的随机信号分析“预习”过程中，总要用到一些傅里叶变换对，记录在此方便查阅。 1. 傅里叶变换的性质 名称 时域 频域 定义 $f(t)=\frac{1}{2\pi}\int_{-\infty}^{+\infty}F(jw)e^{jwt}dw$ $F(jw)=\int_{-\infty}^{+\infty}f(t)e^{-jwt}dt$</description>
+    </item>
     
     <item>
       <title>Hugo博客自定义优化</title>
