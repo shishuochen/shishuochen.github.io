@@ -6,10 +6,19 @@
     <description>Recent content in 线性代数笔记 on shishuoCh&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 23 Jul 2020 23:26:04 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 27 Jul 2020 21:14:05 +0000</lastBuildDate>
     
 	<atom:link href="https://shishuochen.github.io/categories/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Chapter3:矩阵与向量空间</title>
+      <link>https://shishuochen.github.io/2020/diskudhd9/</link>
+      <pubDate>Mon, 27 Jul 2020 21:14:05 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/diskudhd9/</guid>
+      <description>&amp;emsp;&amp;emsp;牢记矩阵代表着一种线性变换 1. 矩阵与线性变换 为什么叫变换？ &amp;emsp;&amp;emsp;变换其实也就是常提起的函数的一种说法</description>
+    </item>
     
     <item>
       <title>Chapter I &amp; Chapter II</title>

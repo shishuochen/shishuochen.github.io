@@ -9,9 +9,9 @@
     <meta name="description" content="shishuoCh的个人博客">
     
     <meta name="google-site-verification" content=" " />
-    <link rel="prev" href="https://shishuochen.github.io/2020/r_e_e13ck/" />
-    <link rel="next" href="https://shishuochen.github.io/2020/uj8lovhzh/" />
-    <link rel="canonical" href="https://shishuochen.github.io/2020/oktyklte8/" />
+    <link rel="prev" href="https://shishuochen.github.io/2020/b2mbvmz9k/" />
+    
+    <link rel="canonical" href="https://shishuochen.github.io/2020/diskudhd9/" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
     <title>
         
         
-            线代学习笔记摘录 | shishuoCh&#39;s Blog
+            Chapter3:矩阵与向量空间 | shishuoCh&#39;s Blog
         
     </title>
-    <meta name="title" content="线代学习笔记摘录 | shishuoCh&#39;s Blog">
+    <meta name="title" content="Chapter3:矩阵与向量空间 | shishuoCh&#39;s Blog">
     
 <link rel="stylesheet" href="/css/main.min.css">
 
@@ -43,9 +43,9 @@
          "@id": "https:\/\/shishuochen.github.io"
     },
     "articleSection" : "posts",
-    "name" : "线代学习笔记摘录",
-    "headline" : "线代学习笔记摘录",
-    "description" : "\u0026emsp;\u0026emsp;最近再次重温了@3Blue1Brown的“课程”：线性代数的本质\u0026mdash;\u0026mdash;系列合集（顺便说一下，这",
+    "name" : "Chapter3:矩阵与向量空间",
+    "headline" : "Chapter3:矩阵与向量空间",
+    "description" : "\u0026emsp;\u0026emsp;牢记矩阵代表着一种线性变换 1. 矩阵与线性变换 为什么叫变换？ \u0026emsp;\u0026emsp;变换其实也就是常提起的函数的一种说法",
     "inLanguage" : "en-us",
     "author" : "ANY_ME",
     "creator" : "ANY_ME",
@@ -53,10 +53,10 @@
     "accountablePerson" : "ANY_ME",
     "copyrightHolder" : "ANY_ME",
     "copyrightYear" : "2020",
-    "datePublished": "2020-07-17 23:45:32 \u002b0800 CST",
-    "dateModified" : "2020-07-17 23:45:32 \u002b0800 CST",
-    "url" : "https:\/\/shishuochen.github.io\/2020\/oktyklte8\/",
-    "wordCount" : "377",
+    "datePublished": "2020-07-27 21:14:05 \u002b0000 UTC",
+    "dateModified" : "2020-07-27 21:14:05 \u002b0000 UTC",
+    "url" : "https:\/\/shishuochen.github.io\/2020\/diskudhd9\/",
+    "wordCount" : "699",
     "keywords" : [ "线性代数", "shishuoCh\u0027s Blog"]
 }
 </script>
@@ -153,11 +153,11 @@
                     
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">线代学习笔记摘录</h1>
+        <h1 class="post-title" itemprop="name headline">Chapter3:矩阵与向量空间</h1>
         <div class="post-meta">
                 Written by <a itemprop="name" href="https://shishuochen.github.io" rel="author">ANY_ME</a> with ♥
                 <span class="post-time">
-                on <time datetime=2020-07-17 itemprop="datePublished">July 17, 2020</time>
+                on <time datetime=2020-07-27 itemprop="datePublished">July 27, 2020</time>
                 </span>
                 in
                 
@@ -170,7 +170,7 @@
                         
                         
                 </span>
-                <span class="post-word-count">377 words</span>
+                <span class="post-word-count">699 words</span>
         </div>
     </header>
 
@@ -192,34 +192,129 @@
 
         
 
-<p><strong>&emsp;&emsp;最近再次重温了<a href="https://space.bilibili.com/88461692?spm_id_from=333.788.b_765f7570696e666f.1" rel="nofollow noreferrer" target="_blank">@3Blue1Brown</a>的“课程”：<a href="https://www.bilibili.com/video/BV1ys411472E" rel="nofollow noreferrer" target="_blank">线性代数的本质&mdash;&mdash;系列合集</a>（顺便说一下，这个作者还挺帅的，还有才华，慕了😶）。尽管已经是第二次看了，感触依然很深，因为里面的想法的确很漂亮，它有时会让你会心一笑：“🤔咦，怎么会有这么好的理解方法”，抑或者是“🤓哦，原来特征值是这个含义啊&hellip;&hellip;”，所以想将一些很好的点记录下来。</strong></p>
-
-<p><strong>&emsp;&emsp;未来的“闲暇”的日子里，我将按照作者的讲解思路（顺序）进行整理摘录，并发布在我的博客上。需要说明的是，文章中可能会有作者讲解视频的一些截图，这是他们的劳动成果（作者制作的动画也是很好看的，作者已<a href="https://github.com/3b1b/manim" rel="nofollow noreferrer" target="_blank">开源👈</a>）。</strong></p>
-
-
-
-
-
-<div><iframe id="biliplayer" src="//player.bilibili.com/player.html?bvid=BV1ys411472E&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" loading="lazy" > </iframe></div>
-
-
+<p><strong>&emsp;&emsp;牢记矩阵代表着一种线性变换</strong></p>
 
 <hr />
 
-<h2 id="1-content">1. Content</h2>
+<h2 id="1-矩阵与线性变换">1. 矩阵与线性变换</h2>
 
-<ul>
-<li><strong><a href="https://shishuochen.github.io/2020/uj8lovhzh/" rel="nofollow noreferrer" target="_blank">Chapter 1: Vectors, what even are they?</a></strong></li>
-<li><strong><a href="https://shishuochen.github.io/2020/uj8lovhzh/" rel="nofollow noreferrer" target="_blank">Chapter 2: Linear combinations, span and bases</a></strong></li>
-<li><strong><a href="https://shishuochen.github.io//2020/diskudhd9/" rel="nofollow noreferrer" target="_blank">Chapter 3: Matrices as lincar transformations</a></strong></li>
-<li><strong>Chapter 4: Matrix multiplication as composition</strong></li>
-<li><strong>Chapter 5: The determinant</strong></li>
-<li><strong>Chapter 6: Inverse matrices, column space and null space</strong></li>
-<li><strong>Chaptcr 7: Dot products and cross products</strong></li>
-<li><strong>Chapter 8: Change of basis</strong></li>
-<li><strong>Chapter 9: Eigenvectors and eigenvalues</strong></li>
-<li><strong>Chapter 10: Abstract vector spaces</strong></li>
-</ul>
+<h3 id="为什么叫变换">为什么叫变换？</h3>
+
+<p>&emsp;&emsp;变换其实也就是常提起的函数的一种说法，只不过<strong>变换</strong>给人一种可视化的感觉，想一想<strong>变换</strong>，脑子里是不是有一种画面感？</p>
+
+<h3 id="线性变换">线性变换</h3>
+
+<p><strong>&emsp;&emsp;“保持网格线平行且等距分布”的变换</strong></p>
+
+<p>&emsp;&emsp; <strong>&mdash;</strong> (所有)直线在变换后仍然保持为直线，不发生弯曲。（注：有的看似没有发生弯曲，但实际上弯曲了）</p>
+
+<p>&emsp;&emsp; <strong>&mdash;</strong> 原点保持固定</p>
+
+<h3 id="如何用数值表示线性变换">如何用数值表示线性变换？</h3>
+
+<p>&emsp;&emsp; <strong>&mdash;</strong> 向量$\hat{i},\hat{j}$经过变换后变为$\hat{i}_1,\hat{j}_1$</p>
+
+<p>&emsp;&emsp; <strong>&mdash;</strong> 一个二维线性变换仅由四个数字完全确定，即变换后的$\hat{i}_1$与变换后$\hat{j}_1$的两个坐标</p>
+
+<p>&emsp;&emsp; <strong>&mdash;</strong> 将变换后的$\hat{i}_1,\hat{j}_1$组合在一个矩阵中，如下所示：</p>
+
+<div>
+
+$$  
+\begin{bmatrix}
+   x_i & x_j\\
+   y_i & y_j
+\end{bmatrix}
+$$
+
+</div>
+
+<h3 id="考虑线性变换对向量的作用-缩放基向量再相加">考虑线性变换对向量的作用(缩放基向量再相加)</h3>
+
+<p>&emsp;&emsp; 给定任意初始向量$a=[a_1,a_2]^{T}$，变换前有</p>
+
+<div>
+
+$$  
+\begin{bmatrix}
+   1 & 0\\
+   0 & 1
+\end{bmatrix}\cdot\begin{bmatrix}
+  a_1\\
+  a_2
+\end{bmatrix}=a_1\cdot 
+\begin{bmatrix} 
+1\\
+0
+\end{bmatrix}
++a_2\cdot 
+\begin{bmatrix}
+0 \\
+1
+\end{bmatrix}
+=
+\begin{bmatrix}
+a_1\\
+a_2
+\end{bmatrix}
+$$
+
+</div>
+
+<p>&emsp;&emsp; 应用线性变换（左乘变换矩阵）后的结果为</p>
+
+<div>
+
+$$  
+\begin{bmatrix}
+   x_i & x_j\\
+   y_i & y_j
+\end{bmatrix}\cdot\begin{bmatrix}
+  a_1\\
+  a_2
+\end{bmatrix}=a_1\cdot \begin{bmatrix} x_i \\
+y_i\end{bmatrix}+a_2\cdot \begin{bmatrix} x_j \\
+y_j\end{bmatrix}=\begin{bmatrix}
+   a_1\cdot x_i+a_2\cdot x_j\\
+   a_1\cdot y_i+a_2\cdot y_j
+\end{bmatrix}
+$$
+
+</div>
+
+<h3 id="用矩阵描述一些线性变换">用矩阵描述一些线性变换</h3>
+
+<p>&emsp;&emsp; <strong>矩阵的每一列分别代表变换后的基向量</strong></p>
+
+<p>&emsp;&emsp; <strong>&mdash;</strong> 空间逆时针旋转$90\degree$</p>
+
+<div>
+$$
+\begin{bmatrix}
+   0 & -1\\
+   1 & 0 
+\end{bmatrix}
+$$
+</div>
+
+<p>&emsp;&emsp; <strong>&mdash;</strong> “剪切”变换</p>
+
+<div>
+$$
+\begin{bmatrix}
+   1 & 1\\
+   0 & 1
+\end{bmatrix}
+$$
+</div>
+
+<h2 id="2-向量空间">2. 向量空间</h2>
+
+<ol>
+<li>若变换后的$\hat{i},\hat{j}$是线性相关的（列线性相关），则该线性变换将<strong>整个二维空间</strong>挤压到它们所在的<strong>一条直线</strong>上</li>
+<li>线性变换是操纵二维空间的一种手段，它保持网格线平行且等距分布，并且保持原点不动</li>
+<li>矩阵与向量相（左）乘就是线性变换作用那个向量</li>
+</ol>
 
     </div>
 
@@ -234,7 +329,7 @@
             
             <p class="copyright-item">
                     <span>Link:</span>
-                    <a href=https://shishuochen.github.io/2020/oktyklte8/>https://shishuochen.github.io/2020/oktyklte8/</span>
+                    <a href=https://shishuochen.github.io/2020/diskudhd9/>https://shishuochen.github.io/2020/diskudhd9/</span>
             </p>
             
             
@@ -263,10 +358,8 @@
 
     <div class="post-nav">
         
-        <a href="https://shishuochen.github.io/2020/r_e_e13ck/" class="prev" rel="prev" title="如何批量&#34;左右&#34;合并txt文件"><i class="iconfont icon-left"></i>&nbsp;如何批量&#34;左右&#34;合并txt文件</a>
+        <a href="https://shishuochen.github.io/2020/b2mbvmz9k/" class="prev" rel="prev" title="傅里叶变换的性质及常用变换对"><i class="iconfont icon-left"></i>&nbsp;傅里叶变换的性质及常用变换对</a>
         
-        
-        <a href="https://shishuochen.github.io/2020/uj8lovhzh/" class="next" rel="next" title="Chapter I &amp; Chapter II">Chapter I &amp; Chapter II&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 
