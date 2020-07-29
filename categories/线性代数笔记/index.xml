@@ -6,10 +6,19 @@
     <description>Recent content in 线性代数笔记 on shishuoCh&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 27 Jul 2020 21:14:05 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 28 Jul 2020 16:46:27 +0000</lastBuildDate>
     
 	<atom:link href="https://shishuochen.github.io/categories/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Chapter4:矩阵乘法</title>
+      <link>https://shishuochen.github.io/2020/fvo1n-idv/</link>
+      <pubDate>Tue, 28 Jul 2020 16:46:27 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/fvo1n-idv/</guid>
+      <description>&amp;emsp;&amp;emsp;线性变换是对二维空间的变换，自然而然可以想到进行多个变换&amp;hellip;&amp;hellip; 1. 考虑进行两次线性变换 &amp;em</description>
+    </item>
     
     <item>
       <title>Chapter3:矩阵与向量空间</title>
