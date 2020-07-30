@@ -9,9 +9,9 @@
     <meta name="description" content="shishuoCh的个人博客">
     
     <meta name="google-site-verification" content=" " />
-    <link rel="prev" href="https://shishuochen.github.io/2020/evcfke7nv/" />
-    <link rel="next" href="https://shishuochen.github.io/2020/3aynm0ijd/" />
-    <link rel="canonical" href="https://shishuochen.github.io/2020/msdlyc-zj/" />
+    <link rel="prev" href="https://shishuochen.github.io/2020/fvo1n-idv/" />
+    <link rel="next" href="https://shishuochen.github.io/2020/mwtb5_bys/" />
+    <link rel="canonical" href="https://shishuochen.github.io/2020/8ranpmyi1/" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
     <title>
         
         
-            error: invalid operands of types &#39;double&#39; and &#39;int&#39; to binary &#39;operator%&#39; | shishuoCh&#39;s Blog
+            Chapter5:行列式 | shishuoCh&#39;s Blog
         
     </title>
-    <meta name="title" content="error: invalid operands of types &#39;double&#39; and &#39;int&#39; to binary &#39;operator%&#39; | shishuoCh&#39;s Blog">
+    <meta name="title" content="Chapter5:行列式 | shishuoCh&#39;s Blog">
     
 <link rel="stylesheet" href="/css/main.min.css">
 
@@ -43,9 +43,9 @@
          "@id": "https:\/\/shishuochen.github.io"
     },
     "articleSection" : "posts",
-    "name" : "error: invalid operands of types \u0027double\u0027 and \u0027int\u0027 to binary \u0027operator%\u0027",
-    "headline" : "error: invalid operands of types \u0027double\u0027 and \u0027int\u0027 to binary \u0027operator%\u0027",
-    "description" : "在一次C\u002b\u002b的练习中，我发现了这个问题，并在网上查找到了原因，特在此记录下来。 1️⃣ 基本 从字面意思来看就是说，类型int和double为二进",
+    "name" : "Chapter5:行列式",
+    "headline" : "Chapter5:行列式",
+    "description" : "\u0026emsp;\u0026emsp;线性变换中有的将空间向外拉伸，有的则将空间向内挤压，所以变换究竟对空间有多少拉伸或挤压？如何测量和表示？ \u0026emsp;",
     "inLanguage" : "en-us",
     "author" : "ANY_ME",
     "creator" : "ANY_ME",
@@ -53,11 +53,11 @@
     "accountablePerson" : "ANY_ME",
     "copyrightHolder" : "ANY_ME",
     "copyrightYear" : "2020",
-    "datePublished": "2020-03-30 14:12:18 \u002b0000 UTC",
-    "dateModified" : "2020-03-30 14:12:18 \u002b0000 UTC",
-    "url" : "https:\/\/shishuochen.github.io\/2020\/msdlyc-zj\/",
-    "wordCount" : "285",
-    "keywords" : [ "C\u002b\u002b", "shishuoCh\u0027s Blog"]
+    "datePublished": "2020-07-29 14:20:41 \u002b0000 UTC",
+    "dateModified" : "2020-07-29 14:20:41 \u002b0000 UTC",
+    "url" : "https:\/\/shishuochen.github.io\/2020\/8ranpmyi1\/",
+    "wordCount" : "936",
+    "keywords" : [ "线性代数", "shishuoCh\u0027s Blog"]
 }
 </script>
 
@@ -158,11 +158,11 @@
                     
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">error: invalid operands of types &#39;double&#39; and &#39;int&#39; to binary &#39;operator%&#39;</h1>
+        <h1 class="post-title" itemprop="name headline">Chapter5:行列式</h1>
         <div class="post-meta">
                 Written by <a itemprop="name" href="https://shishuochen.github.io" rel="author">ANY_ME</a> with ♥
                 <span class="post-time">
-                on <time datetime=2020-03-30 itemprop="datePublished">March 30, 2020</time>
+                on <time datetime=2020-07-29 itemprop="datePublished">July 29, 2020</time>
                 </span>
                 in
                 
@@ -171,11 +171,11 @@
                         
                         
                         
-                          <a href="https://shishuochen.github.io/categories/%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98%E7%AF%87/"> 解决问题篇, </a>
+                          <a href="https://shishuochen.github.io/categories/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%AC%94%E8%AE%B0/"> 线性代数笔记, </a>
                         
                         
                 </span>
-                <span class="post-word-count">285 words</span>
+                <span class="post-word-count">936 words</span>
         </div>
     </header>
 
@@ -184,41 +184,147 @@
 
         
         
-
-        
-        
-        
-        
+            
         
 
         
         
         
+        
+        
+
+        
+        
+        
 
         
 
-<p>  <strong>在一次C++的练习中，我发现了这个问题，并在网上查找到了原因，特在此记录下来。</strong></p>
+<p><strong>&emsp;&emsp;线性变换中有的将空间向外拉伸，有的则将空间向内挤压，所以变换究竟对空间有多少拉伸或挤压？如何测量和表示？</strong></p>
+
+<p><strong>&emsp;&emsp;线性变换的行列式：给定区域面积（体积）增大或减小的比例</strong></p>
 
 <hr />
 
-<h1 id="1-基本">1️⃣ 基本</h1>
+<h2 id="1-矩阵的行列式-2d">1. 矩阵的行列式（2D）</h2>
 
-<p>从字面意思来看就是说，类型<code>int</code>和<code>double</code>为二进制运算符<code>％</code>的无效操作数。这是因为对于取模运算符 <code>%</code>，你的操作数只能是整型的，也就相当于没有为<code>double</code>类型定义<code>%</code>运算符。所以当你的取模运算中包含非整型数据时，类似这样：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">int</span> a<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>;
-cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#ae81ff">11.0</span> <span style="color:#f92672">%</span> a<span style="color:#f92672">&lt;&lt;</span>endl;
-</code></pre></div>
-<p>就会报错。但是当你的取模运算中一定要有<code>double</code>类型数据时，可以考虑如下代码：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;math.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> a<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>;
-cout<span style="color:#f92672">&lt;&lt;</span>fmod(<span style="color:#ae81ff">11.0</span> , a)<span style="color:#f92672">&lt;&lt;</span>endl;
-</code></pre></div>
-<h1 id="2-拓展">2️⃣ 拓展</h1>
+<p>&emsp;&emsp;前已述过，矩阵代表着一种线性变换，是对空间的一种操纵。在二维空间中，$det(A)$的值即为给定区域面积缩放比例。</p>
 
-<p>  其实，不仅仅是取模运算未对<code>double</code>类型定义，诸如<code>&amp;，^，|，~，&lt;&lt;，&gt;&gt;</code>之类的按位运算符也是这样。</p>
+<h3 id="det-a-0">$det(A)=0$</h3>
 
-<h1 id="3-更多">3️⃣ 更多</h1>
+<p>&emsp;&emsp; 行列式为零，意味着将一个二维空间压缩为一条线（面积变为零）。<strong>故只需要检验一个矩阵的行列式是否为零，就能知道这个矩阵所代表的变换是否将空间压缩到更小的维度上。</strong></p>
 
-<p>在<a href="https://stackoverflow.com/questions/9278224/invalid-operands-of-types-int-and-double-to-binary-operator" rel="nofollow noreferrer" target="_blank">这里</a></p>
+<h3 id="det-a-0-1">$det(A)&lt;0$</h3>
+
+<p>&emsp;&emsp;显然，我们能想到行列式大于零的情况，其实行列式也存在是负值的情况的。这里就是一个<strong>定向</strong>改变的问题。</p>
+
+<p><a data-fancybox="gallery" href="https://s1.ax1x.com/2020/07/29/aeytxg.png" >
+<img src="https://s1.ax1x.com/2020/07/29/aeytxg.png" style="zoom: 50%;" />
+</a></p>
+
+<p><center>
+<u>
+定向发生改变示意图
+</u>
+</center></p>
+
+<h3 id="基向量-hat-i-hat-j-的定向改变与行列式为负的关系">基向量 $\hat{i},\hat{j}$ 的定向改变与行列式为负的关系</h3>
+
+<p>&emsp;&emsp;$\hat{i},\hat{j}$相互靠近时，空间被压缩。当二者重合时，$det(A)=0$ (再次表明行列式为零意味着降维)，而后继续方向“靠近”，行列式继续减小为负值似乎就是一件自然而然的事了。</p>
+
+<p><a data-fancybox="gallery" href="https://s1.ax1x.com/2020/07/30/anNKhQ.png" >
+<img src="https://s1.ax1x.com/2020/07/30/anNKhQ.png" style="zoom: 50%;" />
+</a></p>
+
+<p><center>
+<u></p>
+
+<p>det(A)从正到负</p>
+
+<p></u>
+</center></p>
+
+<h2 id="2-矩阵的行列式-3d">2. 矩阵的行列式（3D）</h2>
+
+<p>&emsp;&emsp;<strong>在二维空间中，行列式的值代表的是面积的缩放倍数；那么到了三维空间就代表</strong>体积<strong>的缩放倍数。</strong></p>
+
+<h3 id="单位立方体-i-class-fas-fa-cube-i-到平行六面体">单位立方体 <i class="fas fa-cube"></i> 到平行六面体</h3>
+
+<p>&emsp;&emsp;对于三维空间中的单位立方体，经过三维线性变换后（未发生降维），它将变成一个平行六面体。其体积就是变换矩阵的行列式的（绝对）值。</p>
+
+<p><a data-fancybox="gallery" href="https://s1.ax1x.com/2020/07/30/au7STP.png" >
+<img src="https://s1.ax1x.com/2020/07/30/au7STP.png" style="zoom: 50%;" />
+</a></p>
+
+<p><center>
+<u></p>
+
+<p>变换矩阵的行列式</p>
+
+<p></u>
+</center></p>
+
+<h3 id="det-a-0-2">$det(A)=0$</h3>
+
+<p>&emsp;&emsp;同样的道理，类似于二维空间中行列式为零的情况，三维空间中变换矩阵的行列式为零（列线性相关），意味着这个变换将空间压缩到更低维度（一个面，一条线，甚至是一个点）。</p>
+
+<h3 id="det-a-0-3">$det(A)&lt;0$</h3>
+
+<p>&emsp;&emsp;当行列式的值小于零时，我们知道这是“定向”发生了改变，这一点在三维空间中常用“右手定则”来判断，当你只能用左手来表示$\hat{i},\hat{j},\hat{k}$时，就说明“定向”发生了改变，行列式的值小于零。</p>
+
+<p><a data-fancybox="gallery" href="https://s1.ax1x.com/2020/07/30/auTzwt.png" >
+<img src="https://s1.ax1x.com/2020/07/30/auTzwt.png" style="zoom: 50%;" />
+</a></p>
+
+<p><center>
+<u></p>
+
+<p>右手定则示意图</p>
+
+<p></u>
+</center></p>
+
+<h2 id="3-行列式的计算-i-class-fas-fa-calculator-i">3. 行列式的计算 <i class="fas fa-calculator"></i></h2>
+
+<h3 id="二维空间-2d">二维空间（2D）</h3>
+
+<div>
+$$
+det\left(\begin{bmatrix}
+a & b \\
+c & d
+\end{bmatrix}\right)=ad-bc\tag{1}
+$$
+</div>
+
+<h3 id="三维空间-3d">三维空间（3D）</h3>
+
+<div>
+$$
+det\left(\begin{bmatrix}
+a & b & c\\
+d & e & f\\
+g & h & i
+\end{bmatrix}\right)=a\cdot det\left(
+\begin{bmatrix}
+e & f\\
+h & i
+\end{bmatrix}\right)+b\cdot det\left(
+\begin{bmatrix}
+f & d\\
+i & g
+\end{bmatrix}
+\right)+c\cdot det\left(
+\begin{bmatrix}
+d & e\\
+g & h
+\end{bmatrix}
+\right)\tag{2}
+$$
+</div>
+
+<h3 id="其他">其他</h3>
+
+<p>$$det(M_1M_2)=det(M_1)det(M_2)\tag{3}$$</p>
 
     </div>
 
@@ -233,7 +339,7 @@ cout<span style="color:#f92672">&lt;&lt;</span>fmod(<span style="color:#ae81ff">
             
             <p class="copyright-item">
                     <span>Link:</span>
-                    <a href=https://shishuochen.github.io/2020/msdlyc-zj/>https://shishuochen.github.io/2020/msdlyc-zj/</span>
+                    <a href=https://shishuochen.github.io/2020/8ranpmyi1/>https://shishuochen.github.io/2020/8ranpmyi1/</span>
             </p>
             
             
@@ -249,8 +355,8 @@ cout<span style="color:#f92672">&lt;&lt;</span>fmod(<span style="color:#ae81ff">
             <section>
             <i class="iconfont icon-tag"></i>Tag(s):
             
-            <span class="tag"><a href="https://shishuochen.github.io/tags/c&#43;&#43;/">
-                    #C&#43;&#43;</a></span>
+            <span class="tag"><a href="https://shishuochen.github.io/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">
+                    #线性代数</a></span>
             
             </section>
         
@@ -262,10 +368,10 @@ cout<span style="color:#f92672">&lt;&lt;</span>fmod(<span style="color:#ae81ff">
 
     <div class="post-nav">
         
-        <a href="https://shishuochen.github.io/2020/evcfke7nv/" class="prev" rel="prev" title="如何在ms-word中优雅的插入代码"><i class="iconfont icon-left"></i>&nbsp;如何在ms-word中优雅的插入代码</a>
+        <a href="https://shishuochen.github.io/2020/fvo1n-idv/" class="prev" rel="prev" title="Chapter4:矩阵乘法"><i class="iconfont icon-left"></i>&nbsp;Chapter4:矩阵乘法</a>
         
         
-        <a href="https://shishuochen.github.io/2020/3aynm0ijd/" class="next" rel="next" title="栈实现简单计算器">栈实现简单计算器&nbsp;<i class="iconfont icon-right"></i></a>
+        <a href="https://shishuochen.github.io/2020/mwtb5_bys/" class="next" rel="next" title="Chapter6:逆矩阵、列空间与零空间、秩">Chapter6:逆矩阵、列空间与零空间、秩&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 

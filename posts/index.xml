@@ -6,10 +6,37 @@
     <description>Recent content in Posts on shishuoCh&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 28 Jul 2020 16:46:27 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 29 Jul 2020 15:29:06 +0000</lastBuildDate>
     
 	<atom:link href="https://shishuochen.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>chapter7</title>
+      <link>https://shishuochen.github.io/2020/5azumu-8l/</link>
+      <pubDate>Wed, 29 Jul 2020 15:29:06 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/5azumu-8l/</guid>
+      <description>fdem</description>
+    </item>
+    
+    <item>
+      <title>Chapter6:逆矩阵、列空间与零空间、秩</title>
+      <link>https://shishuochen.github.io/2020/mwtb5_bys/</link>
+      <pubDate>Wed, 29 Jul 2020 15:28:51 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/mwtb5_bys/</guid>
+      <description>&amp;emsp;&amp;emsp;线性变换中有的将空间向外拉伸，有的则将空间向内挤压，所以变换究竟对空间有多少拉伸或挤压？如何测量和表示？ &amp;emsp;</description>
+    </item>
+    
+    <item>
+      <title>Chapter5:行列式</title>
+      <link>https://shishuochen.github.io/2020/8ranpmyi1/</link>
+      <pubDate>Wed, 29 Jul 2020 14:20:41 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/8ranpmyi1/</guid>
+      <description>&amp;emsp;&amp;emsp;线性变换中有的将空间向外拉伸，有的则将空间向内挤压，所以变换究竟对空间有多少拉伸或挤压？如何测量和表示？ &amp;emsp;</description>
+    </item>
     
     <item>
       <title>Chapter4:矩阵乘法</title>
@@ -134,7 +161,7 @@
       <pubDate>Sat, 11 Apr 2020 11:19:21 +0000</pubDate>
       
       <guid>https://shishuochen.github.io/2020/3aynm0ijd/</guid>
-      <description>&amp;emsp;&amp;emsp;本文主要写如何用栈结构来实现简单的计算器，主要包括四则运算，并且在此基础上添加括号、乘方等，示例如下： $$-3.63\times (36.9+26.2)^{5}-5.3*(-2)\div 3.6^{2}.$$ 下面说说</description>
+      <description>&amp;emsp;&amp;emsp;本文主要写如何用栈结构来实现简单的计算器 ，主要包括四则运算，并且在此基础上添加括号、乘方等，示例如下： $$-3.63\times (36.9+26.2)^{5}-5.3*(-2)\div 3.6^{2}.$$ 下面说说</description>
     </item>
     
     <item>
@@ -152,7 +179,7 @@
       <pubDate>Sun, 01 Mar 2020 19:29:11 +0000</pubDate>
       
       <guid>https://shishuochen.github.io/2020/evcfke7nv/</guid>
-      <description>在Microsoft Word中插入代码，保留颜色和格式 1. 使用编辑器粘贴代码到Word 1.1 Visual Studio Code $\ast$ 直接粘贴到Word 从Visual Studio Code直接</description>
+      <description>在Microsoft Word 中插入代码，保留颜色和格式 **1. 使用编辑器粘贴代码到Word ** 1.1 Visual Studio Code $\ast$ 直接粘贴到Word 从Visual Studio Code直接复制</description>
     </item>
     
     <item>

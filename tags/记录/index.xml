@@ -44,7 +44,7 @@
       <pubDate>Sat, 11 Apr 2020 11:19:21 +0000</pubDate>
       
       <guid>https://shishuochen.github.io/2020/3aynm0ijd/</guid>
-      <description>&amp;emsp;&amp;emsp;本文主要写如何用栈结构来实现简单的计算器，主要包括四则运算，并且在此基础上添加括号、乘方等，示例如下： $$-3.63\times (36.9+26.2)^{5}-5.3*(-2)\div 3.6^{2}.$$ 下面说说</description>
+      <description>&amp;emsp;&amp;emsp;本文主要写如何用栈结构来实现简单的计算器 ，主要包括四则运算，并且在此基础上添加括号、乘方等，示例如下： $$-3.63\times (36.9+26.2)^{5}-5.3*(-2)\div 3.6^{2}.$$ 下面说说</description>
     </item>
     
   </channel>
