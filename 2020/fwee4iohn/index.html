@@ -187,10 +187,52 @@
                 <span class="post-word-count">744 words</span>
         </div>
     </header>
-
+	  
+     
+          <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title"></h2>
+  
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#homomorphic-filtering">Homomorphic filtering</a></li>
+<li><a href="#基本步骤">基本步骤</a></li>
+<li><a href="#matlab实现">MATLAB实现</a></li>
+<li><a href="#reference">Reference</a></li>
+</ul>
+</nav>
+  </div>
+</div>
+<script type="text/javascript">
+  window.onload = function () {
+    var fix = $('.post-toc');
+    var end = $('.post-comment');
+    var fixTop = fix.offset().top, fixHeight = fix.height();
+    var endTop, miss;
+    var offsetTop = fix[0].offsetTop;
+    $(window).scroll(function () {
+      var docTop = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
+      if (end.length > 0) {
+        endTop = end.offset().top;
+        miss = endTop - docTop - fixHeight;
+      }
+      if (fixTop < docTop) {
+        fix.css({ 'position': 'fixed' });
+        if ((end.length > 0) && (endTop < (docTop + fixHeight))) {
+          fix.css({ top: miss });
+        } else {
+          fix.css({ top: 0 });
+        }
+      } else {
+        fix.css({ 'position': 'absolute' });
+        fix.css({ top: offsetTop });
+      }
+    })
+  }
+</script> 
+	
     <div class="post-content">
         
-
         
         
 
@@ -344,13 +386,13 @@ $$
 
     <div class="post-nav">
         
-        <a href="https://shishuochen.github.io/2020/k0eu-2smz/" class="prev" rel="prev" title="Gridea中Markdown写作小结~"><i class="iconfont icon-left"></i>&nbsp;Gridea中Markdown写作小结~</a>
+        <a href="https://shishuochen.github.io/2020/k0eu-2smz/" class="prev" rel="prev" title="Gridea中Markdown写作小结~"><i class="fas fa-caret-left"></i>&nbsp;Gridea中Markdown写作小结~</a>
         
         
-        <a href="https://shishuochen.github.io/2020/saplzmgqs/" class="next" rel="next" title="基于形态学分析提取木塞个数及木塞直径">基于形态学分析提取木塞个数及木塞直径&nbsp;<i class="iconfont icon-right"></i></a>
+        <a href="https://shishuochen.github.io/2020/saplzmgqs/" class="next" rel="next" title="基于形态学分析提取木塞个数及木塞直径">基于形态学分析提取木塞个数及木塞直径&nbsp;<i class="fas fas fa-caret-right"></i></a>
         
     </div>
-
+	
     <div class="post-comment">
         
             
