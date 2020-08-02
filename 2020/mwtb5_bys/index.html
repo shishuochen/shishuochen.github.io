@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us">
     <head>
+<meta name="google-site-verification" content="PgRvRggX4FPNmBfLmc_IBoedK_gPlyCB_p49I3DfNSA" />
     <meta http-equiv="content-type" content="text/html;charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +11,7 @@
     
     <meta name="google-site-verification" content=" " />
     <link rel="prev" href="https://shishuochen.github.io/2020/8ranpmyi1/" />
-    <link rel="next" href="https://shishuochen.github.io/2020/5azumu-8l/" />
+    
     <link rel="canonical" href="https://shishuochen.github.io/2020/mwtb5_bys/" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -53,8 +54,8 @@
     "accountablePerson" : "ANY_ME",
     "copyrightHolder" : "ANY_ME",
     "copyrightYear" : "2020",
-    "datePublished": "2020-07-29 15:28:51 \u002b0000 UTC",
-    "dateModified" : "2020-07-29 15:28:51 \u002b0000 UTC",
+    "datePublished": "2020-08-01 15:28:51 \u002b0000 UTC",
+    "dateModified" : "2020-08-01 15:28:51 \u002b0000 UTC",
     "url" : "https:\/\/shishuochen.github.io\/2020\/mwtb5_bys\/",
     "wordCount" : "103",
     "keywords" : [ "线性代数", "shishuoCh\u0027s Blog"]
@@ -66,6 +67,8 @@
 </link>
     
     <script src="https://kit.fontawesome.com/fb6088b71c.js" crossorigin="anonymous"></script>
+	
+
   </head>
     <body class="">
         <div class="wrapper">
@@ -162,7 +165,7 @@
         <div class="post-meta">
                 Written by <a itemprop="name" href="https://shishuochen.github.io" rel="author">ANY_ME</a> with ♥
                 <span class="post-time">
-                on <time datetime=2020-07-29 itemprop="datePublished">July 29, 2020</time>
+                on <time datetime=2020-08-01 itemprop="datePublished">August 1, 2020</time>
                 </span>
                 in
                 
@@ -178,10 +181,45 @@
                 <span class="post-word-count">103 words</span>
         </div>
     </header>
-
+	  
+     
+          <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title"></h2>
+  
+  <div class="post-toc-content always-active">
+    
+  </div>
+</div>
+<script type="text/javascript">
+  window.onload = function () {
+    var fix = $('.post-toc');
+    var end = $('.post-comment');
+    var fixTop = fix.offset().top, fixHeight = fix.height();
+    var endTop, miss;
+    var offsetTop = fix[0].offsetTop;
+    $(window).scroll(function () {
+      var docTop = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
+      if (end.length > 0) {
+        endTop = end.offset().top;
+        miss = endTop - docTop - fixHeight;
+      }
+      if (fixTop < docTop) {
+        fix.css({ 'position': 'fixed' });
+        if ((end.length > 0) && (endTop < (docTop + fixHeight))) {
+          fix.css({ top: miss });
+        } else {
+          fix.css({ top: 0 });
+        }
+      } else {
+        fix.css({ 'position': 'absolute' });
+        fix.css({ top: offsetTop });
+      }
+    })
+  }
+</script> 
+	
     <div class="post-content">
         
-
         
         
 
@@ -241,18 +279,16 @@
 
     <div class="post-nav">
         
-        <a href="https://shishuochen.github.io/2020/8ranpmyi1/" class="prev" rel="prev" title="Chapter5:行列式"><i class="iconfont icon-left"></i>&nbsp;Chapter5:行列式</a>
+        <a href="https://shishuochen.github.io/2020/8ranpmyi1/" class="prev" rel="prev" title="Chapter5:行列式"><i class="fas fa-caret-left"></i>&nbsp;Chapter5:行列式</a>
         
-        
-        <a href="https://shishuochen.github.io/2020/5azumu-8l/" class="next" rel="next" title="chapter7">chapter7&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
-
+	
     <div class="post-comment">
         
             
-                <br />
-<br />
+                <p></p>
+<br>
 <script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
 <div id="vcomments" style="padding: 10px 0px 0px 0px"></div>
 <style>
@@ -314,20 +350,23 @@
       <span itemprop="copyrightYear">2019 - 2020</span>
       
       <span class="with-love">
-         <i class="iconfont icon-love"></i>
+         <i class="fas fa-heart"></i>
       </span>
       
       <span class="author" itemprop="copyrightHolder"><a href="https://shishuochen.github.io">ANY_ME</a> |
       </span>
       
       
+	  <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
       <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a
             href="https://github.com/Mogeko/Mogege" target="_blank" rel="external nofollow">Mogege</a></span>
 </footer>
 
       <div class="back-to-top" id="back_to_top">
          
-         <span>&#8593;</span>
+         <span><i class="fas fa-arrow-up"></i></span>
          
          <span class="scrollpercent">
             <span id="back_to_top_text">0</span>%
