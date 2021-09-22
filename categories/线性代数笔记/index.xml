@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>线性代数笔记 on shishuoCh&#39;s Blog</title>
+    <link>https://shishuochen.github.io/categories/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%AC%94%E8%AE%B0/</link>
+    <description>Recent content in 线性代数笔记 on shishuoCh&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 06 Aug 2020 15:29:06 +0000</lastBuildDate>
+    
+	<atom:link href="https://shishuochen.github.io/categories/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Chapter7: 点积与叉积</title>
+      <link>https://shishuochen.github.io/2020/5azumu-8l/</link>
+      <pubDate>Thu, 06 Aug 2020 15:29:06 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/5azumu-8l/</guid>
+      <description>I. 前言 点积（Dot Product）又称数量积或标量积（Scalar Product），这里说的是点积的结果是一个标量；叉积（Cross prod</description>
+    </item>
+    
+    <item>
+      <title>Chapter6:逆矩阵、列空间与零空间、秩</title>
+      <link>https://shishuochen.github.io/2020/mwtb5_bys/</link>
+      <pubDate>Sat, 01 Aug 2020 15:28:51 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/mwtb5_bys/</guid>
+      <description>1. 逆矩阵 &amp;emsp;&amp;emsp;前面已经知道，矩阵代表着一种线性变换，是对空间的一种操纵，逆矩阵自然也不例外。矩阵$A^{-1}$对空间的操</description>
+    </item>
+    
+    <item>
+      <title>Chapter5:行列式</title>
+      <link>https://shishuochen.github.io/2020/8ranpmyi1/</link>
+      <pubDate>Thu, 30 Jul 2020 14:20:41 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/8ranpmyi1/</guid>
+      <description>&amp;emsp;&amp;emsp;线性变换中有的将空间向外拉伸，有的则将空间向内挤压，所以变换究竟对空间有多少拉伸或挤压？如何测量和表示？ &amp;emsp;</description>
+    </item>
+    
+    <item>
+      <title>Chapter4:矩阵乘法</title>
+      <link>https://shishuochen.github.io/2020/fvo1n-idv/</link>
+      <pubDate>Tue, 28 Jul 2020 16:46:27 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/fvo1n-idv/</guid>
+      <description>&amp;emsp;&amp;emsp;线性变换是对二维空间的变换，自然而然可以想到进行多个变换&amp;hellip;&amp;hellip; 1. 考虑进行两次线性变换 &amp;em</description>
+    </item>
+    
+    <item>
+      <title>Chapter3:矩阵与向量空间</title>
+      <link>https://shishuochen.github.io/2020/diskudhd9/</link>
+      <pubDate>Mon, 27 Jul 2020 21:14:05 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/diskudhd9/</guid>
+      <description>&amp;emsp;&amp;emsp;牢记矩阵代表着一种线性变换 1. 矩阵与线性变换 为什么叫变换？ &amp;emsp;&amp;emsp;变换其实也就是常提起的函数的一种说法</description>
+    </item>
+    
+    <item>
+      <title>Chapter I &amp; Chapter II</title>
+      <link>https://shishuochen.github.io/2020/uj8lovhzh/</link>
+      <pubDate>Thu, 23 Jul 2020 23:26:04 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/uj8lovhzh/</guid>
+      <description>Chapter I和II作者主要介绍了一些基本的点： 向量是什么？ 线性组合、空间、基 1. 向量是什么？ 向量加法和向量乘法贯穿线性代数的始终。 把向量看做一种特定的</description>
+    </item>
+    
+    <item>
+      <title>线代学习笔记摘录</title>
+      <link>https://shishuochen.github.io/2020/oktyklte8/</link>
+      <pubDate>Fri, 17 Jul 2020 23:45:32 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/oktyklte8/</guid>
+      <description>&amp;emsp;&amp;emsp;最近再次重温了@3Blue1Brown的“课程”：线性代数的本质&amp;mdash;&amp;mdash;系列合集（顺便说一下，这</description>
+    </item>
+    
+  </channel>
+</rss>

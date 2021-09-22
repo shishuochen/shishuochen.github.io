@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+<meta name="google-site-verification" content="PgRvRggX4FPNmBfLmc_IBoedK_gPlyCB_p49I3DfNSA" />
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="ANY_ME">
+    <meta name="description" content="shishuoCh的个人博客">
+    
+    <meta name="google-site-verification" content=" " />
+    <link rel="prev" href="https://shishuochen.github.io/2020/cz15p-u8k/" />
+    <link rel="next" href="https://shishuochen.github.io/2020/oktyklte8/" />
+    <link rel="canonical" href="https://shishuochen.github.io/2020/r_e_e13ck/" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+        
+        
+            如何批量&#34;左右&#34;合并txt文件 | shishuoCh&#39;s Blog
+        
+    </title>
+    <meta name="title" content="如何批量&#34;左右&#34;合并txt文件 | shishuoCh&#39;s Blog">
+    
+<link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/shishuochen.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "如何批量\u0022左右\u0022合并txt文件",
+    "headline" : "如何批量\u0022左右\u0022合并txt文件",
+    "description" : "\u0026emsp;\u0026emsp;合并txt文件有很多种方法，如果文件数目不多手动复制也不是不可，但是文件多的时候就显得有点力不从心了；有的时候不光如",
+    "inLanguage" : "zh-cn",
+    "author" : "ANY_ME",
+    "creator" : "ANY_ME",
+    "publisher": "ANY_ME",
+    "accountablePerson" : "ANY_ME",
+    "copyrightHolder" : "ANY_ME",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-05-28 22:32:24 \u002b0000 UTC",
+    "dateModified" : "2020-05-28 22:32:24 \u002b0000 UTC",
+    "url" : "https:\/\/shishuochen.github.io\/2020\/r_e_e13ck\/",
+    "wordCount" : "1473",
+    "keywords" : [ "记录","Shell","MATLAB", "shishuoCh\u0027s Blog"]
+}
+</script>
+
+	<link rel="stylesheet" href=
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
+</link>
+    
+    <script src="https://kit.fontawesome.com/fb6088b71c.js" crossorigin="anonymous"></script>
+	
+
+  </head>
+    <body class="">
+        <div class="wrapper">
+            <nav class="navbar">
+    
+        <progress class="content_progress" max="0" value="0"></progress>
+    
+    <div class="container">
+        
+            <div class="navbar-header header-back2home-logo">
+                <span class="logo_mark" >>$</span>
+                <a href="https://shishuochen.github.io">
+                    <span class="logo_text" >cd /home/</span>
+                    <span class="logo_cursor" ></span>
+                </a>
+            </div>
+        
+        <div class="navbar-right">
+                
+                <span class="menu">
+                
+                <a class="menu-item" href="/posts/" title="">📖Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">📁Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">🎨Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">💬About</a>
+                
+                <a class="menu-item" href="/about/" title="">ANY_ME</a>
+                
+                <span class="divide"></span>
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-dark-mode"></i></a>
+                </span>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display:none">
+    
+        <progress class="content_progress" max="0" value="0"></progress>
+    
+     <div class="container">
+        <div class="navbar">
+            <div class="navbar-header header-logo">
+                    <a href="https://shishuochen.github.io">shishuoCh&#39;s Blog</a>
+            </div>
+            <div class="navbar-right">
+                <div><a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-dark-mode"></i></a></div>
+                <div class="menu-toggle">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                <nav class="mb-md">
+                    
+                    
+                        <a class="menu-item" href="/posts/" title="" white-space="nowrap">
+						<nobr>📖Blog</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/categories/" title="" white-space="nowrap">
+						<nobr>📁Categories</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/tags/" title="" white-space="nowrap">
+						<nobr>🎨Tags</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/about/" title="" white-space="nowrap">
+						<nobr>💬About</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/about/" title="" white-space="nowrap">
+						<nobr>ANY_ME</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                </nav>
+        </div>
+    </div>
+</nav>
+            <main class="main">
+                <div class="container">
+                    
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">如何批量&#34;左右&#34;合并txt文件</h1>
+        <div class="post-meta">
+                <i class="fas fa-user-circle"></i> <a itemprop="name" href="https://shishuochen.github.io" rel="author">ANY_ME</a> 
+				&thinsp;$\bm\vert$&thinsp; 
+				<i class="far fa-calendar-check "></i>
+				发布:2020-05-28
+				
+                </span>
+                
+				&thinsp;$\bm\vert$&thinsp; 
+				
+				
+				<i class="fas fa-history"></i> 更新:2020-07-30
+				
+                
+				&thinsp;$\bm\vert$&thinsp; 
+                
+                <i class="far fa-folder-open "></i>
+                <span class="post-category">
+                        
+                        
+                        
+                          <a href="https://shishuochen.github.io/categories/%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98%E7%AF%87/"> 解决问题篇</a>
+                        
+                        
+                </span>
+				
+				&thinsp;$\bm\vert$&thinsp; 
+				<i class="fas fa-file-word "></i>
+                <span class="post-word-count">1473字</span>
+				
+				&thinsp;$\bm\vert$&thinsp;   
+				<i class="fas fa-coffee "></i>
+				
+                <span class="post-word-count">4分钟</span>
+				
+        </div>
+    </header>
+	  
+     
+          <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title"></h2>
+  
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#1-shell-command-paste-合并文件">1 Shell command：<code>paste</code> (合并文件)</a></li>
+<li><a href="#2-shell-command-sed-dos2unix-格式转换">2 Shell command：<code>sed</code>、<code>dos2unix</code> (格式转换)</a>
+<ul>
+<li><a href="#2-1-sed">2.1 sed</a></li>
+<li><a href="#2-2-dos2unix">2.2 dos2unix</a></li>
+</ul></li>
+<li><a href="#3-others">3. Others</a></li>
+</ul>
+</nav>
+  </div>
+</div>
+<script type="text/javascript">
+  window.onload = function () {
+    var fix = $('.post-toc');
+    var end = $('.post-comment');
+    var fixTop = fix.offset().top, fixHeight = fix.height();
+    var endTop, miss;
+    var offsetTop = fix[0].offsetTop;
+    $(window).scroll(function () {
+      var docTop = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
+      if (end.length > 0) {
+        endTop = end.offset().top;
+        miss = endTop - docTop - fixHeight;
+      }
+      if (fixTop < docTop) {
+        fix.css({ 'position': 'fixed' });
+        if ((end.length > 0) && (endTop < (docTop + fixHeight))) {
+          fix.css({ top: miss });
+        } else {
+          fix.css({ top: 0 });
+        }
+      } else {
+        fix.css({ 'position': 'absolute' });
+        fix.css({ top: offsetTop });
+      }
+    })
+  }
+</script> 
+	
+    <div class="post-content">
+        
+        
+        
+            
+        
+
+        
+          <img src="https://s1.ax1x.com/2020/05/28/tm95N9.png" class="featured_image">
+        
+        
+        
+        
+        
+
+        
+        
+        
+
+        
+
+<p><strong>&emsp;&emsp;合并<code>txt</code>文件有很多种方法，如果文件数目不多手动复制也不是不可，但是文件多的时候就显得有点力不从心了；有的时候不光如此，每个文件的内容排列顺序还不一样，分隔符也不一样🙃，没错我正是遇见了这么多的问题所以“费尽心机”找到了办法，这个过程中我也学习到了一些东西，故在这里记录下来&hellip;&hellip;</strong></p>
+
+<hr />
+
+<h1 id="1-shell-command-paste-合并文件">1 Shell command：<code>paste</code> (合并文件)</h1>
+
+<p>&emsp;&emsp;为了批量“左右”合并<code>txt</code>文件，我找到了一个Shell命令<code>paste</code>，其详细用法可以在<a href="https://www.runoob.com/linux/linux-comm-paste.html" rel="nofollow noreferrer" target="_blank">菜鸟教程</a>👈获取，概括示例如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># (当你在Windows中使用shell命令时，需要加上文件后缀，unix系统则可以自动识别，下同)</span>
+<span style="color:#75715e"># 将input和input文件列对列（“左右”）合并到文件output，这里均指定分隔符为&#39;tab&#39;</span>
+paste   -d<span style="color:#e6db74">&#39;\t&#39;</span>  input1.txt  input2.txt&gt;output.txt    
+<span style="color:#75715e"># 快速将文件夹内所有合并到output.txt</span>
+paste   -d<span style="color:#e6db74">&#39;\t&#39;</span>   *&gt;output.txt  </code></pre></div>
+<p>&emsp;&emsp;但是遗憾的是当我使用这个命令时，我并没有得到预期的结果，合并的结果发生了“错位”，就像下图示例这样：
+<center>
+<a name="fig1"></a>
+<a data-fancybox="gallery" href="https://s1.ax1x.com/2020/05/29/tnv0bQ.png"><img src="https://s1.ax1x.com/2020/05/29/tnv0bQ.png" alt="tnLlY6.png" border="0" style="zoom:60%;" /></a></p>
+
+<p><u>图1：paste命令结果示例</u>
+</center></p>
+
+<p>&emsp;&emsp;仔细查看图<a href="#fig1">(1)</a>可以发现，在合并的过程中给人的感觉是先<strong>换行</strong>然后才合并。“<strong>换行</strong>”让我想到了 <i class="fab fa-windows"></i> <code>Windows</code> 和 <i class="fab fa-linux"></i>  <code>Unix</code>在这一点上的不同点<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup>，这是在文本处理中要特别注意的问题。找到问题之后我便使用<code>Notepad++</code>软件将行尾符从<code>Windows(CRLF)</code>换成了<code>Unix(LF)</code>。
+<center>
+<a data-fancybox="gallery" href="https://s1.ax1x.com/2020/05/29/tuFt8H.png" alt="tnLlY6.png"><img src="https://s1.ax1x.com/2020/05/29/tuFt8H.png" alt="tnLlY6.png" border="0" style="zoom:40%;" /></a></p>
+
+<p><u>图2：Notepad++转换示例</u>
+</center></p>
+
+<p>&emsp;&emsp;这样一来，合并文件的问题就解决了，但是总不能每个文件都用Notepadd++吧，我需要一种能够快速转换的工具，就这样我找到了另外两个命令：<code>sed</code>和<code>dos2unix</code>。</p>
+
+<h1 id="2-shell-command-sed-dos2unix-格式转换">2 Shell command：<code>sed</code>、<code>dos2unix</code> (格式转换)</h1>
+
+<h2 id="2-1-sed">2.1 sed</h2>
+
+<p>&emsp;&emsp;Unix中的SED命令代表流编辑器，它可以对文件执行很多功能，例如搜索，查找和替换，插入或删除，Unix中的SED命令支持正则表达式，从而可以执行复杂的模式匹配，更多了解在<a href="https://www.geeksforgeeks.org/sed-command-in-linux-unix-with-examples/" rel="nofollow noreferrer" target="_blank">这里</a>👈。</p>
+
+<p>&emsp;&emsp;我在<a href="https://stackoverflow.com/questions/3891076/how-to-convert-windows-end-of-line-in-unix-end-of-line-cr-lf-to-lf/3891101" rel="nofollow noreferrer" target="_blank">stack <strong>overflow</strong></a>上找到了更改行尾符的具体代码，示例如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 单个文件转换</span>
+sed -i <span style="color:#e6db74">&#39;s/\r//g&#39;</span> file.txt
+<span style="color:#75715e"># 正则匹配所有的txt文件</span>
+sed -i <span style="color:#e6db74">&#39;s/\r//g&#39;</span> *.txt</code></pre></div>
+<h2 id="2-2-dos2unix">2.2 dos2unix</h2>
+
+<p>&emsp;&emsp;<code>dos2unix</code>：DOS / MAC至UNIX文本文件格式转换器，可惜的是Ubuntu上没有这个命令（可能是因为它不属于unix标准），所以需要自己安装，因此建议直接用<code>sed</code>命令，方便快捷。但是如果对<code>dos2unix</code>感兴趣的话，可以在<a href="http://waterlan.home.xs4all.nl/dos2unix.html#DOS2UNIX" rel="nofollow noreferrer" target="_blank">这里</a>或者<a href="http://manpages.ubuntu.com/manpages/bionic/man1/dos2unix.1.html" rel="nofollow noreferrer" target="_blank">这里</a>了解更多信息，同时它们也提供了安装包。</p>
+
+<h1 id="3-others">3. Others</h1>
+
+<blockquote>
+<p>这部分主要说一点其他的内容。</p>
+</blockquote>
+
+<ol>
+<li>Windows Subsystem for Linux (WSL)
+
+<ul>
+<li>在不离开Windows的情况下访问Windows上的Linux终端，开发跨平台应用程序和管理IT基础架构。</li>
+<li>编写脚本自动化任务，使用自己选择的Linux Shell</li>
+<li><a href="https://ubuntu.com/wsl" rel="nofollow noreferrer" target="_blank">How to Install Ubuntu on Windows Subsystem for Linux</a></li>
+</ul></li>
+<li>MATLAB文本操作
+
+<ul>
+<li>dlmwrite函数，该函数可以在写入矩阵时设置行尾符（但是写入的不能是文本或者说字符串数据）</li>
+<li>readtable、writetable</li>
+</ul></li>
+</ol>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1">Windows系统里面，每行结尾是&rdquo;&lt;回车&gt;&lt;换行&gt;&ldquo;，即&rdquo;\r\n&rdquo;；在Unix系统下每行结尾只有&rdquo;&lt;换行&gt;&ldquo;，即&rdquo;\n&rdquo;；所以图1的结果就是多了一个换行，然后分隔符又是<code>tab</code>，所以就有了“错位”的结果；之所以最后一行看起来还可以是因为<code>input1.txt</code>我没有输入<code>Enter</code>键。
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+    </div>
+
+    <div class="post-copyright">
+            
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>ANY_ME </span>
+                </p>
+            
+
+            
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://shishuochen.github.io/2020/r_e_e13ck/>https://shishuochen.github.io/2020/r_e_e13ck/</span>
+            </p>
+            
+            
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://shishuochen.github.io/tags/%E8%AE%B0%E5%BD%95/">
+                    #记录</a></span>
+            
+            <span class="tag"><a href="https://shishuochen.github.io/tags/shell/">
+                    #Shell</a></span>
+            
+            <span class="tag"><a href="https://shishuochen.github.io/tags/matlab/">
+                    #MATLAB</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> ·
+                <span><a href="https://shishuochen.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://shishuochen.github.io/2020/cz15p-u8k/" class="prev" rel="prev" title="MATLAB中好用的命令和函数（持续更新）"><i class="fas fa-caret-left"></i>&nbsp;MATLAB中好用的命令和函数（持续更新）</a>
+        
+        
+        <a href="https://shishuochen.github.io/2020/oktyklte8/" class="next" rel="next" title="线代学习笔记摘录">线代学习笔记摘录&nbsp;<i class="fas fas fa-caret-right"></i></a>
+        
+    </div>
+	
+    <div class="post-comment">
+        
+            
+                <p></p>
+<br>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
+<div id="vcomments" style="padding: 10px 0px 0px 0px"></div>
+<style>
+  .v .veditor {
+    min-height: 10rem;
+    background-image: url('<%= site.customConfig.valineimage %>');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+    background-color: rgba(255, 255, 255, 0);
+    resize: none;
+  }
+
+  .v .vwrap {
+    border: 1px solid #000 !important;
+  }
+
+  .v .vbtn {
+    padding: .4rem 1.2rem !important;
+    border-color: #fff !important;
+    background-color: #49b1f5 !important;
+    color: #fff !important;
+    font-size: .7rem !important;
+  }
+
+  .v .vcards .vcard .vh .vmeta .vat {
+    padding: 0 .8rem !important;
+    border: 1px solid #00c4b6 !important;
+    border-radius: 5px !important;
+    color: #00c4b6 !important;
+  }
+</style>
+<script>
+  new Valine({
+        el: '#vcomments' ,
+        appId: 'WfSBqbaIFwwLUytPuTLtMKu9-MdYXbMMI',
+        appKey: 'ELF39FBTTfSuVVLOHMM4uqWf',
+        notify:  true ,
+        verify:  true , 
+        avatar:'mm', 
+		enableQQ: true,
+        placeholder: '【在昵称处填写企鹅号会自动拉取昵称、头像和邮箱，这样你就可以通过邮箱收到留言回复了，因此请检查自己的输入的企鹅号是否正确，方便自己的同时也避免给他人带来不便，Thanks♪(･ω･)ﾉ】',
+        visitor:  true 
+  });
+</script>
+
+            
+        
+    </div>
+</article>
+                </div>
+            </main>
+            
+<div class="footer-box">
+<footer class="footer">
+   <div class="copyright">
+      &copy;
+      
+      <span itemprop="copyrightYear">2019 - 2021</span>
+      
+      <span class="with-love">
+         <i class="fas fa-heart"></i>
+      </span>
+      
+      <span class="author" itemprop="copyrightHolder"><a href="https://shishuochen.github.io">ANY_ME</a> |
+      </span>
+      
+      
+	  <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+      <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a
+            href="https://github.com/Mogeko/Mogege" target="_blank" rel="external nofollow">Mogege</a></span>
+</footer>
+
+      <div class="back-to-top" id="back_to_top">
+         
+         <span><i class="fas fa-arrow-up"></i></span>
+         
+         <span class="scrollpercent">
+            <span id="back_to_top_text">0</span>%
+         </span>
+      </div>
+</div>
+<script>
+
+   let sideBarOpen = 'sidebar-open';
+   let body = document.body;
+   let back2Top = document.querySelector('#back_to_top'),
+      back2TopText = document.querySelector('#back_to_top_text'),
+      drawerBox = document.querySelector('#drawer_box'),
+      rightSideBar = document.querySelector('.sidebar'),
+      viewport = document.querySelector('body');
+
+   function scrollAnimation(currentY, targetY) {
+
+      let needScrollTop = targetY - currentY
+      let _currentY = currentY
+      setTimeout(() => {
+         const dist = Math.ceil(needScrollTop / 10)
+         _currentY += dist
+         window.scrollTo(_currentY, currentY)
+         if (needScrollTop > 10 || needScrollTop < -10) {
+            scrollAnimation(_currentY, targetY)
+         } else {
+            window.scrollTo(_currentY, targetY)
+         }
+      }, 1)
+   }
+
+   back2Top.addEventListener("click", function (e) {
+      scrollAnimation(document.scrollingElement.scrollTop, 0);
+      e.stopPropagation();
+      return false;
+   });
+
+   window.addEventListener('scroll', function (e) {
+      let percent = document.scrollingElement.scrollTop / (document.scrollingElement.scrollHeight - document.scrollingElement.clientHeight) * 100;
+      if (percent > 1 && !back2Top.classList.contains('back-top-active')) {
+         back2Top.classList.add('back-top-active');
+      }
+      if (percent == 0) {
+         back2Top.classList.remove('back-top-active');
+      }
+      if (back2TopText) {
+         back2TopText.textContent = Math.floor(percent);
+      }
+   });
+</script>
+
+
+
+
+
+
+<script defer src="/js/vendor_main.min.js"></script>
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/love.min.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha256-V8SV2MO1FUb63Bwht5Wx9x6PVHNa02gv8BgH/uH3ung=" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha256-F/Xda58SPdcUCr+xhSGz9MA2zQBPb0ASEYKohl8UCHc=" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha256-90d2pnfw0r4K8CZAWPko4rpFXQsZvJhTBGYNkipDprI=" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+           delimiters: [
+     {left: "$$", right: "$$", display: true},
+     {left: "$", right: "$", display: false},
+   ],
+        });
+    });
+</script>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script> pangu.spacingPage();</script>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+        </div>
+    </body>
+</html>

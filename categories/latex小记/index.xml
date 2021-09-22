@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>LaTeX小记 on shishuoCh&#39;s Blog</title>
+    <link>https://shishuochen.github.io/categories/latex%E5%B0%8F%E8%AE%B0/</link>
+    <description>Recent content in LaTeX小记 on shishuoCh&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 07 Feb 2020 22:03:21 +0000</lastBuildDate>
+    
+	<atom:link href="https://shishuochen.github.io/categories/latex%E5%B0%8F%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Compile Chinese documents with pdfLaTeX compiler</title>
+      <link>https://shishuochen.github.io/2020/yen-2yhvj/</link>
+      <pubDate>Fri, 07 Feb 2020 22:03:21 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/yen-2yhvj/</guid>
+      <description>$\LaTeX$ supports many worldwide languages by means of some special packages. This article explains how to typeset Chinese documents with pdfLaTeX. CJKutf8 with pdfLaTeX The CJKutf8 package can also be used to generate a document with pdfLaTeX. Chinese (and Japanese/Korean) text must be places inside a CJK environment, so this is usually only convenient for documents in English with bits of Chinese text or vice-versa. Code example \documentclass{article} \usepackage{CJKutf8} \begin{document}</description>
+    </item>
+    
+  </channel>
+</rss>

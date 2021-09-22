@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+<meta name="google-site-verification" content="PgRvRggX4FPNmBfLmc_IBoedK_gPlyCB_p49I3DfNSA" />
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="ANY_ME">
+    <meta name="description" content="shishuoCh的个人博客">
+    
+    <meta name="google-site-verification" content=" " />
+    <link rel="prev" href="https://shishuochen.github.io/2020/5azumu-8l/" />
+    <link rel="next" href="https://shishuochen.github.io/2020/n0hnjzpmm/" />
+    <link rel="canonical" href="https://shishuochen.github.io/2020/wfh7aitk2/" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+        
+        
+            FT、DFS、DTFT、DFT | shishuoCh&#39;s Blog
+        
+    </title>
+    <meta name="title" content="FT、DFS、DTFT、DFT | shishuoCh&#39;s Blog">
+    
+<link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/shishuochen.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "FT、DFS、DTFT、DFT",
+    "headline" : "FT、DFS、DTFT、DFT",
+    "description" : "期末考试结束啦！终于可以有个小空写点东西了，近来复习了随机信号分析和信号系统，对一些东西有了更加深刻的认识，所以本文是自己对于如标题所列的变",
+    "inLanguage" : "zh-cn",
+    "author" : "ANY_ME",
+    "creator" : "ANY_ME",
+    "publisher": "ANY_ME",
+    "accountablePerson" : "ANY_ME",
+    "copyrightHolder" : "ANY_ME",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-08-25 11:17:31 \u002b0800 CST",
+    "dateModified" : "2020-08-25 11:17:31 \u002b0800 CST",
+    "url" : "https:\/\/shishuochen.github.io\/2020\/wfh7aitk2\/",
+    "wordCount" : "3723",
+    "keywords" : [ "信号与系统", "shishuoCh\u0027s Blog"]
+}
+</script>
+
+	<link rel="stylesheet" href=
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
+</link>
+    
+    <script src="https://kit.fontawesome.com/fb6088b71c.js" crossorigin="anonymous"></script>
+	
+
+  </head>
+    <body class="">
+        <div class="wrapper">
+            <nav class="navbar">
+    
+        <progress class="content_progress" max="0" value="0"></progress>
+    
+    <div class="container">
+        
+            <div class="navbar-header header-back2home-logo">
+                <span class="logo_mark" >>$</span>
+                <a href="https://shishuochen.github.io">
+                    <span class="logo_text" >cd /home/</span>
+                    <span class="logo_cursor" ></span>
+                </a>
+            </div>
+        
+        <div class="navbar-right">
+                
+                <span class="menu">
+                
+                <a class="menu-item" href="/posts/" title="">📖Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">📁Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">🎨Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">💬About</a>
+                
+                <a class="menu-item" href="/about/" title="">ANY_ME</a>
+                
+                <span class="divide"></span>
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-dark-mode"></i></a>
+                </span>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display:none">
+    
+        <progress class="content_progress" max="0" value="0"></progress>
+    
+     <div class="container">
+        <div class="navbar">
+            <div class="navbar-header header-logo">
+                    <a href="https://shishuochen.github.io">shishuoCh&#39;s Blog</a>
+            </div>
+            <div class="navbar-right">
+                <div><a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-dark-mode"></i></a></div>
+                <div class="menu-toggle">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                <nav class="mb-md">
+                    
+                    
+                        <a class="menu-item" href="/posts/" title="" white-space="nowrap">
+						<nobr>📖Blog</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/categories/" title="" white-space="nowrap">
+						<nobr>📁Categories</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/tags/" title="" white-space="nowrap">
+						<nobr>🎨Tags</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/about/" title="" white-space="nowrap">
+						<nobr>💬About</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/about/" title="" white-space="nowrap">
+						<nobr>ANY_ME</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                </nav>
+        </div>
+    </div>
+</nav>
+            <main class="main">
+                <div class="container">
+                    
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">FT、DFS、DTFT、DFT</h1>
+        <div class="post-meta">
+                <i class="fas fa-user-circle"></i> <a itemprop="name" href="https://shishuochen.github.io" rel="author">ANY_ME</a> 
+				&thinsp;$\bm\vert$&thinsp; 
+				<i class="far fa-calendar-check "></i>
+				发布:2020-08-25
+				
+                </span>
+                
+				&thinsp;$\bm\vert$&thinsp; 
+				
+				
+				<i class="fas fa-history"></i> 更新:2020-08-27
+				
+                
+				&thinsp;$\bm\vert$&thinsp; 
+                
+                <i class="far fa-folder-open "></i>
+                <span class="post-category">
+                        
+                        
+                        
+                          <a href="https://shishuochen.github.io/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"> 课程笔记</a>
+                        
+                        
+                </span>
+				
+				&thinsp;$\bm\vert$&thinsp; 
+				<i class="fas fa-file-word "></i>
+                <span class="post-word-count">3723字</span>
+				
+				&thinsp;$\bm\vert$&thinsp;   
+				<i class="fas fa-coffee "></i>
+				
+                <span class="post-word-count">12分钟</span>
+				
+        </div>
+    </header>
+	  
+     
+          <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title"></h2>
+  
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#1-前言">1. 前言</a></li>
+<li><a href="#2-连续时间信号">2. 连续时间信号</a>
+<ul>
+<li><a href="#2-1-周期信号的频谱">2.1 周期信号的频谱</a>
+<ul>
+<li><a href="#傅里叶级数-信号的分解">傅里叶级数：信号的分解</a></li>
+<li><a href="#周期信号的频谱">周期信号的频谱</a></li>
+</ul></li>
+<li><a href="#2-2-非周期信号的频谱">2.2 非周期信号的频谱</a>
+<ul>
+<li><a href="#傅里叶变换-ft">傅里叶变换（FT）</a></li>
+</ul></li>
+<li><a href="#2-3-周期信号的傅里叶变换">2.3 周期信号的傅里叶变换</a>
+<ul>
+<li><a href="#两种方法推导">两种方法推导</a></li>
+</ul></li>
+<li><a href="#2-4-傅里叶系数和傅里叶变换">2.4 傅里叶系数和傅里叶变换</a></li>
+</ul></li>
+<li><a href="#3-离散时间序列">3. 离散时间序列</a>
+<ul>
+<li><a href="#3-1-周期序列">3.1 周期序列</a>
+<ul>
+<li><a href="#离散傅里叶级数-dfs">离散傅里叶级数（DFS）</a></li>
+</ul></li>
+<li><a href="#3-2-非周期序列">3.2 非周期序列</a>
+<ul>
+<li><a href="#离散时间傅里叶变换-dtft">离散时间傅里叶变换（DTFT）</a></li>
+<li><a href="#离散傅里叶变换-dft">离散傅里叶变换（DFT）</a></li>
+<li><a href="#dtft与dft的联系">DTFT与DFT的联系</a></li>
+</ul></li>
+<li><a href="#相关文章推荐">相关文章推荐</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+<script type="text/javascript">
+  window.onload = function () {
+    var fix = $('.post-toc');
+    var end = $('.post-comment');
+    var fixTop = fix.offset().top, fixHeight = fix.height();
+    var endTop, miss;
+    var offsetTop = fix[0].offsetTop;
+    $(window).scroll(function () {
+      var docTop = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
+      if (end.length > 0) {
+        endTop = end.offset().top;
+        miss = endTop - docTop - fixHeight;
+      }
+      if (fixTop < docTop) {
+        fix.css({ 'position': 'fixed' });
+        if ((end.length > 0) && (endTop < (docTop + fixHeight))) {
+          fix.css({ top: miss });
+        } else {
+          fix.css({ top: 0 });
+        }
+      } else {
+        fix.css({ 'position': 'absolute' });
+        fix.css({ top: offsetTop });
+      }
+    })
+  }
+</script> 
+	
+    <div class="post-content">
+        
+        
+        
+            
+        
+
+        
+        
+        
+        
+        
+
+        
+        
+        
+
+        
+
+<p><i class="fas fa-quote-left fa-2x fa-pull-left"></i><strong>期末考试结束啦！终于可以有个小空写点东西了，近来复习了随机信号分析和信号系统，对一些东西有了更加深刻的认识，所以本文是自己对于如标题所列的变换的一点理解（虽然大多都是摘录的🙃），一方面也是想着忘记了还能有个东西能回顾下，主要是关于傅里叶变换及其对不同的信号（周期or非周期、离散or连续）而展开的一些变换。</strong></p>
+
+<hr />
+
+<h1 id="1-前言">1. 前言</h1>
+
+<p>&emsp;&emsp;在信号的数学表达式中，独立变量可以是连续的，也可以是离散的。<strong>连续时间信号</strong>是定义在一个连续时间域上的，因此可以用一个连续独立变量来表示。连续时间信号常又称作<strong>模拟信号</strong>（即变量和幅值均连续）。</p>
+
+<p>&emsp;&emsp;<strong>离散时间信号</strong>是定义在离散时刻点上的，这样变量则具有离散值，也就是可以表示为数值的序列，因此也常称为离散时间序列。这是从变量的连续性来考量分类的，还可以根据周期性分为周期信号和非周期信号。</p>
+
+<p>&emsp;&emsp;为了区分连续时间和离散时间，文章内离散时间信号均称之为“序列”，另外先说两个点：</p>
+
+<p>&emsp;&emsp;&emsp; $\bullet$ 连续时间信号和离散时间信号就是<strong>采样</strong>和<strong>重建</strong>的关系</p>
+
+<p>&emsp;&emsp;&emsp; $\bullet$ 周期信号的周期$T\to\infty$时则转变为非周期信号</p>
+
+<p>&emsp;&emsp;文章的思路就是：</p>
+
+<p>&emsp;&emsp;&emsp; $\bullet$<strong>连续时间信号部分</strong>：① 从周期信号的分解引出周期信号的频谱 ② 当周期趋于无穷时，考虑非周期信号的频谱（傅里叶变换）③ 考虑周期信号的傅里叶变换 ④ 傅里叶级数和傅里叶变换的关系</p>
+
+<p>&emsp;&emsp;&emsp; $\bullet$<strong>离散时间序列部分</strong>：① 类比周期信号的分解推广周期序列的离散傅里叶级数（DFS） ② 当周期趋于无穷时，考虑非周期序列的频谱（离散时间傅里叶变换：DTFT）③ 有限长序列的离散傅里叶变换（DFT） ④ DTFT和DFT的区别和关系</p>
+
+<h1 id="2-连续时间信号">2. 连续时间信号</h1>
+
+<h2 id="2-1-周期信号的频谱">2.1 周期信号的频谱</h2>
+
+<h3 id="傅里叶级数-信号的分解">傅里叶级数：信号的分解</h3>
+
+<p>&emsp;&emsp;两个完备的正交<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup>函数集：三角函数集和复函数集。所谓的信号分解实质上就是将任意连续时间信号表示为一系列不同频率的正弦信号或需指数函数之和（对于周期信号）或积分（对于非周期信号）。周期信号$f(t)$可以在区间$(t_0,t_0+T)$可以展开成在完备正交信号空间中的无穷级数。两种完备集展开的无穷级数统称为<strong>“傅里叶级数”</strong>。</p>
+
+<p>&emsp;&emsp;<strong>$\bullet$三角函数形式</strong></p>
+
+<div>
+
+$$
+\begin{aligned}
+f(t)&=\frac{a_0}{2}+\sum_{n=1}^{\infty}a_n\cos{(n\Omega t)}+\sum_{n=1}^{\infty}b_n\sin{(n\Omega t)}\\
+&=\frac{A_0}{2}+\sum_{n=1}^{\infty}A_n\cos{(n\Omega t+\varphi_n)}\tag{1}
+\end{aligned}
+$$
+</div>
+
+<p>式中，$\Omega=2\pi F=2\pi /T$为角频率；$a_n,b_n$则称为傅里叶系数且有如下计算公式：</p>
+
+<div>
+$$
+a _ { n } = \frac { 2 } { T } \int _ { - \frac { T } { 2 } } ^ { \frac { T } { 2 } } f ( t ) \cos ( n \Omega t ) d t , \quad n = 0,1,2,\cdots\tag{2}
+$$
+
+$$
+b _ { n } = \frac { 2 } { T } \int _ { - \frac { T } { 2 } } ^ { \frac { T} { 2 } } f ( t ) \sin ( n \Omega t ) d t , \quad n = 1,2,\cdots\tag{3}
+$$
+</div>
+
+<p>&emsp;&emsp;<strong>$\bullet$指数形式</strong></p>
+
+<p>&emsp;&emsp;三角函数形式的傅里叶级数含义比较明确，但是计算不便，因此可以利用欧拉公式和傅里叶系数的性质<sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup>将其变形为指数形式的傅里叶级数。</p>
+
+<p><a name="eq4"></a>
+$$
+f(t)=\sum_{-\infty}^{\infty} A_ne^{j\varphi_n} e^{jn\Omega t}=\sum _ {-\infty}^{\infty}F _ ne^{in\Omega t}\tag{4}
+$$</p>
+
+<p><a name="eq5"></a>
+$$
+F_n=\frac{1}{T}\int _{-\frac{T}{2}}^{\frac{T}{2}}f(t)e^{-jn\Omega t}dt,\quad n=0,\pm 1, \pm 2,\cdots\tag{5}
+$$</p>
+
+<h3 id="周期信号的频谱">周期信号的频谱</h3>
+
+<p>&emsp;&emsp;如前所述，周期信号可以分解为一系列频率不同的信号分量（各次谐波）的组合，为了直观表示出这些分量的振幅，以频率（或角频率）为横坐标，以各谐波的振幅$A_n$或虚指数函数的幅度$|F_n|$为纵坐标，可画出下图所示的线图，称为幅度频谱，简称幅度谱。</p>
+
+<p><a data-fancybox="gallery" href= "https://s1.ax1x.com/2020/08/25/dc2Ol4.png"><img src="https://s1.ax1x.com/2020/08/25/dc2Ol4.png" style="zoom: 70%;" /></a></p>
+
+<p><center>
+周期信号的频谱
+</center></p>
+
+<p>&emsp;&emsp;从图中也可以看出，周期信号的频谱是离散谱，谱间隔就是基波频率$\Omega=2\pi /T$，那么当周期信号的周期$T\to\infty$时，变为非周期信号，相邻谱线间隔减小到零，周期信号的离散频谱就变成了非周期信号的连续谱。这就是接下来一部分要细说的：从周期信号到非周期信号。</p>
+
+<h2 id="2-2-非周期信号的频谱">2.2 非周期信号的频谱</h2>
+
+<h3 id="傅里叶变换-ft">傅里叶变换（FT）</h3>
+
+<p>&emsp;&emsp;如前所述，当周期T趋近于无限大时，相邻谱线的间隔$\Omega$趋近于无穷小，从而信号的频谱密集成为连续频谱。同时，各频率分量的幅度也都趋近于无穷小，不过，这些无穷小量之间仍保持一定的比例关系。为了描述非周期信号的频谱特性,引人频谱密度的概念。令</p>
+
+<p>$$
+F(jw)=\lim _ {T\to \infty}\frac{F _n}{1/T}=\lim _ {T\to\infty}F _ nT\tag{6}
+$$</p>
+
+<p>称$F(jw)$为频率谱密度函数。</p>
+
+<p>&emsp;&emsp;当周期$T\to\infty$时，$\Omega\to(-\infty)$，取其为$dw$，而$1/T=\Omega/2\pi$将趋近于$dw/2\pi$，$n\Omega$是变量，当$\Omega\neq 0$时，它是离散值，当$\Omega$趋于无穷小时，它就变成连续变量，取为$w$，同时求和符号改为积分。由式<a href="#eq4">$(4)$</a>和<a href="#eq5">$(5)$</a>可得傅里叶变换对如下：</p>
+
+<div>
+$$
+\begin{aligned}
+F ( j \omega ) & = \int_ {-\infty } ^ { \infty }f(t) e ^ { - jwt } dt \\
+f ( t ) & = \frac { 1 } { 2 \pi } \int _ { - \infty } ^ { \infty } F ( j \omega ) e ^ { j \omega t } d \omega\tag{7}
+\end{aligned}
+$$
+</div>
+
+<p>&emsp;&emsp;时间函数（信号）$f(t)$可以用频谱函数（频谱密度）$F(jw)$表示。信号的两种描述方法：时域、频域。</p>
+
+<h2 id="2-3-周期信号的傅里叶变换">2.3 周期信号的傅里叶变换</h2>
+
+<p>&emsp;&emsp;<strong>一句话概括就是：周期信号的傅里叶变换（频谱密度）由无穷多个冲激函数组成，这些冲激函数位于信号的各次谐波（$n\Omega$）处，且强度为各相应幅度$F_n$的$2\pi$倍。</strong></p>
+
+<h3 id="两种方法推导">两种方法推导</h3>
+
+<p>&emsp;&emsp;$\bullet$ 傅里叶变换的性质（频移特性）</p>
+
+<p><a name="eq9"></a></p>
+
+<div>
+$$
+f_{T}(t)=\sum_{n=-\infty}^{\infty}F_ne^{jwt}\tag{8}
+$$  
+$$
+\bm\Darr
+$$
+$$
+\mathscr{F}[f_{T}(t)]=2\pi\sum_{n=-\infty}^{\infty}F_n\delta(w-n\Omega)\tag{9}
+$$
+</div>
+
+<p>&emsp;&emsp;$\bullet$ 周期信号可以看做是信号的单个周期卷积单位周期卷积冲激序列$\delta_{T}(t)$</p>
+
+<p><a name="eq10"></a></p>
+
+<div>
+$$
+f_{T}(t)=f_0(t)*\delta(t)\tag{10}
+$$  
+$$
+\bm\Darr
+$$
+$$
+\mathscr{F}[f_{T}(t)]=\Omega\sum_{n=-\infty}^{\infty}F_0(jn\Omega)\delta(w-n\Omega)\tag{11}
+$$
+</div>
+
+<h2 id="2-4-傅里叶系数和傅里叶变换">2.4 傅里叶系数和傅里叶变换</h2>
+
+<p>&emsp;&emsp;由式<a href="#eq9">$(9)$</a>和<a href="#eq11">$(11)$</a>可以得出如下关系：</p>
+
+<div>
+$$
+F_n=\frac{1}{T}F_0(jn\Omega)=\frac{1}{T}F_0(jw)|_{w=n\Omega}\tag{12}
+$$
+</div>
+
+<p><strong>即周期信号的傅里叶系数$F_n$等于$F_0(jw)$在频率为$n\Omega$处的值乘以$1/T$.</strong></p>
+
+<h1 id="3-离散时间序列">3. 离散时间序列</h1>
+
+<p>&emsp;&emsp;将傅里叶级数和傅里叶变换应用到离散时间序列称为序列的傅里叶分析，它对于信号分析和处理技术的实现具有重要的意义。</p>
+
+<h2 id="3-1-周期序列">3.1 周期序列</h2>
+
+<p>&emsp;&emsp;具有周期性的离散时间信号可以额表示为$f_N(k)$，其下标$N$表示其周期为$N$，即有</p>
+
+<p>$$
+f_N(k)=f_N(k+LN)\quad (l\text{为任意整数})
+$$</p>
+
+<h3 id="离散傅里叶级数-dfs">离散傅里叶级数（DFS）</h3>
+
+<p>&emsp;&emsp;对于连续时间信号，周期信号$F_T(t)$可以分解为一系列角频率为$n\Omega(n=0,\pm 1,\pm 2,\cdots$的虚指数$e^{jwt}$（其中$\Omega=2\pi/T$是基波角频率）之和。类似的，周期为$N$的序列$f_N(k)$也可以展开为许多虚指数$e^{jn\Omega k}=e^{jn\frac{2\pi}{N}k}$（其中$\Omega=2\pi/T$是基波数字角频率）之和。</p>
+
+<p>&emsp;&emsp;值得注意的是，周期信号的傅里叶级数和周期序列的有所不同。虚指数序列满足</p>
+
+<div>
+$$
+e^{jn\frac{2\pi}{N}k}=e^{j(n+lN)\frac{2\pi}{N}k}\tag{13}
+$$
+</div>
+
+<p>即它也是周期为$N$的周期序列。因此周期序列的傅里叶级数展开式仅为有限项（$N$项）。</p>
+
+<p>&emsp;&emsp;若取第一个周期$n=0,1,2,\cdots,N-1$，则$f_N(k)$展开式可以写为</p>
+
+<div>
+$$
+f_N(k)=\frac{1}{N}\sum_{n=0}^{N-1}F_N(n)e^{jn\Omega k}\tag{14}
+$$
+</div>
+
+<p>$DFS[\cdot]$表示求离散傅里叶级数（正变换），以$IDFS[\cdot]$表示求离散傅里叶级数展开式（逆变换），则有</p>
+
+<p><a name="eq15"></a></p>
+
+<div>
+$$
+\begin{aligned}
+DFS[f_N(k)]& =F_N(n)=\sum_{k=0}^{N-1}f_N(k)e^{-jn\Omega k}\\
+IDFS[F_N(n)]&= f_N(k)=\frac{1}{N}\sum_{n=0}^{N-1}F_N(n)e^{jn\Omega k}\tag{15}
+\end{aligned}
+$$
+</div>
+
+<h2 id="3-2-非周期序列">3.2 非周期序列</h2>
+
+<h3 id="离散时间傅里叶变换-dtft">离散时间傅里叶变换（DTFT）</h3>
+
+<p>&emsp;&emsp;与连续时间信号类似，当周期序列的周期趋近于无穷大时，周期序列变为非周期序列。同时谱线间隔趋近于无穷小，成为连续谱。</p>
+
+<p>&emsp;&emsp;当$N\to\infty$时，$n\Omega=2\pi n/N$趋近于连续变量$\theta$（数字角频率，单位为rad），式<a href="#eq15">$(15)$</a>是在一个周期内求和，可以扩展为$(-\infty,\infty)$，则得非周期序列$f(k)$的离散时间傅里叶变换（DTFT)为</p>
+
+<p><a name="eq16"></a></p>
+
+<div>
+$$
+\begin{aligned}
+    F(e^{j\theta})&=\lim_{N\to\infty}\sum_{k=\lt N\gt}f_{N}(k) e^{-jn\frac{2\pi}{N}k}\\
+    &=\sum_{-\infty}^{\infty}f(k)e^{-jk\theta}=|F(e^{j\theta)}| e^{j\varphi(\theta)}\tag{16}
+\end{aligned}
+$$
+</div>
+
+<p>可见，非周期序列的离散时间傅里叶变换$F(e^{j\theta})$是$\theta$的连续周期函数，周期为$2\pi$。非周期序列的离散时间傅里叶逆变换为</p>
+
+<div>
+$$
+f(k)=\frac{1}{2\pi}\int_{-\pi}^{\pi}F(e^{j\theta})e^{j\theta k}d\theta\tag{17}
+$$
+</div>
+
+<h3 id="离散傅里叶变换-dft">离散傅里叶变换（DFT）</h3>
+
+<p>&emsp;&emsp;离散傅里叶变换（DFT）的定义是为了便于实现计算机实现，它是借助离散傅里叶级数的概念，把有限长序列作为周期性离散信号的一个周期来处理。</p>
+
+<p>&emsp;&emsp;设有限长序列的长度为$N$（在$0\leq k\leq N-1$范围内），则$f(k)$离散傅里叶变换和逆变换定义分别为</p>
+
+<p><a name="eq18"></a></p>
+
+<div>
+$$
+\begin{aligned}
+    F(n)&=DFT[f(k)]=\sum_{k=0}^{N-1}f(k)e^{-j\frac{2\pi}{N}kn}=\sum_{k=0}^{N-1}f(k)W^{kn}\quad (0\leq n\leq N-1)\\
+    f(k)& =IDFT[F(n)]=\frac{1}{N}\sum_{n=0}^{N-1}F(n)e^{j\frac{2\pi}{N}kn}=\frac{1}{N}\sum_{n=0}^{N-1}F(n)W^{-kn}\quad (0\leq k \leq N-1)\tag{18}
+\end{aligned}
+$$
+</div>
+
+<h3 id="dtft与dft的联系">DTFT与DFT的联系</h3>
+
+<p>&emsp;&emsp;有限长序列$f(k)$的离散傅里叶变换$F(n)$与其离散时间傅里叶变换$F(e^{j\theta}$的关系如下：由式<a href="#eq16">$(16)$</a>得DTFT为：</p>
+
+<div>
+$$
+F(e^{j\theta})=\sum_{k=-\infty}^{\infty}f(k)e^{-j\theta k}=\sum_{k=0}^{N-1}f(k)e^{-j\theta k}\tag{19}
+$$
+</div>
+
+<p>对比式<a href="#eq18">$(18)$</a>中的DFT结果$F(n)$可得</p>
+
+<p>$$
+F(n)=F(e^{j\theta})|_{\theta=\frac{2\pi}{N}}\tag{20}
+$$</p>
+
+<p><strong>结果表明：$F(n)$是对$F(e^{j\theta})$在$2\pi$周期内进行$N$次均匀取样的结果。</strong></p>
+
+<h2 id="相关文章推荐">相关文章推荐</h2>
+
+<ul>
+<li><a href="https://pjmfjd.coding-pages.com/2020/EpbncPK4s/" rel="nofollow noreferrer" target="_blank">傅里叶变换相关图谱</a></li>
+<li><a href="https://pjmfjd.coding-pages.com/2020/b2mbvmz9k/" rel="nofollow noreferrer" target="_blank">傅里叶变换性质及变换对</a></li>
+</ul>
+
+<p><br></p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1">定义在区间$(t_1,t_2)$的两个函数$\varphi_1(t)$和$\varphi _ 2(t)$，若满足$\int_{t _ 1}^{t _ 2}\varphi _ 1(t)\varphi _2(t)dt=0$，则称$\varphi _ 1(t),\varphi _ 2(t)$在区间.
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+<li id="fn:2">$A_n=A _ {-n},\varphi _ {-n}=-\varphi _ n$
+ <a class="footnote-return" href="#fnref:2"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+    </div>
+
+    <div class="post-copyright">
+            
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>ANY_ME </span>
+                </p>
+            
+
+            
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://shishuochen.github.io/2020/wfh7aitk2/>https://shishuochen.github.io/2020/wfh7aitk2/</span>
+            </p>
+            
+            
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://shishuochen.github.io/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/">
+                    #信号与系统</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> ·
+                <span><a href="https://shishuochen.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://shishuochen.github.io/2020/5azumu-8l/" class="prev" rel="prev" title="Chapter7: 点积与叉积"><i class="fas fa-caret-left"></i>&nbsp;Chapter7: 点积与叉积</a>
+        
+        
+        <a href="https://shishuochen.github.io/2020/n0hnjzpmm/" class="next" rel="next" title="矩阵分解求解线性方程组">矩阵分解求解线性方程组&nbsp;<i class="fas fas fa-caret-right"></i></a>
+        
+    </div>
+	
+    <div class="post-comment">
+        
+            
+                <p></p>
+<br>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
+<div id="vcomments" style="padding: 10px 0px 0px 0px"></div>
+<style>
+  .v .veditor {
+    min-height: 10rem;
+    background-image: url('<%= site.customConfig.valineimage %>');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+    background-color: rgba(255, 255, 255, 0);
+    resize: none;
+  }
+
+  .v .vwrap {
+    border: 1px solid #000 !important;
+  }
+
+  .v .vbtn {
+    padding: .4rem 1.2rem !important;
+    border-color: #fff !important;
+    background-color: #49b1f5 !important;
+    color: #fff !important;
+    font-size: .7rem !important;
+  }
+
+  .v .vcards .vcard .vh .vmeta .vat {
+    padding: 0 .8rem !important;
+    border: 1px solid #00c4b6 !important;
+    border-radius: 5px !important;
+    color: #00c4b6 !important;
+  }
+</style>
+<script>
+  new Valine({
+        el: '#vcomments' ,
+        appId: 'WfSBqbaIFwwLUytPuTLtMKu9-MdYXbMMI',
+        appKey: 'ELF39FBTTfSuVVLOHMM4uqWf',
+        notify:  true ,
+        verify:  true , 
+        avatar:'mm', 
+		enableQQ: true,
+        placeholder: '【在昵称处填写企鹅号会自动拉取昵称、头像和邮箱，这样你就可以通过邮箱收到留言回复了，因此请检查自己的输入的企鹅号是否正确，方便自己的同时也避免给他人带来不便，Thanks♪(･ω･)ﾉ】',
+        visitor:  true 
+  });
+</script>
+
+            
+        
+    </div>
+</article>
+                </div>
+            </main>
+            
+<div class="footer-box">
+<footer class="footer">
+   <div class="copyright">
+      &copy;
+      
+      <span itemprop="copyrightYear">2019 - 2021</span>
+      
+      <span class="with-love">
+         <i class="fas fa-heart"></i>
+      </span>
+      
+      <span class="author" itemprop="copyrightHolder"><a href="https://shishuochen.github.io">ANY_ME</a> |
+      </span>
+      
+      
+	  <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+      <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a
+            href="https://github.com/Mogeko/Mogege" target="_blank" rel="external nofollow">Mogege</a></span>
+</footer>
+
+      <div class="back-to-top" id="back_to_top">
+         
+         <span><i class="fas fa-arrow-up"></i></span>
+         
+         <span class="scrollpercent">
+            <span id="back_to_top_text">0</span>%
+         </span>
+      </div>
+</div>
+<script>
+
+   let sideBarOpen = 'sidebar-open';
+   let body = document.body;
+   let back2Top = document.querySelector('#back_to_top'),
+      back2TopText = document.querySelector('#back_to_top_text'),
+      drawerBox = document.querySelector('#drawer_box'),
+      rightSideBar = document.querySelector('.sidebar'),
+      viewport = document.querySelector('body');
+
+   function scrollAnimation(currentY, targetY) {
+
+      let needScrollTop = targetY - currentY
+      let _currentY = currentY
+      setTimeout(() => {
+         const dist = Math.ceil(needScrollTop / 10)
+         _currentY += dist
+         window.scrollTo(_currentY, currentY)
+         if (needScrollTop > 10 || needScrollTop < -10) {
+            scrollAnimation(_currentY, targetY)
+         } else {
+            window.scrollTo(_currentY, targetY)
+         }
+      }, 1)
+   }
+
+   back2Top.addEventListener("click", function (e) {
+      scrollAnimation(document.scrollingElement.scrollTop, 0);
+      e.stopPropagation();
+      return false;
+   });
+
+   window.addEventListener('scroll', function (e) {
+      let percent = document.scrollingElement.scrollTop / (document.scrollingElement.scrollHeight - document.scrollingElement.clientHeight) * 100;
+      if (percent > 1 && !back2Top.classList.contains('back-top-active')) {
+         back2Top.classList.add('back-top-active');
+      }
+      if (percent == 0) {
+         back2Top.classList.remove('back-top-active');
+      }
+      if (back2TopText) {
+         back2TopText.textContent = Math.floor(percent);
+      }
+   });
+</script>
+
+
+
+
+
+
+<script defer src="/js/vendor_main.min.js"></script>
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/love.min.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha256-V8SV2MO1FUb63Bwht5Wx9x6PVHNa02gv8BgH/uH3ung=" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha256-F/Xda58SPdcUCr+xhSGz9MA2zQBPb0ASEYKohl8UCHc=" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha256-90d2pnfw0r4K8CZAWPko4rpFXQsZvJhTBGYNkipDprI=" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+           delimiters: [
+     {left: "$$", right: "$$", display: true},
+     {left: "$", right: "$", display: false},
+   ],
+        });
+    });
+</script>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script> pangu.spacingPage();</script>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+        </div>
+    </body>
+</html>

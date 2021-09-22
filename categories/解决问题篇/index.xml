@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>解决问题篇 on shishuoCh&#39;s Blog</title>
+    <link>https://shishuochen.github.io/categories/%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98%E7%AF%87/</link>
+    <description>Recent content in 解决问题篇 on shishuoCh&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 26 Feb 2021 11:16:42 +0800</lastBuildDate>
+    
+	<atom:link href="https://shishuochen.github.io/categories/%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98%E7%AF%87/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>双系统Ubuntu分区扩容</title>
+      <link>https://shishuochen.github.io/2021/essp_skj2/</link>
+      <pubDate>Fri, 26 Feb 2021 11:16:42 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2021/essp_skj2/</guid>
+      <description>新年第一记，空间不足是常有的事，特在此记录下以备下次之需。本文最大缺点就是未能图文并茂，称不上一篇好的教程，可能不如图片来的直接，可以结合网</description>
+    </item>
+    
+    <item>
+      <title>如何批量&#34;左右&#34;合并txt文件</title>
+      <link>https://shishuochen.github.io/2020/r_e_e13ck/</link>
+      <pubDate>Thu, 28 May 2020 22:32:24 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/r_e_e13ck/</guid>
+      <description>&amp;emsp;&amp;emsp;合并txt文件有很多种方法，如果文件数目不多手动复制也不是不可，但是文件多的时候就显得有点力不从心了；有的时候不光如</description>
+    </item>
+    
+    <item>
+      <title>error: invalid operands of types &#39;double&#39; and &#39;int&#39; to binary &#39;operator%&#39;</title>
+      <link>https://shishuochen.github.io/2020/msdlyc-zj/</link>
+      <pubDate>Mon, 30 Mar 2020 14:12:18 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/msdlyc-zj/</guid>
+      <description>在一次C++的练习中，我发现了这个问题，并在网上查找到了原因，特在此记录下来。 1️⃣ 基本 从字面意思来看就是说，类型int和double为二进</description>
+    </item>
+    
+    <item>
+      <title>如何在ms-word中优雅的插入代码</title>
+      <link>https://shishuochen.github.io/2020/evcfke7nv/</link>
+      <pubDate>Sun, 01 Mar 2020 19:29:11 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/evcfke7nv/</guid>
+      <description>在Microsoft Word 中插入代码，保留颜色和格式 1. 使用编辑器粘贴代码到Word 1.1 Visual Studio Code 戳我进官网 直接粘贴到Word &amp;emsp;&amp;emsp;$\bullet$ 从Visual Studio Code</description>
+    </item>
+    
+    <item>
+      <title>如何裁剪或生成eps格式图片</title>
+      <link>https://shishuochen.github.io/2020/0xjn_wkk/</link>
+      <pubDate>Wed, 19 Feb 2020 14:19:02 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/0xjn_wkk/</guid>
+      <description>EPS(Encapsulated PostScript)是PostScript的一种延伸类型。EPS（Encapsulated PostScript）是目前系统中功能最强的一</description>
+    </item>
+    
+  </channel>
+</rss>

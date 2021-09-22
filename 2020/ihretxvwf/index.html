@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+<meta name="google-site-verification" content="PgRvRggX4FPNmBfLmc_IBoedK_gPlyCB_p49I3DfNSA" />
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="ANY_ME">
+    <meta name="description" content="shishuoCh的个人博客">
+    
+    <meta name="google-site-verification" content=" " />
+    <link rel="prev" href="https://shishuochen.github.io/2020/2xawn806p/" />
+    <link rel="next" href="https://shishuochen.github.io/2020/nlj2i4e77/" />
+    <link rel="canonical" href="https://shishuochen.github.io/2020/ihretxvwf/" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+        
+        
+            操纵文件和目录（Linux） | shishuoCh&#39;s Blog
+        
+    </title>
+    <meta name="title" content="操纵文件和目录（Linux） | shishuoCh&#39;s Blog">
+    
+<link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/shishuochen.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "操纵文件和目录（Linux）",
+    "headline" : "操纵文件和目录（Linux）",
+    "description" : "1. 前言 本文主要介绍以下几个常用的操纵文件和目录（本质上是对文件或目录命名的处理）的命令（同样是见名知意）： Command Meaning cp Copy files and directories mv Move\/rename files and directories mkdir Create directories rm Remove",
+    "inLanguage" : "zh-cn",
+    "author" : "ANY_ME",
+    "creator" : "ANY_ME",
+    "publisher": "ANY_ME",
+    "accountablePerson" : "ANY_ME",
+    "copyrightHolder" : "ANY_ME",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-09-03 21:28:58 \u002b0800 CST",
+    "dateModified" : "2020-09-03 21:28:58 \u002b0800 CST",
+    "url" : "https:\/\/shishuochen.github.io\/2020\/ihretxvwf\/",
+    "wordCount" : "1715",
+    "keywords" : [ "shell","linux", "shishuoCh\u0027s Blog"]
+}
+</script>
+
+	<link rel="stylesheet" href=
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
+</link>
+    
+    <script src="https://kit.fontawesome.com/fb6088b71c.js" crossorigin="anonymous"></script>
+	
+
+  </head>
+    <body class="">
+        <div class="wrapper">
+            <nav class="navbar">
+    
+        <progress class="content_progress" max="0" value="0"></progress>
+    
+    <div class="container">
+        
+            <div class="navbar-header header-back2home-logo">
+                <span class="logo_mark" >>$</span>
+                <a href="https://shishuochen.github.io">
+                    <span class="logo_text" >cd /home/</span>
+                    <span class="logo_cursor" ></span>
+                </a>
+            </div>
+        
+        <div class="navbar-right">
+                
+                <span class="menu">
+                
+                <a class="menu-item" href="/posts/" title="">📖Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">📁Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">🎨Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">💬About</a>
+                
+                <a class="menu-item" href="/about/" title="">ANY_ME</a>
+                
+                <span class="divide"></span>
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-dark-mode"></i></a>
+                </span>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display:none">
+    
+        <progress class="content_progress" max="0" value="0"></progress>
+    
+     <div class="container">
+        <div class="navbar">
+            <div class="navbar-header header-logo">
+                    <a href="https://shishuochen.github.io">shishuoCh&#39;s Blog</a>
+            </div>
+            <div class="navbar-right">
+                <div><a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-dark-mode"></i></a></div>
+                <div class="menu-toggle">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                <nav class="mb-md">
+                    
+                    
+                        <a class="menu-item" href="/posts/" title="" white-space="nowrap">
+						<nobr>📖Blog</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/categories/" title="" white-space="nowrap">
+						<nobr>📁Categories</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/tags/" title="" white-space="nowrap">
+						<nobr>🎨Tags</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/about/" title="" white-space="nowrap">
+						<nobr>💬About</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/about/" title="" white-space="nowrap">
+						<nobr>ANY_ME</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                </nav>
+        </div>
+    </div>
+</nav>
+            <main class="main">
+                <div class="container">
+                    
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">操纵文件和目录（Linux）</h1>
+        <div class="post-meta">
+                <i class="fas fa-user-circle"></i> <a itemprop="name" href="https://shishuochen.github.io" rel="author">ANY_ME</a> 
+				&thinsp;$\bm\vert$&thinsp; 
+				<i class="far fa-calendar-check "></i>
+				发布:2020-09-03
+				
+                </span>
+                
+				&thinsp;$\bm\vert$&thinsp; 
+				
+				
+				<i class="fas fa-history"></i> 更新:2020-09-12
+				
+                
+				&thinsp;$\bm\vert$&thinsp; 
+                
+                <i class="far fa-folder-open "></i>
+                <span class="post-category">
+                        
+                        
+                        
+                          <a href="https://shishuochen.github.io/categories/linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"> Linux命令行读书笔记</a>
+                        
+                        
+                </span>
+				
+				&thinsp;$\bm\vert$&thinsp; 
+				<i class="fas fa-file-word "></i>
+                <span class="post-word-count">1715字</span>
+				
+				&thinsp;$\bm\vert$&thinsp;   
+				<i class="fas fa-coffee "></i>
+				
+                <span class="post-word-count">5分钟</span>
+				
+        </div>
+    </header>
+	  
+     
+          <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title"></h2>
+  
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#1-前言">1. 前言</a></li>
+<li><a href="#2-通配符-wildcards">2. 通配符（Wildcards）</a>
+<ul>
+<li><a href="#举个栗子">举个栗子</a></li>
+<li><a href="#gui中使用">GUI中使用</a></li>
+</ul></li>
+<li><a href="#3-具体命令">3. 具体命令</a>
+<ul>
+<li><a href="#新建目录-mkdir">新建目录 mkdir</a></li>
+<li><a href="#复制-cp">复制 cp</a></li>
+<li><a href="#移动-重命名-mv">移动、重命名 mv</a></li>
+<li><a href="#删除-rm">删除 rm</a></li>
+<li><a href="#创建链接-ln">创建链接 ln</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+<script type="text/javascript">
+  window.onload = function () {
+    var fix = $('.post-toc');
+    var end = $('.post-comment');
+    var fixTop = fix.offset().top, fixHeight = fix.height();
+    var endTop, miss;
+    var offsetTop = fix[0].offsetTop;
+    $(window).scroll(function () {
+      var docTop = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
+      if (end.length > 0) {
+        endTop = end.offset().top;
+        miss = endTop - docTop - fixHeight;
+      }
+      if (fixTop < docTop) {
+        fix.css({ 'position': 'fixed' });
+        if ((end.length > 0) && (endTop < (docTop + fixHeight))) {
+          fix.css({ top: miss });
+        } else {
+          fix.css({ top: 0 });
+        }
+      } else {
+        fix.css({ 'position': 'absolute' });
+        fix.css({ top: offsetTop });
+      }
+    })
+  }
+</script> 
+	
+    <div class="post-content">
+        
+        
+        
+
+        
+        
+        
+        
+        
+
+        
+        
+        
+
+        
+
+<h2 id="1-前言">1. 前言</h2>
+
+<p>本文主要介绍以下几个常用的操纵文件和目录（本质上是对文件或目录命名的处理）的命令（同样是见名知意）：</p>
+
+<p><center></p>
+
+<table>
+<thead>
+<tr>
+<th align="center">Command</th>
+<th align="center">Meaning</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center"><strong><code>cp</code></strong></td>
+<td align="center">Copy files and directories</td>
+</tr>
+
+<tr>
+<td align="center"><strong><code>mv</code></strong></td>
+<td align="center">Move/rename files and directories</td>
+</tr>
+
+<tr>
+<td align="center"><strong><code>mkdir</code></strong></td>
+<td align="center">Create directories</td>
+</tr>
+
+<tr>
+<td align="center"><strong><code>rm</code></strong></td>
+<td align="center">Remove files and directories</td>
+</tr>
+
+<tr>
+<td align="center"><strong><code>ln</code></strong></td>
+<td align="center">Create hard and symbolic link</td>
+</tr>
+</tbody>
+</table>
+
+<p></center></p>
+
+<p>实际上，目前的Linux发行版都有文件管理器（file manager），图形化操作很方便。但是学习命令行操作仍然很有必要，因为它更加强大（power）和灵活（flexibility）。<strong>试想这个问题：如何将存在于A文件夹中但又不存在B文件夹中的HTML文件复制到B文件夹？</strong>解决这个问题可以先了解下<strong>通配符</strong>（wildcards）。</p>
+
+<h2 id="2-通配符-wildcards">2. 通配符（Wildcards）</h2>
+
+<p>通配符的使用类似于正则表达式（Regular Expression），就是使用特殊的字符来“匹配”一些字符串组合（也就是文件或目录的名称）。正是shell的这个特征让这些命令变得更加强大，shell经常用到文件名，因此其带来的好处不言而喻。</p>
+
+<p><center></p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Wildcard</th>
+<th align="left">Meaning</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><code>*</code></td>
+<td align="left">Matches any characters</td>
+</tr>
+
+<tr>
+<td align="left"><code>?</code></td>
+<td align="left">Matches any <strong>single character</strong></td>
+</tr>
+
+<tr>
+<td align="left"><code>[characters]</code></td>
+<td align="left">Matches any character that is <strong>a</strong> member of the set <strong><em>characters</em></strong></td>
+</tr>
+
+<tr>
+<td align="left"><code>[!characters]</code></td>
+<td align="left">Matches any character that is <strong>not</strong> a member of the set <strong><em>characters</em></strong></td>
+</tr>
+
+<tr>
+<td align="left"><code>[[:class:]]</code><br>（常用字符组见下表）</td>
+<td align="left">Matches any character that is a member of the specified class</td>
+</tr>
+
+<tr>
+<td align="left"><code>[:alnum:]</code></td>
+<td align="left">Matches any alphanumeric character（字母或数字）</td>
+</tr>
+
+<tr>
+<td align="left"><code>[:alpha:]</code></td>
+<td align="left">Matches any alphabetic character（字母）</td>
+</tr>
+
+<tr>
+<td align="left"><code>[:digit:]</code></td>
+<td align="left">Matches any numeral （数字）</td>
+</tr>
+
+<tr>
+<td align="left"><code>[:lower:]</code></td>
+<td align="left">Matches any lowercase letter（小写字母）</td>
+</tr>
+
+<tr>
+<td align="left"><code>[:upper:]</code></td>
+<td align="left">Matches any uppercase letter（大写字母）</td>
+</tr>
+</tbody>
+</table>
+
+<p></center></p>
+
+<h3 id="举个栗子">举个栗子</h3>
+
+<p><center></p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Pattern</th>
+<th align="left">Matches</th>
+<th align="left">Examples</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><code>*</code></td>
+<td align="left">任何文件</td>
+<td align="left">me.txt、forth.jpg</td>
+</tr>
+
+<tr>
+<td align="left"><code>g*</code></td>
+<td align="left">任何命名以字母<strong>g</strong>开头的文件</td>
+<td align="left">google.html、god.png</td>
+</tr>
+
+<tr>
+<td align="left"><code>b*.txt</code></td>
+<td align="left">任何以字母<strong>b</strong>开头后跟任意个字符并以<code>.txt</code>结尾的txt文件</td>
+<td align="left">bring_me.txt、b.jpg</td>
+</tr>
+
+<tr>
+<td align="left"><code>Data???</code></td>
+<td align="left">任何以<strong>data</strong>开头后跟三个字符的文件</td>
+<td align="left">Data123、Data_01</td>
+</tr>
+
+<tr>
+<td align="left"><code>[abc]*</code></td>
+<td align="left">任何以<strong>a</strong>或<strong>b</strong>或<strong>c</strong>开头的文件</td>
+<td align="left">a.txt、bc.jpg</td>
+</tr>
+
+<tr>
+<td align="left"><code>BACKUP.[0-9][0-9][0-9]</code></td>
+<td align="left">任何以<strong>BACKUP.</strong>后跟三个数字的文件</td>
+<td align="left">BACKUP.996</td>
+</tr>
+
+<tr>
+<td align="left"><code>[[:upper:]]*</code></td>
+<td align="left">任何大写字母开头的文件</td>
+<td align="left">ANY_ME.txt、D.jpg</td>
+</tr>
+
+<tr>
+<td align="left"><code>[![:digit:]]*</code></td>
+<td align="left">任何非数字开头的文件</td>
+<td align="left">me.txt<br>2th.jpg（$\times$）</td>
+</tr>
+
+<tr>
+<td align="left"><code>*[[:lower:]123]</code></td>
+<td align="left">任何以小写字母或数字1或2或3结束的文件</td>
+<td align="left">me.txt<br>2tH.jpg（$\times$）</td>
+</tr>
+</tbody>
+</table>
+
+<p><br>
+</center></p>
+
+<h3 id="gui中使用">GUI中使用</h3>
+
+<p><strong>Wildcards Work In The GUI, Too</strong></p>
+
+<p><strong>你可以在搜索框中输入<code>/usr/bin/u*</code>尝鲜（有些文件管理器可能需要手动开启匹配模式）</strong></p>
+
+<h2 id="3-具体命令">3. 具体命令</h2>
+
+<h3 id="新建目录-mkdir">新建目录 mkdir</h3>
+
+<p>其语法规则是（三个句点代表参数可重复，即可以同时创建多个目录）</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">mkdir directory...</code></pre></div>
+<h3 id="复制-cp">复制 cp</h3>
+
+<p>cp命令可以复制文件或目录，它有如下两种方式使用：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 第一种</span>
+cp item1 item2
+<span style="color:#75715e"># 第二种</span>
+cp item ... directory</code></pre></div>
+<p>下面列举下cp命令的一些选项（options）</p>
+
+<p><center></p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Wildcard</th>
+<th align="left">Meaning</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">-a, - -archive</td>
+<td align="left">复制文件或目录的所有属性包括权限和用户所有权</td>
+</tr>
+
+<tr>
+<td align="left">-i, - -interactive</td>
+<td align="left">交互式操作，会提示是否要覆盖</td>
+</tr>
+
+<tr>
+<td align="left">-r, - -recursive</td>
+<td align="left">递归式操作，复制目录时必须有</td>
+</tr>
+
+<tr>
+<td align="left">-u, - -update</td>
+<td align="left">更新式操作，复制目录到目录时，仅复制目标目录不存在的文件或者比其“新”的文件</td>
+</tr>
+
+<tr>
+<td align="left">-v, - -verbose</td>
+<td align="left">提示信息显示</td>
+</tr>
+</tbody>
+</table>
+
+<p></center></p>
+
+<h3 id="移动-重命名-mv">移动、重命名 mv</h3>
+
+<p>这个命令有两个功能：移动、重命名。选项（option）有<strong><code>-i、-u、-v</code></strong>。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 重命名</span>
+mv item1 item2
+<span style="color:#75715e"># 移动</span>
+mv item... directory</code></pre></div>
+<h3 id="删除-rm">删除 rm</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">rm item...</code></pre></div>
+<p>删除命令，选项包括<strong><code>-i、-r、-f、-v</code></strong>，其中<strong><code>-f</code>（force）</strong>选项表示忽略不存在的文件及忽略提示，优先级高于<code>-i</code>命令。</p>
+
+<p>$\bullet$ <strong>Be careful with rm</strong></p>
+
+<p>Unix-like operating systems such as Linux do not have an undelete command.
+Once you delete something with rm, it’s gone. <strong>Linux assumes you’re smart and
+you know what you’re doing.</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 删除html文件</span>
+rm *.html
+<span style="color:#75715e"># 先删除所有文件，然后提示无html文件</span>
+rm * .html</code></pre></div>
+<p>$\bullet$ <strong>A useful tip:</strong></p>
+
+<p>Whenever you use wildcards with rm (besides carefully checking your typing!), test the wildcard first with ls.</p>
+
+<h3 id="创建链接-ln">创建链接 ln</h3>
+
+<p>命令<code>ln</code>用来创建硬（hard）或软（symbolic）链接。</p>
+
+<p>$\bullet$ <strong>创建硬链接：</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ln file link</code></pre></div>
+<p>硬链接是Unix创建链接的原始方式。默认情况下，每个文件都有一个硬链接，它给出了文件的名称。当我们创建一个硬链接时，我们为一个文件创建一个额外的目录条目。硬链接有两个重要的限制：</p>
+
+<ul>
+<li>同分区：硬链接不能引用其自身文件系统之外的文件。这意味着链接不能引用与链接本身不在同一磁盘分区上的文件</li>
+<li>不能引用目录</li>
+</ul>
+
+<p>硬链接与文件本身没有区别。与符号链接不同，当列出包含硬链接的目录时，不会看到该链接的任何特殊指示。当删除一个硬链接时，该链接被删除，但是文件本身的内容继续存在(也就是说，它的空间不会被释放)，直到文件的所有链接都被删除。</p>
+
+<p>$\bullet$ <strong>创建软链接：</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ln -s item link</code></pre></div>
+<p>创建符号链接是为了克服硬链接的限制。
+它们通过创建一个特殊类型的文件来工作，该文件包含指向引用文件或目录的文本指针。
+在这方面，它们的操作方式与Windows快捷方式非常相似，<strong>尽管它们比Windows功能早了许多年</strong>。</p>
+
+    </div>
+
+    <div class="post-copyright">
+            
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>ANY_ME </span>
+                </p>
+            
+
+            
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://shishuochen.github.io/2020/ihretxvwf/>https://shishuochen.github.io/2020/ihretxvwf/</span>
+            </p>
+            
+            
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://shishuochen.github.io/tags/shell/">
+                    #shell</a></span>
+            
+            <span class="tag"><a href="https://shishuochen.github.io/tags/linux/">
+                    #linux</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> ·
+                <span><a href="https://shishuochen.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://shishuochen.github.io/2020/2xawn806p/" class="prev" rel="prev" title="遍历目录及Linux文件系统"><i class="fas fa-caret-left"></i>&nbsp;遍历目录及Linux文件系统</a>
+        
+        
+        <a href="https://shishuochen.github.io/2020/nlj2i4e77/" class="next" rel="next" title="用来了解Linux“命令”的命令">用来了解Linux“命令”的命令&nbsp;<i class="fas fas fa-caret-right"></i></a>
+        
+    </div>
+	
+    <div class="post-comment">
+        
+            
+                <p></p>
+<br>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
+<div id="vcomments" style="padding: 10px 0px 0px 0px"></div>
+<style>
+  .v .veditor {
+    min-height: 10rem;
+    background-image: url('<%= site.customConfig.valineimage %>');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+    background-color: rgba(255, 255, 255, 0);
+    resize: none;
+  }
+
+  .v .vwrap {
+    border: 1px solid #000 !important;
+  }
+
+  .v .vbtn {
+    padding: .4rem 1.2rem !important;
+    border-color: #fff !important;
+    background-color: #49b1f5 !important;
+    color: #fff !important;
+    font-size: .7rem !important;
+  }
+
+  .v .vcards .vcard .vh .vmeta .vat {
+    padding: 0 .8rem !important;
+    border: 1px solid #00c4b6 !important;
+    border-radius: 5px !important;
+    color: #00c4b6 !important;
+  }
+</style>
+<script>
+  new Valine({
+        el: '#vcomments' ,
+        appId: 'WfSBqbaIFwwLUytPuTLtMKu9-MdYXbMMI',
+        appKey: 'ELF39FBTTfSuVVLOHMM4uqWf',
+        notify:  true ,
+        verify:  true , 
+        avatar:'mm', 
+		enableQQ: true,
+        placeholder: '【在昵称处填写企鹅号会自动拉取昵称、头像和邮箱，这样你就可以通过邮箱收到留言回复了，因此请检查自己的输入的企鹅号是否正确，方便自己的同时也避免给他人带来不便，Thanks♪(･ω･)ﾉ】',
+        visitor:  true 
+  });
+</script>
+
+            
+        
+    </div>
+</article>
+                </div>
+            </main>
+            
+<div class="footer-box">
+<footer class="footer">
+   <div class="copyright">
+      &copy;
+      
+      <span itemprop="copyrightYear">2019 - 2021</span>
+      
+      <span class="with-love">
+         <i class="fas fa-heart"></i>
+      </span>
+      
+      <span class="author" itemprop="copyrightHolder"><a href="https://shishuochen.github.io">ANY_ME</a> |
+      </span>
+      
+      
+	  <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+      <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a
+            href="https://github.com/Mogeko/Mogege" target="_blank" rel="external nofollow">Mogege</a></span>
+</footer>
+
+      <div class="back-to-top" id="back_to_top">
+         
+         <span><i class="fas fa-arrow-up"></i></span>
+         
+         <span class="scrollpercent">
+            <span id="back_to_top_text">0</span>%
+         </span>
+      </div>
+</div>
+<script>
+
+   let sideBarOpen = 'sidebar-open';
+   let body = document.body;
+   let back2Top = document.querySelector('#back_to_top'),
+      back2TopText = document.querySelector('#back_to_top_text'),
+      drawerBox = document.querySelector('#drawer_box'),
+      rightSideBar = document.querySelector('.sidebar'),
+      viewport = document.querySelector('body');
+
+   function scrollAnimation(currentY, targetY) {
+
+      let needScrollTop = targetY - currentY
+      let _currentY = currentY
+      setTimeout(() => {
+         const dist = Math.ceil(needScrollTop / 10)
+         _currentY += dist
+         window.scrollTo(_currentY, currentY)
+         if (needScrollTop > 10 || needScrollTop < -10) {
+            scrollAnimation(_currentY, targetY)
+         } else {
+            window.scrollTo(_currentY, targetY)
+         }
+      }, 1)
+   }
+
+   back2Top.addEventListener("click", function (e) {
+      scrollAnimation(document.scrollingElement.scrollTop, 0);
+      e.stopPropagation();
+      return false;
+   });
+
+   window.addEventListener('scroll', function (e) {
+      let percent = document.scrollingElement.scrollTop / (document.scrollingElement.scrollHeight - document.scrollingElement.clientHeight) * 100;
+      if (percent > 1 && !back2Top.classList.contains('back-top-active')) {
+         back2Top.classList.add('back-top-active');
+      }
+      if (percent == 0) {
+         back2Top.classList.remove('back-top-active');
+      }
+      if (back2TopText) {
+         back2TopText.textContent = Math.floor(percent);
+      }
+   });
+</script>
+
+
+
+
+
+
+<script defer src="/js/vendor_main.min.js"></script>
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/love.min.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha256-V8SV2MO1FUb63Bwht5Wx9x6PVHNa02gv8BgH/uH3ung=" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha256-F/Xda58SPdcUCr+xhSGz9MA2zQBPb0ASEYKohl8UCHc=" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha256-90d2pnfw0r4K8CZAWPko4rpFXQsZvJhTBGYNkipDprI=" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+           delimiters: [
+     {left: "$$", right: "$$", display: true},
+     {left: "$", right: "$", display: false},
+   ],
+        });
+    });
+</script>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script> pangu.spacingPage();</script>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+        </div>
+    </body>
+</html>

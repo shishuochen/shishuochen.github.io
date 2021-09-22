@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>信号与系统 on shishuoCh&#39;s Blog</title>
+    <link>https://shishuochen.github.io/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/</link>
+    <description>Recent content in 信号与系统 on shishuoCh&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 25 Aug 2020 11:17:31 +0800</lastBuildDate>
+    
+	<atom:link href="https://shishuochen.github.io/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>FT、DFS、DTFT、DFT</title>
+      <link>https://shishuochen.github.io/2020/wfh7aitk2/</link>
+      <pubDate>Tue, 25 Aug 2020 11:17:31 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/wfh7aitk2/</guid>
+      <description>期末考试结束啦！终于可以有个小空写点东西了，近来复习了随机信号分析和信号系统，对一些东西有了更加深刻的认识，所以本文是自己对于如标题所列的变</description>
+    </item>
+    
+    <item>
+      <title>傅里叶变换相关图谱</title>
+      <link>https://shishuochen.github.io/2020/epbncpk4s/</link>
+      <pubDate>Tue, 04 Aug 2020 16:03:20 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/epbncpk4s/</guid>
+      <description>话不多说一张图 相关文章推荐 FT、DFS、DTFT、DFT 傅里叶变换性质及变换对</description>
+    </item>
+    
+    <item>
+      <title>傅里叶变换的性质及常用变换对</title>
+      <link>https://shishuochen.github.io/2020/b2mbvmz9k/</link>
+      <pubDate>Sat, 25 Jul 2020 21:56:44 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/b2mbvmz9k/</guid>
+      <description>&amp;emsp;&amp;emsp;近来的随机信号分析“预习”过程中，总要用到一些傅里叶变换对，记录在此方便查阅。 1. 傅里叶变换的性质 名称 时域 频域 定义 $f(t)=\frac{1}{2\pi}\int_{-\infty}^{+\infty}F(jw)e^{jwt}dw$ $F(jw)=\int_{-\infty}^{+\infty}f(t)e^{-jwt}dt$</description>
+    </item>
+    
+  </channel>
+</rss>

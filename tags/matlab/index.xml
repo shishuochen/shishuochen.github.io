@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MATLAB on shishuoCh&#39;s Blog</title>
+    <link>https://shishuochen.github.io/tags/matlab/</link>
+    <description>Recent content in MATLAB on shishuoCh&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 28 May 2020 22:32:24 +0000</lastBuildDate>
+    
+	<atom:link href="https://shishuochen.github.io/tags/matlab/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>如何批量&#34;左右&#34;合并txt文件</title>
+      <link>https://shishuochen.github.io/2020/r_e_e13ck/</link>
+      <pubDate>Thu, 28 May 2020 22:32:24 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/r_e_e13ck/</guid>
+      <description>&amp;emsp;&amp;emsp;合并txt文件有很多种方法，如果文件数目不多手动复制也不是不可，但是文件多的时候就显得有点力不从心了；有的时候不光如</description>
+    </item>
+    
+    <item>
+      <title>MATLAB中好用的命令和函数（持续更新）</title>
+      <link>https://shishuochen.github.io/2020/cz15p-u8k/</link>
+      <pubDate>Wed, 27 May 2020 21:32:22 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/cz15p-u8k/</guid>
+      <description>&amp;emsp;&amp;emsp;本文主要记录自己在使用MATLAB过程中常用到的知识点（命令和函数），在此记录下来，也方便回顾查阅。 1. 技巧篇 clearvars -except var1 v</description>
+    </item>
+    
+    <item>
+      <title>基于形态学分析提取木塞个数及木塞直径</title>
+      <link>https://shishuochen.github.io/2020/saplzmgqs/</link>
+      <pubDate>Sun, 17 May 2020 15:44:24 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/saplzmgqs/</guid>
+      <description>&amp;emsp;&amp;emsp;本文主要记录基于形态学分析提取图像中木塞个数及木塞的直径的解决方法。本方法同样适用于其他图像中圆物体的统计计数、标记</description>
+    </item>
+    
+    <item>
+      <title>同态滤波及MATLAB实现</title>
+      <link>https://shishuochen.github.io/2020/fwee4iohn/</link>
+      <pubDate>Thu, 23 Apr 2020 14:25:00 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/fwee4iohn/</guid>
+      <description>&amp;emsp;&amp;emsp;同态滤波(Homomorphic filtering)是一种广泛用于信号和图像处理的技术，将原本的信号经由非线性映射，</description>
+    </item>
+    
+    <item>
+      <title>图像增强算法及MATLAB实现</title>
+      <link>https://shishuochen.github.io/2020/urnq4uiod/</link>
+      <pubDate>Sat, 18 Apr 2020 14:22:07 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/urnq4uiod/</guid>
+      <description>图像增强算法常见于对图像的亮度、对比度、饱和度、色调等进行调节，增加其清晰度，减少噪点等。由于受到环境，光线等的影响，拍摄的照片清晰度和对比</description>
+    </item>
+    
+    <item>
+      <title>图像插值算法及MATLAB实现</title>
+      <link>https://shishuochen.github.io/2020/ejq1xavt/</link>
+      <pubDate>Fri, 17 Apr 2020 14:20:01 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/ejq1xavt/</guid>
+      <description>本文讲述的插值算法包括：最近邻插值、双线性插值及双立方插值。主要针对于二维空间（图像）的放大过程中的插值问题。 1 何为插值 &amp;emsp;&amp;ems</description>
+    </item>
+    
+  </channel>
+</rss>

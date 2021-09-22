@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>C&#43;&#43; on shishuoCh&#39;s Blog</title>
+    <link>https://shishuochen.github.io/tags/c&#43;&#43;/</link>
+    <description>Recent content in C&#43;&#43; on shishuoCh&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 11 Apr 2020 11:19:21 +0000</lastBuildDate>
+    
+	<atom:link href="https://shishuochen.github.io/tags/c++/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>栈实现简单计算器</title>
+      <link>https://shishuochen.github.io/2020/3aynm0ijd/</link>
+      <pubDate>Sat, 11 Apr 2020 11:19:21 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/3aynm0ijd/</guid>
+      <description>&amp;emsp;&amp;emsp;本文主要写如何用栈结构来实现简单的计算器 ，主要包括四则运算，并且在此基础上添加括号、乘方等，示例如下： $$-3.63\times (36.9+26.2)^{5}-5.3*(-2)\div 3.6^{2}.$$ 下面说说</description>
+    </item>
+    
+    <item>
+      <title>error: invalid operands of types &#39;double&#39; and &#39;int&#39; to binary &#39;operator%&#39;</title>
+      <link>https://shishuochen.github.io/2020/msdlyc-zj/</link>
+      <pubDate>Mon, 30 Mar 2020 14:12:18 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/msdlyc-zj/</guid>
+      <description>在一次C++的练习中，我发现了这个问题，并在网上查找到了原因，特在此记录下来。 1️⃣ 基本 从字面意思来看就是说，类型int和double为二进</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tikz &amp; PGF on shishuoCh&#39;s Blog</title>
+    <link>https://shishuochen.github.io/tags/tikz-pgf/</link>
+    <description>Recent content in Tikz &amp; PGF on shishuoCh&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 05 Dec 2020 21:28:59 +0800</lastBuildDate>
+    
+	<atom:link href="https://shishuochen.github.io/tags/tikz-pgf/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Tikz绘图学习笔记</title>
+      <link>https://shishuochen.github.io/2020/0p0vfub3s/</link>
+      <pubDate>Sat, 05 Dec 2020 21:28:59 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/0p0vfub3s/</guid>
+      <description>1. 指定坐标的用法 指定坐标的一般句法是$\color{red}\verb|([&amp;lt;options&amp;gt;]&amp;lt;coordinate sp</description>
+    </item>
+    
+  </channel>
+</rss>

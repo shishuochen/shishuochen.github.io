@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>博客那些事儿 on shishuoCh&#39;s Blog</title>
+    <link>https://shishuochen.github.io/categories/%E5%8D%9A%E5%AE%A2%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/</link>
+    <description>Recent content in 博客那些事儿 on shishuoCh&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 14 Sep 2021 11:30:22 +0800</lastBuildDate>
+    
+	<atom:link href="https://shishuochen.github.io/categories/%E5%8D%9A%E5%AE%A2%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Termux提交代码到GitHub</title>
+      <link>https://shishuochen.github.io/2021/_b8ejeacp/</link>
+      <pubDate>Tue, 14 Sep 2021 11:30:22 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2021/_b8ejeacp/</guid>
+      <description>1. Termux的使用 Termux是什么 Termux 是一个Android 终端模拟器和 Linux 环境应用程序，无需 root 或设置即可直接运行，可以使用APT包管理器可以</description>
+    </item>
+    
+    <item>
+      <title>Hugo博客自定义优化</title>
+      <link>https://shishuochen.github.io/2020/uffick8u1/</link>
+      <pubDate>Thu, 23 Jul 2020 23:31:01 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/uffick8u1/</guid>
+      <description>之前写博客一直是在Gridea平台，用的是@hao大佬的Next主题。后来接触了Mogege主题，感觉简洁好用，所以就又搭建了个博客并将文章</description>
+    </item>
+    
+    <item>
+      <title>Gridea中Markdown写作小结~</title>
+      <link>https://shishuochen.github.io/2020/k0eu-2smz/</link>
+      <pubDate>Sat, 18 Apr 2020 14:23:57 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/k0eu-2smz/</guid>
+      <description>&amp;emsp;&amp;emsp;本文主要是记录自己在Gridea写作时遇到的“问题”，有的时候想实现一种排版样式费尽九牛二虎之力才找到答案，特在此记</description>
+    </item>
+    
+  </channel>
+</rss>

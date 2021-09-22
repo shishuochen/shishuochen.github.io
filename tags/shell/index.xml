@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>shell on shishuoCh&#39;s Blog</title>
+    <link>https://shishuochen.github.io/tags/shell/</link>
+    <description>Recent content in shell on shishuoCh&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 08 Nov 2020 22:19:12 +0800</lastBuildDate>
+    
+	<atom:link href="https://shishuochen.github.io/tags/shell/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Linux Shell知识点合集4</title>
+      <link>https://shishuochen.github.io/2020/tmmwklxfx/</link>
+      <pubDate>Sun, 08 Nov 2020 22:19:12 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/tmmwklxfx/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux Shell知识点合集3</title>
+      <link>https://shishuochen.github.io/2020/klhx60zjd/</link>
+      <pubDate>Fri, 06 Nov 2020 19:36:08 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/klhx60zjd/</guid>
+      <description>本篇文章接『Linux Shell知识点合集2』，主要包含安装软件程序、编辑器使用等。 6.安装软件程序 本小节介绍Linux上能见到的各种包管理</description>
+    </item>
+    
+    <item>
+      <title>Linux Shell知识点合集2</title>
+      <link>https://shishuochen.github.io/2020/ifxovueyg/</link>
+      <pubDate>Wed, 04 Nov 2020 20:53:50 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/ifxovueyg/</guid>
+      <description>本篇文章接『Linux Shell知识点合集1』，主要包含Linux文件权限、管理文件系统、安装软件程序、编辑器使用等。 4. 理解Linux文件权</description>
+    </item>
+    
+    <item>
+      <title>Linux Shell知识点合集1</title>
+      <link>https://shishuochen.github.io/2020/i1tn7md8r/</link>
+      <pubDate>Tue, 03 Nov 2020 19:20:27 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/i1tn7md8r/</guid>
+      <description>一个多月都没有记录东西了，最近的生活着实是有点废！不过好在系统的看了一本书《Linux命令行与shell脚本编程大全（第3版）》，负罪感少了</description>
+    </item>
+    
+    <item>
+      <title>用来了解Linux“命令”的命令</title>
+      <link>https://shishuochen.github.io/2020/nlj2i4e77/</link>
+      <pubDate>Thu, 17 Sep 2020 20:44:00 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/nlj2i4e77/</guid>
+      <description>命令千千万，遇到不熟悉的命令怎么办？Google search？其实可以本地help的！当然还有很多的操作…… 1. Command Lists Command Meaning type Indicate how a command name is interpreted which Display which</description>
+    </item>
+    
+    <item>
+      <title>操纵文件和目录（Linux）</title>
+      <link>https://shishuochen.github.io/2020/ihretxvwf/</link>
+      <pubDate>Thu, 03 Sep 2020 21:28:58 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/ihretxvwf/</guid>
+      <description>1. 前言 本文主要介绍以下几个常用的操纵文件和目录（本质上是对文件或目录命名的处理）的命令（同样是见名知意）： Command Meaning cp Copy files and directories mv Move/rename files and directories mkdir Create directories rm Remove</description>
+    </item>
+    
+    <item>
+      <title>遍历目录及Linux文件系统</title>
+      <link>https://shishuochen.github.io/2020/2xawn806p/</link>
+      <pubDate>Sun, 30 Aug 2020 20:43:49 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/2xawn806p/</guid>
+      <description>1. 前言 本文主要讲述遍历目录用到的一些shell命令和Linux文件系统，以及其他小的知识点。主要命令（大多数都是见名知意的）列举如下： Command Meaning pwd</description>
+    </item>
+    
+    <item>
+      <title>什么是Shell</title>
+      <link>https://shishuochen.github.io/2020/nlrmsp86u/</link>
+      <pubDate>Fri, 28 Aug 2020 23:35:41 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/nlrmsp86u/</guid>
+      <description>1. 什么是shell &amp;emsp;&amp;emsp;当我们说“命令行”（command line）的时候，其实我们指的是shell。shell本质是一个</description>
+    </item>
+    
+    <item>
+      <title>如何批量&#34;左右&#34;合并txt文件</title>
+      <link>https://shishuochen.github.io/2020/r_e_e13ck/</link>
+      <pubDate>Thu, 28 May 2020 22:32:24 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/r_e_e13ck/</guid>
+      <description>&amp;emsp;&amp;emsp;合并txt文件有很多种方法，如果文件数目不多手动复制也不是不可，但是文件多的时候就显得有点力不从心了；有的时候不光如</description>
+    </item>
+    
+  </channel>
+</rss>

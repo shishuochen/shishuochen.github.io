@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+<meta name="google-site-verification" content="PgRvRggX4FPNmBfLmc_IBoedK_gPlyCB_p49I3DfNSA" />
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="ANY_ME">
+    <meta name="description" content="shishuoCh的个人博客">
+    
+    <meta name="google-site-verification" content=" " />
+    <link rel="prev" href="https://shishuochen.github.io/2021/essp_skj2/" />
+    <link rel="next" href="https://shishuochen.github.io/2021/5hy3l2plc/" />
+    <link rel="canonical" href="https://shishuochen.github.io/2021/i-v08kuvx/" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+        
+        
+            DTI数据处理流程概述(FA、TBSS) | shishuoCh&#39;s Blog
+        
+    </title>
+    <meta name="title" content="DTI数据处理流程概述(FA、TBSS) | shishuoCh&#39;s Blog">
+    
+<link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/shishuochen.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "DTI数据处理流程概述(FA、TBSS)",
+    "headline" : "DTI数据处理流程概述(FA、TBSS)",
+    "description" : "扩散加权磁共振成像（DWI或DW-MRI）是使用特定的MRI序列以及从所得数据生成图像的软件，该软件使用水分子的扩散在MR图像中产生对比度。",
+    "inLanguage" : "zh-cn",
+    "author" : "ANY_ME",
+    "creator" : "ANY_ME",
+    "publisher": "ANY_ME",
+    "accountablePerson" : "ANY_ME",
+    "copyrightHolder" : "ANY_ME",
+    "copyrightYear" : "2021",
+    "datePublished": "2021-03-09 19:49:57 \u002b0800 CST",
+    "dateModified" : "2021-03-09 19:49:57 \u002b0800 CST",
+    "url" : "https:\/\/shishuochen.github.io\/2021\/i-v08kuvx\/",
+    "wordCount" : "1942",
+    "keywords" : [ "DTI数据处理", "shishuoCh\u0027s Blog"]
+}
+</script>
+
+	<link rel="stylesheet" href=
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
+</link>
+    
+    <script src="https://kit.fontawesome.com/fb6088b71c.js" crossorigin="anonymous"></script>
+	
+
+  </head>
+    <body class="">
+        <div class="wrapper">
+            <nav class="navbar">
+    
+        <progress class="content_progress" max="0" value="0"></progress>
+    
+    <div class="container">
+        
+            <div class="navbar-header header-back2home-logo">
+                <span class="logo_mark" >>$</span>
+                <a href="https://shishuochen.github.io">
+                    <span class="logo_text" >cd /home/</span>
+                    <span class="logo_cursor" ></span>
+                </a>
+            </div>
+        
+        <div class="navbar-right">
+                
+                <span class="menu">
+                
+                <a class="menu-item" href="/posts/" title="">📖Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">📁Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">🎨Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">💬About</a>
+                
+                <a class="menu-item" href="/about/" title="">ANY_ME</a>
+                
+                <span class="divide"></span>
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-dark-mode"></i></a>
+                </span>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display:none">
+    
+        <progress class="content_progress" max="0" value="0"></progress>
+    
+     <div class="container">
+        <div class="navbar">
+            <div class="navbar-header header-logo">
+                    <a href="https://shishuochen.github.io">shishuoCh&#39;s Blog</a>
+            </div>
+            <div class="navbar-right">
+                <div><a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-dark-mode"></i></a></div>
+                <div class="menu-toggle">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                <nav class="mb-md">
+                    
+                    
+                        <a class="menu-item" href="/posts/" title="" white-space="nowrap">
+						<nobr>📖Blog</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/categories/" title="" white-space="nowrap">
+						<nobr>📁Categories</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/tags/" title="" white-space="nowrap">
+						<nobr>🎨Tags</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/about/" title="" white-space="nowrap">
+						<nobr>💬About</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/about/" title="" white-space="nowrap">
+						<nobr>ANY_ME</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                </nav>
+        </div>
+    </div>
+</nav>
+            <main class="main">
+                <div class="container">
+                    
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">DTI数据处理流程概述(FA、TBSS)</h1>
+        <div class="post-meta">
+                <i class="fas fa-user-circle"></i> <a itemprop="name" href="https://shishuochen.github.io" rel="author">ANY_ME</a> 
+				&thinsp;$\bm\vert$&thinsp; 
+				<i class="far fa-calendar-check "></i>
+				发布:2021-03-09
+				
+                </span>
+                
+				&thinsp;$\bm\vert$&thinsp; 
+				
+				
+				<i class="fas fa-history"></i> 更新:2021-03-30
+				
+                
+				&thinsp;$\bm\vert$&thinsp; 
+                
+                <i class="far fa-folder-open "></i>
+                <span class="post-category">
+                        
+                        
+                        
+                          <a href="https://shishuochen.github.io/categories/%E7%A3%81%E5%85%B1%E6%8C%AF%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> 磁共振数据分析学习笔记</a>
+                        
+                        
+                </span>
+				
+				&thinsp;$\bm\vert$&thinsp; 
+				<i class="fas fa-file-word "></i>
+                <span class="post-word-count">1942字</span>
+				
+				&thinsp;$\bm\vert$&thinsp;   
+				<i class="fas fa-coffee "></i>
+				
+                <span class="post-word-count">6分钟</span>
+				
+        </div>
+    </header>
+	  
+     
+          <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title"></h2>
+  
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#1-fa数据的三维统计分析">1. FA数据的三维统计分析</a></li>
+<li><a href="#2-fa参数的计算">2. FA参数的计算</a>
+<ul>
+<li><a href="#定义">定义</a></li>
+<li><a href="#fsl预处理计算fa">FSL预处理计算FA</a></li>
+</ul></li>
+<li><a href="#3-tbss处理">3. TBSS处理</a>
+<ul>
+<li><a href="#运行tbss步骤">运行TBSS步骤</a></li>
+<li><a href="#骨架化fa数据的体素统计">骨架化FA数据的体素统计</a></li>
+<li><a href="#非fa图像的统计">非FA图像的统计</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+<script type="text/javascript">
+  window.onload = function () {
+    var fix = $('.post-toc');
+    var end = $('.post-comment');
+    var fixTop = fix.offset().top, fixHeight = fix.height();
+    var endTop, miss;
+    var offsetTop = fix[0].offsetTop;
+    $(window).scroll(function () {
+      var docTop = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
+      if (end.length > 0) {
+        endTop = end.offset().top;
+        miss = endTop - docTop - fixHeight;
+      }
+      if (fixTop < docTop) {
+        fix.css({ 'position': 'fixed' });
+        if ((end.length > 0) && (endTop < (docTop + fixHeight))) {
+          fix.css({ top: miss });
+        } else {
+          fix.css({ top: 0 });
+        }
+      } else {
+        fix.css({ 'position': 'absolute' });
+        fix.css({ top: offsetTop });
+      }
+    })
+  }
+</script> 
+	
+    <div class="post-content">
+        
+        
+        
+            
+        
+
+        
+        
+        
+        
+        
+
+        
+        
+        
+
+        
+
+<p><i class="fab fa-wikipedia-w fa-2x fa-pull-left"></i><i class="fas fa-quote-left fa-1.5x"></i> 扩散加权磁共振成像（DWI或DW-MRI）是使用特定的MRI序列以及从所得数据生成图像的软件，该软件使用水分子的扩散在MR图像中产生对比度。组织中的分子扩散不是自由的，而是反映了与许多障碍物（例如大分子，纤维和膜）的相互作用。因此，水分子扩散模式可以揭示有关正常或处于患病状态的组织结构的微观细节。弥散张量成像（DTI）是一种特殊的DWI，已被广泛用于绘制大脑中的白质束图。 <i class="fas fa-quote-right fa-1.5x"></i></p>
+
+<hr />
+
+<h2 id="1-fa数据的三维统计分析">1. FA数据的三维统计分析</h2>
+
+<p><p>
+<a name="fig1"></a>
+<a data-fancybox="gallery" href="https://z3.ax1x.com/2021/03/30/cFm18U.gif"><img src="https://z3.ax1x.com/2021/03/30/cFm18U.gif" alt="TBSSrot" style="zoom: 70%" align="right" ></a>
+</p>
+使用磁共振扩散成像通过测量白质束中水的各向异性扩散能够提供有关大脑中解剖学连接性的信息。FA数据的三维统计分析是使用FSL的一部分<strong>TBSS（Tract-Based Spatial Statistics,基于空间的空间统计）</strong>进行的<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup>。</p>
+
+<p><strong>首先</strong>，通过拟合张量模型创建FA图像使用FDT提取原始扩散数据，然后使用BET进行脑提取，然后使用非线性配准工具FNIRT将所有受试者的FA数据对齐到一个公共空间中。</p>
+
+<p><strong>接下来</strong>，创建平均FA图像并将其细化以创建一个平均FA骨架，该骨架代表该组共有的所有区域的中心，然后将每个对象的对齐FA数据投影到此图像上骨架，然后将所得数据输入到voxelwise跨主题统计信息中。</p>
+
+<h2 id="2-fa参数的计算">2. FA参数的计算</h2>
+
+<p><strong>分数各向异性</strong>（Fractional Anisotropy，FA）是介于0和1之间的标量值，它描述了扩散过程的各向异性程度。零值表示扩散是各向同性的，即在所有方向上都是不受限制的（或同等受限制的）。值为1表示仅沿一个轴发生扩散，而沿所有其他方向完全限制扩散。</p>
+
+<h3 id="定义">定义</h3>
+
+<p>扩散椭球完全由扩散张量D表示。FA由特征值（$\colorbox{aqua}{$\lambda_1,\lambda_2,\lambda_3$}$）的扩散张量。特征值$\lambda_1$对应的特征向量 $\epsilon_1$给出椭球具有主轴的方向，$\lambda_1$给出该方向上的峰值大小，详细信息见<a href="https://en.wikipedia.org/wiki/Fractional_anisotropy" rel="nofollow noreferrer" target="_blank"><i class="fab fa-wikipedia-w"></i>维基百科</a>。</p>
+
+<p>$$
+FA=\sqrt{\frac{3}{2}}\frac{\sqrt{(\lambda_1-\bar{\lambda})^2+(\lambda_2-\bar{\lambda})^2+(\lambda_3-\bar{\lambda})^2}}{\sqrt{\lambda_1^2+\lambda_2^2+\lambda_3^2}},   \quad\bar\lambda=(\lambda_1+\lambda_2+\lambda_3)/3
+$$</p>
+
+<h3 id="fsl预处理计算fa">FSL预处理计算FA</h3>
+
+<p>首先确保你的数据已经转换为<strong>nii</strong>格式，常用工具多为<strong>dcm2nii</strong>（跨平台软件）。主要步骤如下（对每个被试图像都要做）：</p>
+
+<p><center>
+<a name="fig1"></a>
+<a data-fancybox="gallery" href="https://fsl.fmrib.ox.ac.uk/fslcourse/2019_Beijing/images/fsl_logo.png"><img src="https://fsl.fmrib.ox.ac.uk/fslcourse/2019_Beijing/images/fsl_logo.png" alt="fsl_logo" style="zoom: 80%" align="right" ></a>
+</center></p>
+
+<ol>
+<li><p><strong>提取b0像</strong></p>
+
+<p><strong><code>fslroi sub*  nodif 0 1</code></strong>（输入文件为sub*）</p></li>
+
+<li><p><strong>涡流校正</strong></p>
+
+<p><strong><code>eddy_correct sub* data.nii.gz 0</code></strong>(输出文件：data.nii.gz)</p></li>
+
+<li><p><strong>创建大脑面具</strong></p>
+
+<p><strong><code>bet nodif.nii.gz nodif_brain.nii.gz -f 0.2 -g 0 -m</code></strong>(输出文件：nodif_brain.nii.gz)</p></li>
+
+<li><p><strong>创建FA图</strong>（输出文件：data_FA.nii.gz）</p>
+
+<p><strong><code>dtifit -k data.nii.gz -o data -m nodif_brain_mask.nii.gz -r bvec -b bval --save_tensor</code></strong></p></li>
+
+<li><p><strong>计算其他参数L1、L2、L3(可选)</strong></p>
+
+<p><strong><code>fslmaths data_L2.nii.gz -add data_L3.nii.gz -div 2 data_L23m</code></strong></p></li>
+</ol>
+
+<p>处理完的每个被试文件夹下应该包含以下文件，如图所示。</p>
+
+<p><center>
+<a name="fig1"></a>
+<a data-fancybox="gallery" href="https://s3.ax1x.com/2021/03/14/6wzOWd.png"><img src="https://s3.ax1x.com/2021/03/14/6wzOWd.png" alt="fsl_logo" style="zoom: 40%" ></a></p>
+
+<p></center></p>
+
+<h2 id="3-tbss处理">3. TBSS处理</h2>
+
+<p>分数各向异性（FA）是最常从扩散数据中得出的量度之一，它可以<strong>量化局部区域结构的定向强度</strong>。为了定位与发育，退化和疾病相关的大脑变化，许多影像学研究开始在三维像素统计分析中使用FA图像<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup>。<strong>TBSS（基于纤维束的空间统计）</strong>旨在提高多主题扩散成像研究分析的敏感性，客观性和可解释性。</p>
+
+<h3 id="运行tbss步骤">运行TBSS步骤</h3>
+
+<p>首先，创建新的空的目录文件夹并将所有被试的FA图像复制其中（注意更改被试FA名称）。在当前目录下，运行以下代码：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">tbss_1_preproc * .nii.gz
+
+tbss_2_reg -T
+
+tbss_3_postreg -S
+
+tbss_4_prestats 0.2</code></pre></div>
+<p>至此，你将得到包含（投影的）骨架化FA数据的4D图像文件（all_FA_skeletonised.nii.gz，在<code>./stats</code>文件夹下）。关于此部分的具体细节可见<a href="https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/TBSS/UserGuide" rel="nofollow noreferrer" target="_blank">官网TBSS手册</a>。</p>
+
+<p><center>
+<a name="fig1"></a>
+<a data-fancybox="gallery" href="https://s3.ax1x.com/2021/03/14/6wzLJH.png"><img src="https://s3.ax1x.com/2021/03/14/6wzLJH.png" alt="fsl_logo" style="zoom: 48%"></a>
+</center></p>
+
+<h3 id="骨架化fa数据的体素统计">骨架化FA数据的体素统计</h3>
+
+<p>有了骨架化FA数据的4D图像文件，就可以进行统计分析（在<code>./stats/</code>路径下操作）。例如，可以探究两组被试之间哪些FA骨架体素显着不同等等。该过程主要包括两个方面：</p>
+
+<ol>
+<li><strong>设计矩阵文件（命令行或者GUI）</strong>
+
+<ul>
+<li>简单的双样本T检验可以用<code>design_ttest2</code>命令</li>
+<li>复杂一点就用GUI：命令行<code>fsl</code>$\to$<code>Misc</code>按钮，具体设计细节根据任务确定，详见<a href="https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FEAT/UserGuide" rel="nofollow noreferrer" target="_blank">手册</a></li>
+<li>设计完成后会生成<code>design.mat</code>及<code>desigan.con</code>文件</li>
+</ul></li>
+<li><strong>使用randomise工具进行体素统计和推断</strong>
+
+<ul>
+<li><code>randomise -i all_FA_skeletonised -o tbss -m mean_FA_skeleton_mask -d design.mat -t design.con -n 500 --T2</code></li>
+<li>原始（无阈值，即未经过校正的）tstat图像分别是<code>tbss_tstat1</code>和<code>tbss_tstat2</code>，经过充分校正的文件为分别为<code>tbss_tfce_corrp_tstat1</code>和<code>tbss_tfce_corrp_tstat2</code></li>
+<li><code>cluster</code>命令查看显著性核团： <code>cluster -i tbss_tfce_corrp_tstat1.nii.gz -t 0.95 --mm</code>($p\lt 0.05$)，也可以将结果重定向输出到文件</li>
+</ul></li>
+</ol>
+
+<p>可用如下命令查看统计结果：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 未校正的统计结果</span>
+fslview $FSLDIR/data/standard/MNI152_T1_1mm mean_FA_skeleton -l Green -b 0.2,0.8 tbss_tstat1 -l Red-Yellow -b 3,6 tbss_tstat2 -l Blue-Lightblue -b 3,6
+
+<span style="color:#75715e"># 校正后的统计结果</span>
+fslview $FSLDIR/data/standard/MNI152_T1_1mm mean_FA_skeleton -l Green -b 0.2,0.8 tbss_tfce_corrp_tstat1 -l Red-Yellow -b 3,6 tbss_tfce_corrp_tstat2 -l Blue-Lightblue -b 3,6</code></pre></div>
+<h3 id="非fa图像的统计">非FA图像的统计</h3>
+
+<p>对于非FA图像的统计其实也很简单，某种程度上来说和FA的一样。你只需要将非FA图像的名称（例如MD等）更改为FA，重复FA数据的统计过程即可。详细说明见<a href="https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/TBSS/UserGuide#Using_non-FA_Images_in_TBSS" rel="nofollow noreferrer" target="_blank">手册</a></p>
+
+<p><center></p>
+
+<p>$\cdots$ <strong>end</strong> $\cdots$</p>
+
+<p></center></p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1">源自：<a href="https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/TBSS" rel="nofollow noreferrer" target="_blank">https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/TBSS</a>
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+    </div>
+
+    <div class="post-copyright">
+            
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>ANY_ME </span>
+                </p>
+            
+
+            
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://shishuochen.github.io/2021/i-v08kuvx/>https://shishuochen.github.io/2021/i-v08kuvx/</span>
+            </p>
+            
+            
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://shishuochen.github.io/tags/dti%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/">
+                    #DTI数据处理</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> ·
+                <span><a href="https://shishuochen.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://shishuochen.github.io/2021/essp_skj2/" class="prev" rel="prev" title="双系统Ubuntu分区扩容"><i class="fas fa-caret-left"></i>&nbsp;双系统Ubuntu分区扩容</a>
+        
+        
+        <a href="https://shishuochen.github.io/2021/5hy3l2plc/" class="next" rel="next" title="MRI数据分析常用软件合集">MRI数据分析常用软件合集&nbsp;<i class="fas fas fa-caret-right"></i></a>
+        
+    </div>
+	
+    <div class="post-comment">
+        
+            
+                <p></p>
+<br>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
+<div id="vcomments" style="padding: 10px 0px 0px 0px"></div>
+<style>
+  .v .veditor {
+    min-height: 10rem;
+    background-image: url('<%= site.customConfig.valineimage %>');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+    background-color: rgba(255, 255, 255, 0);
+    resize: none;
+  }
+
+  .v .vwrap {
+    border: 1px solid #000 !important;
+  }
+
+  .v .vbtn {
+    padding: .4rem 1.2rem !important;
+    border-color: #fff !important;
+    background-color: #49b1f5 !important;
+    color: #fff !important;
+    font-size: .7rem !important;
+  }
+
+  .v .vcards .vcard .vh .vmeta .vat {
+    padding: 0 .8rem !important;
+    border: 1px solid #00c4b6 !important;
+    border-radius: 5px !important;
+    color: #00c4b6 !important;
+  }
+</style>
+<script>
+  new Valine({
+        el: '#vcomments' ,
+        appId: 'WfSBqbaIFwwLUytPuTLtMKu9-MdYXbMMI',
+        appKey: 'ELF39FBTTfSuVVLOHMM4uqWf',
+        notify:  true ,
+        verify:  true , 
+        avatar:'mm', 
+		enableQQ: true,
+        placeholder: '【在昵称处填写企鹅号会自动拉取昵称、头像和邮箱，这样你就可以通过邮箱收到留言回复了，因此请检查自己的输入的企鹅号是否正确，方便自己的同时也避免给他人带来不便，Thanks♪(･ω･)ﾉ】',
+        visitor:  true 
+  });
+</script>
+
+            
+        
+    </div>
+</article>
+                </div>
+            </main>
+            
+<div class="footer-box">
+<footer class="footer">
+   <div class="copyright">
+      &copy;
+      
+      <span itemprop="copyrightYear">2019 - 2021</span>
+      
+      <span class="with-love">
+         <i class="fas fa-heart"></i>
+      </span>
+      
+      <span class="author" itemprop="copyrightHolder"><a href="https://shishuochen.github.io">ANY_ME</a> |
+      </span>
+      
+      
+	  <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+      <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a
+            href="https://github.com/Mogeko/Mogege" target="_blank" rel="external nofollow">Mogege</a></span>
+</footer>
+
+      <div class="back-to-top" id="back_to_top">
+         
+         <span><i class="fas fa-arrow-up"></i></span>
+         
+         <span class="scrollpercent">
+            <span id="back_to_top_text">0</span>%
+         </span>
+      </div>
+</div>
+<script>
+
+   let sideBarOpen = 'sidebar-open';
+   let body = document.body;
+   let back2Top = document.querySelector('#back_to_top'),
+      back2TopText = document.querySelector('#back_to_top_text'),
+      drawerBox = document.querySelector('#drawer_box'),
+      rightSideBar = document.querySelector('.sidebar'),
+      viewport = document.querySelector('body');
+
+   function scrollAnimation(currentY, targetY) {
+
+      let needScrollTop = targetY - currentY
+      let _currentY = currentY
+      setTimeout(() => {
+         const dist = Math.ceil(needScrollTop / 10)
+         _currentY += dist
+         window.scrollTo(_currentY, currentY)
+         if (needScrollTop > 10 || needScrollTop < -10) {
+            scrollAnimation(_currentY, targetY)
+         } else {
+            window.scrollTo(_currentY, targetY)
+         }
+      }, 1)
+   }
+
+   back2Top.addEventListener("click", function (e) {
+      scrollAnimation(document.scrollingElement.scrollTop, 0);
+      e.stopPropagation();
+      return false;
+   });
+
+   window.addEventListener('scroll', function (e) {
+      let percent = document.scrollingElement.scrollTop / (document.scrollingElement.scrollHeight - document.scrollingElement.clientHeight) * 100;
+      if (percent > 1 && !back2Top.classList.contains('back-top-active')) {
+         back2Top.classList.add('back-top-active');
+      }
+      if (percent == 0) {
+         back2Top.classList.remove('back-top-active');
+      }
+      if (back2TopText) {
+         back2TopText.textContent = Math.floor(percent);
+      }
+   });
+</script>
+
+
+
+
+
+
+<script defer src="/js/vendor_main.min.js"></script>
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/love.min.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha256-V8SV2MO1FUb63Bwht5Wx9x6PVHNa02gv8BgH/uH3ung=" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha256-F/Xda58SPdcUCr+xhSGz9MA2zQBPb0ASEYKohl8UCHc=" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha256-90d2pnfw0r4K8CZAWPko4rpFXQsZvJhTBGYNkipDprI=" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+           delimiters: [
+     {left: "$$", right: "$$", display: true},
+     {left: "$", right: "$", display: false},
+   ],
+        });
+    });
+</script>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script> pangu.spacingPage();</script>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+        </div>
+    </body>
+</html>

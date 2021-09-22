@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>linux on shishuoCh&#39;s Blog</title>
+    <link>https://shishuochen.github.io/tags/linux/</link>
+    <description>Recent content in linux on shishuoCh&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 26 Feb 2021 11:16:42 +0800</lastBuildDate>
+    
+	<atom:link href="https://shishuochen.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>双系统Ubuntu分区扩容</title>
+      <link>https://shishuochen.github.io/2021/essp_skj2/</link>
+      <pubDate>Fri, 26 Feb 2021 11:16:42 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2021/essp_skj2/</guid>
+      <description>新年第一记，空间不足是常有的事，特在此记录下以备下次之需。本文最大缺点就是未能图文并茂，称不上一篇好的教程，可能不如图片来的直接，可以结合网</description>
+    </item>
+    
+    <item>
+      <title>用来了解Linux“命令”的命令</title>
+      <link>https://shishuochen.github.io/2020/nlj2i4e77/</link>
+      <pubDate>Thu, 17 Sep 2020 20:44:00 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/nlj2i4e77/</guid>
+      <description>命令千千万，遇到不熟悉的命令怎么办？Google search？其实可以本地help的！当然还有很多的操作…… 1. Command Lists Command Meaning type Indicate how a command name is interpreted which Display which</description>
+    </item>
+    
+    <item>
+      <title>操纵文件和目录（Linux）</title>
+      <link>https://shishuochen.github.io/2020/ihretxvwf/</link>
+      <pubDate>Thu, 03 Sep 2020 21:28:58 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/ihretxvwf/</guid>
+      <description>1. 前言 本文主要介绍以下几个常用的操纵文件和目录（本质上是对文件或目录命名的处理）的命令（同样是见名知意）： Command Meaning cp Copy files and directories mv Move/rename files and directories mkdir Create directories rm Remove</description>
+    </item>
+    
+    <item>
+      <title>遍历目录及Linux文件系统</title>
+      <link>https://shishuochen.github.io/2020/2xawn806p/</link>
+      <pubDate>Sun, 30 Aug 2020 20:43:49 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/2xawn806p/</guid>
+      <description>1. 前言 本文主要讲述遍历目录用到的一些shell命令和Linux文件系统，以及其他小的知识点。主要命令（大多数都是见名知意的）列举如下： Command Meaning pwd</description>
+    </item>
+    
+  </channel>
+</rss>

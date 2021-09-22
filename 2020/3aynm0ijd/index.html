@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+<meta name="google-site-verification" content="PgRvRggX4FPNmBfLmc_IBoedK_gPlyCB_p49I3DfNSA" />
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="ANY_ME">
+    <meta name="description" content="shishuoCh的个人博客">
+    
+    <meta name="google-site-verification" content=" " />
+    <link rel="prev" href="https://shishuochen.github.io/2020/msdlyc-zj/" />
+    <link rel="next" href="https://shishuochen.github.io/2020/ejq1xavt/" />
+    <link rel="canonical" href="https://shishuochen.github.io/2020/3aynm0ijd/" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+        
+        
+            栈实现简单计算器 | shishuoCh&#39;s Blog
+        
+    </title>
+    <meta name="title" content="栈实现简单计算器 | shishuoCh&#39;s Blog">
+    
+<link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/shishuochen.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "栈实现简单计算器",
+    "headline" : "栈实现简单计算器",
+    "description" : "\u0026emsp;\u0026emsp;本文主要写如何用栈结构来实现简单的计算器 ，主要包括四则运算，并且在此基础上添加括号、乘方等，示例如下： $$-3.63\\times (36.9\u002b26.2)^{5}-5.3*(-2)\\div 3.6^{2}.$$ 下面说说",
+    "inLanguage" : "zh-cn",
+    "author" : "ANY_ME",
+    "creator" : "ANY_ME",
+    "publisher": "ANY_ME",
+    "accountablePerson" : "ANY_ME",
+    "copyrightHolder" : "ANY_ME",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-04-11 11:19:21 \u002b0000 UTC",
+    "dateModified" : "2020-04-11 11:19:21 \u002b0000 UTC",
+    "url" : "https:\/\/shishuochen.github.io\/2020\/3aynm0ijd\/",
+    "wordCount" : "2568",
+    "keywords" : [ "记录","C\u002b\u002b", "shishuoCh\u0027s Blog"]
+}
+</script>
+
+	<link rel="stylesheet" href=
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
+</link>
+    
+    <script src="https://kit.fontawesome.com/fb6088b71c.js" crossorigin="anonymous"></script>
+	
+
+  </head>
+    <body class="">
+        <div class="wrapper">
+            <nav class="navbar">
+    
+        <progress class="content_progress" max="0" value="0"></progress>
+    
+    <div class="container">
+        
+            <div class="navbar-header header-back2home-logo">
+                <span class="logo_mark" >>$</span>
+                <a href="https://shishuochen.github.io">
+                    <span class="logo_text" >cd /home/</span>
+                    <span class="logo_cursor" ></span>
+                </a>
+            </div>
+        
+        <div class="navbar-right">
+                
+                <span class="menu">
+                
+                <a class="menu-item" href="/posts/" title="">📖Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">📁Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">🎨Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">💬About</a>
+                
+                <a class="menu-item" href="/about/" title="">ANY_ME</a>
+                
+                <span class="divide"></span>
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-dark-mode"></i></a>
+                </span>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display:none">
+    
+        <progress class="content_progress" max="0" value="0"></progress>
+    
+     <div class="container">
+        <div class="navbar">
+            <div class="navbar-header header-logo">
+                    <a href="https://shishuochen.github.io">shishuoCh&#39;s Blog</a>
+            </div>
+            <div class="navbar-right">
+                <div><a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-dark-mode"></i></a></div>
+                <div class="menu-toggle">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                <nav class="mb-md">
+                    
+                    
+                        <a class="menu-item" href="/posts/" title="" white-space="nowrap">
+						<nobr>📖Blog</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/categories/" title="" white-space="nowrap">
+						<nobr>📁Categories</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/tags/" title="" white-space="nowrap">
+						<nobr>🎨Tags</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/about/" title="" white-space="nowrap">
+						<nobr>💬About</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/about/" title="" white-space="nowrap">
+						<nobr>ANY_ME</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                </nav>
+        </div>
+    </div>
+</nav>
+            <main class="main">
+                <div class="container">
+                    
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">栈实现简单计算器</h1>
+        <div class="post-meta">
+                <i class="fas fa-user-circle"></i> <a itemprop="name" href="https://shishuochen.github.io" rel="author">ANY_ME</a> 
+				&thinsp;$\bm\vert$&thinsp; 
+				<i class="far fa-calendar-check "></i>
+				发布:2020-04-11
+				
+                </span>
+                
+				&thinsp;$\bm\vert$&thinsp; 
+				
+				
+				<i class="fas fa-history"></i> 更新:2020-07-30
+				
+                
+				&thinsp;$\bm\vert$&thinsp; 
+                
+                <i class="far fa-folder-open "></i>
+                <span class="post-category">
+                        
+                        
+                        
+                          <a href="https://shishuochen.github.io/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"> 课程笔记</a>
+                        
+                        
+                </span>
+				
+				&thinsp;$\bm\vert$&thinsp; 
+				<i class="fas fa-file-word "></i>
+                <span class="post-word-count">2568字</span>
+				
+				&thinsp;$\bm\vert$&thinsp;   
+				<i class="fas fa-coffee "></i>
+				
+                <span class="post-word-count">8分钟</span>
+				
+        </div>
+    </header>
+	  
+     
+          <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title"></h2>
+  
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#1-内容概述">1. 内容概述</a></li>
+<li><a href="#2-软件设计">2. 软件设计</a>
+<ul>
+<li><a href="#2-1-操作数栈结点的数据结构设计">2.1  操作数栈结点的数据结构设计</a></li>
+<li><a href="#2-2-运算符结点的数据结构设计">2.2 运算符结点的数据结构设计</a></li>
+<li><a href="#2-3-检查函数的设计">2.3 检查函数的设计</a></li>
+<li><a href="#2-4-四则混合运算函数的实现-主体">2.4  四则混合运算函数的实现 (主体)</a></li>
+</ul></li>
+<li><a href="#3-计算示例">3. 计算示例</a>
+<ul>
+<li><a href="#3-1-输入表达式有效时运算结果示例">3.1  输入表达式有效时运算结果示例</a></li>
+<li><a href="#3-2-输入表达式无效时运算结果示例-返回特殊值-3-141592">3.2 输入表达式无效时运算结果示例（返回特殊值：3.141592）</a></li>
+</ul></li>
+<li><a href="#4-软件分析">4 软件分析</a>
+<ul>
+<li><a href="#4-1-性能分析">4.1  性能分析</a></li>
+<li><a href="#4-2-优缺点">4.2 优缺点</a></li>
+</ul></li>
+<li><a href="#5-源代码">5 源代码</a></li>
+</ul>
+</nav>
+  </div>
+</div>
+<script type="text/javascript">
+  window.onload = function () {
+    var fix = $('.post-toc');
+    var end = $('.post-comment');
+    var fixTop = fix.offset().top, fixHeight = fix.height();
+    var endTop, miss;
+    var offsetTop = fix[0].offsetTop;
+    $(window).scroll(function () {
+      var docTop = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
+      if (end.length > 0) {
+        endTop = end.offset().top;
+        miss = endTop - docTop - fixHeight;
+      }
+      if (fixTop < docTop) {
+        fix.css({ 'position': 'fixed' });
+        if ((end.length > 0) && (endTop < (docTop + fixHeight))) {
+          fix.css({ top: miss });
+        } else {
+          fix.css({ top: 0 });
+        }
+      } else {
+        fix.css({ 'position': 'absolute' });
+        fix.css({ top: offsetTop });
+      }
+    })
+  }
+</script> 
+	
+    <div class="post-content">
+        
+        
+        
+            
+        
+
+        
+        
+        
+        
+        
+
+        
+        
+        
+
+        
+
+<p>&emsp;&emsp;本文主要写如何用栈结构来实现简单的计算器 <i class="fas fa-calculator"></i>，主要包括四则运算，并且在此基础上添加括号、乘方等，示例如下：
+$$-3.63\times (36.9+26.2)^{5}-5.3*(-2)\div 3.6^{2}.$$
+下面说说具体如何实现&hellip;&hellip;</p>
+
+<hr />
+
+<h1 id="1-内容概述">1. 内容概述</h1>
+
+<ul>
+<li>设计用于四则混合运算表达式链栈式存储的数据结构（动态内存开辟，节省资源）</li>
+<li>创建不同用途的栈，分别用于储存输入表达式的<strong>操作数</strong>和<strong>运算符</strong></li>
+<li>设计实现<strong>浮点数</strong>的读取与存储（权值法）</li>
+<li>为了让计算器能够应对异常的输入，需要设计检查输入的表达式的有效性</li>
+<li>最后，给出几个测试示例</li>
+</ul>
+
+<h1 id="2-软件设计">2. 软件设计</h1>
+
+<h2 id="2-1-操作数栈结点的数据结构设计">2.1  操作数栈结点的数据结构设计</h2>
+
+<p>&emsp;&emsp;由于是链栈式设计，因此一个操作数结点应包含两个部分：信息域、指针域。其中，信息域用一个浮点型数组来存储操作数，指针域则为指向操作数结点的类型指针。如图 <a href="#fig1">1</a> 所示。
+<center>
+<a name="fig1"></a>
+<a data-fancybox="gallery" href="https://s1.ax1x.com/2020/06/09/t4gcdK.png"><img src="https://s1.ax1x.com/2020/06/09/t4gcdK.png" alt="t4gcdK.png" style="zoom: 65%" ></a>
+图 1：操作数结点示意图
+</center></p>
+
+<p>&emsp;&emsp;对于信息域的浮点型数组，操作数的存储可以使用权值表示法。数组的前半部分用来存储操作数的整数部分，后半部分用来存储操作数的小数部分。例如数组$a[6]={a_0,a_1,a_2,a_3,a_4,a_5}$，则该数组存储的操作数实际上是
+<a name="eq1"></a>
+$$
+\begin{aligned}
+ value=10^2*a_0+10^1*a_1+10^0*a_2+10^{-1}*a_3+10^{-2}*a_4+10^{-3}*a_5.\tag{1}
+ \end{aligned}
+$$</p>
+
+<h2 id="2-2-运算符结点的数据结构设计">2.2 运算符结点的数据结构设计</h2>
+
+<p>&emsp;&emsp;同样的，运算符结点也包含两部分：信息域、指针域。信息域用字符型数据存
+储运算符。指针域为指向运算符结点的类型指针。如图 <a href="#fig2">2</a> 所示。
+<center>
+<a name="fig2"></a>
+<a data-fancybox="gallery" href="https://s1.ax1x.com/2020/06/09/t4gsqx.png"><img src="https://s1.ax1x.com/2020/06/09/t4gsqx.png" alt="t4gcdK.png" style="zoom: 65%" ></a>
+图 2：运算符结点示意图
+</center></p>
+
+<h2 id="2-3-检查函数的设计">2.3 检查函数的设计</h2>
+
+<p>&emsp;&emsp;检查函数主要是检查字符串表达式是否有效，但其检查能力有一定的局限性，该函数的设计有以下几点：
+- 该函数对于表达式中连续出现运算符“+”，不认为该表达式无效，而是将其等同为一个“+”；但是对于连续出现运算符“-”则没有相应的操作，认为该表达式无效。
+- 该函数可以检查括号是否匹配，括号不匹配包括以下3点：
+    - 左括号比右括号数目多
+    - 右括号比左括号数目多
+    - 左右括号数目相等，但括号内为空
+- 于出现四则混合运算符“+、-、*、/”任意两个运算符组合的情况则认为该表达式无效（除了加法运算符连续出现）。</p>
+
+<h2 id="2-4-四则混合运算函数的实现-主体">2.4  四则混合运算函数的实现 (主体)</h2>
+
+<p>&emsp;&emsp;四则混合运算函数主要包括操作数的读取存储并进行入栈、出栈，运算符的入栈、出栈等操作。</p>
+
+<ol>
+<li><strong>操作数的读取与入栈</strong>
+操作数的读取流程如图 <a href="#fig3">3</a> 所示。图中 $s$ 为四则混合运算表达式的字符串，其中读取数字到数组具体过程略去。</li>
+</ol>
+
+<p><center>
+   <a name="fig3"></a></p>
+
+<p><a data-fancybox="gallery" href="https://s1.ax1x.com/2020/06/09/t4g6Z6.png"><img src="https://s1.ax1x.com/2020/06/09/t4g6Z6.png" alt="t4gcdK.png" style="zoom: 50%" ></a>
+   图 3： 操作数读取流程示意图
+</center>
+2. <strong>操作数结点的出栈</strong>
+   操作数结点出栈时应根据数组的长度及类似式 (<a href="#eq1">1</a>) 确定该数组所代表的操作数。定义数组长度为偶数，则$d[m]$对应的操作数为
+   $$value=10^{\frac{m}{2}-1}*d[0]+\cdots+10^{0}*d[\frac{m}{2}-1]+10^{-1}*d[\frac{m}{2}]+\cdots+10^{\frac{m}{2}}*d[m-1].$$
+3.  <strong>四则混合运算函数 <code>double cal(string s)</code></strong></p>
+
+<ul>
+<li><p>计算表达式主要有以下几个思路：</p>
+
+<ul>
+<li>先检查字符串表达式是否有效；</li>
+<li>字符为运算符，则直接入运算符栈；</li>
+<li>操作数进栈后再进行判断是否可以进行计算；</li>
+<li>加减法不计算，尽管它可以计算（即其后没有更高优先级的运算符）；</li>
+<li>对于乘除法，能进行计算的就计算。这包括其后最近的运算符不是括号，也不是乘方运算符等情况（在图 <a href="#fig4">4</a> 中简述为运算）</li>
+<li>进行乘方运算后，若其后最近的运算符不是括号，也不是乘方等运算符；则应考虑其之前的运算符是否有乘除法以进行乘除法运算（在图 <a href="#fig4">4</a> 中简述为运算）；</li>
+<li>对于括号，遇到左括号则入栈，当遇到右括号时进行去括号，前述的几点可以保证括号内只有加减运算；去括号的过程中，遇到左括号则该过程结束；结束后应考虑同乘方运算后相类似的情况（在图 <a href="#fig4">4</a> 中简述为运算）；</li>
+
+<li><p>最终，操作数栈的栈顶元素就是该表达式的计算结果。</p></li>
+
+<li><p>其他几个特殊的点</p>
+
+<ul>
+<li>在表达式检查完毕后，若表达式有效则将输入参数字符串$s$加上左右括号，这一点主要是为了计算方便。因为在计算过程中，加减法是先不进行计算的，所有优先级更高的如乘、除及乘方计算完成之后再进行加减法计算。加上括号后，在去最外层括号时这些加减法将被计算。</li>
+<li>在进行读取操作数或者运算符进栈之前，先将数字0进操作数栈。这一点主要是考虑输入的运算表达式的第一个为运算符“-”或“+”。</li>
+<li>为了应对表达式中出现括号内仅有一个负数或带有符号的正数等情况，例如“（-3）、（+4）”，因此在运算符“（”进栈且其下一个字符为“+”或“-”时，先将数字0进操作数栈。</li>
+</ul></li>
+</ul></li>
+
+<li><p>四则混合运算函数<code>double cal(string s)</code> 主要实现流程如图 <a href="#fig4">4</a> 所示</p></li>
+</ul>
+
+<p><center>
+<a name="fig4"></a></p>
+
+<p><a data-fancybox="gallery" href="https://s1.ax1x.com/2020/06/09/t4ggIO.png"><img src="https://s1.ax1x.com/2020/06/09/t4ggIO.png" alt="t4ggIO.png" border="0" /></a></p>
+
+<p>图 4：四则混合运算函数 cal 过程示意图</p>
+
+<p></center></p>
+
+<h1 id="3-计算示例">3. 计算示例</h1>
+
+<h2 id="3-1-输入表达式有效时运算结果示例">3.1  输入表达式有效时运算结果示例</h2>
+
+<ul>
+<li><p>首字符为“-”或“+”，以及括号内只有一个数
+<center>
+<a name="fig4"></a>
+<a data-fancybox="gallery" href="https://s1.ax1x.com/2020/06/09/t45LBd.png"><img src="https://s1.ax1x.com/2020/06/09/t45LBd.png" alt="t45LBd.png" border="0" /></a>
+图 5：软件运行示例结果及验证
+</center></p></li>
+
+<li><p>字符串表达式中有连续的加法运算符
+<center>
+<a name="fig4"></a>
+<a data-fancybox="gallery" href="https://s1.ax1x.com/2020/06/09/t45Hje.png" ><img src="https://s1.ax1x.com/2020/06/09/t45Hje.png" alt="t45Hje.png" border="0" /></a>
+图 6： 软件运行示例结果及验证
+</center></p></li>
+
+<li><p>综合示例
+<center>
+<a name="fig4"></a>
+<a data-fancybox="gallery" href= "https://s1.ax1x.com/2020/06/09/t45OHA.png"><img src="https://s1.ax1x.com/2020/06/09/t45OHA.png" alt="t45OHA.png" border="0" /></a>
+图 7：软件运行示例结果及验证
+</center></p></li>
+</ul>
+
+<h2 id="3-2-输入表达式无效时运算结果示例-返回特殊值-3-141592">3.2 输入表达式无效时运算结果示例（返回特殊值：3.141592）</h2>
+
+<ul>
+<li><p>括号不匹配</p>
+
+<ul>
+<li>左括号数目大于右括号、左括号数目小于右括号、左右括号数目相等但括号内为空等 3 种情况。
+<center>
+<a name="fig4"></a>
+<a data-fancybox="gallery" href="https://s1.ax1x.com/2020/06/09/t45jAI.png" ><img src="https://s1.ax1x.com/2020/06/09/t45jAI.png" alt="t45jAI.png" border="0" style="zoom:50%"/></a>
+图 8：输入表达式无效情况示例
+</center></li>
+</ul></li>
+
+<li><p>字符串表达式中有出现四则混合运算符“+、-、*、/”任意两个运算符组合的情况（加法与加法组合除外）
+<center>
+<a name="fig4"></a>
+<a data-fancybox="gallery" href="https://s1.ax1x.com/2020/06/09/t45T1O.png"><img src="https://s1.ax1x.com/2020/06/09/t45T1O.png" alt="t45T1O.png" border="0" style="zoom:50%" /></a>
+图 9：输入表达式无效情况示例
+</center></p></li>
+</ul>
+
+<h1 id="4-软件分析">4 软件分析</h1>
+
+<h2 id="4-1-性能分析">4.1  性能分析</h2>
+
+<ul>
+<li>稳定性
+
+<ul>
+<li>软件的设计是根据不同运算符计算时可能遇到的情况，可能有的情况没有想到，就会导致一系列的问题。但就测试情况看来，软件表现的很好。在处理小数，乘除法以及乘方等方面均未发现问题。四则混合运算函数的设计没有进行模块化，看起来可读性较差，如果再其上添加其他运算符或功能会使软件更加冗长。</li>
+</ul></li>
+<li>内寸资源利用
+
+<ul>
+<li>软件采用链栈式设计，内存动态开辟，节省内存资源。在进行字符串计算之前先入栈的数字 0 如果没有参加运算在计算结束后会删除该结点，释放内存空间。值得一提的是操作数的存储实际上有点浪费内存空间，存在改进的空间，这一点下面也会说到。</li>
+</ul></li>
+<li>处理异常输入的能力
+
+<ul>
+<li>软件设计了检查函数用于检查输入的字符串表达式的有效性。对于一些情况可以进行反馈给用户以改进输入。例如：括号的匹配问题，运算符中间缺少操作数等情况。该检查函数检查有一定的局限性，还有提升的空间，但是难度也不小，因为错误的输入情况远远要多于正确的输入。</li>
+</ul></li>
+</ul>
+
+<h2 id="4-2-优缺点">4.2 优缺点</h2>
+
+<ul>
+<li>满意的地方
+
+<ul>
+<li>小数的问题用权值表示法来解决，用数组来存储该操作数。但是有一点可以改进的是可以不用数组来存储而是直接将该操作数计算出来再进行存储，同时这样可以节省很大部分内存空间。</li>
+<li>处理首字符为“+”或“-”的情况，先将数字 0 进操作数栈。</li>
+</ul></li>
+<li>不满意地方
+
+<ul>
+<li>计算函数 cal 的实现没有模块化，函数体冗长，可读性较差。如果想添加新的运算符或常用函数则会较难。另外软件处理异常输入的能力还有待改进。</li>
+</ul></li>
+</ul>
+
+<h1 id="5-源代码">5 源代码</h1>
+
+    </div>
+
+    <div class="post-copyright">
+            
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>ANY_ME </span>
+                </p>
+            
+
+            
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://shishuochen.github.io/2020/3aynm0ijd/>https://shishuochen.github.io/2020/3aynm0ijd/</span>
+            </p>
+            
+            
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://shishuochen.github.io/tags/%E8%AE%B0%E5%BD%95/">
+                    #记录</a></span>
+            
+            <span class="tag"><a href="https://shishuochen.github.io/tags/c&#43;&#43;/">
+                    #C&#43;&#43;</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> ·
+                <span><a href="https://shishuochen.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://shishuochen.github.io/2020/msdlyc-zj/" class="prev" rel="prev" title="error: invalid operands of types &#39;double&#39; and &#39;int&#39; to binary &#39;operator%&#39;"><i class="fas fa-caret-left"></i>&nbsp;error: invalid operands of types &#39;double&#39; and &#39;int&#39; to binary &#39;operator%&#39;</a>
+        
+        
+        <a href="https://shishuochen.github.io/2020/ejq1xavt/" class="next" rel="next" title="图像插值算法及MATLAB实现">图像插值算法及MATLAB实现&nbsp;<i class="fas fas fa-caret-right"></i></a>
+        
+    </div>
+	
+    <div class="post-comment">
+        
+            
+                <p></p>
+<br>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
+<div id="vcomments" style="padding: 10px 0px 0px 0px"></div>
+<style>
+  .v .veditor {
+    min-height: 10rem;
+    background-image: url('<%= site.customConfig.valineimage %>');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+    background-color: rgba(255, 255, 255, 0);
+    resize: none;
+  }
+
+  .v .vwrap {
+    border: 1px solid #000 !important;
+  }
+
+  .v .vbtn {
+    padding: .4rem 1.2rem !important;
+    border-color: #fff !important;
+    background-color: #49b1f5 !important;
+    color: #fff !important;
+    font-size: .7rem !important;
+  }
+
+  .v .vcards .vcard .vh .vmeta .vat {
+    padding: 0 .8rem !important;
+    border: 1px solid #00c4b6 !important;
+    border-radius: 5px !important;
+    color: #00c4b6 !important;
+  }
+</style>
+<script>
+  new Valine({
+        el: '#vcomments' ,
+        appId: 'WfSBqbaIFwwLUytPuTLtMKu9-MdYXbMMI',
+        appKey: 'ELF39FBTTfSuVVLOHMM4uqWf',
+        notify:  true ,
+        verify:  true , 
+        avatar:'mm', 
+		enableQQ: true,
+        placeholder: '【在昵称处填写企鹅号会自动拉取昵称、头像和邮箱，这样你就可以通过邮箱收到留言回复了，因此请检查自己的输入的企鹅号是否正确，方便自己的同时也避免给他人带来不便，Thanks♪(･ω･)ﾉ】',
+        visitor:  true 
+  });
+</script>
+
+            
+        
+    </div>
+</article>
+                </div>
+            </main>
+            
+<div class="footer-box">
+<footer class="footer">
+   <div class="copyright">
+      &copy;
+      
+      <span itemprop="copyrightYear">2019 - 2021</span>
+      
+      <span class="with-love">
+         <i class="fas fa-heart"></i>
+      </span>
+      
+      <span class="author" itemprop="copyrightHolder"><a href="https://shishuochen.github.io">ANY_ME</a> |
+      </span>
+      
+      
+	  <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+      <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a
+            href="https://github.com/Mogeko/Mogege" target="_blank" rel="external nofollow">Mogege</a></span>
+</footer>
+
+      <div class="back-to-top" id="back_to_top">
+         
+         <span><i class="fas fa-arrow-up"></i></span>
+         
+         <span class="scrollpercent">
+            <span id="back_to_top_text">0</span>%
+         </span>
+      </div>
+</div>
+<script>
+
+   let sideBarOpen = 'sidebar-open';
+   let body = document.body;
+   let back2Top = document.querySelector('#back_to_top'),
+      back2TopText = document.querySelector('#back_to_top_text'),
+      drawerBox = document.querySelector('#drawer_box'),
+      rightSideBar = document.querySelector('.sidebar'),
+      viewport = document.querySelector('body');
+
+   function scrollAnimation(currentY, targetY) {
+
+      let needScrollTop = targetY - currentY
+      let _currentY = currentY
+      setTimeout(() => {
+         const dist = Math.ceil(needScrollTop / 10)
+         _currentY += dist
+         window.scrollTo(_currentY, currentY)
+         if (needScrollTop > 10 || needScrollTop < -10) {
+            scrollAnimation(_currentY, targetY)
+         } else {
+            window.scrollTo(_currentY, targetY)
+         }
+      }, 1)
+   }
+
+   back2Top.addEventListener("click", function (e) {
+      scrollAnimation(document.scrollingElement.scrollTop, 0);
+      e.stopPropagation();
+      return false;
+   });
+
+   window.addEventListener('scroll', function (e) {
+      let percent = document.scrollingElement.scrollTop / (document.scrollingElement.scrollHeight - document.scrollingElement.clientHeight) * 100;
+      if (percent > 1 && !back2Top.classList.contains('back-top-active')) {
+         back2Top.classList.add('back-top-active');
+      }
+      if (percent == 0) {
+         back2Top.classList.remove('back-top-active');
+      }
+      if (back2TopText) {
+         back2TopText.textContent = Math.floor(percent);
+      }
+   });
+</script>
+
+
+
+
+
+
+<script defer src="/js/vendor_main.min.js"></script>
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/love.min.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha256-V8SV2MO1FUb63Bwht5Wx9x6PVHNa02gv8BgH/uH3ung=" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha256-F/Xda58SPdcUCr+xhSGz9MA2zQBPb0ASEYKohl8UCHc=" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha256-90d2pnfw0r4K8CZAWPko4rpFXQsZvJhTBGYNkipDprI=" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+           delimiters: [
+     {left: "$$", right: "$$", display: true},
+     {left: "$", right: "$", display: false},
+   ],
+        });
+    });
+</script>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script> pangu.spacingPage();</script>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+        </div>
+    </body>
+</html>

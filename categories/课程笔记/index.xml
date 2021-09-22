@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>课程笔记 on shishuoCh&#39;s Blog</title>
+    <link>https://shishuochen.github.io/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/</link>
+    <description>Recent content in 课程笔记 on shishuoCh&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 26 Aug 2020 11:17:55 +0800</lastBuildDate>
+    
+	<atom:link href="https://shishuochen.github.io/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>矩阵分解求解线性方程组</title>
+      <link>https://shishuochen.github.io/2020/n0hnjzpmm/</link>
+      <pubDate>Wed, 26 Aug 2020 11:17:55 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/n0hnjzpmm/</guid>
+      <description>题设 &amp;emsp;&amp;emsp;设有如下方程组： $$ \begin{bmatrix} a_{11}&amp;a_{12}&amp;\cdots&amp;a_{1n}\\ a_{21}&amp;a_{22}&amp;\cdots&amp;a_{2n}\\ \vdots&amp;\vdots&amp;\ddots&amp;\vdots\\ a_{21}&amp;a_{22}&amp;\cdots&amp;a_{2n} \end{bmatrix}\begin{bmatrix} x_1\\ x_2\\ \vdots\\ x_n \end{bmatrix}=\begin{bmatrix} b_1\\ b_2\\ \vdots\\ b_n \end{bmatrix} $$ $$ \bm\Darr $$ $$ Ax=b $$ 求解思路 &amp;emsp;&amp;emsp;设$n$阶方阵$</description>
+    </item>
+    
+    <item>
+      <title>FT、DFS、DTFT、DFT</title>
+      <link>https://shishuochen.github.io/2020/wfh7aitk2/</link>
+      <pubDate>Tue, 25 Aug 2020 11:17:31 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/wfh7aitk2/</guid>
+      <description>期末考试结束啦！终于可以有个小空写点东西了，近来复习了随机信号分析和信号系统，对一些东西有了更加深刻的认识，所以本文是自己对于如标题所列的变</description>
+    </item>
+    
+    <item>
+      <title>傅里叶变换相关图谱</title>
+      <link>https://shishuochen.github.io/2020/epbncpk4s/</link>
+      <pubDate>Tue, 04 Aug 2020 16:03:20 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/epbncpk4s/</guid>
+      <description>话不多说一张图 相关文章推荐 FT、DFS、DTFT、DFT 傅里叶变换性质及变换对</description>
+    </item>
+    
+    <item>
+      <title>傅里叶变换的性质及常用变换对</title>
+      <link>https://shishuochen.github.io/2020/b2mbvmz9k/</link>
+      <pubDate>Sat, 25 Jul 2020 21:56:44 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/b2mbvmz9k/</guid>
+      <description>&amp;emsp;&amp;emsp;近来的随机信号分析“预习”过程中，总要用到一些傅里叶变换对，记录在此方便查阅。 1. 傅里叶变换的性质 名称 时域 频域 定义 $f(t)=\frac{1}{2\pi}\int_{-\infty}^{+\infty}F(jw)e^{jwt}dw$ $F(jw)=\int_{-\infty}^{+\infty}f(t)e^{-jwt}dt$</description>
+    </item>
+    
+    <item>
+      <title>基于形态学分析提取木塞个数及木塞直径</title>
+      <link>https://shishuochen.github.io/2020/saplzmgqs/</link>
+      <pubDate>Sun, 17 May 2020 15:44:24 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/saplzmgqs/</guid>
+      <description>&amp;emsp;&amp;emsp;本文主要记录基于形态学分析提取图像中木塞个数及木塞的直径的解决方法。本方法同样适用于其他图像中圆物体的统计计数、标记</description>
+    </item>
+    
+    <item>
+      <title>同态滤波及MATLAB实现</title>
+      <link>https://shishuochen.github.io/2020/fwee4iohn/</link>
+      <pubDate>Thu, 23 Apr 2020 14:25:00 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/fwee4iohn/</guid>
+      <description>&amp;emsp;&amp;emsp;同态滤波(Homomorphic filtering)是一种广泛用于信号和图像处理的技术，将原本的信号经由非线性映射，</description>
+    </item>
+    
+    <item>
+      <title>图像增强算法及MATLAB实现</title>
+      <link>https://shishuochen.github.io/2020/urnq4uiod/</link>
+      <pubDate>Sat, 18 Apr 2020 14:22:07 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/urnq4uiod/</guid>
+      <description>图像增强算法常见于对图像的亮度、对比度、饱和度、色调等进行调节，增加其清晰度，减少噪点等。由于受到环境，光线等的影响，拍摄的照片清晰度和对比</description>
+    </item>
+    
+    <item>
+      <title>图像插值算法及MATLAB实现</title>
+      <link>https://shishuochen.github.io/2020/ejq1xavt/</link>
+      <pubDate>Fri, 17 Apr 2020 14:20:01 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/ejq1xavt/</guid>
+      <description>本文讲述的插值算法包括：最近邻插值、双线性插值及双立方插值。主要针对于二维空间（图像）的放大过程中的插值问题。 1 何为插值 &amp;emsp;&amp;ems</description>
+    </item>
+    
+    <item>
+      <title>栈实现简单计算器</title>
+      <link>https://shishuochen.github.io/2020/3aynm0ijd/</link>
+      <pubDate>Sat, 11 Apr 2020 11:19:21 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/3aynm0ijd/</guid>
+      <description>&amp;emsp;&amp;emsp;本文主要写如何用栈结构来实现简单的计算器 ，主要包括四则运算，并且在此基础上添加括号、乘方等，示例如下： $$-3.63\times (36.9+26.2)^{5}-5.3*(-2)\div 3.6^{2}.$$ 下面说说</description>
+    </item>
+    
+  </channel>
+</rss>

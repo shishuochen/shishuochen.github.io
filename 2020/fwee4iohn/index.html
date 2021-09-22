@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+<meta name="google-site-verification" content="PgRvRggX4FPNmBfLmc_IBoedK_gPlyCB_p49I3DfNSA" />
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="ANY_ME">
+    <meta name="description" content="shishuoCh的个人博客">
+    
+    <meta name="google-site-verification" content=" " />
+    <link rel="prev" href="https://shishuochen.github.io/2020/k0eu-2smz/" />
+    <link rel="next" href="https://shishuochen.github.io/2020/saplzmgqs/" />
+    <link rel="canonical" href="https://shishuochen.github.io/2020/fwee4iohn/" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+        
+        
+            同态滤波及MATLAB实现 | shishuoCh&#39;s Blog
+        
+    </title>
+    <meta name="title" content="同态滤波及MATLAB实现 | shishuoCh&#39;s Blog">
+    
+<link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/shishuochen.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "同态滤波及MATLAB实现",
+    "headline" : "同态滤波及MATLAB实现",
+    "description" : "\u0026emsp;\u0026emsp;同态滤波(Homomorphic filtering)是一种广泛用于信号和图像处理的技术，将原本的信号经由非线性映射，",
+    "inLanguage" : "zh-cn",
+    "author" : "ANY_ME",
+    "creator" : "ANY_ME",
+    "publisher": "ANY_ME",
+    "accountablePerson" : "ANY_ME",
+    "copyrightHolder" : "ANY_ME",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-04-23 14:25:00 \u002b0000 UTC",
+    "dateModified" : "2020-04-23 14:25:00 \u002b0000 UTC",
+    "url" : "https:\/\/shishuochen.github.io\/2020\/fwee4iohn\/",
+    "wordCount" : "744",
+    "keywords" : [ "MATLAB","数字图像处理", "shishuoCh\u0027s Blog"]
+}
+</script>
+
+	<link rel="stylesheet" href=
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
+</link>
+    
+    <script src="https://kit.fontawesome.com/fb6088b71c.js" crossorigin="anonymous"></script>
+	
+
+  </head>
+    <body class="">
+        <div class="wrapper">
+            <nav class="navbar">
+    
+        <progress class="content_progress" max="0" value="0"></progress>
+    
+    <div class="container">
+        
+            <div class="navbar-header header-back2home-logo">
+                <span class="logo_mark" >>$</span>
+                <a href="https://shishuochen.github.io">
+                    <span class="logo_text" >cd /home/</span>
+                    <span class="logo_cursor" ></span>
+                </a>
+            </div>
+        
+        <div class="navbar-right">
+                
+                <span class="menu">
+                
+                <a class="menu-item" href="/posts/" title="">📖Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">📁Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">🎨Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">💬About</a>
+                
+                <a class="menu-item" href="/about/" title="">ANY_ME</a>
+                
+                <span class="divide"></span>
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-dark-mode"></i></a>
+                </span>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display:none">
+    
+        <progress class="content_progress" max="0" value="0"></progress>
+    
+     <div class="container">
+        <div class="navbar">
+            <div class="navbar-header header-logo">
+                    <a href="https://shishuochen.github.io">shishuoCh&#39;s Blog</a>
+            </div>
+            <div class="navbar-right">
+                <div><a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-dark-mode"></i></a></div>
+                <div class="menu-toggle">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                <nav class="mb-md">
+                    
+                    
+                        <a class="menu-item" href="/posts/" title="" white-space="nowrap">
+						<nobr>📖Blog</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/categories/" title="" white-space="nowrap">
+						<nobr>📁Categories</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/tags/" title="" white-space="nowrap">
+						<nobr>🎨Tags</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/about/" title="" white-space="nowrap">
+						<nobr>💬About</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/about/" title="" white-space="nowrap">
+						<nobr>ANY_ME</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                </nav>
+        </div>
+    </div>
+</nav>
+            <main class="main">
+                <div class="container">
+                    
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">同态滤波及MATLAB实现</h1>
+        <div class="post-meta">
+                <i class="fas fa-user-circle"></i> <a itemprop="name" href="https://shishuochen.github.io" rel="author">ANY_ME</a> 
+				&thinsp;$\bm\vert$&thinsp; 
+				<i class="far fa-calendar-check "></i>
+				发布:2020-04-23
+				
+                </span>
+                
+				&thinsp;$\bm\vert$&thinsp; 
+				
+				
+				<i class="fas fa-history"></i> 更新:2020-07-05
+				
+                
+				&thinsp;$\bm\vert$&thinsp; 
+                
+                <i class="far fa-folder-open "></i>
+                <span class="post-category">
+                        
+                        
+                        
+                          <a href="https://shishuochen.github.io/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"> 课程笔记</a>
+                        
+                        
+                        
+                        
+                          <a href="https://shishuochen.github.io/categories/%E4%B8%8Ematlab%E6%9C%89%E7%82%B9%E5%85%B3%E7%B3%BB/"> 与MATLAB有点关系</a>
+                        
+                        
+                </span>
+				
+				&thinsp;$\bm\vert$&thinsp; 
+				<i class="fas fa-file-word "></i>
+                <span class="post-word-count">744字</span>
+				
+				&thinsp;$\bm\vert$&thinsp;   
+				<i class="fas fa-coffee "></i>
+				
+                <span class="post-word-count">2分钟</span>
+				
+        </div>
+    </header>
+	  
+     
+          <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title"></h2>
+  
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#homomorphic-filtering">Homomorphic filtering</a></li>
+<li><a href="#基本步骤">基本步骤</a></li>
+<li><a href="#matlab实现">MATLAB实现</a></li>
+<li><a href="#reference">Reference</a></li>
+</ul>
+</nav>
+  </div>
+</div>
+<script type="text/javascript">
+  window.onload = function () {
+    var fix = $('.post-toc');
+    var end = $('.post-comment');
+    var fixTop = fix.offset().top, fixHeight = fix.height();
+    var endTop, miss;
+    var offsetTop = fix[0].offsetTop;
+    $(window).scroll(function () {
+      var docTop = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
+      if (end.length > 0) {
+        endTop = end.offset().top;
+        miss = endTop - docTop - fixHeight;
+      }
+      if (fixTop < docTop) {
+        fix.css({ 'position': 'fixed' });
+        if ((end.length > 0) && (endTop < (docTop + fixHeight))) {
+          fix.css({ top: miss });
+        } else {
+          fix.css({ top: 0 });
+        }
+      } else {
+        fix.css({ 'position': 'absolute' });
+        fix.css({ top: offsetTop });
+      }
+    })
+  }
+</script> 
+	
+    <div class="post-content">
+        
+        
+        
+
+        
+          <img src="https://s1.ax1x.com/2020/04/23/JarSaV.png" class="featured_image">
+        
+        
+        
+        
+        
+
+        
+        
+        
+
+        
+
+<p><strong>&emsp;&emsp;<a href="https://zh.wikipedia.org/wiki%E5%90%8C%E6%85%8B%E6%BF%BE%E6%B3%A2" rel="nofollow noreferrer" target="_blank">同态滤波</a>(Homomorphic filtering)是一种广泛用于信号和图像处理的技术，将原本的信号经由非线性映射，转换到可以使用线性滤波器的不同域，做完运算后再映射回原始域。同态的性质就是保持相关的属性不变，而同态滤波的好处是将原本复杂的运算转为效能相同但相对简单的运算。</strong></p>
+
+<p><strong>&emsp;&emsp;同态滤波利用去除乘性噪声(multiplicative noise)，可以同时增加对比度以及标准化亮度，借此达到图像增强的目的</strong></p>
+
+<hr />
+
+<h1 id="homomorphic-filtering">Homomorphic filtering</h1>
+
+<p>&emsp;&emsp;照射-反射模型可用于开发一种频率域处理过程，该过程通过同时压缩灰度级范围和增强对比度来改善一幅图像的表现，这种方法被称为同态滤波。一幅图像 $f(x,y)$ 可以表示为其照射分量 $i(x,y)$ 和反射分量 $r(x,y)$ 的乘积，即
+$$
+\begin{aligned}
+    f(x,y)=i(x,y)r(x,y)\tag{1}
+\end{aligned}
+$$
+同态滤波的滤波器函数有如下形式
+<a name="eq2"></a>
+$$
+\begin{aligned}
+    H(u,v)=(\gamma_H-\gamma_L)[1-e^{-c(D(u,v)^2/D_0^2)}]+\gamma_L \tag{2}
+\end{aligned}
+$$
+其中，$\gamma_H&gt;1\text{，}\gamma_L&lt;1$，常数 $c$ 控制函数坡度的锐利度。上式中，$D_0$ 是一个正常数，$D(u,v)$ 则是频率域中点 $(u,v)$ 与频率矩形中心的距离，即</p>
+
+<div>
+$$
+\begin{aligned}
+    D(u,v)=[(u-P/2)^2+(v-Q/2)^2]^{1/2}\tag{3}
+\end{aligned}
+$$
+</div>
+
+<h1 id="基本步骤">基本步骤</h1>
+
+<p><strong>输入图像为 $f(x,y)$，同态滤波结果为 $g(x,y)$ 基本步骤如下：</strong></p>
+
+<p><strong><em>STEP1:</em></strong> 对数变换  $z(x,y)=\ln f(x,y)=\ln i(x,y)+\ln r(x,y)$ <sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup></p>
+
+<p><strong><em>STEP2:</em></strong> 傅里叶变换  $Z(u,v)=\mathfrak{F}{z(x,y)}=\mathfrak{F}{\ln f(x,y)}=\mathfrak{F}{\ln i(x,y)}+\mathfrak{F}{\ln r(x,y)}$</p>
+
+<p><strong><em>STEP3:</em></strong> 频域相乘  $S(u,v)=H(u,v)Z(u,v)$</p>
+
+<p><strong><em>STEP4:</em></strong> 傅里叶逆变换 $s(x,y)=\mathfrak{F}^{-1}{S(u,v)}$</p>
+
+<p><strong><em>STEP5:</em></strong> 指数变换  $g(x,y)=e^{s(x,y)}$</p>
+
+<h1 id="matlab实现">MATLAB实现</h1>
+
+<p><strong>同态滤波函数<code>homo_f</code>如下：输入参数如式<a href="#eq2">$(2)$</a>中所述。</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-matlab" data-lang="matlab"><span style="color:#66d9ef">function</span> Output=<span style="color:#a6e22e">homo_f</span>(I,rL,rH,c,D0)
+    [M,N,C]=size(I);                <span style="color:#75715e">% 图像矩阵维度</span>
+    P = <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>M; Q = <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>N;               <span style="color:#75715e">% 图像填充后大小</span>
+    Output=log(double(I)<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>);        <span style="color:#75715e">% 对数变换</span>
+    D=dftuv(P,Q);                   <span style="color:#75715e">% D(u,v)</span>
+    H=(rH<span style="color:#f92672">-</span>rL)<span style="color:#f92672">.*</span>(<span style="color:#ae81ff">1</span><span style="color:#f92672">-</span>exp(<span style="color:#f92672">-</span>c<span style="color:#f92672">.*</span>(D<span style="color:#f92672">./</span>D0^<span style="color:#ae81ff">2</span>)))<span style="color:#f92672">+</span>rL; <span style="color:#75715e">% 滤波函数</span>
+    H=ifftshift(H);                 <span style="color:#75715e">%对H做反中心化</span>
+    <span style="color:#75715e">% 循环计算</span>
+    <span style="color:#66d9ef">for</span> i=<span style="color:#ae81ff">1</span>:C
+        FI=fft2(Output(:,:,i),P,Q); <span style="color:#75715e">%傅里叶变换 </span>
+        Ou1=ifft2(H<span style="color:#f92672">.*</span>FI);           <span style="color:#75715e">%傅里叶逆变换</span>
+        Ou2 =Ou1(<span style="color:#ae81ff">1</span>:M, <span style="color:#ae81ff">1</span>:N);         <span style="color:#75715e">%恢复图像大小</span>
+        Ou3=exp(Ou2)<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;             <span style="color:#75715e">%取指数</span>
+        Output(:,:,i)=Ou3;
+    <span style="color:#66d9ef">end</span>
+    Output=uint8(Output);
+<span style="color:#75715e">% D(u,v)计算函数，输入参数为图像大小</span>
+<span style="color:#66d9ef">function</span> D=<span style="color:#a6e22e">dftuv</span>(M,N)
+    u=<span style="color:#ae81ff">0</span>:M<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;v=<span style="color:#ae81ff">0</span>:N<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+    idx=find(u<span style="color:#f92672">&gt;</span>M<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>);u(idx)=u(idx)<span style="color:#f92672">-</span>M;
+    idy=find(v<span style="color:#f92672">&gt;</span>N<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>);v(idy)=v(idy)<span style="color:#f92672">-</span>N;
+    [U,V]=meshgrid(v,u);D=(U<span style="color:#f92672">.^</span><span style="color:#ae81ff">2</span><span style="color:#f92672">+</span>V<span style="color:#f92672">.^</span><span style="color:#ae81ff">2</span>);
+<span style="color:#66d9ef">end</span>
+<span style="color:#66d9ef">end</span></code></pre></div>
+<h1 id="reference">Reference</h1>
+
+<hr />
+
+<ul>
+<li><p>[i] Gonzalez R. Digital Image Processing.</p></li>
+
+<li><p>[ii] Gonzalez R, Woods R, Eddins S. Digital Image Processing Using MATLAB.</p></li>
+</ul>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1">为了避免处理$\ln(0)$的情形，处理时每个元素加1，在滤波结束时再加1。
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+    </div>
+
+    <div class="post-copyright">
+            
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>ANY_ME </span>
+                </p>
+            
+
+            
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://shishuochen.github.io/2020/fwee4iohn/>https://shishuochen.github.io/2020/fwee4iohn/</span>
+            </p>
+            
+            
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://shishuochen.github.io/tags/matlab/">
+                    #MATLAB</a></span>
+            
+            <span class="tag"><a href="https://shishuochen.github.io/tags/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">
+                    #数字图像处理</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> ·
+                <span><a href="https://shishuochen.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://shishuochen.github.io/2020/k0eu-2smz/" class="prev" rel="prev" title="Gridea中Markdown写作小结~"><i class="fas fa-caret-left"></i>&nbsp;Gridea中Markdown写作小结~</a>
+        
+        
+        <a href="https://shishuochen.github.io/2020/saplzmgqs/" class="next" rel="next" title="基于形态学分析提取木塞个数及木塞直径">基于形态学分析提取木塞个数及木塞直径&nbsp;<i class="fas fas fa-caret-right"></i></a>
+        
+    </div>
+	
+    <div class="post-comment">
+        
+            
+                <p></p>
+<br>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
+<div id="vcomments" style="padding: 10px 0px 0px 0px"></div>
+<style>
+  .v .veditor {
+    min-height: 10rem;
+    background-image: url('<%= site.customConfig.valineimage %>');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+    background-color: rgba(255, 255, 255, 0);
+    resize: none;
+  }
+
+  .v .vwrap {
+    border: 1px solid #000 !important;
+  }
+
+  .v .vbtn {
+    padding: .4rem 1.2rem !important;
+    border-color: #fff !important;
+    background-color: #49b1f5 !important;
+    color: #fff !important;
+    font-size: .7rem !important;
+  }
+
+  .v .vcards .vcard .vh .vmeta .vat {
+    padding: 0 .8rem !important;
+    border: 1px solid #00c4b6 !important;
+    border-radius: 5px !important;
+    color: #00c4b6 !important;
+  }
+</style>
+<script>
+  new Valine({
+        el: '#vcomments' ,
+        appId: 'WfSBqbaIFwwLUytPuTLtMKu9-MdYXbMMI',
+        appKey: 'ELF39FBTTfSuVVLOHMM4uqWf',
+        notify:  true ,
+        verify:  true , 
+        avatar:'mm', 
+		enableQQ: true,
+        placeholder: '【在昵称处填写企鹅号会自动拉取昵称、头像和邮箱，这样你就可以通过邮箱收到留言回复了，因此请检查自己的输入的企鹅号是否正确，方便自己的同时也避免给他人带来不便，Thanks♪(･ω･)ﾉ】',
+        visitor:  true 
+  });
+</script>
+
+            
+        
+    </div>
+</article>
+                </div>
+            </main>
+            
+<div class="footer-box">
+<footer class="footer">
+   <div class="copyright">
+      &copy;
+      
+      <span itemprop="copyrightYear">2019 - 2021</span>
+      
+      <span class="with-love">
+         <i class="fas fa-heart"></i>
+      </span>
+      
+      <span class="author" itemprop="copyrightHolder"><a href="https://shishuochen.github.io">ANY_ME</a> |
+      </span>
+      
+      
+	  <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+      <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a
+            href="https://github.com/Mogeko/Mogege" target="_blank" rel="external nofollow">Mogege</a></span>
+</footer>
+
+      <div class="back-to-top" id="back_to_top">
+         
+         <span><i class="fas fa-arrow-up"></i></span>
+         
+         <span class="scrollpercent">
+            <span id="back_to_top_text">0</span>%
+         </span>
+      </div>
+</div>
+<script>
+
+   let sideBarOpen = 'sidebar-open';
+   let body = document.body;
+   let back2Top = document.querySelector('#back_to_top'),
+      back2TopText = document.querySelector('#back_to_top_text'),
+      drawerBox = document.querySelector('#drawer_box'),
+      rightSideBar = document.querySelector('.sidebar'),
+      viewport = document.querySelector('body');
+
+   function scrollAnimation(currentY, targetY) {
+
+      let needScrollTop = targetY - currentY
+      let _currentY = currentY
+      setTimeout(() => {
+         const dist = Math.ceil(needScrollTop / 10)
+         _currentY += dist
+         window.scrollTo(_currentY, currentY)
+         if (needScrollTop > 10 || needScrollTop < -10) {
+            scrollAnimation(_currentY, targetY)
+         } else {
+            window.scrollTo(_currentY, targetY)
+         }
+      }, 1)
+   }
+
+   back2Top.addEventListener("click", function (e) {
+      scrollAnimation(document.scrollingElement.scrollTop, 0);
+      e.stopPropagation();
+      return false;
+   });
+
+   window.addEventListener('scroll', function (e) {
+      let percent = document.scrollingElement.scrollTop / (document.scrollingElement.scrollHeight - document.scrollingElement.clientHeight) * 100;
+      if (percent > 1 && !back2Top.classList.contains('back-top-active')) {
+         back2Top.classList.add('back-top-active');
+      }
+      if (percent == 0) {
+         back2Top.classList.remove('back-top-active');
+      }
+      if (back2TopText) {
+         back2TopText.textContent = Math.floor(percent);
+      }
+   });
+</script>
+
+
+
+
+
+
+<script defer src="/js/vendor_main.min.js"></script>
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/love.min.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha256-V8SV2MO1FUb63Bwht5Wx9x6PVHNa02gv8BgH/uH3ung=" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha256-F/Xda58SPdcUCr+xhSGz9MA2zQBPb0ASEYKohl8UCHc=" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha256-90d2pnfw0r4K8CZAWPko4rpFXQsZvJhTBGYNkipDprI=" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+           delimiters: [
+     {left: "$$", right: "$$", display: true},
+     {left: "$", right: "$", display: false},
+   ],
+        });
+    });
+</script>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script> pangu.spacingPage();</script>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+        </div>
+    </body>
+</html>

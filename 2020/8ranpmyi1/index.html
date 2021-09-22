@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+<meta name="google-site-verification" content="PgRvRggX4FPNmBfLmc_IBoedK_gPlyCB_p49I3DfNSA" />
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="ANY_ME">
+    <meta name="description" content="shishuoCh的个人博客">
+    
+    <meta name="google-site-verification" content=" " />
+    <link rel="prev" href="https://shishuochen.github.io/2020/fvo1n-idv/" />
+    <link rel="next" href="https://shishuochen.github.io/2020/mwtb5_bys/" />
+    <link rel="canonical" href="https://shishuochen.github.io/2020/8ranpmyi1/" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+        
+        
+            Chapter5:行列式 | shishuoCh&#39;s Blog
+        
+    </title>
+    <meta name="title" content="Chapter5:行列式 | shishuoCh&#39;s Blog">
+    
+<link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/shishuochen.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "Chapter5:行列式",
+    "headline" : "Chapter5:行列式",
+    "description" : "\u0026emsp;\u0026emsp;线性变换中有的将空间向外拉伸，有的则将空间向内挤压，所以变换究竟对空间有多少拉伸或挤压？如何测量和表示？ \u0026emsp;",
+    "inLanguage" : "zh-cn",
+    "author" : "ANY_ME",
+    "creator" : "ANY_ME",
+    "publisher": "ANY_ME",
+    "accountablePerson" : "ANY_ME",
+    "copyrightHolder" : "ANY_ME",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-07-30 14:20:41 \u002b0000 UTC",
+    "dateModified" : "2020-07-30 14:20:41 \u002b0000 UTC",
+    "url" : "https:\/\/shishuochen.github.io\/2020\/8ranpmyi1\/",
+    "wordCount" : "936",
+    "keywords" : [ "线性代数", "shishuoCh\u0027s Blog"]
+}
+</script>
+
+	<link rel="stylesheet" href=
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
+</link>
+    
+    <script src="https://kit.fontawesome.com/fb6088b71c.js" crossorigin="anonymous"></script>
+	
+
+  </head>
+    <body class="">
+        <div class="wrapper">
+            <nav class="navbar">
+    
+        <progress class="content_progress" max="0" value="0"></progress>
+    
+    <div class="container">
+        
+            <div class="navbar-header header-back2home-logo">
+                <span class="logo_mark" >>$</span>
+                <a href="https://shishuochen.github.io">
+                    <span class="logo_text" >cd /home/</span>
+                    <span class="logo_cursor" ></span>
+                </a>
+            </div>
+        
+        <div class="navbar-right">
+                
+                <span class="menu">
+                
+                <a class="menu-item" href="/posts/" title="">📖Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">📁Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">🎨Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">💬About</a>
+                
+                <a class="menu-item" href="/about/" title="">ANY_ME</a>
+                
+                <span class="divide"></span>
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-dark-mode"></i></a>
+                </span>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display:none">
+    
+        <progress class="content_progress" max="0" value="0"></progress>
+    
+     <div class="container">
+        <div class="navbar">
+            <div class="navbar-header header-logo">
+                    <a href="https://shishuochen.github.io">shishuoCh&#39;s Blog</a>
+            </div>
+            <div class="navbar-right">
+                <div><a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-dark-mode"></i></a></div>
+                <div class="menu-toggle">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                <nav class="mb-md">
+                    
+                    
+                        <a class="menu-item" href="/posts/" title="" white-space="nowrap">
+						<nobr>📖Blog</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/categories/" title="" white-space="nowrap">
+						<nobr>📁Categories</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/tags/" title="" white-space="nowrap">
+						<nobr>🎨Tags</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/about/" title="" white-space="nowrap">
+						<nobr>💬About</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/about/" title="" white-space="nowrap">
+						<nobr>ANY_ME</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                </nav>
+        </div>
+    </div>
+</nav>
+            <main class="main">
+                <div class="container">
+                    
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Chapter5:行列式</h1>
+        <div class="post-meta">
+                <i class="fas fa-user-circle"></i> <a itemprop="name" href="https://shishuochen.github.io" rel="author">ANY_ME</a> 
+				&thinsp;$\bm\vert$&thinsp; 
+				<i class="far fa-calendar-check "></i>
+				发布:2020-07-30
+				
+                </span>
+                
+				&thinsp;$\bm\vert$&thinsp; 
+				
+				
+				<i class="fas fa-history"></i> 更新:2020-07-31
+				
+                
+				&thinsp;$\bm\vert$&thinsp; 
+                
+                <i class="far fa-folder-open "></i>
+                <span class="post-category">
+                        
+                        
+                        
+                          <a href="https://shishuochen.github.io/categories/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%AC%94%E8%AE%B0/"> 线性代数笔记</a>
+                        
+                        
+                </span>
+				
+				&thinsp;$\bm\vert$&thinsp; 
+				<i class="fas fa-file-word "></i>
+                <span class="post-word-count">936字</span>
+				
+				&thinsp;$\bm\vert$&thinsp;   
+				<i class="fas fa-coffee "></i>
+				
+                <span class="post-word-count">3分钟</span>
+				
+        </div>
+    </header>
+	  
+     
+          <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title"></h2>
+  
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#1-矩阵的行列式-2d">1. 矩阵的行列式（2D）</a>
+<ul>
+<li><a href="#det-a-0">$det(A)=0$</a></li>
+<li><a href="#det-a-0-1">$det(A)&lt;0$</a></li>
+<li><a href="#基向量-hat-i-hat-j-的定向改变与行列式为负的关系">基向量 $\hat{i},\hat{j}$ 的定向改变与行列式为负的关系</a></li>
+</ul></li>
+<li><a href="#2-矩阵的行列式-3d">2. 矩阵的行列式（3D）</a>
+<ul>
+<li><a href="#单位立方体-i-class-fas-fa-cube-i-到平行六面体">单位立方体 <i class="fas fa-cube"></i> 到平行六面体</a></li>
+<li><a href="#det-a-0-2">$det(A)=0$</a></li>
+<li><a href="#det-a-0-3">$det(A)&lt;0$</a></li>
+</ul></li>
+<li><a href="#3-行列式的计算-i-class-fas-fa-calculator-i">3. 行列式的计算 <i class="fas fa-calculator"></i></a>
+<ul>
+<li><a href="#二维空间-2d">二维空间（2D）</a></li>
+<li><a href="#三维空间-3d">三维空间（3D）</a></li>
+<li><a href="#其他">其他</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+<script type="text/javascript">
+  window.onload = function () {
+    var fix = $('.post-toc');
+    var end = $('.post-comment');
+    var fixTop = fix.offset().top, fixHeight = fix.height();
+    var endTop, miss;
+    var offsetTop = fix[0].offsetTop;
+    $(window).scroll(function () {
+      var docTop = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
+      if (end.length > 0) {
+        endTop = end.offset().top;
+        miss = endTop - docTop - fixHeight;
+      }
+      if (fixTop < docTop) {
+        fix.css({ 'position': 'fixed' });
+        if ((end.length > 0) && (endTop < (docTop + fixHeight))) {
+          fix.css({ top: miss });
+        } else {
+          fix.css({ top: 0 });
+        }
+      } else {
+        fix.css({ 'position': 'absolute' });
+        fix.css({ top: offsetTop });
+      }
+    })
+  }
+</script> 
+	
+    <div class="post-content">
+        
+        
+        
+            
+        
+
+        
+        
+        
+        
+        
+
+        
+        
+        
+
+        
+
+<p><strong>&emsp;&emsp;线性变换中有的将空间向外拉伸，有的则将空间向内挤压，所以变换究竟对空间有多少拉伸或挤压？如何测量和表示？</strong></p>
+
+<p><strong>&emsp;&emsp;线性变换的行列式：给定区域面积（体积）增大或减小的比例</strong></p>
+
+<hr />
+
+<h2 id="1-矩阵的行列式-2d">1. 矩阵的行列式（2D）</h2>
+
+<p>&emsp;&emsp;前已述过，矩阵代表着一种线性变换，是对空间的一种操纵。在二维空间中，$det(A)$的值即为给定区域面积缩放比例。</p>
+
+<h3 id="det-a-0">$det(A)=0$</h3>
+
+<p>&emsp;&emsp; 行列式为零，意味着将一个二维空间压缩为一条线（面积变为零）。<strong>故只需要检验一个矩阵的行列式是否为零，就能知道这个矩阵所代表的变换是否将空间压缩到更小的维度上。</strong></p>
+
+<h3 id="det-a-0-1">$det(A)&lt;0$</h3>
+
+<p>&emsp;&emsp;显然，我们能想到行列式大于零的情况，其实行列式也存在是负值的情况的。这里就是一个<strong>定向</strong>改变的问题。</p>
+
+<p><a data-fancybox="gallery" href="https://s1.ax1x.com/2020/07/29/aeytxg.png" >
+<img src="https://s1.ax1x.com/2020/07/29/aeytxg.png" style="zoom: 50%;" />
+</a></p>
+
+<p><center>
+<u>
+定向发生改变示意图
+</u>
+</center></p>
+
+<h3 id="基向量-hat-i-hat-j-的定向改变与行列式为负的关系">基向量 $\hat{i},\hat{j}$ 的定向改变与行列式为负的关系</h3>
+
+<p>&emsp;&emsp;$\hat{i},\hat{j}$相互靠近时，空间被压缩。当二者重合时，$det(A)=0$ (再次表明行列式为零意味着降维)，而后继续方向“靠近”，行列式继续减小为负值似乎就是一件自然而然的事了。</p>
+
+<p><a data-fancybox="gallery" href="https://s1.ax1x.com/2020/07/30/anNKhQ.png" >
+<img src="https://s1.ax1x.com/2020/07/30/anNKhQ.png" style="zoom: 50%;" />
+</a></p>
+
+<p><center>
+<u></p>
+
+<p>det(A)从正到负</p>
+
+<p></u>
+</center></p>
+
+<h2 id="2-矩阵的行列式-3d">2. 矩阵的行列式（3D）</h2>
+
+<p>&emsp;&emsp;<strong>在二维空间中，行列式的值代表的是面积的缩放倍数；那么到了三维空间就代表</strong>体积<strong>的缩放倍数。</strong></p>
+
+<h3 id="单位立方体-i-class-fas-fa-cube-i-到平行六面体">单位立方体 <i class="fas fa-cube"></i> 到平行六面体</h3>
+
+<p>&emsp;&emsp;对于三维空间中的单位立方体，经过三维线性变换后（未发生降维），它将变成一个平行六面体。其体积就是变换矩阵的行列式的（绝对）值。</p>
+
+<p><a data-fancybox="gallery" href="https://s1.ax1x.com/2020/07/30/au7STP.png" >
+<img src="https://s1.ax1x.com/2020/07/30/au7STP.png" style="zoom: 50%;" />
+</a></p>
+
+<p><center>
+<u></p>
+
+<p>变换矩阵的行列式</p>
+
+<p></u>
+</center></p>
+
+<h3 id="det-a-0-2">$det(A)=0$</h3>
+
+<p>&emsp;&emsp;同样的道理，类似于二维空间中行列式为零的情况，三维空间中变换矩阵的行列式为零（列线性相关），意味着这个变换将空间压缩到更低维度（一个面，一条线，甚至是一个点）。</p>
+
+<h3 id="det-a-0-3">$det(A)&lt;0$</h3>
+
+<p>&emsp;&emsp;当行列式的值小于零时，我们知道这是“定向”发生了改变，这一点在三维空间中常用“右手定则”来判断，当你只能用左手来表示$\hat{i},\hat{j},\hat{k}$时，就说明“定向”发生了改变，行列式的值小于零。</p>
+
+<p><a data-fancybox="gallery" href="https://s1.ax1x.com/2020/07/30/auTzwt.png" >
+<img src="https://s1.ax1x.com/2020/07/30/auTzwt.png" style="zoom: 50%;" />
+</a></p>
+
+<p><center>
+<u></p>
+
+<p>右手定则示意图</p>
+
+<p></u>
+</center></p>
+
+<h2 id="3-行列式的计算-i-class-fas-fa-calculator-i">3. 行列式的计算 <i class="fas fa-calculator"></i></h2>
+
+<h3 id="二维空间-2d">二维空间（2D）</h3>
+
+<div>
+$$
+det\left(\begin{bmatrix}
+a & b \\
+c & d
+\end{bmatrix}\right)=ad-bc
+$$
+</div>
+
+<h3 id="三维空间-3d">三维空间（3D）</h3>
+
+<div>
+$$
+det\left(\begin{bmatrix}
+a & b & c\\
+d & e & f\\
+g & h & i
+\end{bmatrix}\right)=a\cdot det\left(
+\begin{bmatrix}
+e & f\\
+h & i
+\end{bmatrix}\right)+b\cdot det\left(
+\begin{bmatrix}
+f & d\\
+i & g
+\end{bmatrix}
+\right)+c\cdot det\left(
+\begin{bmatrix}
+d & e\\
+g & h
+\end{bmatrix}
+\right)
+$$
+</div>
+
+<h3 id="其他">其他</h3>
+
+<p>$$det(M_1M_2)=det(M_1)det(M_2)$$</p>
+
+    </div>
+
+    <div class="post-copyright">
+            
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>ANY_ME </span>
+                </p>
+            
+
+            
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://shishuochen.github.io/2020/8ranpmyi1/>https://shishuochen.github.io/2020/8ranpmyi1/</span>
+            </p>
+            
+            
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://shishuochen.github.io/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">
+                    #线性代数</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> ·
+                <span><a href="https://shishuochen.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://shishuochen.github.io/2020/fvo1n-idv/" class="prev" rel="prev" title="Chapter4:矩阵乘法"><i class="fas fa-caret-left"></i>&nbsp;Chapter4:矩阵乘法</a>
+        
+        
+        <a href="https://shishuochen.github.io/2020/mwtb5_bys/" class="next" rel="next" title="Chapter6:逆矩阵、列空间与零空间、秩">Chapter6:逆矩阵、列空间与零空间、秩&nbsp;<i class="fas fas fa-caret-right"></i></a>
+        
+    </div>
+	
+    <div class="post-comment">
+        
+            
+                <p></p>
+<br>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
+<div id="vcomments" style="padding: 10px 0px 0px 0px"></div>
+<style>
+  .v .veditor {
+    min-height: 10rem;
+    background-image: url('<%= site.customConfig.valineimage %>');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+    background-color: rgba(255, 255, 255, 0);
+    resize: none;
+  }
+
+  .v .vwrap {
+    border: 1px solid #000 !important;
+  }
+
+  .v .vbtn {
+    padding: .4rem 1.2rem !important;
+    border-color: #fff !important;
+    background-color: #49b1f5 !important;
+    color: #fff !important;
+    font-size: .7rem !important;
+  }
+
+  .v .vcards .vcard .vh .vmeta .vat {
+    padding: 0 .8rem !important;
+    border: 1px solid #00c4b6 !important;
+    border-radius: 5px !important;
+    color: #00c4b6 !important;
+  }
+</style>
+<script>
+  new Valine({
+        el: '#vcomments' ,
+        appId: 'WfSBqbaIFwwLUytPuTLtMKu9-MdYXbMMI',
+        appKey: 'ELF39FBTTfSuVVLOHMM4uqWf',
+        notify:  true ,
+        verify:  true , 
+        avatar:'mm', 
+		enableQQ: true,
+        placeholder: '【在昵称处填写企鹅号会自动拉取昵称、头像和邮箱，这样你就可以通过邮箱收到留言回复了，因此请检查自己的输入的企鹅号是否正确，方便自己的同时也避免给他人带来不便，Thanks♪(･ω･)ﾉ】',
+        visitor:  true 
+  });
+</script>
+
+            
+        
+    </div>
+</article>
+                </div>
+            </main>
+            
+<div class="footer-box">
+<footer class="footer">
+   <div class="copyright">
+      &copy;
+      
+      <span itemprop="copyrightYear">2019 - 2021</span>
+      
+      <span class="with-love">
+         <i class="fas fa-heart"></i>
+      </span>
+      
+      <span class="author" itemprop="copyrightHolder"><a href="https://shishuochen.github.io">ANY_ME</a> |
+      </span>
+      
+      
+	  <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+      <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a
+            href="https://github.com/Mogeko/Mogege" target="_blank" rel="external nofollow">Mogege</a></span>
+</footer>
+
+      <div class="back-to-top" id="back_to_top">
+         
+         <span><i class="fas fa-arrow-up"></i></span>
+         
+         <span class="scrollpercent">
+            <span id="back_to_top_text">0</span>%
+         </span>
+      </div>
+</div>
+<script>
+
+   let sideBarOpen = 'sidebar-open';
+   let body = document.body;
+   let back2Top = document.querySelector('#back_to_top'),
+      back2TopText = document.querySelector('#back_to_top_text'),
+      drawerBox = document.querySelector('#drawer_box'),
+      rightSideBar = document.querySelector('.sidebar'),
+      viewport = document.querySelector('body');
+
+   function scrollAnimation(currentY, targetY) {
+
+      let needScrollTop = targetY - currentY
+      let _currentY = currentY
+      setTimeout(() => {
+         const dist = Math.ceil(needScrollTop / 10)
+         _currentY += dist
+         window.scrollTo(_currentY, currentY)
+         if (needScrollTop > 10 || needScrollTop < -10) {
+            scrollAnimation(_currentY, targetY)
+         } else {
+            window.scrollTo(_currentY, targetY)
+         }
+      }, 1)
+   }
+
+   back2Top.addEventListener("click", function (e) {
+      scrollAnimation(document.scrollingElement.scrollTop, 0);
+      e.stopPropagation();
+      return false;
+   });
+
+   window.addEventListener('scroll', function (e) {
+      let percent = document.scrollingElement.scrollTop / (document.scrollingElement.scrollHeight - document.scrollingElement.clientHeight) * 100;
+      if (percent > 1 && !back2Top.classList.contains('back-top-active')) {
+         back2Top.classList.add('back-top-active');
+      }
+      if (percent == 0) {
+         back2Top.classList.remove('back-top-active');
+      }
+      if (back2TopText) {
+         back2TopText.textContent = Math.floor(percent);
+      }
+   });
+</script>
+
+
+
+
+
+
+<script defer src="/js/vendor_main.min.js"></script>
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/love.min.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha256-V8SV2MO1FUb63Bwht5Wx9x6PVHNa02gv8BgH/uH3ung=" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha256-F/Xda58SPdcUCr+xhSGz9MA2zQBPb0ASEYKohl8UCHc=" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha256-90d2pnfw0r4K8CZAWPko4rpFXQsZvJhTBGYNkipDprI=" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+           delimiters: [
+     {left: "$$", right: "$$", display: true},
+     {left: "$", right: "$", display: false},
+   ],
+        });
+    });
+</script>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script> pangu.spacingPage();</script>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+        </div>
+    </body>
+</html>

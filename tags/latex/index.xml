@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>LaTeX on shishuoCh&#39;s Blog</title>
+    <link>https://shishuochen.github.io/tags/latex/</link>
+    <description>Recent content in LaTeX on shishuoCh&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 19 Feb 2020 14:19:02 +0000</lastBuildDate>
+    
+	<atom:link href="https://shishuochen.github.io/tags/latex/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>如何裁剪或生成eps格式图片</title>
+      <link>https://shishuochen.github.io/2020/0xjn_wkk/</link>
+      <pubDate>Wed, 19 Feb 2020 14:19:02 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/0xjn_wkk/</guid>
+      <description>EPS(Encapsulated PostScript)是PostScript的一种延伸类型。EPS（Encapsulated PostScript）是目前系统中功能最强的一</description>
+    </item>
+    
+    <item>
+      <title>Compile Chinese documents with pdfLaTeX compiler</title>
+      <link>https://shishuochen.github.io/2020/yen-2yhvj/</link>
+      <pubDate>Fri, 07 Feb 2020 22:03:21 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/yen-2yhvj/</guid>
+      <description>$\LaTeX$ supports many worldwide languages by means of some special packages. This article explains how to typeset Chinese documents with pdfLaTeX. CJKutf8 with pdfLaTeX The CJKutf8 package can also be used to generate a document with pdfLaTeX. Chinese (and Japanese/Korean) text must be places inside a CJK environment, so this is usually only convenient for documents in English with bits of Chinese text or vice-versa. Code example \documentclass{article} \usepackage{CJKutf8} \begin{document}</description>
+    </item>
+    
+  </channel>
+</rss>

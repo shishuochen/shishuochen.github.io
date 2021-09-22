@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+<meta name="google-site-verification" content="PgRvRggX4FPNmBfLmc_IBoedK_gPlyCB_p49I3DfNSA" />
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="ANY_ME">
+    <meta name="description" content="shishuoCh的个人博客">
+    
+    <meta name="google-site-verification" content=" " />
+    <link rel="prev" href="https://shishuochen.github.io/2020/nlrmsp86u/" />
+    <link rel="next" href="https://shishuochen.github.io/2020/ihretxvwf/" />
+    <link rel="canonical" href="https://shishuochen.github.io/2020/2xawn806p/" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+        
+        
+            遍历目录及Linux文件系统 | shishuoCh&#39;s Blog
+        
+    </title>
+    <meta name="title" content="遍历目录及Linux文件系统 | shishuoCh&#39;s Blog">
+    
+<link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/shishuochen.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "遍历目录及Linux文件系统",
+    "headline" : "遍历目录及Linux文件系统",
+    "description" : "1. 前言 本文主要讲述遍历目录用到的一些shell命令和Linux文件系统，以及其他小的知识点。主要命令（大多数都是见名知意的）列举如下： Command Meaning pwd",
+    "inLanguage" : "zh-cn",
+    "author" : "ANY_ME",
+    "creator" : "ANY_ME",
+    "publisher": "ANY_ME",
+    "accountablePerson" : "ANY_ME",
+    "copyrightHolder" : "ANY_ME",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-08-30 20:43:49 \u002b0800 CST",
+    "dateModified" : "2020-08-30 20:43:49 \u002b0800 CST",
+    "url" : "https:\/\/shishuochen.github.io\/2020\/2xawn806p\/",
+    "wordCount" : "2574",
+    "keywords" : [ "shell","linux", "shishuoCh\u0027s Blog"]
+}
+</script>
+
+	<link rel="stylesheet" href=
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
+</link>
+    
+    <script src="https://kit.fontawesome.com/fb6088b71c.js" crossorigin="anonymous"></script>
+	
+
+  </head>
+    <body class="">
+        <div class="wrapper">
+            <nav class="navbar">
+    
+        <progress class="content_progress" max="0" value="0"></progress>
+    
+    <div class="container">
+        
+            <div class="navbar-header header-back2home-logo">
+                <span class="logo_mark" >>$</span>
+                <a href="https://shishuochen.github.io">
+                    <span class="logo_text" >cd /home/</span>
+                    <span class="logo_cursor" ></span>
+                </a>
+            </div>
+        
+        <div class="navbar-right">
+                
+                <span class="menu">
+                
+                <a class="menu-item" href="/posts/" title="">📖Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">📁Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">🎨Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">💬About</a>
+                
+                <a class="menu-item" href="/about/" title="">ANY_ME</a>
+                
+                <span class="divide"></span>
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-dark-mode"></i></a>
+                </span>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display:none">
+    
+        <progress class="content_progress" max="0" value="0"></progress>
+    
+     <div class="container">
+        <div class="navbar">
+            <div class="navbar-header header-logo">
+                    <a href="https://shishuochen.github.io">shishuoCh&#39;s Blog</a>
+            </div>
+            <div class="navbar-right">
+                <div><a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-dark-mode"></i></a></div>
+                <div class="menu-toggle">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                <nav class="mb-md">
+                    
+                    
+                        <a class="menu-item" href="/posts/" title="" white-space="nowrap">
+						<nobr>📖Blog</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/categories/" title="" white-space="nowrap">
+						<nobr>📁Categories</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/tags/" title="" white-space="nowrap">
+						<nobr>🎨Tags</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/about/" title="" white-space="nowrap">
+						<nobr>💬About</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/about/" title="" white-space="nowrap">
+						<nobr>ANY_ME</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                </nav>
+        </div>
+    </div>
+</nav>
+            <main class="main">
+                <div class="container">
+                    
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">遍历目录及Linux文件系统</h1>
+        <div class="post-meta">
+                <i class="fas fa-user-circle"></i> <a itemprop="name" href="https://shishuochen.github.io" rel="author">ANY_ME</a> 
+				&thinsp;$\bm\vert$&thinsp; 
+				<i class="far fa-calendar-check "></i>
+				发布:2020-08-30
+				
+                </span>
+                
+				&thinsp;$\bm\vert$&thinsp; 
+				
+				
+				<i class="fas fa-history"></i> 更新:2020-09-07
+				
+                
+				&thinsp;$\bm\vert$&thinsp; 
+                
+                <i class="far fa-folder-open "></i>
+                <span class="post-category">
+                        
+                        
+                        
+                          <a href="https://shishuochen.github.io/categories/linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"> Linux命令行读书笔记</a>
+                        
+                        
+                </span>
+				
+				&thinsp;$\bm\vert$&thinsp; 
+				<i class="fas fa-file-word "></i>
+                <span class="post-word-count">2574字</span>
+				
+				&thinsp;$\bm\vert$&thinsp;   
+				<i class="fas fa-coffee "></i>
+				
+                <span class="post-word-count">8分钟</span>
+				
+        </div>
+    </header>
+	  
+     
+          <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title"></h2>
+  
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#1-前言">1. 前言</a></li>
+<li><a href="#2-遍历目录-navigation">2. 遍历目录（Navigation）</a>
+<ul>
+<li><a href="#更改当前目录-cd">更改当前目录（cd）</a></li>
+<li><a href="#文件夹命名">文件夹命名</a></li>
+<li><a href="#有用的快捷方式">有用的快捷方式</a></li>
+</ul></li>
+<li><a href="#3-linux文件系统">3. Linux文件系统</a>
+<ul>
+<li><a href="#详解ls命令">详解ls命令</a></li>
+<li><a href="#一切都是文件">一切都是文件</a></li>
+<li><a href="#查看文本文件-less">查看文本文件（less）</a></li>
+<li><a href="#linux没有秘密">Linux没有秘密</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+<script type="text/javascript">
+  window.onload = function () {
+    var fix = $('.post-toc');
+    var end = $('.post-comment');
+    var fixTop = fix.offset().top, fixHeight = fix.height();
+    var endTop, miss;
+    var offsetTop = fix[0].offsetTop;
+    $(window).scroll(function () {
+      var docTop = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
+      if (end.length > 0) {
+        endTop = end.offset().top;
+        miss = endTop - docTop - fixHeight;
+      }
+      if (fixTop < docTop) {
+        fix.css({ 'position': 'fixed' });
+        if ((end.length > 0) && (endTop < (docTop + fixHeight))) {
+          fix.css({ top: miss });
+        } else {
+          fix.css({ top: 0 });
+        }
+      } else {
+        fix.css({ 'position': 'absolute' });
+        fix.css({ top: offsetTop });
+      }
+    })
+  }
+</script> 
+	
+    <div class="post-content">
+        
+        
+        
+
+        
+        
+        
+        
+        
+
+        
+        
+        
+
+        
+
+<h2 id="1-前言">1. 前言</h2>
+
+<p>本文主要讲述遍历目录用到的一些shell命令和Linux文件系统，以及其他小的知识点。主要命令（大多数都是见名知意的）列举如下：</p>
+
+<p><center></p>
+
+<table>
+<thead>
+<tr>
+<th align="center">Command</th>
+<th align="center">Meaning</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center"><strong><code>pwd</code></strong></td>
+<td align="center"><strong>P</strong>rint name of current <strong>w</strong>orking <strong>d</strong>irectory</td>
+</tr>
+
+<tr>
+<td align="center"><strong><code>cd</code></strong></td>
+<td align="center"><strong>C</strong>hange <strong>d</strong>irectory</td>
+</tr>
+
+<tr>
+<td align="center"><strong><code>ls</code></strong></td>
+<td align="center"><strong>L</strong>i<strong>s</strong>t directory contents</td>
+</tr>
+
+<tr>
+<td align="center"><strong><code>file</code></strong></td>
+<td align="center">Determine file type</td>
+</tr>
+
+<tr>
+<td align="center"><strong><code>less</code></strong></td>
+<td align="center">View file contents（内容）</td>
+</tr>
+</tbody>
+</table>
+
+<p></center></p>
+
+<h2 id="2-遍历目录-navigation">2. 遍历目录（Navigation）</h2>
+
+<p>像Windows一样，Linux也将其文件组织在所谓的分层目录结构中。这意味着它们以树状目录格式进行组织，其中包含文件和其他目录（Windows中则称文件夹）。文件系统中第一个目录称为<strong>根目录</strong>，其包含文件和子目录，文件和子目录又包含更多的文件和子目录。就像下面这样（顺便一提，<code>tree</code>命令可以生成文件树）：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">├─bin
+├─boot
+├─cdrom
+├─dev
+├─etc
+└─home
+    ├─bshotts
+    ├─lost+found
+    └─me
+        ├─.cache
+        ├─.compiz
+        ├─.config
+        └─.gconf</code></pre></div>
+<p>如上述举例的文件树一样，<code>/home</code>是<code>/me</code>的<strong>父级目录</strong>（parent directory）。我们所处的目录称为<strong>当前目录</strong>（current working directory），<code>pwd</code>命令可以输出打印当前目录。</p>
+
+<h3 id="更改当前目录-cd">更改当前目录（cd）</h3>
+
+<p>我们可以有两种方式来指定路径名，它们分别是<strong>绝对路径</strong>（absolute pathnames）和<strong>相对路径</strong>（relative pathnames）。</p>
+
+<p>&emsp;$\bullet$ <strong>绝对路径</strong></p>
+
+<p>&emsp;&emsp;Linux中绝对路径是从<strong>根目录</strong>(<code>/</code>)开始的，这与Windows有所不同。Windows中有不同的盘符，每个存储设备都有一个单独的文件系统树，因此绝对路径的起始位置也不一样；在Linux中，无论有多少个驱动器和存储设备都只有一个单个文件系统树。因此，加入想更改路径到<code>/usr/bin</code>目录下，则可以</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>me@linuxbox ~<span style="color:#f92672">]</span>$ cd /usr/bin</code></pre></div>
+<p>&emsp;$\bullet$ <strong>相对路径</strong></p>
+
+<p>&emsp;&emsp;绝对路径的起始位置是根目录，相对路径的起始位置则是当前目录（working directory）。它使用的是几个特殊的符号来表示文件系统树中的相对位置，分别是<code>.</code>(dot)和<code>..</code>(dot dot)。前者（<code>.</code>）是指当前目录，后者是指当前目录的父级目录。（注：我们也可以忽略<code>./</code>部分，因为它是隐含的。）</p>
+
+<h3 id="文件夹命名">文件夹命名</h3>
+
+<p>在Linux系统中，文件的命名方式类似于Windows等其他系统，但也有一些区别。</p>
+
+<ul>
+<li>以句点字符开头的文件名被隐藏，这意味<code>ls</code>命令不会列出它，除非我们特别声明（Windows中也有这一说法）</li>
+<li>Linux中的文件名和命令是区分大小写的（Windows中无法创建两个同名的文件或文件夹）</li>
+<li>最好不要在文件名中插入空格，<strong>句点、破折号和下划线</strong>是个不错的选择</li>
+</ul>
+
+<p><a name="pre"></a></p>
+
+<ul>
+<li>Linux中没有『文件扩展名』的概念，文件的内容或目的是按照其他方式确定的</li>
+</ul>
+
+<h3 id="有用的快捷方式">有用的快捷方式</h3>
+
+<ul>
+<li><strong><code>cd</code></strong>  改变工作目录到主目录（ <em>home directory</em> ）</li>
+<li><strong><code>cd -</code></strong>    将工作目录改为上一个工作目录</li>
+<li><strong><code>cd ~user_name</code></strong>   将工作目录改为用户<em>user_name</em> 的主目录</li>
+</ul>
+
+<h2 id="3-linux文件系统">3. Linux文件系统</h2>
+
+<h3 id="详解ls命令">详解ls命令</h3>
+
+<p>前面说过，<code>ls</code>命令是列举工作目录的文件和目录的。我们可以直接输入<code>ls</code>即可获取当前工作目录中包含的文件和子目录的列表。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>me@linuxbox ~<span style="color:#f92672">]</span>$ ls 
+Desktop  Documents  Music  Pictures  Public  Templates  Videos</code></pre></div>
+<p>除了当前工作目录，还可以指定其他目录，也可以同时指定多个目录（用户的主目录以字符<code>~</code>表示）。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>me@linuxbox ~<span style="color:#f92672">]</span>$ ls ~ /usr 
+/home/me:
+Desktop  Documents  Music  Pictures  Public  Templates  Videos
+/usr:
+bin  games  include  lib  local  sbin  share  src</code></pre></div>
+<p><strong>$\bullet$ 选项与参数</strong></p>
+
+<p>在Linux中，命令参数和文件名一样，都是大小写敏感（case sensitive）。</p>
+
+<p><center></p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Option(选项)</th>
+<th align="left">Long option (长选项)</th>
+<th align="center">Description(描述)</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">-a</td>
+<td align="left">&ndash;all</td>
+<td align="center">所有文件，包括隐藏文件（文件名句点开头）</td>
+</tr>
+
+<tr>
+<td align="left">-A</td>
+<td align="left">&ndash;almost-all</td>
+<td align="center">所有文件，除了隐藏文件</td>
+</tr>
+
+<tr>
+<td align="left">-d</td>
+<td align="left">&ndash;directory</td>
+<td align="center">通常，如果指定了目录，ls将列出目录的内容，而不是目录本身。将此选项<nobr>与-l选项一起使用，以查看有关目录而不是目录内容的详细信息。</td>
+</tr>
+
+<tr>
+<td align="left">-F</td>
+<td align="left">&ndash;classify</td>
+<td align="center">区分文件与目录，若为目录则其前加<code>/</code></td>
+</tr>
+
+<tr>
+<td align="left">-h</td>
+<td align="left">&ndash;human-readable</td>
+<td align="center">文件大小以易读形式（例如：M）而非字节（byte）显示</td>
+</tr>
+
+<tr>
+<td align="left">-l</td>
+<td align="left"></td>
+<td align="center">Display results in long format</td>
+</tr>
+
+<tr>
+<td align="left">-r</td>
+<td align="left">&ndash;reverse</td>
+<td align="center">结果顺序反序，默认是字母升序</td>
+</tr>
+
+<tr>
+<td align="left">-s</td>
+<td align="left"></td>
+<td align="center">以文件字节大小（size）为序</td>
+</tr>
+
+<tr>
+<td align="left">-t</td>
+<td align="left"></td>
+<td align="center">以修改时间（modifica time）为序</td>
+</tr>
+</tbody>
+</table>
+
+<p></center></p>
+
+<p><strong>$\bullet$ Long format</strong></p>
+
+<p>如上表中所列一样，<code>-l</code>参数会将结果以长格式（long format）输出显示，以下为例作长格式的字段（field）说明。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">-rw-r--r-- <span style="color:#ae81ff">1</span> root root <span style="color:#ae81ff">3576296</span> 2017-04-03 11:05 Experience ubuntu.ogg 
+-rw-r--r-- <span style="color:#ae81ff">1</span> root root <span style="color:#ae81ff">1186219</span> 2017-04-03 11:05 kubuntu-leaflet.png 
+-rw-r--r-- <span style="color:#ae81ff">1</span> root root   <span style="color:#ae81ff">47584</span> 2017-04-03 11:05 logo-Edubuntu.png 
+-rw-r--r-- <span style="color:#ae81ff">1</span> root root   <span style="color:#ae81ff">44355</span> 2017-04-03 11:05 logo-Kubuntu.png 
+-rw-r--r-- <span style="color:#ae81ff">1</span> root root   <span style="color:#ae81ff">34391</span> 2017-04-03 11:05 logo-Ubuntu.png 
+-rw-r--r-- <span style="color:#ae81ff">1</span> root root   <span style="color:#ae81ff">32059</span> 2017-04-03 11:05 oo-cd-cover.odf 
+-rw-r--r-- <span style="color:#ae81ff">1</span> root root  <span style="color:#ae81ff">159744</span> 2017-04-03 11:05 oo-derivatives.doc</code></pre></div>
+<p>下表是对上列的长格式不同字段做以说明：</p>
+
+<p><center></p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="left">Meaning</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">-rw-r&ndash;r&ndash;</td>
+<td align="left">表明文件的访问权限，前导破折号（<code>-</code>）表示常规文件，接下里三个是文件所有者的访问权限，接着三个是文件组成员的访问权限，最后三个是其他所有人的访问权限</td>
+</tr>
+
+<tr>
+<td align="left">1</td>
+<td align="left">文件的硬链接（hard links）数目 （<a href="https://pjmfjd.coding-pages.com/2020/ihretxvwf/" rel="nofollow noreferrer" target="_blank">详细介绍见我</a>）</td>
+</tr>
+
+<tr>
+<td align="left">root</td>
+<td align="left">文件所有者的用户名</td>
+</tr>
+
+<tr>
+<td align="left">root</td>
+<td align="left">拥有文件的组（group）的名称</td>
+</tr>
+
+<tr>
+<td align="left">159744</td>
+<td align="left">文件字节（byte）大小</td>
+</tr>
+
+<tr>
+<td align="left">2017-04-03 11:05</td>
+<td align="left">文件最后修改的日期和时间</td>
+</tr>
+
+<tr>
+<td align="left">oo-derivatives.doc</td>
+<td align="left">文件名称</td>
+</tr>
+</tbody>
+</table>
+
+<p></center></p>
+
+<h3 id="一切都是文件">一切都是文件</h3>
+
+<p>如<a href="#pre">前</a>所述，Linux中不需要文件名来反映文件的内容。<code>file</code>命令可以确定文件的类型。文件的种类有很多，在像Linux中这样的Unix操作系统中，常见的想法就是“一切都是文件”（Everthing is a file）。</p>
+
+<h3 id="查看文本文件-less">查看文本文件（less）</h3>
+
+<p>Linux大多都是人直接可读（human-readable）的文本。<strong><code>less</code></strong>命令可以用来查看文本文件（text files）。配置文件（configuration files）多为文本存储，脚本（scripts）也是。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">less filename</code></pre></div>
+<p><em>less</em> 程序被设计为对称为<em>more</em> 的早期Unix程序的改进替代。 <em>“less”</em> 这个词是 <em>“less is more”</em> 一词的玩法（现代主义建筑师和设计师的座右铭）。 <em>less</em> 还被称为<em>pagers</em> ，即允许以逐页方式轻松查看长文本文档的程序。越多的程序只能向前翻页，而越少的程序则允许向前和向后翻页，并且还具有许多其他功能</p>
+
+<h3 id="linux没有秘密">Linux没有秘密</h3>
+
+<p>初次接触Linux，我们完全可以“逛一逛”。下表列出的目录中，不同的Linux发行版会有所差异，但问题不大。</p>
+
+<p><center></p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Directory</th>
+<th align="left">Comments</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">/</td>
+<td align="left">根目录，一切开始的地方</td>
+</tr>
+
+<tr>
+<td align="left">/bin</td>
+<td align="left">系统启动和运行所必须的二进制（binary）文件（程序）</td>
+</tr>
+
+<tr>
+<td align="left">/boot</td>
+<td align="left">包含Linux内核，初始化RAM磁盘映像和引导加载程序</td>
+</tr>
+
+<tr>
+<td align="left">/dev</td>
+<td align="left">包含设备结点的目录，“一切都是文件”也适用于设备</td>
+</tr>
+
+<tr>
+<td align="left">/etc</td>
+<td align="left">系统范围配置文件</td>
+</tr>
+
+<tr>
+<td align="left">/home</td>
+<td align="left">主目录，Linux在这里创建用户目录</td>
+</tr>
+
+<tr>
+<td align="left">/media</td>
+<td align="left">共享库文件，类似于Windows的DLLs（动态链接库，dynamic link libraries）</td>
+</tr>
+
+<tr>
+<td align="left">/lib</td>
+<td align="left">媒体目录，可移动媒体设备（USB等）的常用挂载（mount）点</td>
+</tr>
+
+<tr>
+<td align="left">/root</td>
+<td align="left">root用户的主目录</td>
+</tr>
+
+<tr>
+<td align="left">/tmp</td>
+<td align="left">临时目录，可在该目录中创建和删除临时工作文件</td>
+</tr>
+
+<tr>
+<td align="left">/var</td>
+<td align="left">可变（variable）目录</td>
+</tr>
+</tbody>
+</table>
+
+<p></center></p>
+
+    </div>
+
+    <div class="post-copyright">
+            
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>ANY_ME </span>
+                </p>
+            
+
+            
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://shishuochen.github.io/2020/2xawn806p/>https://shishuochen.github.io/2020/2xawn806p/</span>
+            </p>
+            
+            
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://shishuochen.github.io/tags/shell/">
+                    #shell</a></span>
+            
+            <span class="tag"><a href="https://shishuochen.github.io/tags/linux/">
+                    #linux</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> ·
+                <span><a href="https://shishuochen.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://shishuochen.github.io/2020/nlrmsp86u/" class="prev" rel="prev" title="什么是Shell"><i class="fas fa-caret-left"></i>&nbsp;什么是Shell</a>
+        
+        
+        <a href="https://shishuochen.github.io/2020/ihretxvwf/" class="next" rel="next" title="操纵文件和目录（Linux）">操纵文件和目录（Linux）&nbsp;<i class="fas fas fa-caret-right"></i></a>
+        
+    </div>
+	
+    <div class="post-comment">
+        
+            
+                <p></p>
+<br>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
+<div id="vcomments" style="padding: 10px 0px 0px 0px"></div>
+<style>
+  .v .veditor {
+    min-height: 10rem;
+    background-image: url('<%= site.customConfig.valineimage %>');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+    background-color: rgba(255, 255, 255, 0);
+    resize: none;
+  }
+
+  .v .vwrap {
+    border: 1px solid #000 !important;
+  }
+
+  .v .vbtn {
+    padding: .4rem 1.2rem !important;
+    border-color: #fff !important;
+    background-color: #49b1f5 !important;
+    color: #fff !important;
+    font-size: .7rem !important;
+  }
+
+  .v .vcards .vcard .vh .vmeta .vat {
+    padding: 0 .8rem !important;
+    border: 1px solid #00c4b6 !important;
+    border-radius: 5px !important;
+    color: #00c4b6 !important;
+  }
+</style>
+<script>
+  new Valine({
+        el: '#vcomments' ,
+        appId: 'WfSBqbaIFwwLUytPuTLtMKu9-MdYXbMMI',
+        appKey: 'ELF39FBTTfSuVVLOHMM4uqWf',
+        notify:  true ,
+        verify:  true , 
+        avatar:'mm', 
+		enableQQ: true,
+        placeholder: '【在昵称处填写企鹅号会自动拉取昵称、头像和邮箱，这样你就可以通过邮箱收到留言回复了，因此请检查自己的输入的企鹅号是否正确，方便自己的同时也避免给他人带来不便，Thanks♪(･ω･)ﾉ】',
+        visitor:  true 
+  });
+</script>
+
+            
+        
+    </div>
+</article>
+                </div>
+            </main>
+            
+<div class="footer-box">
+<footer class="footer">
+   <div class="copyright">
+      &copy;
+      
+      <span itemprop="copyrightYear">2019 - 2021</span>
+      
+      <span class="with-love">
+         <i class="fas fa-heart"></i>
+      </span>
+      
+      <span class="author" itemprop="copyrightHolder"><a href="https://shishuochen.github.io">ANY_ME</a> |
+      </span>
+      
+      
+	  <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+      <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a
+            href="https://github.com/Mogeko/Mogege" target="_blank" rel="external nofollow">Mogege</a></span>
+</footer>
+
+      <div class="back-to-top" id="back_to_top">
+         
+         <span><i class="fas fa-arrow-up"></i></span>
+         
+         <span class="scrollpercent">
+            <span id="back_to_top_text">0</span>%
+         </span>
+      </div>
+</div>
+<script>
+
+   let sideBarOpen = 'sidebar-open';
+   let body = document.body;
+   let back2Top = document.querySelector('#back_to_top'),
+      back2TopText = document.querySelector('#back_to_top_text'),
+      drawerBox = document.querySelector('#drawer_box'),
+      rightSideBar = document.querySelector('.sidebar'),
+      viewport = document.querySelector('body');
+
+   function scrollAnimation(currentY, targetY) {
+
+      let needScrollTop = targetY - currentY
+      let _currentY = currentY
+      setTimeout(() => {
+         const dist = Math.ceil(needScrollTop / 10)
+         _currentY += dist
+         window.scrollTo(_currentY, currentY)
+         if (needScrollTop > 10 || needScrollTop < -10) {
+            scrollAnimation(_currentY, targetY)
+         } else {
+            window.scrollTo(_currentY, targetY)
+         }
+      }, 1)
+   }
+
+   back2Top.addEventListener("click", function (e) {
+      scrollAnimation(document.scrollingElement.scrollTop, 0);
+      e.stopPropagation();
+      return false;
+   });
+
+   window.addEventListener('scroll', function (e) {
+      let percent = document.scrollingElement.scrollTop / (document.scrollingElement.scrollHeight - document.scrollingElement.clientHeight) * 100;
+      if (percent > 1 && !back2Top.classList.contains('back-top-active')) {
+         back2Top.classList.add('back-top-active');
+      }
+      if (percent == 0) {
+         back2Top.classList.remove('back-top-active');
+      }
+      if (back2TopText) {
+         back2TopText.textContent = Math.floor(percent);
+      }
+   });
+</script>
+
+
+
+
+
+
+<script defer src="/js/vendor_main.min.js"></script>
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/love.min.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha256-V8SV2MO1FUb63Bwht5Wx9x6PVHNa02gv8BgH/uH3ung=" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha256-F/Xda58SPdcUCr+xhSGz9MA2zQBPb0ASEYKohl8UCHc=" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha256-90d2pnfw0r4K8CZAWPko4rpFXQsZvJhTBGYNkipDprI=" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+           delimiters: [
+     {left: "$$", right: "$$", display: true},
+     {left: "$", right: "$", display: false},
+   ],
+        });
+    });
+</script>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script> pangu.spacingPage();</script>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+<meta name="google-site-verification" content="PgRvRggX4FPNmBfLmc_IBoedK_gPlyCB_p49I3DfNSA" />
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="ANY_ME">
+    <meta name="description" content="shishuoCh的个人博客">
+    
+    <meta name="google-site-verification" content=" " />
+    <link rel="prev" href="https://shishuochen.github.io/2020/8ranpmyi1/" />
+    <link rel="next" href="https://shishuochen.github.io/2020/epbncpk4s/" />
+    <link rel="canonical" href="https://shishuochen.github.io/2020/mwtb5_bys/" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+        
+        
+            Chapter6:逆矩阵、列空间与零空间、秩 | shishuoCh&#39;s Blog
+        
+    </title>
+    <meta name="title" content="Chapter6:逆矩阵、列空间与零空间、秩 | shishuoCh&#39;s Blog">
+    
+<link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/shishuochen.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "Chapter6:逆矩阵、列空间与零空间、秩",
+    "headline" : "Chapter6:逆矩阵、列空间与零空间、秩",
+    "description" : "1. 逆矩阵 \u0026emsp;\u0026emsp;前面已经知道，矩阵代表着一种线性变换，是对空间的一种操纵，逆矩阵自然也不例外。矩阵$A^{-1}$对空间的操",
+    "inLanguage" : "zh-cn",
+    "author" : "ANY_ME",
+    "creator" : "ANY_ME",
+    "publisher": "ANY_ME",
+    "accountablePerson" : "ANY_ME",
+    "copyrightHolder" : "ANY_ME",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-08-01 15:28:51 \u002b0000 UTC",
+    "dateModified" : "2020-08-01 15:28:51 \u002b0000 UTC",
+    "url" : "https:\/\/shishuochen.github.io\/2020\/mwtb5_bys\/",
+    "wordCount" : "1620",
+    "keywords" : [ "线性代数", "shishuoCh\u0027s Blog"]
+}
+</script>
+
+	<link rel="stylesheet" href=
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
+</link>
+    
+    <script src="https://kit.fontawesome.com/fb6088b71c.js" crossorigin="anonymous"></script>
+	
+
+  </head>
+    <body class="">
+        <div class="wrapper">
+            <nav class="navbar">
+    
+        <progress class="content_progress" max="0" value="0"></progress>
+    
+    <div class="container">
+        
+            <div class="navbar-header header-back2home-logo">
+                <span class="logo_mark" >>$</span>
+                <a href="https://shishuochen.github.io">
+                    <span class="logo_text" >cd /home/</span>
+                    <span class="logo_cursor" ></span>
+                </a>
+            </div>
+        
+        <div class="navbar-right">
+                
+                <span class="menu">
+                
+                <a class="menu-item" href="/posts/" title="">📖Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">📁Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">🎨Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">💬About</a>
+                
+                <a class="menu-item" href="/about/" title="">ANY_ME</a>
+                
+                <span class="divide"></span>
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-dark-mode"></i></a>
+                </span>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display:none">
+    
+        <progress class="content_progress" max="0" value="0"></progress>
+    
+     <div class="container">
+        <div class="navbar">
+            <div class="navbar-header header-logo">
+                    <a href="https://shishuochen.github.io">shishuoCh&#39;s Blog</a>
+            </div>
+            <div class="navbar-right">
+                <div><a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-dark-mode"></i></a></div>
+                <div class="menu-toggle">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                <nav class="mb-md">
+                    
+                    
+                        <a class="menu-item" href="/posts/" title="" white-space="nowrap">
+						<nobr>📖Blog</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/categories/" title="" white-space="nowrap">
+						<nobr>📁Categories</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/tags/" title="" white-space="nowrap">
+						<nobr>🎨Tags</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/about/" title="" white-space="nowrap">
+						<nobr>💬About</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/about/" title="" white-space="nowrap">
+						<nobr>ANY_ME</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                </nav>
+        </div>
+    </div>
+</nav>
+            <main class="main">
+                <div class="container">
+                    
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Chapter6:逆矩阵、列空间与零空间、秩</h1>
+        <div class="post-meta">
+                <i class="fas fa-user-circle"></i> <a itemprop="name" href="https://shishuochen.github.io" rel="author">ANY_ME</a> 
+				&thinsp;$\bm\vert$&thinsp; 
+				<i class="far fa-calendar-check "></i>
+				发布:2020-08-01
+				
+                </span>
+                
+				&thinsp;$\bm\vert$&thinsp; 
+				
+				
+				<i class="fas fa-history"></i> 更新:2020-08-05
+				
+                
+				&thinsp;$\bm\vert$&thinsp; 
+                
+                <i class="far fa-folder-open "></i>
+                <span class="post-category">
+                        
+                        
+                        
+                          <a href="https://shishuochen.github.io/categories/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%AC%94%E8%AE%B0/"> 线性代数笔记</a>
+                        
+                        
+                </span>
+				
+				&thinsp;$\bm\vert$&thinsp; 
+				<i class="fas fa-file-word "></i>
+                <span class="post-word-count">1620字</span>
+				
+				&thinsp;$\bm\vert$&thinsp;   
+				<i class="fas fa-coffee "></i>
+				
+                <span class="post-word-count">5分钟</span>
+				
+        </div>
+    </header>
+	  
+     
+          <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title"></h2>
+  
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#1-逆矩阵">1. 逆矩阵</a>
+<ul>
+<li><a href="#逆变换-a-1">逆变换$A^{-1}$</a></li>
+<li><a href="#a-1-不存在">$A^{-1}$不存在</a></li>
+<li><a href="#线性方程组">线性方程组</a></li>
+</ul></li>
+<li><a href="#2-秩-rank">2. 秩(rank)</a>
+<ul>
+<li><a href="#矩阵维数与秩的关系">矩阵维数与秩的关系</a></li>
+<li><a href="#列空间维数与秩">列空间维数与秩</a></li>
+<li><a href="#零空间">零空间</a></li>
+</ul></li>
+<li><a href="#3-补充-非方阵">3. 补充：非方阵</a>
+<ul>
+<li><a href="#3-times-2-矩阵">$3\times 2$矩阵</a></li>
+<li><a href="#2-times-3-矩阵">$2\times 3$矩阵</a></li>
+<li><a href="#1-times-2-矩阵">$1\times 2$矩阵</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+<script type="text/javascript">
+  window.onload = function () {
+    var fix = $('.post-toc');
+    var end = $('.post-comment');
+    var fixTop = fix.offset().top, fixHeight = fix.height();
+    var endTop, miss;
+    var offsetTop = fix[0].offsetTop;
+    $(window).scroll(function () {
+      var docTop = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
+      if (end.length > 0) {
+        endTop = end.offset().top;
+        miss = endTop - docTop - fixHeight;
+      }
+      if (fixTop < docTop) {
+        fix.css({ 'position': 'fixed' });
+        if ((end.length > 0) && (endTop < (docTop + fixHeight))) {
+          fix.css({ top: miss });
+        } else {
+          fix.css({ top: 0 });
+        }
+      } else {
+        fix.css({ 'position': 'absolute' });
+        fix.css({ top: offsetTop });
+      }
+    })
+  }
+</script> 
+	
+    <div class="post-content">
+        
+        
+        
+
+        
+        
+        
+        
+        
+
+        
+        
+        
+
+        
+
+<h2 id="1-逆矩阵">1. 逆矩阵</h2>
+
+<p><strong>&emsp;&emsp;前面已经知道，矩阵代表着一种线性变换，是对空间的一种操纵，逆矩阵自然也不例外。矩阵$A^{-1}$对空间的操纵和矩阵$A$相反。</strong></p>
+
+<h3 id="逆变换-a-1">逆变换$A^{-1}$</h3>
+
+<p>&emsp;&emsp;对向量先应用$A$，再应用$A$的逆变换$A^{-1}$，则将回到原来的位置，也就是说 $\fcolorbox{red}{aqua}{$A^{-1}A$}$是一个恒等变换。</p>
+
+<p><a name="eq1" ></a></p>
+
+<div>
+$$
+A^{-1}A=\begin{bmatrix}
+1 & 0\\
+0 & 1
+\end{bmatrix}\tag{1}
+$$
+</div>
+
+<h3 id="a-1-不存在">$A^{-1}$不存在</h3>
+
+<p><span style="color:  Tomato;">
+<i class="fas fa-exclamation-triangle"></i>
+</span> <strong>逆变换不存在的情况：$det(A)=0$</strong></p>
+
+<p>&emsp;&emsp; $\bullet$ 从几何上来看：$det(A)=0$意味着$A$这个变换将空间压缩降维了，可能是由三维空间变为二维平面或直线等，这时就不能找到一个变换将直线或平面<strong>“解压”</strong>为三维空间，至少没有一个函数能够做到这一点。</p>
+
+<p>&emsp;&emsp; $\bullet$ 逆变换不存在等价于$det(A)=0$，但是这并不意味着$A\vec{X}=\vec{V}$一定没有解。例如在二维空间，$A$矩阵行列式为零同时将二维空间压缩为直线，而向量$\vec{V}$恰好位于这条直线上。</p>
+
+<h3 id="线性方程组">线性方程组</h3>
+
+<p>&emsp;&emsp;矩阵在求解线性方程组时可谓是大有用处，如何将线性方程组转化为矩阵的运算来求解呢？</p>
+
+<p>设有如下方程组：</p>
+
+<div>
+$$
+\begin{alignedat}{3}
+   \color{blue}2&\bm x+ &\color{blue}5&\bm  y + &\color{blue}3&\bm z = \color{red}-3 \\
+   \color{blue}4&\bm x+ &\color{blue}0&\bm  y + &\color{blue}8&\bm z =\color{red}0 \\
+   \color{blue}1&\bm x+ &\color{blue}3&\bm  y + &\color{blue}0&\bm z =\color{red} 2
+\end{alignedat}\tag{2}
+$$
+</div>
+
+<p>则其可改写为矩阵形式：</p>
+
+<div>
+$$
+\begin{bmatrix}
+\color{blue} 2 &\color{blue} 5 &\color{blue} 3\\
+\color{blue}4 & \color{blue}0 &\color{blue} 8\\
+\color{blue}1 &\color{blue} 3 &\color{blue} 0
+\end{bmatrix}\begin{bmatrix}
+\bm x\\
+\bm y\\
+\bm z
+\end{bmatrix}=\begin{bmatrix}
+\color{red}-3\\
+\color{red}0\\
+\color{red}2
+\end{bmatrix}\tag{3}
+$$
+</div>
+
+<p>$$
+\bm\Darr
+$$</p>
+
+<p>$$
+\fcolorbox{red}{aqua}{$A\vec{X}=\vec{V}$}\tag{4}
+$$</p>
+
+<p>进一步利用矩阵的逆变换特点即式<a href="#eq1">$(1)$</a>，（假设$A^{-1}$存在）将式$(4)$改写为</p>
+
+<p>$$
+A^{-1}A\vec{X}=A^{-1}\vec{V}\tag{5}
+$$</p>
+
+<p>$$
+\bm\Darr
+$$</p>
+
+<p>$$
+\fcolorbox{red}{aqua}{$\vec{X}=A^{-1}\vec{V}$}\tag{6}
+$$</p>
+
+<h2 id="2-秩-rank">2. 秩(rank)</h2>
+
+<p><strong>秩代表变换后空间的维数：</strong></p>
+
+<p>&emsp;&emsp;$\bullet$ 当变换结果为一条直线时，则该变换的秩为1</p>
+
+<p>&emsp;&emsp;$\bullet$ 当变换后的向量在二维平面上时，则该变换的秩为2</p>
+
+<h3 id="矩阵维数与秩的关系">矩阵维数与秩的关系</h3>
+
+<p>&emsp;&emsp;$\bullet$  对于$2\times 2$的矩阵，它的秩最大为$2$，意味着基向量仍旧能够张成二维空间并且矩阵的行列式不为零。但是对于$3\times 3$的矩阵，秩为$2$就意味着空间被压缩成了二维平面，相比秩为$1$压缩为直线来说不严重。</p>
+
+<p>&emsp;&emsp;$\bullet$  如果一个三维变换的行列式不为零，变换结果仍旧能充满真个三维空间，则秩为$3$。</p>
+
+<h3 id="列空间维数与秩">列空间维数与秩</h3>
+
+<p>&emsp;&emsp;$\bullet$ <strong>列空间就是所有变换结果可能的集合，而变换后的基向量张成的空间就是所有可能的结果。换言之，列空间就是矩阵的列所张成的空间。所以秩也就是列空间的维数。</strong></p>
+
+<p>&emsp;&emsp;$\bullet$  <strong>满秩：秩与列数相等</strong></p>
+
+<p>&emsp;&emsp;$\bullet$  零向量一定被包含在列空间中，因为线性变换必须保持原点位置不变。</p>
+
+<h3 id="零空间">零空间</h3>
+
+<p>&emsp;&emsp;$\bullet$  对于一个满秩变换来说，唯一能够在变换后落在原点的就是零向量自身，但对于非满秩的矩阵来说，它将空间压缩为一个更低的维度，也就是说会有一系列向量在变换后成为零向量。</p>
+
+<p>&emsp;&emsp;$\bullet$ 变换后落在原点的向量集合称为矩阵的“零空间”或“核”。</p>
+
+<p>&emsp;&emsp;$\bullet$ <strong>列空间的概念让我们清楚什么时候存在解，零空间则有助于告诉我们所有可能的集合是什么样的。</strong></p>
+
+<h2 id="3-补充-非方阵">3. 补充：非方阵</h2>
+
+<p>&emsp;&emsp;前面说的都是针对方阵来说，接下来是一些关于非方阵相关概念的理解。</p>
+
+<h3 id="3-times-2-矩阵">$3\times 2$矩阵</h3>
+
+<p>&emsp;&emsp;有如下3行2列的矩阵：</p>
+
+<div>
+$$
+\begin{bmatrix}
+2 & 0\\
+-1 & 1\\
+-2 & 1
+\end{bmatrix}
+$$
+</div>
+
+<p>&emsp;&emsp;这个矩阵的列空间是三维空间中的一个过原点的二维平面，该矩阵为“满秩”。因为列空间的维数与输入空间维数相等。<strong>其几何意义是将二维空映射到三维空间上：</strong></p>
+
+<p>&emsp;&emsp;$\bullet$ <strong>因为矩阵有两列表明输入空间有两个基向量</strong></p>
+
+<p>&emsp;&emsp;$\bullet$ <strong>有三行表明每一个基向量在变换后都用三个独立的坐标来描述。</strong></p>
+
+<h3 id="2-times-3-矩阵">$2\times 3$矩阵</h3>
+
+<p>&emsp;&emsp;有如下$2$行$3$列的矩阵：$3$列表明原始空间有$3$个基向量，即原始空间是三维的；$2$行表明基向量在变换后用两个坐标来描述。</p>
+
+<div>
+$$
+\begin{bmatrix}
+2 & 0 & 3\\
+-1 & 1 & 7
+\end{bmatrix}
+$$
+</div>
+
+<h3 id="1-times-2-矩阵">$1\times 2$矩阵</h3>
+
+<p>&emsp;&emsp;有如下1行2列的矩阵：</p>
+
+<div>
+$$
+\begin{bmatrix}
+a & b   
+\end{bmatrix}
+$$
+</div>
+
+<p>&emsp;&emsp;它表示的是二维空间到一维空间（数轴）的变换，这样的变换接收一个二维向量，然后产生一个数。矩阵的两列分别代表了变换后的基向量，而它们都只需一个数字，即变换后基向量在数轴上的位置。</p>
+
+<p>&emsp;&emsp;<strong>这类变换与点积紧密相关</strong></p>
+
+    </div>
+
+    <div class="post-copyright">
+            
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>ANY_ME </span>
+                </p>
+            
+
+            
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://shishuochen.github.io/2020/mwtb5_bys/>https://shishuochen.github.io/2020/mwtb5_bys/</span>
+            </p>
+            
+            
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://shishuochen.github.io/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">
+                    #线性代数</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> ·
+                <span><a href="https://shishuochen.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://shishuochen.github.io/2020/8ranpmyi1/" class="prev" rel="prev" title="Chapter5:行列式"><i class="fas fa-caret-left"></i>&nbsp;Chapter5:行列式</a>
+        
+        
+        <a href="https://shishuochen.github.io/2020/epbncpk4s/" class="next" rel="next" title="傅里叶变换相关图谱">傅里叶变换相关图谱&nbsp;<i class="fas fas fa-caret-right"></i></a>
+        
+    </div>
+	
+    <div class="post-comment">
+        
+            
+                <p></p>
+<br>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
+<div id="vcomments" style="padding: 10px 0px 0px 0px"></div>
+<style>
+  .v .veditor {
+    min-height: 10rem;
+    background-image: url('<%= site.customConfig.valineimage %>');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+    background-color: rgba(255, 255, 255, 0);
+    resize: none;
+  }
+
+  .v .vwrap {
+    border: 1px solid #000 !important;
+  }
+
+  .v .vbtn {
+    padding: .4rem 1.2rem !important;
+    border-color: #fff !important;
+    background-color: #49b1f5 !important;
+    color: #fff !important;
+    font-size: .7rem !important;
+  }
+
+  .v .vcards .vcard .vh .vmeta .vat {
+    padding: 0 .8rem !important;
+    border: 1px solid #00c4b6 !important;
+    border-radius: 5px !important;
+    color: #00c4b6 !important;
+  }
+</style>
+<script>
+  new Valine({
+        el: '#vcomments' ,
+        appId: 'WfSBqbaIFwwLUytPuTLtMKu9-MdYXbMMI',
+        appKey: 'ELF39FBTTfSuVVLOHMM4uqWf',
+        notify:  true ,
+        verify:  true , 
+        avatar:'mm', 
+		enableQQ: true,
+        placeholder: '【在昵称处填写企鹅号会自动拉取昵称、头像和邮箱，这样你就可以通过邮箱收到留言回复了，因此请检查自己的输入的企鹅号是否正确，方便自己的同时也避免给他人带来不便，Thanks♪(･ω･)ﾉ】',
+        visitor:  true 
+  });
+</script>
+
+            
+        
+    </div>
+</article>
+                </div>
+            </main>
+            
+<div class="footer-box">
+<footer class="footer">
+   <div class="copyright">
+      &copy;
+      
+      <span itemprop="copyrightYear">2019 - 2021</span>
+      
+      <span class="with-love">
+         <i class="fas fa-heart"></i>
+      </span>
+      
+      <span class="author" itemprop="copyrightHolder"><a href="https://shishuochen.github.io">ANY_ME</a> |
+      </span>
+      
+      
+	  <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+      <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a
+            href="https://github.com/Mogeko/Mogege" target="_blank" rel="external nofollow">Mogege</a></span>
+</footer>
+
+      <div class="back-to-top" id="back_to_top">
+         
+         <span><i class="fas fa-arrow-up"></i></span>
+         
+         <span class="scrollpercent">
+            <span id="back_to_top_text">0</span>%
+         </span>
+      </div>
+</div>
+<script>
+
+   let sideBarOpen = 'sidebar-open';
+   let body = document.body;
+   let back2Top = document.querySelector('#back_to_top'),
+      back2TopText = document.querySelector('#back_to_top_text'),
+      drawerBox = document.querySelector('#drawer_box'),
+      rightSideBar = document.querySelector('.sidebar'),
+      viewport = document.querySelector('body');
+
+   function scrollAnimation(currentY, targetY) {
+
+      let needScrollTop = targetY - currentY
+      let _currentY = currentY
+      setTimeout(() => {
+         const dist = Math.ceil(needScrollTop / 10)
+         _currentY += dist
+         window.scrollTo(_currentY, currentY)
+         if (needScrollTop > 10 || needScrollTop < -10) {
+            scrollAnimation(_currentY, targetY)
+         } else {
+            window.scrollTo(_currentY, targetY)
+         }
+      }, 1)
+   }
+
+   back2Top.addEventListener("click", function (e) {
+      scrollAnimation(document.scrollingElement.scrollTop, 0);
+      e.stopPropagation();
+      return false;
+   });
+
+   window.addEventListener('scroll', function (e) {
+      let percent = document.scrollingElement.scrollTop / (document.scrollingElement.scrollHeight - document.scrollingElement.clientHeight) * 100;
+      if (percent > 1 && !back2Top.classList.contains('back-top-active')) {
+         back2Top.classList.add('back-top-active');
+      }
+      if (percent == 0) {
+         back2Top.classList.remove('back-top-active');
+      }
+      if (back2TopText) {
+         back2TopText.textContent = Math.floor(percent);
+      }
+   });
+</script>
+
+
+
+
+
+
+<script defer src="/js/vendor_main.min.js"></script>
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/love.min.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha256-V8SV2MO1FUb63Bwht5Wx9x6PVHNa02gv8BgH/uH3ung=" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha256-F/Xda58SPdcUCr+xhSGz9MA2zQBPb0ASEYKohl8UCHc=" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha256-90d2pnfw0r4K8CZAWPko4rpFXQsZvJhTBGYNkipDprI=" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+           delimiters: [
+     {left: "$$", right: "$$", display: true},
+     {left: "$", right: "$", display: false},
+   ],
+        });
+    });
+</script>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script> pangu.spacingPage();</script>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>记录 on shishuoCh&#39;s Blog</title>
+    <link>https://shishuochen.github.io/tags/%E8%AE%B0%E5%BD%95/</link>
+    <description>Recent content in 记录 on shishuoCh&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 28 May 2020 22:32:24 +0000</lastBuildDate>
+    
+	<atom:link href="https://shishuochen.github.io/tags/%E8%AE%B0%E5%BD%95/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>如何批量&#34;左右&#34;合并txt文件</title>
+      <link>https://shishuochen.github.io/2020/r_e_e13ck/</link>
+      <pubDate>Thu, 28 May 2020 22:32:24 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/r_e_e13ck/</guid>
+      <description>&amp;emsp;&amp;emsp;合并txt文件有很多种方法，如果文件数目不多手动复制也不是不可，但是文件多的时候就显得有点力不从心了；有的时候不光如</description>
+    </item>
+    
+    <item>
+      <title>MATLAB中好用的命令和函数（持续更新）</title>
+      <link>https://shishuochen.github.io/2020/cz15p-u8k/</link>
+      <pubDate>Wed, 27 May 2020 21:32:22 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/cz15p-u8k/</guid>
+      <description>&amp;emsp;&amp;emsp;本文主要记录自己在使用MATLAB过程中常用到的知识点（命令和函数），在此记录下来，也方便回顾查阅。 1. 技巧篇 clearvars -except var1 v</description>
+    </item>
+    
+    <item>
+      <title>Gridea中Markdown写作小结~</title>
+      <link>https://shishuochen.github.io/2020/k0eu-2smz/</link>
+      <pubDate>Sat, 18 Apr 2020 14:23:57 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/k0eu-2smz/</guid>
+      <description>&amp;emsp;&amp;emsp;本文主要是记录自己在Gridea写作时遇到的“问题”，有的时候想实现一种排版样式费尽九牛二虎之力才找到答案，特在此记</description>
+    </item>
+    
+    <item>
+      <title>栈实现简单计算器</title>
+      <link>https://shishuochen.github.io/2020/3aynm0ijd/</link>
+      <pubDate>Sat, 11 Apr 2020 11:19:21 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/3aynm0ijd/</guid>
+      <description>&amp;emsp;&amp;emsp;本文主要写如何用栈结构来实现简单的计算器 ，主要包括四则运算，并且在此基础上添加括号、乘方等，示例如下： $$-3.63\times (36.9+26.2)^{5}-5.3*(-2)\div 3.6^{2}.$$ 下面说说</description>
+    </item>
+    
+  </channel>
+</rss>

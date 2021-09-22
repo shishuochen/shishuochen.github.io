@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+<meta name="google-site-verification" content="PgRvRggX4FPNmBfLmc_IBoedK_gPlyCB_p49I3DfNSA" />
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="ANY_ME">
+    <meta name="description" content="shishuoCh的个人博客">
+    
+    <meta name="google-site-verification" content=" " />
+    <link rel="prev" href="https://shishuochen.github.io/2020/ejq1xavt/" />
+    <link rel="next" href="https://shishuochen.github.io/2020/k0eu-2smz/" />
+    <link rel="canonical" href="https://shishuochen.github.io/2020/urnq4uiod/" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+        
+        
+            图像增强算法及MATLAB实现 | shishuoCh&#39;s Blog
+        
+    </title>
+    <meta name="title" content="图像增强算法及MATLAB实现 | shishuoCh&#39;s Blog">
+    
+<link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/shishuochen.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "图像增强算法及MATLAB实现",
+    "headline" : "图像增强算法及MATLAB实现",
+    "description" : "图像增强算法常见于对图像的亮度、对比度、饱和度、色调等进行调节，增加其清晰度，减少噪点等。由于受到环境，光线等的影响，拍摄的照片清晰度和对比",
+    "inLanguage" : "zh-cn",
+    "author" : "ANY_ME",
+    "creator" : "ANY_ME",
+    "publisher": "ANY_ME",
+    "accountablePerson" : "ANY_ME",
+    "copyrightHolder" : "ANY_ME",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-04-18 14:22:07 \u002b0000 UTC",
+    "dateModified" : "2020-04-18 14:22:07 \u002b0000 UTC",
+    "url" : "https:\/\/shishuochen.github.io\/2020\/urnq4uiod\/",
+    "wordCount" : "3456",
+    "keywords" : [ "MATLAB","数字图像处理", "shishuoCh\u0027s Blog"]
+}
+</script>
+
+	<link rel="stylesheet" href=
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
+</link>
+    
+    <script src="https://kit.fontawesome.com/fb6088b71c.js" crossorigin="anonymous"></script>
+	
+
+  </head>
+    <body class="">
+        <div class="wrapper">
+            <nav class="navbar">
+    
+        <progress class="content_progress" max="0" value="0"></progress>
+    
+    <div class="container">
+        
+            <div class="navbar-header header-back2home-logo">
+                <span class="logo_mark" >>$</span>
+                <a href="https://shishuochen.github.io">
+                    <span class="logo_text" >cd /home/</span>
+                    <span class="logo_cursor" ></span>
+                </a>
+            </div>
+        
+        <div class="navbar-right">
+                
+                <span class="menu">
+                
+                <a class="menu-item" href="/posts/" title="">📖Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">📁Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">🎨Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">💬About</a>
+                
+                <a class="menu-item" href="/about/" title="">ANY_ME</a>
+                
+                <span class="divide"></span>
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-dark-mode"></i></a>
+                </span>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display:none">
+    
+        <progress class="content_progress" max="0" value="0"></progress>
+    
+     <div class="container">
+        <div class="navbar">
+            <div class="navbar-header header-logo">
+                    <a href="https://shishuochen.github.io">shishuoCh&#39;s Blog</a>
+            </div>
+            <div class="navbar-right">
+                <div><a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-dark-mode"></i></a></div>
+                <div class="menu-toggle">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                <nav class="mb-md">
+                    
+                    
+                        <a class="menu-item" href="/posts/" title="" white-space="nowrap">
+						<nobr>📖Blog</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/categories/" title="" white-space="nowrap">
+						<nobr>📁Categories</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/tags/" title="" white-space="nowrap">
+						<nobr>🎨Tags</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/about/" title="" white-space="nowrap">
+						<nobr>💬About</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/about/" title="" white-space="nowrap">
+						<nobr>ANY_ME</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                </nav>
+        </div>
+    </div>
+</nav>
+            <main class="main">
+                <div class="container">
+                    
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">图像增强算法及MATLAB实现</h1>
+        <div class="post-meta">
+                <i class="fas fa-user-circle"></i> <a itemprop="name" href="https://shishuochen.github.io" rel="author">ANY_ME</a> 
+				&thinsp;$\bm\vert$&thinsp; 
+				<i class="far fa-calendar-check "></i>
+				发布:2020-04-18
+				
+                </span>
+                
+				&thinsp;$\bm\vert$&thinsp; 
+				
+				
+				<i class="fas fa-history"></i> 更新:2020-07-16
+				
+                
+				&thinsp;$\bm\vert$&thinsp; 
+                
+                <i class="far fa-folder-open "></i>
+                <span class="post-category">
+                        
+                        
+                        
+                          <a href="https://shishuochen.github.io/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"> 课程笔记</a>
+                        
+                        
+                        
+                        
+                          <a href="https://shishuochen.github.io/categories/%E4%B8%8Ematlab%E6%9C%89%E7%82%B9%E5%85%B3%E7%B3%BB/"> 与MATLAB有点关系</a>
+                        
+                        
+                </span>
+				
+				&thinsp;$\bm\vert$&thinsp; 
+				<i class="fas fa-file-word "></i>
+                <span class="post-word-count">3456字</span>
+				
+				&thinsp;$\bm\vert$&thinsp;   
+				<i class="fas fa-coffee "></i>
+				
+                <span class="post-word-count">11分钟</span>
+				
+        </div>
+    </header>
+	  
+     
+          <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title"></h2>
+  
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#1-方法概述">1 方法概述</a>
+<ul>
+<li><a href="#1-1-直方图均衡化">1.1 直方图均衡化</a>
+<ul>
+<li><a href="#1-1-1-灰度图像">1.1.1 灰度图像</a></li>
+<li><a href="#1-1-2-rgb真彩图">1.1.2 RGB真彩图</a></li>
+</ul></li>
+<li><a href="#1-2-对数变换">1.2 对数变换</a></li>
+<li><a href="#1-3-幂律变换">1.3 幂律变换</a></li>
+<li><a href="#1-4-局部增强">1.4 局部增强</a></li>
+</ul></li>
+<li><a href="#2-测试图片">2 测试图片</a></li>
+<li><a href="#3-测试结果">3 测试结果</a>
+<ul>
+<li><a href="#3-1-直方均衡">3.1 直方均衡</a>
+<ul>
+<li><a href="#3-1-1-灰度图">3.1.1 灰度图</a></li>
+<li><a href="#3-1-2-rgb真彩图">3.1.2 RGB真彩图</a></li>
+</ul></li>
+<li><a href="#3-2-对数变换">3.2 对数变换</a></li>
+<li><a href="#3-3-幂律变换">3.3 幂律变换</a></li>
+<li><a href="#3-4-局部增强">3.4 局部增强</a></li>
+</ul></li>
+<li><a href="#4-结果分析">4 结果分析</a>
+<ul>
+<li><a href="#4-1-直方均衡">4.1 直方均衡</a></li>
+<li><a href="#4-2-对数变换">4.2 对数变换</a></li>
+<li><a href="#4-3-幂律变换">4.3 幂律变换</a></li>
+<li><a href="#4-4-局部增强">4.4 局部增强</a></li>
+</ul></li>
+<li><a href="#5-matlab实现">5 MATLAB实现</a>
+<ul>
+<li><a href="#5-1-直方均衡">5.1 直方均衡</a></li>
+<li><a href="#5-2-对数变换">5.2 对数变换</a></li>
+<li><a href="#5-3-幂律变换">5.3 幂律变换</a></li>
+<li><a href="#5-4-局部增强">5.4 局部增强</a></li>
+</ul></li>
+<li><a href="#6-参考文献">6 参考文献</a></li>
+</ul>
+</nav>
+  </div>
+</div>
+<script type="text/javascript">
+  window.onload = function () {
+    var fix = $('.post-toc');
+    var end = $('.post-comment');
+    var fixTop = fix.offset().top, fixHeight = fix.height();
+    var endTop, miss;
+    var offsetTop = fix[0].offsetTop;
+    $(window).scroll(function () {
+      var docTop = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
+      if (end.length > 0) {
+        endTop = end.offset().top;
+        miss = endTop - docTop - fixHeight;
+      }
+      if (fixTop < docTop) {
+        fix.css({ 'position': 'fixed' });
+        if ((end.length > 0) && (endTop < (docTop + fixHeight))) {
+          fix.css({ top: miss });
+        } else {
+          fix.css({ top: 0 });
+        }
+      } else {
+        fix.css({ 'position': 'absolute' });
+        fix.css({ top: offsetTop });
+      }
+    })
+  }
+</script> 
+	
+    <div class="post-content">
+        
+        
+        
+            
+        
+
+        
+          <img src="https://s1.ax1x.com/2020/07/04/NxC4YQ.png" class="featured_image">
+        
+        
+        
+        
+        
+
+        
+        
+        
+
+        
+
+<p>  <strong>图像增强算法常见于对图像的亮度、对比度、饱和度、色调等进行调节，增加其清晰度，减少噪点等。由于受到环境，光线等的影响，拍摄的照片清晰度和对比度比较低，不能够突出图像中的重点。图像对比度增强就是通过一定的方法使得图像中的事物看的更清楚或更明显。本文从直方图均衡化、对数变换、幂律变换以及基于直方图统计信息进行局部增强等传统方法展开论述，展示了不同方法的实现效果并给予一定的分析。</strong></p>
+
+<hr />
+
+<h1 id="1-方法概述">1 方法概述</h1>
+
+<p>&emsp;&emsp;对比度是使一个物体（或其在图像中的表示）与其他物体和背景区别开来的视觉特性的差异。在现实世界的视觉感知中，对比度是由物体和同一视场内其他物体的颜色和亮度的差异决定的。换言之，它是图像的较暗像素和较浅像素之间的区别，如果它很大，图像将具有高对比度，而在另一种情况下，图像将具有低对比度。以下是增强图像对比度的方法。</p>
+
+<h2 id="1-1-直方图均衡化">1.1 直方图均衡化</h2>
+
+<p>&emsp;&emsp;直方图均衡化是图像处理领域中利用图像直方图对对比度进行调整的方法,这种方法通常用来增加图像的全局对比度。以下将从两类图像介绍该方法的实现：灰度图像、RGB真彩图。</p>
+
+<h3 id="1-1-1-灰度图像">1.1.1 灰度图像</h3>
+
+<p>&emsp;&emsp;对于一个大小为 $M\times N$ 的灰度图像 $X$，$n_i$ 表示灰度 $i$ 出现的次数，则图像中灰度为 $i$ 的像素出现的概率为
+<a name="eq1"></a></p>
+
+<p>$$
+p_{x}(i)=p(x=i)=\frac{n_i}{n},\quad 0\leq i&lt;L \tag{1}
+$$</p>
+
+<p>其中，$L$ 是图像中所有的灰度数（通常为256），$n$ 是图像中所有的像素数，$p_x(i)$ 实际上是像素值为 $i$ 的图像的直方图，归一化到 $[0,1]$。图像的累计归一化直方图对应于 $p_x$ 的累计分布函数，可以定义为</p>
+
+<div>
+$$
+\begin{aligned}
+    cdf_x(i)=\sum_{j=0}^{i}p_x(j)\tag{2}
+\end{aligned}
+$$
+</div>
+
+<p>对于输入图像 $X$ 中灰度值值为 $v$ 的像素，均衡化后灰度值变化为</p>
+
+<div>
+$$
+\begin{aligned}
+    h(v)=round\left(\frac{cdf(v)-cdf_{min}}{M\times N-cdf_{min}}\times (L-1)\tag{3}\right)
+\end{aligned}
+$$
+</div>
+
+<p>其中，$L$ 同式 <a href="#eq1">$(1)$</a>一样，均代表灰度级数（若图像为 $l$ 位深度，则 $L=2^l$，下同）。显而易见，输入图像 $X$ 中灰度最小值和最大值将分别变化为 $0$ 和 $L-1$。</p>
+
+<p>&emsp;&emsp;上面描述了灰度图像上使用直方均衡化的方法，通过将这种方法分别用于图像RGB颜色值的红色、绿色和蓝色分量，从而也可以对彩色图像进行处理。但是值得注意的是，实际上对彩色分量RGB分别做均衡化，会产生奇异的点，图像不和谐。一般采用的是用HSL和HSV色彩空间进行亮度的均衡即可。</p>
+
+<h3 id="1-1-2-rgb真彩图">1.1.2 RGB真彩图</h3>
+
+<p>&emsp;&emsp;直方图均衡可以被认为是图像强度的重新分布。通过将彩色图像转换为HSV/HSI图像并增强强度，同时保留色相和饱和度分量，可以实现颜色直方图均衡 。具体步骤如下：</p>
+
+<ol>
+<li>将RGB图像转换为HSI图像</li>
+<li>从HSI图像矩阵获取“强度矩阵”</li>
+<li>在强度矩阵上执行直方图均衡化</li>
+<li>使用直方图均衡的强度矩阵从HSI图像矩阵更新强度矩阵</li>
+<li>将HSI图像转换回RGB图像</li>
+</ol>
+
+<h2 id="1-2-对数变换">1.2 对数变换</h2>
+
+<p>&emsp;&emsp;对数变换的通用形式为
+<a name="eq4"></a>
+$$
+\begin{aligned}
+    s=clog(1+r)\tag{4}
+\end{aligned}
+$$
+其中 $r$ 和 $s$ 分别代表处理前后的像素值，$c$ 为常数并假设 $r\geq 0$。该变换将输入中范围较窄的低灰度值映射为输出中较宽范围的灰度值</p>
+
+<h2 id="1-3-幂律变换">1.3 幂律变换</h2>
+
+<p>&emsp;&emsp;幂律变换的基本形式为
+<a name="eq5"></a>
+$$
+\begin{aligned}
+    s=cr^{\gamma}\tag{5}
+\end{aligned}
+$$
+其中 $c$ 和 $\gamma$ 为正常数。与对数变换的情况类似，部分 $\gamma$ 值得幂律曲线将较窄范围的暗色输入值映射为较宽范围的输出值</p>
+
+<h2 id="1-4-局部增强">1.4 局部增强</h2>
+
+<p>&emsp;&emsp;如节 <a href="#11-直方图均衡化">1.1</a> 中所述的直方图均衡化处理方法是全局化的，在某种意义上，像素基于整幅图像的灰度分布的变换函数修改。虽然这种全局方法适用于整个图像的增强，但存在这样的情况，增强图像中小区域的细节也是需要的。解决方法是以图像中每个像素的邻域中的灰度分布为基础设计变换函数。</p>
+
+<p>直接从直方图获得的统计参数可以用于图像增强。令 $f(x,y)$ 表示给定图像中任意坐标 $(x,y)$ 的像素值，输入图像的平均灰度 $m$ 和灰度方差 $\sigma^2$ 分别可由式
+<a name="eq6"></a></p>
+
+<div>
+$$
+\begin{aligned}
+    m={}&\frac{1}{MN}\sum_{x=0}^{M-1}\sum_{y=0}^{N-1}f(x,y)\tag{6}\\\\
+    \sigma^2={}&\frac{1}{MN}\sum_{x=0}^{M-1}\sum_{y=0}^{N-1}[f(x,y)-m]^2
+\end{aligned}
+$$
+</div>
+
+<p>给出。$S _ {xy}$ 表示规定大小的以 $(x,y)$ 为中心的邻域（通常大小为 $3\times 3$），对于邻域$S _ {xy}$的局部均值以及局部方差可以根据式<a href="#eq6">$(6)$</a>得出类似的表达式。</p>
+
+<p>&emsp;&emsp;令 $g(x,y)$ 表示输入图像坐标 $(x,y)$ 处相应的增强后的像素值，则对于 $x=0,1,2,\cdots,M-1,y=0,1,2,\cdots,N-1$，有
+<a name="eq7"></a></p>
+
+<div>
+$$
+\begin{aligned}
+    g(x,y)=\begin{cases}
+        E\cdot f(x,y) &m_{S_{xy}}\leq k_0m_{G}\text{且}k_1\sigma_{G}\leq \sigma_{S_{xy}}\leq k_2\sigma_{G},\\
+        f(x,y)&\text{others},
+    \end{cases}\tag{7}
+\end{aligned}
+$$
+</div>
+
+<p>其中，$E,k_0,k_1,k_2$ 是规定的参数；$m_G$ 是输入图像的全局均值；$\sigma _ G$ 是输入图像的标准差。参数 $m _ {S _ {xy}}$ 和 $\sigma _ {S _ {xy}}$ 分别是局部均值和标准差。$M$和$N$ 分别为图像行和列的维数 。</p>
+
+<h1 id="2-测试图片">2 测试图片</h1>
+
+<p><a name="fig2.1"></a>
+<center>
+<a data-fancybox="gallery" href="https://s1.ax1x.com/2020/04/21/J8CrTK.png" ><img src="https://s1.ax1x.com/2020/04/21/J8CrTK.png" style="zoom: 20%;" /></a>
+图 2.1：测试图片</p>
+
+<p></center></p>
+
+<p>&emsp;&emsp;为了更好的比较和了解以上几种图像增强方法，本文将不同的方法应用于图 <a href="#fig2.1">2.1</a>中的测试图片，这些图像大部分是暗色区域。由图 <a href="#fig2.2">2.2</a> 可以看出，这些图像的直方图中，像素多集中于灰度级暗端；可以作为图像对比度增强的测试图（对于对数变换、幂律变换以及局部增强等方法，只对图 <a href="#fig2.1">2.1</a> 中（a）（d）进行测试以简单说明此类方法的效果）。
+<a name="fig2.2"></a>
+<center>
+<a data-fancybox="gallery" href= "https://s1.ax1x.com/2020/04/21/JGMjUg.png"><img src="https://s1.ax1x.com/2020/04/21/JGMjUg.png" style="zoom: 20%;" /></a></p>
+
+<p>图 2.2：测试图片相应的直方图</p>
+
+<p></center></p>
+
+<h1 id="3-测试结果">3 测试结果</h1>
+
+<h2 id="3-1-直方均衡">3.1 直方均衡</h2>
+
+<h3 id="3-1-1-灰度图">3.1.1 灰度图</h3>
+
+<p>&emsp;&emsp;图 <a href="#fig2.1">2.1</a> 中（d）和（e）是灰度图，经过直方均衡后的结果如图 <a href="#fig3.1">3.1</a>所示。
+<a name="fig3.1"></a>
+<center>
+<a data-fancybox="gallery" href="https://s1.ax1x.com/2020/04/21/JGQ8aD.png" ><img src="https://s1.ax1x.com/2020/04/21/JGQ8aD.png" style="zoom: 50%;" /></a></p>
+
+<p>图 3.1：灰度图直方图处理结果</p>
+
+<p></center></p>
+
+<h3 id="3-1-2-rgb真彩图">3.1.2 RGB真彩图</h3>
+
+<p>&emsp;&emsp;对于 RGB 图，本文使用了两种处理方法以形成对比：将节 <a href="#111-灰-度图像">1.1.1</a> 的方法分别应用于RGB 的红、绿、蓝分量（简称“法 1”）以及节 <a href="#112-rgb真彩图">1.1.2</a> 中的色彩空间转换后的处理方法（简称“法 2”）。
+<a name="fig3.2"></a>
+<center>
+<a data-fancybox="gallery" href="https://s1.ax1x.com/2020/04/21/J8CtW4.png" ><img src="https://s1.ax1x.com/2020/04/21/J8CtW4.png" style="zoom: 36.5%;"/></a>
+<a data-fancybox="gallery" href="https://s1.ax1x.com/2020/04/21/J8Cal9.png" ><img src="https://s1.ax1x.com/2020/04/21/J8Cal9.png" style="zoom: 40%;" /></a></p>
+
+<p>图 3.2：RGB 彩图两种方法的处理结果比照</p>
+
+<p></center></p>
+
+<h2 id="3-2-对数变换">3.2 对数变换</h2>
+
+<p>&emsp;&emsp;如节 <a href="#2-测试图片">2</a> 所述，只对图 <a href="#fig2.1">2.1</a> 中（a）（d）进行变换，处理结果如图 <a href="#fig3.3">3.3</a> 所示。
+<a name="fig3.3"></a>
+<center>
+<a data-fancybox="gallery" href= "https://s1.ax1x.com/2020/04/21/JGQGIe.png"><img src="https://s1.ax1x.com/2020/04/21/JGQGIe.png" style="zoom: 50%;" /></a></p>
+
+<p>图 3.3：对数变换处理结果比照
+</center></p>
+
+<h2 id="3-3-幂律变换">3.3 幂律变换</h2>
+
+<p>&emsp;&emsp;如节 <a href="#2-测试图片">2</a> 所述，只对图 <a href="#fig2.1">2.1</a> 中（a）（d）进行变换，处理结果如图 <a href="#fig3.4">3.4</a> 所示。
+<a name="fig3.4"></a>
+<center>
+<a data-fancybox="gallery" href= "https://s1.ax1x.com/2020/04/21/JGQYPH.png"><img src="https://s1.ax1x.com/2020/04/21/JGQYPH.png" style="zoom: 47.6%;" /></a></p>
+
+<p>图 3.4：幂律变换处理结果比照
+</center></p>
+
+<h2 id="3-4-局部增强">3.4 局部增强</h2>
+
+<p>&emsp;&emsp;如节 <a href="#2-测试图片">2</a> 所述，只对图 <a href="#fig2.1">2.1</a> 中（a）（d）进行变换，处理结果如图 <a href="#fig3.4">3.5</a> 所示。
+<a name="fig3.5"></a>
+<center>
+<a data-fancybox="gallery" href= "https://s1.ax1x.com/2020/04/21/JGQNRA.png"><img src="https://s1.ax1x.com/2020/04/21/JGQNRA.png" style="zoom: 40%;" /></a></p>
+
+<p>图 3.5：局部增强处理结果比照
+</center></p>
+
+<h1 id="4-结果分析">4 结果分析</h1>
+
+<h2 id="4-1-直方均衡">4.1 直方均衡</h2>
+
+<ul>
+<li><strong>灰度图</strong>
+由图 <a href="#fig3.1">3.1</a> 可以看出，直方均衡对于增强对比度低或者暗的图效果还是理想的，经过直方均衡后，图像整体看起来很好。除此之外，整个直方均衡过程是自动的，对于输入的图像能够确定一个变换函数，不需要更多的参数说明。</li>
+<li><strong>RGB 真彩图</strong>
+对于 RGB 真彩图，本文选择了两种方法进行直方均衡。由图 <a href="#fig3.2">3.2</a> 中“方法1”和“方法2”的处理结果可以看出，两种方法都能够增强图像的对比度。但是有所不同的是，直接进行三通道的直方均衡（即“方法1”）似乎使图像更“冲淡”了些。对于“方法2”，从（c、f、iii、vi）中的一些细节及整体效果可以看出，“方法2”直方均衡后的图像更加接近真实的场景。</li>
+</ul>
+
+<h2 id="4-2-对数变换">4.2 对数变换</h2>
+
+<p>&emsp;&emsp;对于对数变换，图像增强后的对比度高，但是整体有些过于“冲淡”。对于只对暗区域感兴趣而忽略图像的整体效果的目的，这不失为一种好的方法。</p>
+
+<h2 id="4-3-幂律变换">4.3 幂律变换</h2>
+
+<p>&emsp;&emsp;对于幂律变换，不同的图所需要的参数不是很一致，在处理图像时，更多的是主观的感受来进行参数的调节。但这种方法对增强对比度，看清楚暗细节还是有一定的作用，而且这种方法处理后的整体效果也是较好的。</p>
+
+<h2 id="4-4-局部增强">4.4 局部增强</h2>
+
+<p>&emsp;&emsp;最后，对于局部增强，相较于直方图处理，比较繁琐的一点是局部增强需要不断的调整 $E,k_0 ,k_1 ,k _2$ 等参数，最终达到较好的效果。但是带来的好处是，它可以较好的保留原始图像的亮区域，对比图 <a href="#fig3.1">3.1</a>和 <a href="#fig3.5">3.5</a>中的（b，d）图可以看出。</p>
+
+<h1 id="5-matlab实现">5 MATLAB实现</h1>
+
+<h2 id="5-1-直方均衡">5.1 直方均衡</h2>
+
+<p>&emsp;&emsp;根据节 <a href="#11-直方图均衡化">1.1</a> 中的介绍，直方均衡可由如下代码实现：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-matlab" data-lang="matlab"><span style="color:#75715e">%  直方均衡函数</span>
+<span style="color:#75715e">%  若使用色彩空间转换法，则输入参数 method=2，不适用于灰度图</span>
+<span style="color:#75715e">%  默认方法为直接循环三（或二）个通道</span>
+<span style="color:#66d9ef">function</span> Output=<span style="color:#a6e22e">histe</span>(I,varargin)
+[a,b,d]=size(I);  <span style="color:#75715e">%输入图像的维度</span>
+Output=I;
+<span style="color:#66d9ef">if</span> (d<span style="color:#f92672">==</span><span style="color:#ae81ff">3</span>) <span style="color:#f92672">&amp;&amp;</span> (nargin<span style="color:#f92672">&gt;</span><span style="color:#ae81ff">1</span>) <span style="color:#f92672">&amp;&amp;</span> (varargin<span style="color:#f92672">==</span><span style="color:#ae81ff">2</span>)
+    <span style="color:#75715e">% rgb转换为hsv</span>
+    Output=rgb2hsv(I);
+    <span style="color:#75715e">% 仅强度矩阵直方均衡</span>
+    Output(:,:,<span style="color:#ae81ff">3</span>)=histeq(Output(:,:,<span style="color:#ae81ff">3</span>));
+    <span style="color:#75715e">% hsv转换为rgb输出</span>
+    Output=hsv2rgb(Output);
+<span style="color:#66d9ef">else</span>
+    <span style="color:#66d9ef">for</span> i=<span style="color:#ae81ff">1</span>:d
+        Ic=Output(:,:,i);
+        <span style="color:#75715e">% 减少计算量</span>
+        Icc=unique(Ic);
+        c=zeros(a,b);
+        <span style="color:#75715e">% 累积分布函数</span>
+        <span style="color:#66d9ef">for</span> m=<span style="color:#ae81ff">1</span>:length(Icc)
+            times=find(Ic<span style="color:#f92672">&lt;</span>=Icc(m));
+            posi=Ic<span style="color:#f92672">==</span>Icc(m);
+            c(posi)=length(times);
+        <span style="color:#66d9ef">end</span>
+        <span style="color:#75715e">% 变换后的像素值</span>
+        c=round((c<span style="color:#f92672">-</span>min(c(:)))<span style="color:#f92672">./</span>(a<span style="color:#f92672">*</span>b<span style="color:#f92672">-</span>min(c(:)))<span style="color:#f92672">.*</span><span style="color:#ae81ff">255</span>);
+        Output(:,:,i)=c;
+    <span style="color:#66d9ef">end</span>
+    Output=uint8(Output);
+<span style="color:#66d9ef">end</span>
+<span style="color:#66d9ef">end</span></code></pre></div>
+<h2 id="5-2-对数变换">5.2 对数变换</h2>
+
+<p>&emsp;&emsp;根据式<a href="#eq4">$(4)$</a>，对数变换可由如下代码简单实现：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-matlab" data-lang="matlab"><span style="color:#75715e">% 对数变换函数</span>
+<span style="color:#66d9ef">function</span> Output=<span style="color:#a6e22e">logg</span>(I)
+    I0=double(I);
+    I0=<span style="color:#ae81ff">255.</span><span style="color:#f92672">/</span>log(<span style="color:#ae81ff">256</span>)<span style="color:#f92672">.*</span>log(<span style="color:#ae81ff">1</span><span style="color:#f92672">+</span>I0);
+    Output=uint8(I0);
+<span style="color:#66d9ef">end</span></code></pre></div>
+<h2 id="5-3-幂律变换">5.3 幂律变换</h2>
+
+<p>&emsp;&emsp;根据式<a href="#eq5">$(5)$</a>，对数变换可由如下代码简单实现：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-matlab" data-lang="matlab"><span style="color:#75715e">% 幂律变换函数</span>
+<span style="color:#66d9ef">function</span> Output=<span style="color:#a6e22e">gama</span>(I,g)
+    I0=double(I);
+    I0=(I0<span style="color:#f92672">./</span><span style="color:#ae81ff">255</span>)<span style="color:#f92672">.^</span>g;
+    Output=uint8(I0<span style="color:#f92672">.*</span><span style="color:#ae81ff">255</span>);
+<span style="color:#66d9ef">end</span></code></pre></div>
+<h2 id="5-4-局部增强">5.4 局部增强</h2>
+
+<p>&emsp;&emsp;根据式<a href="#eq6">$(6)$</a>和<a href="#eq7">$(7)$</a>，对数变换可由如下代码简单实现：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-matlab" data-lang="matlab"><span style="color:#75715e">% 局部增强函数</span>
+<span style="color:#66d9ef">function</span> I=<span style="color:#a6e22e">local</span>(I,E,k0,k1,k2)
+I=double(I);
+[a,b,c]=size(I);
+<span style="color:#66d9ef">for</span> i=<span style="color:#ae81ff">1</span>:c
+Ic=I(:,:,i);
+<span style="color:#75715e">% padding矩阵</span>
+I_pad=[zeros(<span style="color:#ae81ff">1</span>,b<span style="color:#f92672">+</span><span style="color:#ae81ff">2</span>);[zeros(a,<span style="color:#ae81ff">1</span>),Ic,zeros(a,<span style="color:#ae81ff">1</span>)];zeros(<span style="color:#ae81ff">1</span>,b<span style="color:#f92672">+</span><span style="color:#ae81ff">2</span>)];
+<span style="color:#75715e">% 输入图像均值及方差</span>
+mg=mean(Ic(:));
+stdg=std(Ic(:));
+<span style="color:#66d9ef">for</span> m=<span style="color:#ae81ff">1</span>:a
+    <span style="color:#66d9ef">for</span> n=<span style="color:#ae81ff">1</span>:b
+        mask=I_pad(m:m<span style="color:#f92672">+</span><span style="color:#ae81ff">2</span>,n:n<span style="color:#f92672">+</span><span style="color:#ae81ff">2</span>); 
+        <span style="color:#75715e">% 局部均值</span>
+        ms=mean(mask(:));
+        <span style="color:#75715e">% 局部方差</span>
+        stds=std(mask(:));
+        <span style="color:#75715e">% 满足条件则像素值乘E</span>
+        <span style="color:#66d9ef">if</span> (ms<span style="color:#f92672">&lt;</span>=k0<span style="color:#f92672">*</span>mg)<span style="color:#f92672">&amp;&amp;</span>(stds<span style="color:#f92672">&lt;</span>=k2<span style="color:#f92672">*</span>stdg)<span style="color:#f92672">&amp;&amp;</span>(k1<span style="color:#f92672">*</span>stdg<span style="color:#f92672">&lt;</span>=stds)
+            I(m,n,i)=E<span style="color:#f92672">*</span>I(m,n,i);
+        <span style="color:#66d9ef">end</span>
+    <span style="color:#66d9ef">end</span>
+<span style="color:#66d9ef">end</span>
+<span style="color:#66d9ef">end</span>
+I=uint8(I);
+<span style="color:#66d9ef">end</span></code></pre></div>
+<h1 id="6-参考文献">6 参考文献</h1>
+
+<ul>
+<li>[1] <a href="https://zh.wikipedia.org/wiki/%E7%9B%B4%E6%96%B9%E5%9B%BE%E5%9D%87%E8%A1%A1%E5%8C%96" rel="nofollow noreferrer" target="_blank">维基百科. 直方图均衡化 — 维基百科, 自由的百科全书</a>.</li>
+<li>[2] <a href="https://www.imageeprocessing.com/201511color-histogram-equalization-matlab-code.html" rel="nofollow noreferrer" target="_blank">Johnsy A. Color Histogram Equalization-MATLAB CODE. 2015</a>.</li>
+<li>[3] <a href="https://github.com/pratikgoel145/Retinex-Image-Enhancement/tree/master/Test%20Images" rel="nofollow noreferrer" target="_blank">Goel P. Retinex-Image-Enhancement</a>.</li>
+<li>[4] <a href="http://www.imageprocessingplace.com/DIP-3E/dip3e_book_images_downloads.htm" rel="nofollow noreferrer" target="_blank">DIP3/e-Book Images Downloads</a>.</li>
+<li>[5] 冈萨雷斯. 数字图像处理[M]. 电子工业出版社, 2007.</li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+            
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>ANY_ME </span>
+                </p>
+            
+
+            
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://shishuochen.github.io/2020/urnq4uiod/>https://shishuochen.github.io/2020/urnq4uiod/</span>
+            </p>
+            
+            
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://shishuochen.github.io/tags/matlab/">
+                    #MATLAB</a></span>
+            
+            <span class="tag"><a href="https://shishuochen.github.io/tags/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">
+                    #数字图像处理</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> ·
+                <span><a href="https://shishuochen.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://shishuochen.github.io/2020/ejq1xavt/" class="prev" rel="prev" title="图像插值算法及MATLAB实现"><i class="fas fa-caret-left"></i>&nbsp;图像插值算法及MATLAB实现</a>
+        
+        
+        <a href="https://shishuochen.github.io/2020/k0eu-2smz/" class="next" rel="next" title="Gridea中Markdown写作小结~">Gridea中Markdown写作小结~&nbsp;<i class="fas fas fa-caret-right"></i></a>
+        
+    </div>
+	
+    <div class="post-comment">
+        
+            
+                <p></p>
+<br>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
+<div id="vcomments" style="padding: 10px 0px 0px 0px"></div>
+<style>
+  .v .veditor {
+    min-height: 10rem;
+    background-image: url('<%= site.customConfig.valineimage %>');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+    background-color: rgba(255, 255, 255, 0);
+    resize: none;
+  }
+
+  .v .vwrap {
+    border: 1px solid #000 !important;
+  }
+
+  .v .vbtn {
+    padding: .4rem 1.2rem !important;
+    border-color: #fff !important;
+    background-color: #49b1f5 !important;
+    color: #fff !important;
+    font-size: .7rem !important;
+  }
+
+  .v .vcards .vcard .vh .vmeta .vat {
+    padding: 0 .8rem !important;
+    border: 1px solid #00c4b6 !important;
+    border-radius: 5px !important;
+    color: #00c4b6 !important;
+  }
+</style>
+<script>
+  new Valine({
+        el: '#vcomments' ,
+        appId: 'WfSBqbaIFwwLUytPuTLtMKu9-MdYXbMMI',
+        appKey: 'ELF39FBTTfSuVVLOHMM4uqWf',
+        notify:  true ,
+        verify:  true , 
+        avatar:'mm', 
+		enableQQ: true,
+        placeholder: '【在昵称处填写企鹅号会自动拉取昵称、头像和邮箱，这样你就可以通过邮箱收到留言回复了，因此请检查自己的输入的企鹅号是否正确，方便自己的同时也避免给他人带来不便，Thanks♪(･ω･)ﾉ】',
+        visitor:  true 
+  });
+</script>
+
+            
+        
+    </div>
+</article>
+                </div>
+            </main>
+            
+<div class="footer-box">
+<footer class="footer">
+   <div class="copyright">
+      &copy;
+      
+      <span itemprop="copyrightYear">2019 - 2021</span>
+      
+      <span class="with-love">
+         <i class="fas fa-heart"></i>
+      </span>
+      
+      <span class="author" itemprop="copyrightHolder"><a href="https://shishuochen.github.io">ANY_ME</a> |
+      </span>
+      
+      
+	  <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+      <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a
+            href="https://github.com/Mogeko/Mogege" target="_blank" rel="external nofollow">Mogege</a></span>
+</footer>
+
+      <div class="back-to-top" id="back_to_top">
+         
+         <span><i class="fas fa-arrow-up"></i></span>
+         
+         <span class="scrollpercent">
+            <span id="back_to_top_text">0</span>%
+         </span>
+      </div>
+</div>
+<script>
+
+   let sideBarOpen = 'sidebar-open';
+   let body = document.body;
+   let back2Top = document.querySelector('#back_to_top'),
+      back2TopText = document.querySelector('#back_to_top_text'),
+      drawerBox = document.querySelector('#drawer_box'),
+      rightSideBar = document.querySelector('.sidebar'),
+      viewport = document.querySelector('body');
+
+   function scrollAnimation(currentY, targetY) {
+
+      let needScrollTop = targetY - currentY
+      let _currentY = currentY
+      setTimeout(() => {
+         const dist = Math.ceil(needScrollTop / 10)
+         _currentY += dist
+         window.scrollTo(_currentY, currentY)
+         if (needScrollTop > 10 || needScrollTop < -10) {
+            scrollAnimation(_currentY, targetY)
+         } else {
+            window.scrollTo(_currentY, targetY)
+         }
+      }, 1)
+   }
+
+   back2Top.addEventListener("click", function (e) {
+      scrollAnimation(document.scrollingElement.scrollTop, 0);
+      e.stopPropagation();
+      return false;
+   });
+
+   window.addEventListener('scroll', function (e) {
+      let percent = document.scrollingElement.scrollTop / (document.scrollingElement.scrollHeight - document.scrollingElement.clientHeight) * 100;
+      if (percent > 1 && !back2Top.classList.contains('back-top-active')) {
+         back2Top.classList.add('back-top-active');
+      }
+      if (percent == 0) {
+         back2Top.classList.remove('back-top-active');
+      }
+      if (back2TopText) {
+         back2TopText.textContent = Math.floor(percent);
+      }
+   });
+</script>
+
+
+
+
+
+
+<script defer src="/js/vendor_main.min.js"></script>
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/love.min.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha256-V8SV2MO1FUb63Bwht5Wx9x6PVHNa02gv8BgH/uH3ung=" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha256-F/Xda58SPdcUCr+xhSGz9MA2zQBPb0ASEYKohl8UCHc=" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha256-90d2pnfw0r4K8CZAWPko4rpFXQsZvJhTBGYNkipDprI=" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+           delimiters: [
+     {left: "$$", right: "$$", display: true},
+     {left: "$", right: "$", display: false},
+   ],
+        });
+    });
+</script>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script> pangu.spacingPage();</script>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+        </div>
+    </body>
+</html>

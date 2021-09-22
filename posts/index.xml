@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on shishuoCh&#39;s Blog</title>
+    <link>https://shishuochen.github.io/posts/</link>
+    <description>Recent content in Posts on shishuoCh&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 14 Sep 2021 11:30:22 +0800</lastBuildDate>
+    
+	<atom:link href="https://shishuochen.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Termux提交代码到GitHub</title>
+      <link>https://shishuochen.github.io/2021/_b8ejeacp/</link>
+      <pubDate>Tue, 14 Sep 2021 11:30:22 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2021/_b8ejeacp/</guid>
+      <description>1. Termux的使用 Termux是什么 Termux 是一个Android 终端模拟器和 Linux 环境应用程序，无需 root 或设置即可直接运行，可以使用APT包管理器可以</description>
+    </item>
+    
+    <item>
+      <title>MRI数据分析常用软件合集</title>
+      <link>https://shishuochen.github.io/2021/5hy3l2plc/</link>
+      <pubDate>Fri, 12 Mar 2021 15:30:44 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2021/5hy3l2plc/</guid>
+      <description>1. MATALB工具箱 SPM（Statistical Parametric Mapping） 官网地址 手册文档 使用方法 将下载文件解压并复制到MATLAB的toolbo</description>
+    </item>
+    
+    <item>
+      <title>DTI数据处理流程概述(FA、TBSS)</title>
+      <link>https://shishuochen.github.io/2021/i-v08kuvx/</link>
+      <pubDate>Tue, 09 Mar 2021 19:49:57 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2021/i-v08kuvx/</guid>
+      <description>扩散加权磁共振成像（DWI或DW-MRI）是使用特定的MRI序列以及从所得数据生成图像的软件，该软件使用水分子的扩散在MR图像中产生对比度。</description>
+    </item>
+    
+    <item>
+      <title>双系统Ubuntu分区扩容</title>
+      <link>https://shishuochen.github.io/2021/essp_skj2/</link>
+      <pubDate>Fri, 26 Feb 2021 11:16:42 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2021/essp_skj2/</guid>
+      <description>新年第一记，空间不足是常有的事，特在此记录下以备下次之需。本文最大缺点就是未能图文并茂，称不上一篇好的教程，可能不如图片来的直接，可以结合网</description>
+    </item>
+    
+    <item>
+      <title>Tikz绘图学习笔记</title>
+      <link>https://shishuochen.github.io/2020/0p0vfub3s/</link>
+      <pubDate>Sat, 05 Dec 2020 21:28:59 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/0p0vfub3s/</guid>
+      <description>1. 指定坐标的用法 指定坐标的一般句法是$\color{red}\verb|([&amp;lt;options&amp;gt;]&amp;lt;coordinate sp</description>
+    </item>
+    
+    <item>
+      <title>Linux Shell知识点合集4</title>
+      <link>https://shishuochen.github.io/2020/tmmwklxfx/</link>
+      <pubDate>Sun, 08 Nov 2020 22:19:12 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/tmmwklxfx/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux Shell知识点合集3</title>
+      <link>https://shishuochen.github.io/2020/klhx60zjd/</link>
+      <pubDate>Fri, 06 Nov 2020 19:36:08 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/klhx60zjd/</guid>
+      <description>本篇文章接『Linux Shell知识点合集2』，主要包含安装软件程序、编辑器使用等。 6.安装软件程序 本小节介绍Linux上能见到的各种包管理</description>
+    </item>
+    
+    <item>
+      <title>Linux Shell知识点合集2</title>
+      <link>https://shishuochen.github.io/2020/ifxovueyg/</link>
+      <pubDate>Wed, 04 Nov 2020 20:53:50 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/ifxovueyg/</guid>
+      <description>本篇文章接『Linux Shell知识点合集1』，主要包含Linux文件权限、管理文件系统、安装软件程序、编辑器使用等。 4. 理解Linux文件权</description>
+    </item>
+    
+    <item>
+      <title>Linux Shell知识点合集1</title>
+      <link>https://shishuochen.github.io/2020/i1tn7md8r/</link>
+      <pubDate>Tue, 03 Nov 2020 19:20:27 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/i1tn7md8r/</guid>
+      <description>一个多月都没有记录东西了，最近的生活着实是有点废！不过好在系统的看了一本书《Linux命令行与shell脚本编程大全（第3版）》，负罪感少了</description>
+    </item>
+    
+    <item>
+      <title>用来了解Linux“命令”的命令</title>
+      <link>https://shishuochen.github.io/2020/nlj2i4e77/</link>
+      <pubDate>Thu, 17 Sep 2020 20:44:00 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/nlj2i4e77/</guid>
+      <description>命令千千万，遇到不熟悉的命令怎么办？Google search？其实可以本地help的！当然还有很多的操作…… 1. Command Lists Command Meaning type Indicate how a command name is interpreted which Display which</description>
+    </item>
+    
+    <item>
+      <title>操纵文件和目录（Linux）</title>
+      <link>https://shishuochen.github.io/2020/ihretxvwf/</link>
+      <pubDate>Thu, 03 Sep 2020 21:28:58 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/ihretxvwf/</guid>
+      <description>1. 前言 本文主要介绍以下几个常用的操纵文件和目录（本质上是对文件或目录命名的处理）的命令（同样是见名知意）： Command Meaning cp Copy files and directories mv Move/rename files and directories mkdir Create directories rm Remove</description>
+    </item>
+    
+    <item>
+      <title>遍历目录及Linux文件系统</title>
+      <link>https://shishuochen.github.io/2020/2xawn806p/</link>
+      <pubDate>Sun, 30 Aug 2020 20:43:49 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/2xawn806p/</guid>
+      <description>1. 前言 本文主要讲述遍历目录用到的一些shell命令和Linux文件系统，以及其他小的知识点。主要命令（大多数都是见名知意的）列举如下： Command Meaning pwd</description>
+    </item>
+    
+    <item>
+      <title>什么是Shell</title>
+      <link>https://shishuochen.github.io/2020/nlrmsp86u/</link>
+      <pubDate>Fri, 28 Aug 2020 23:35:41 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/nlrmsp86u/</guid>
+      <description>1. 什么是shell &amp;emsp;&amp;emsp;当我们说“命令行”（command line）的时候，其实我们指的是shell。shell本质是一个</description>
+    </item>
+    
+    <item>
+      <title>矩阵分解求解线性方程组</title>
+      <link>https://shishuochen.github.io/2020/n0hnjzpmm/</link>
+      <pubDate>Wed, 26 Aug 2020 11:17:55 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/n0hnjzpmm/</guid>
+      <description>题设 &amp;emsp;&amp;emsp;设有如下方程组： $$ \begin{bmatrix} a_{11}&amp;a_{12}&amp;\cdots&amp;a_{1n}\\ a_{21}&amp;a_{22}&amp;\cdots&amp;a_{2n}\\ \vdots&amp;\vdots&amp;\ddots&amp;\vdots\\ a_{21}&amp;a_{22}&amp;\cdots&amp;a_{2n} \end{bmatrix}\begin{bmatrix} x_1\\ x_2\\ \vdots\\ x_n \end{bmatrix}=\begin{bmatrix} b_1\\ b_2\\ \vdots\\ b_n \end{bmatrix} $$ $$ \bm\Darr $$ $$ Ax=b $$ 求解思路 &amp;emsp;&amp;emsp;设$n$阶方阵$</description>
+    </item>
+    
+    <item>
+      <title>FT、DFS、DTFT、DFT</title>
+      <link>https://shishuochen.github.io/2020/wfh7aitk2/</link>
+      <pubDate>Tue, 25 Aug 2020 11:17:31 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/wfh7aitk2/</guid>
+      <description>期末考试结束啦！终于可以有个小空写点东西了，近来复习了随机信号分析和信号系统，对一些东西有了更加深刻的认识，所以本文是自己对于如标题所列的变</description>
+    </item>
+    
+    <item>
+      <title>Chapter7: 点积与叉积</title>
+      <link>https://shishuochen.github.io/2020/5azumu-8l/</link>
+      <pubDate>Thu, 06 Aug 2020 15:29:06 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/5azumu-8l/</guid>
+      <description>I. 前言 点积（Dot Product）又称数量积或标量积（Scalar Product），这里说的是点积的结果是一个标量；叉积（Cross prod</description>
+    </item>
+    
+    <item>
+      <title>傅里叶变换相关图谱</title>
+      <link>https://shishuochen.github.io/2020/epbncpk4s/</link>
+      <pubDate>Tue, 04 Aug 2020 16:03:20 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/epbncpk4s/</guid>
+      <description>话不多说一张图 相关文章推荐 FT、DFS、DTFT、DFT 傅里叶变换性质及变换对</description>
+    </item>
+    
+    <item>
+      <title>Chapter6:逆矩阵、列空间与零空间、秩</title>
+      <link>https://shishuochen.github.io/2020/mwtb5_bys/</link>
+      <pubDate>Sat, 01 Aug 2020 15:28:51 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/mwtb5_bys/</guid>
+      <description>1. 逆矩阵 &amp;emsp;&amp;emsp;前面已经知道，矩阵代表着一种线性变换，是对空间的一种操纵，逆矩阵自然也不例外。矩阵$A^{-1}$对空间的操</description>
+    </item>
+    
+    <item>
+      <title>Chapter5:行列式</title>
+      <link>https://shishuochen.github.io/2020/8ranpmyi1/</link>
+      <pubDate>Thu, 30 Jul 2020 14:20:41 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/8ranpmyi1/</guid>
+      <description>&amp;emsp;&amp;emsp;线性变换中有的将空间向外拉伸，有的则将空间向内挤压，所以变换究竟对空间有多少拉伸或挤压？如何测量和表示？ &amp;emsp;</description>
+    </item>
+    
+    <item>
+      <title>Chapter4:矩阵乘法</title>
+      <link>https://shishuochen.github.io/2020/fvo1n-idv/</link>
+      <pubDate>Tue, 28 Jul 2020 16:46:27 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/fvo1n-idv/</guid>
+      <description>&amp;emsp;&amp;emsp;线性变换是对二维空间的变换，自然而然可以想到进行多个变换&amp;hellip;&amp;hellip; 1. 考虑进行两次线性变换 &amp;em</description>
+    </item>
+    
+    <item>
+      <title>Chapter3:矩阵与向量空间</title>
+      <link>https://shishuochen.github.io/2020/diskudhd9/</link>
+      <pubDate>Mon, 27 Jul 2020 21:14:05 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/diskudhd9/</guid>
+      <description>&amp;emsp;&amp;emsp;牢记矩阵代表着一种线性变换 1. 矩阵与线性变换 为什么叫变换？ &amp;emsp;&amp;emsp;变换其实也就是常提起的函数的一种说法</description>
+    </item>
+    
+    <item>
+      <title>傅里叶变换的性质及常用变换对</title>
+      <link>https://shishuochen.github.io/2020/b2mbvmz9k/</link>
+      <pubDate>Sat, 25 Jul 2020 21:56:44 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/b2mbvmz9k/</guid>
+      <description>&amp;emsp;&amp;emsp;近来的随机信号分析“预习”过程中，总要用到一些傅里叶变换对，记录在此方便查阅。 1. 傅里叶变换的性质 名称 时域 频域 定义 $f(t)=\frac{1}{2\pi}\int_{-\infty}^{+\infty}F(jw)e^{jwt}dw$ $F(jw)=\int_{-\infty}^{+\infty}f(t)e^{-jwt}dt$</description>
+    </item>
+    
+    <item>
+      <title>Hugo博客自定义优化</title>
+      <link>https://shishuochen.github.io/2020/uffick8u1/</link>
+      <pubDate>Thu, 23 Jul 2020 23:31:01 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/uffick8u1/</guid>
+      <description>之前写博客一直是在Gridea平台，用的是@hao大佬的Next主题。后来接触了Mogege主题，感觉简洁好用，所以就又搭建了个博客并将文章</description>
+    </item>
+    
+    <item>
+      <title>Chapter I &amp; Chapter II</title>
+      <link>https://shishuochen.github.io/2020/uj8lovhzh/</link>
+      <pubDate>Thu, 23 Jul 2020 23:26:04 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/uj8lovhzh/</guid>
+      <description>Chapter I和II作者主要介绍了一些基本的点： 向量是什么？ 线性组合、空间、基 1. 向量是什么？ 向量加法和向量乘法贯穿线性代数的始终。 把向量看做一种特定的</description>
+    </item>
+    
+    <item>
+      <title>线代学习笔记摘录</title>
+      <link>https://shishuochen.github.io/2020/oktyklte8/</link>
+      <pubDate>Fri, 17 Jul 2020 23:45:32 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/oktyklte8/</guid>
+      <description>&amp;emsp;&amp;emsp;最近再次重温了@3Blue1Brown的“课程”：线性代数的本质&amp;mdash;&amp;mdash;系列合集（顺便说一下，这</description>
+    </item>
+    
+    <item>
+      <title>如何批量&#34;左右&#34;合并txt文件</title>
+      <link>https://shishuochen.github.io/2020/r_e_e13ck/</link>
+      <pubDate>Thu, 28 May 2020 22:32:24 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/r_e_e13ck/</guid>
+      <description>&amp;emsp;&amp;emsp;合并txt文件有很多种方法，如果文件数目不多手动复制也不是不可，但是文件多的时候就显得有点力不从心了；有的时候不光如</description>
+    </item>
+    
+    <item>
+      <title>MATLAB中好用的命令和函数（持续更新）</title>
+      <link>https://shishuochen.github.io/2020/cz15p-u8k/</link>
+      <pubDate>Wed, 27 May 2020 21:32:22 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/cz15p-u8k/</guid>
+      <description>&amp;emsp;&amp;emsp;本文主要记录自己在使用MATLAB过程中常用到的知识点（命令和函数），在此记录下来，也方便回顾查阅。 1. 技巧篇 clearvars -except var1 v</description>
+    </item>
+    
+    <item>
+      <title>基于形态学分析提取木塞个数及木塞直径</title>
+      <link>https://shishuochen.github.io/2020/saplzmgqs/</link>
+      <pubDate>Sun, 17 May 2020 15:44:24 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/saplzmgqs/</guid>
+      <description>&amp;emsp;&amp;emsp;本文主要记录基于形态学分析提取图像中木塞个数及木塞的直径的解决方法。本方法同样适用于其他图像中圆物体的统计计数、标记</description>
+    </item>
+    
+    <item>
+      <title>同态滤波及MATLAB实现</title>
+      <link>https://shishuochen.github.io/2020/fwee4iohn/</link>
+      <pubDate>Thu, 23 Apr 2020 14:25:00 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/fwee4iohn/</guid>
+      <description>&amp;emsp;&amp;emsp;同态滤波(Homomorphic filtering)是一种广泛用于信号和图像处理的技术，将原本的信号经由非线性映射，</description>
+    </item>
+    
+    <item>
+      <title>Gridea中Markdown写作小结~</title>
+      <link>https://shishuochen.github.io/2020/k0eu-2smz/</link>
+      <pubDate>Sat, 18 Apr 2020 14:23:57 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/k0eu-2smz/</guid>
+      <description>&amp;emsp;&amp;emsp;本文主要是记录自己在Gridea写作时遇到的“问题”，有的时候想实现一种排版样式费尽九牛二虎之力才找到答案，特在此记</description>
+    </item>
+    
+    <item>
+      <title>图像增强算法及MATLAB实现</title>
+      <link>https://shishuochen.github.io/2020/urnq4uiod/</link>
+      <pubDate>Sat, 18 Apr 2020 14:22:07 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/urnq4uiod/</guid>
+      <description>图像增强算法常见于对图像的亮度、对比度、饱和度、色调等进行调节，增加其清晰度，减少噪点等。由于受到环境，光线等的影响，拍摄的照片清晰度和对比</description>
+    </item>
+    
+    <item>
+      <title>图像插值算法及MATLAB实现</title>
+      <link>https://shishuochen.github.io/2020/ejq1xavt/</link>
+      <pubDate>Fri, 17 Apr 2020 14:20:01 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/ejq1xavt/</guid>
+      <description>本文讲述的插值算法包括：最近邻插值、双线性插值及双立方插值。主要针对于二维空间（图像）的放大过程中的插值问题。 1 何为插值 &amp;emsp;&amp;ems</description>
+    </item>
+    
+    <item>
+      <title>栈实现简单计算器</title>
+      <link>https://shishuochen.github.io/2020/3aynm0ijd/</link>
+      <pubDate>Sat, 11 Apr 2020 11:19:21 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/3aynm0ijd/</guid>
+      <description>&amp;emsp;&amp;emsp;本文主要写如何用栈结构来实现简单的计算器 ，主要包括四则运算，并且在此基础上添加括号、乘方等，示例如下： $$-3.63\times (36.9+26.2)^{5}-5.3*(-2)\div 3.6^{2}.$$ 下面说说</description>
+    </item>
+    
+    <item>
+      <title>error: invalid operands of types &#39;double&#39; and &#39;int&#39; to binary &#39;operator%&#39;</title>
+      <link>https://shishuochen.github.io/2020/msdlyc-zj/</link>
+      <pubDate>Mon, 30 Mar 2020 14:12:18 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/msdlyc-zj/</guid>
+      <description>在一次C++的练习中，我发现了这个问题，并在网上查找到了原因，特在此记录下来。 1️⃣ 基本 从字面意思来看就是说，类型int和double为二进</description>
+    </item>
+    
+    <item>
+      <title>如何在ms-word中优雅的插入代码</title>
+      <link>https://shishuochen.github.io/2020/evcfke7nv/</link>
+      <pubDate>Sun, 01 Mar 2020 19:29:11 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/evcfke7nv/</guid>
+      <description>在Microsoft Word 中插入代码，保留颜色和格式 1. 使用编辑器粘贴代码到Word 1.1 Visual Studio Code 戳我进官网 直接粘贴到Word &amp;emsp;&amp;emsp;$\bullet$ 从Visual Studio Code</description>
+    </item>
+    
+    <item>
+      <title>如何裁剪或生成eps格式图片</title>
+      <link>https://shishuochen.github.io/2020/0xjn_wkk/</link>
+      <pubDate>Wed, 19 Feb 2020 14:19:02 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/0xjn_wkk/</guid>
+      <description>EPS(Encapsulated PostScript)是PostScript的一种延伸类型。EPS（Encapsulated PostScript）是目前系统中功能最强的一</description>
+    </item>
+    
+    <item>
+      <title>Compile Chinese documents with pdfLaTeX compiler</title>
+      <link>https://shishuochen.github.io/2020/yen-2yhvj/</link>
+      <pubDate>Fri, 07 Feb 2020 22:03:21 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2020/yen-2yhvj/</guid>
+      <description>$\LaTeX$ supports many worldwide languages by means of some special packages. This article explains how to typeset Chinese documents with pdfLaTeX. CJKutf8 with pdfLaTeX The CJKutf8 package can also be used to generate a document with pdfLaTeX. Chinese (and Japanese/Korean) text must be places inside a CJK environment, so this is usually only convenient for documents in English with bits of Chinese text or vice-versa. Code example \documentclass{article} \usepackage{CJKutf8} \begin{document}</description>
+    </item>
+    
+  </channel>
+</rss>
