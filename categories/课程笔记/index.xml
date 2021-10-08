@@ -6,10 +6,19 @@
     <description>Recent content in 课程笔记 on shishuoCh&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 26 Aug 2020 11:17:55 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 28 Sep 2021 17:14:57 +0800</lastBuildDate>
     
 	<atom:link href="https://shishuochen.github.io/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>神经生物学</title>
+      <link>https://shishuochen.github.io/2021/kaaysw4my/</link>
+      <pubDate>Tue, 28 Sep 2021 17:14:57 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2021/kaaysw4my/</guid>
+      <description>第一部分 主要内容 .tg {border-collapse:collapse;border-color:#ccc;border-spacing:0;} .tg td{background-color:#fff;border-color:#ccc;border-style:solid;border-width:1px;color:#333; font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;word-break:normal;} .tg th{background-color:#f0f0f0;border-color:#ccc;border-style:solid;border-width:1px;color:#333; font-family:Arial, sans-serif;font-size:14px;font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;} .tg .tg-xwyw{border-color:#000000;text-align:center;vertical-align:middle} 概述 信号处理 感觉系统 本能行为 运动系统 学习记忆 神经系统疾病 神经科学发展史 神经元的电学特征 视觉 节律 运</description>
+    </item>
     
     <item>
       <title>矩阵分解求解线性方程组</title>

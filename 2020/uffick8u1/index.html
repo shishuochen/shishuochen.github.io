@@ -57,7 +57,7 @@
     "datePublished": "2020-07-23 23:31:01 \u002b0000 UTC",
     "dateModified" : "2020-07-23 23:31:01 \u002b0000 UTC",
     "url" : "https:\/\/shishuochen.github.io\/2020\/uffick8u1\/",
-    "wordCount" : "3726",
+    "wordCount" : "3730",
     "keywords" : [ "博客搭建", "shishuoCh\u0027s Blog"]
 }
 </script>
@@ -165,7 +165,7 @@
         <div class="post-meta">
                 <i class="fas fa-user-circle"></i> <a itemprop="name" href="https://shishuochen.github.io" rel="author">ANY_ME</a> 
 				&thinsp;$\bm\vert$&thinsp; 
-				<i class="far fa-calendar-check "></i>
+				<i class="fas fa-calendar-check "></i>
 				发布:2020-07-23
 				
                 </span>
@@ -173,12 +173,12 @@
 				&thinsp;$\bm\vert$&thinsp; 
 				
 				
-				<i class="fas fa-history"></i> 更新:2021-09-20
+				<i class="fas fa-history"></i> 更新:2021-10-08
 				
                 
 				&thinsp;$\bm\vert$&thinsp; 
                 
-                <i class="far fa-folder-open "></i>
+                <i class="fas fa-folder-open "></i>
                 <span class="post-category">
                         
                         
@@ -190,7 +190,8 @@
 				
 				&thinsp;$\bm\vert$&thinsp; 
 				<i class="fas fa-file-word "></i>
-                <span class="post-word-count">3726字</span>
+				
+                <span class="post-word-count">3730字</span>
 				
 				&thinsp;$\bm\vert$&thinsp;   
 				<i class="fas fa-coffee "></i>
@@ -849,7 +850,7 @@
 
 <h3 id="应用于页面">应用于页面</h3>
 
-<p>在<code>\themes\mogege\layouts\page\single.html</code>文件中更改代码，将对应的代码区域更改为以下代码。</p>
+<p>在<code>\themes\mogege\layouts\_default\single.html</code>文件中更改代码，将对应的代码区域更改为以下代码。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;post-meta&#34;</span>&gt;
     <span style="color:#75715e">&lt;!--作者--&gt;</span>
     &lt;<span style="color:#f92672">i</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;fas fa-user-circle&#34;</span>&gt;&lt;/<span style="color:#f92672">i</span>&gt; &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">itemprop</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;name&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{.Site.BaseURL }}&#34;</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;author&#34;</span>&gt;{{ if isset .Params &#34;author&#34; }}{{ .Params.author }}{{ else }}{{ .Site.Params.author }}{{ end }}&lt;/<span style="color:#f92672">a</span>&gt; 
@@ -1109,6 +1110,21 @@
    ],
         });
     });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/jmnote/plantuml-encoder@1.2.4/dist/plantuml-encoder.min.js"></script>
+<script>
+(function(){
+    let plantumlPrefix = "language-plantuml";
+    Array.prototype.forEach.call(document.querySelectorAll("[class^=" + plantumlPrefix + "]"), function(code){
+        let image = document.createElement("IMG");
+        image.loading = 'lazy'; 
+        image.src = 'http://www.plantuml.com/plantuml/svg/~1' + plantumlEncoder.encode(code.innerText);
+        code.parentNode.insertBefore(image, code);
+        code.style.display = 'none'
+    });
+})();
 </script>
 
 

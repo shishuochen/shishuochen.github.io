@@ -6,10 +6,19 @@
     <description>Recent content in Categories on shishuoCh&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 14 Sep 2021 11:30:22 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 28 Sep 2021 17:14:57 +0800</lastBuildDate>
     
 	<atom:link href="https://shishuochen.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>课程笔记</title>
+      <link>https://shishuochen.github.io/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Tue, 28 Sep 2021 17:14:57 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>博客那些事儿</title>
@@ -53,15 +62,6 @@
       <pubDate>Sun, 08 Nov 2020 22:19:12 +0800</pubDate>
       
       <guid>https://shishuochen.github.io/categories/linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>课程笔记</title>
-      <link>https://shishuochen.github.io/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/</link>
-      <pubDate>Wed, 26 Aug 2020 11:17:55 +0800</pubDate>
-      
-      <guid>https://shishuochen.github.io/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/</guid>
       <description></description>
     </item>
     

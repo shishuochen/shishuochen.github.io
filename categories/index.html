@@ -150,6 +150,10 @@
                 <a href="https://shishuochen.github.io/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"><h3> <i class="iconfont icon-folder" style="padding-right: 3px"></i> 课程笔记  </h3> </a>
                    
                 <article class="archive-item">
+                <a href="https://shishuochen.github.io/2021/kaaysw4my/" class="archive-item-link">神经生物学</a>
+                </article>
+                   
+                <article class="archive-item">
                 <a href="https://shishuochen.github.io/2020/n0hnjzpmm/" class="archive-item-link">矩阵分解求解线性方程组</a>
                 </article>
                    
@@ -163,10 +167,6 @@
                    
                 <article class="archive-item">
                 <a href="https://shishuochen.github.io/2020/b2mbvmz9k/" class="archive-item-link">傅里叶变换的性质及常用变换对</a>
-                </article>
-                   
-                <article class="archive-item">
-                <a href="https://shishuochen.github.io/2020/saplzmgqs/" class="archive-item-link">基于形态学分析提取木塞个数及木塞直径</a>
                 </article>
                 
                 
@@ -506,6 +506,21 @@
    ],
         });
     });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/jmnote/plantuml-encoder@1.2.4/dist/plantuml-encoder.min.js"></script>
+<script>
+(function(){
+    let plantumlPrefix = "language-plantuml";
+    Array.prototype.forEach.call(document.querySelectorAll("[class^=" + plantumlPrefix + "]"), function(code){
+        let image = document.createElement("IMG");
+        image.loading = 'lazy'; 
+        image.src = 'http://www.plantuml.com/plantuml/svg/~1' + plantumlEncoder.encode(code.innerText);
+        code.parentNode.insertBefore(image, code);
+        code.style.display = 'none'
+    });
+})();
 </script>
 
 

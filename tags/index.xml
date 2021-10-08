@@ -6,10 +6,19 @@
     <description>Recent content in Tags on shishuoCh&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 14 Sep 2021 11:30:22 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 28 Sep 2021 17:14:57 +0800</lastBuildDate>
     
 	<atom:link href="https://shishuochen.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>神经生物学</title>
+      <link>https://shishuochen.github.io/tags/%E7%A5%9E%E7%BB%8F%E7%94%9F%E7%89%A9%E5%AD%A6/</link>
+      <pubDate>Tue, 28 Sep 2021 17:14:57 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/tags/%E7%A5%9E%E7%BB%8F%E7%94%9F%E7%89%A9%E5%AD%A6/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Termux</title>

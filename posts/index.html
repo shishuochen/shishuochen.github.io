@@ -137,6 +137,13 @@
 
     
     <article class="archive-item">
+        <a href="/2021/kaaysw4my/" class="archive-item-link">神经生物学</a>
+        <span class="archive-item-date">
+            09-28
+        </span>
+    </article>
+    
+    <article class="archive-item">
         <a href="/2021/b8ejeacp/" class="archive-item-link">Termux提交代码到GitHub</a>
         <span class="archive-item-date">
             09-14
@@ -199,13 +206,6 @@
         <a href="/2020/i1tn7md8r/" class="archive-item-link">Linux Shell知识点合集1</a>
         <span class="archive-item-date">
             11-03
-        </span>
-    </article>
-    
-    <article class="archive-item">
-        <a href="/2020/nlj2i4e77/" class="archive-item-link">用来了解Linux“命令”的命令</a>
-        <span class="archive-item-date">
-            09-17
         </span>
     </article>
      
@@ -383,6 +383,21 @@
    ],
         });
     });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/jmnote/plantuml-encoder@1.2.4/dist/plantuml-encoder.min.js"></script>
+<script>
+(function(){
+    let plantumlPrefix = "language-plantuml";
+    Array.prototype.forEach.call(document.querySelectorAll("[class^=" + plantumlPrefix + "]"), function(code){
+        let image = document.createElement("IMG");
+        image.loading = 'lazy'; 
+        image.src = 'http://www.plantuml.com/plantuml/svg/~1' + plantumlEncoder.encode(code.innerText);
+        code.parentNode.insertBefore(image, code);
+        code.style.display = 'none'
+    });
+})();
 </script>
 
 
