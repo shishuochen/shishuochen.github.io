@@ -57,7 +57,7 @@
     "datePublished": "2021-09-28 17:14:57 \u002b0800 CST",
     "dateModified" : "2021-09-28 17:14:57 \u002b0800 CST",
     "url" : "https:\/\/shishuochen.github.io\/2021\/kaaysw4my\/",
-    "wordCount" : "962",
+    "wordCount" : "2632",
     "keywords" : [ "神经生物学", "shishuoCh\u0027s Blog"]
 }
 </script>
@@ -173,7 +173,7 @@
 				&thinsp;$\bm\vert$&thinsp; 
 				
 				
-				<i class="fas fa-history"></i> 更新:2021-10-08
+				<i class="fas fa-history"></i> 更新:2021-10-11
 				
                 
 				&thinsp;$\bm\vert$&thinsp; 
@@ -191,12 +191,12 @@
 				&thinsp;$\bm\vert$&thinsp; 
 				<i class="fas fa-file-word "></i>
 				
-                <span class="post-word-count">962字</span>
+                <span class="post-word-count">2632字</span>
 				
 				&thinsp;$\bm\vert$&thinsp;   
 				<i class="fas fa-coffee "></i>
 				
-                <span class="post-word-count">3分钟</span>
+                <span class="post-word-count">8分钟</span>
 				
         </div>
     </header>
@@ -225,6 +225,12 @@
 <li><a href="#神经系统构成">神经系统构成</a></li>
 <li><a href="#解剖学术语">解剖学术语</a></li>
 <li><a href="#脑区及功能">脑区及功能</a></li>
+</ul></li>
+<li><a href="#第四部分">第四部分</a>
+<ul>
+<li><a href="#神经细胞">神经细胞</a></li>
+<li><a href="#神经胶质细胞">神经胶质细胞</a></li>
+<li><a href="#神经系统信号的传递">神经系统信号的传递</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -409,6 +415,185 @@ note bottom of (g): 分布局限，保护机体\n休整恢复，促消化</code>
 <li><strong>小脑</strong>：小脑通过它与大脑、脑干和脊髓之间的双向连接，参与躯体平衡和肌肉张力的调节，随意运动的协调。小脑=方向盘+变速器</li>
 <li><strong>脑干</strong>：中脑与脑桥、延髓统称为脑干，负责收集、发送并整合来自外周神经，是植物性神经的控制区域，如心跳、呼吸、吞咽、消化等</li>
 <li><strong>外周神经</strong>：躯干神经系统:负责传输体表的感觉信号，下指令给肌肉信号</li>
+</ul>
+
+<h2 id="第四部分">第四部分</h2>
+
+<p><span style="color:  Tomato;">
+<i class="fas fa-thumbtack"></i>
+</span>神经组织的细胞构成为：<strong>神经细胞（神经元）</strong>、<strong>神经胶质细胞</strong></p>
+<pre><code class="language-plantuml" data-lang="plantuml">@startuml
+
+(神经组织) --&gt; (神经元)
+
+(神经组织) --&gt; (神经胶质细胞)</code></pre>
+<h3 id="神经细胞">神经细胞</h3>
+
+<p><span style="color:  Tomato;">
+<i class="fas fa-thumbtack"></i>
+</span> <strong>中心法则</strong></p>
+<pre><code class="language-plantuml" data-lang="plantuml">@startuml
+
+(复制DNA) as (a)
+(复制RNA)  as (b)
+(蛋白质)  as (c)
+
+(a) -right-&gt; (b): 转录
+(a) &lt;. (b) : 逆转录
+
+(b) -right-&gt; (c) : 翻译</code></pre>
+<p><span style="color:  Tomato;">
+<i class="fas fa-thumbtack"></i>
+</span> <strong>神经元的组成</strong></p>
+
+<ul>
+<li>胞体（cell body）
+
+<ul>
+<li>细胞膜、细胞质、细胞器</li>
+</ul></li>
+<li>突起（process、neuritis）
+
+<ul>
+<li>轴突（axon）、树突（dendrites）
+<br /></li>
+</ul></li>
+</ul>
+
+<p><span style="color:  Tomato;">
+<i class="fas fa-thumbtack"></i>
+</span><strong>神经元与其他细胞的不同之处</strong></p>
+
+<ul>
+<li>有特化的突起($\color{red}轴突和树突$，分别负责信息的传出和传入)</li>
+<li>神经元之间的联系：$\color{red}电化学$过程</li>
+<li>神经元的特化结构：$\color{red}突触，神经递质，尼氏体$</li>
+
+<li><p>成年中枢神经元损伤$\color{red}不可修复$。</p>
+<pre><code class="language-plantuml" data-lang="plantuml">@startuml 
+note &#34;轴突： \n 1. 仅在神经细胞中存在的结构、信息传递作用\n  表面光滑，长短不一，粗细均匀\n2. 无粗面ER和核糖体，有线粒体和sER\n3. 不同细胞其轴突长度和直径不同分类,粗的轴突有髓鞘包裹\n4. 轴突有侧枝,轴突末梢与其它神经元的连接点是突触&#34; as N1
+(神经元) as (a)
+(胞体) as (b) 
+(突起) as (c)
+
+
+(细胞膜) as (b1)
+(细胞质) as (b2) 
+(细胞器) as (b3) 
+
+(轴突) as (c1)
+(树突) as (c2)
+
+
+(a) --&gt; (b) 
+(a) --&gt; (c) 
+
+(b) --&gt; (b1)
+(b) --&gt; (b2)
+(b) --&gt; (b3)
+(c) --&gt; (c2)
+(c) --&gt; [c1]
+
+
+note top of (b1) : 1. 脂质双分子层、疏水结构\n2. 具有电容特性\n3. 离子通道蛋白、受体蛋白
+note right  of (b1) #FFAAAA : 具有信息传递、神经冲动的发生和传导\n物质的跨膜转运以及细胞外物质的识别\n与结合等多种生理功能
+note bottom of (b3) : 1. 内质网：蛋白的3D结构形成\n2. 高尔基体：对内质网的蛋白进行修饰、加工分类及包装\n3. 线粒体：为细胞提供能量
+note bottom of (c2) : 1. 多而短，胞体向外越细\n2. 树突棘在学习记忆中具有重要作用</code></pre></li>
+</ul>
+
+<h3 id="神经胶质细胞">神经胶质细胞</h3>
+
+<p><strong>神经胶质细胞的比例随脑大小增加，主要有星形胶质细胞、少突胶质细胞、小胶质细胞。</strong></p>
+<pre><code class="language-plantuml" data-lang="plantuml">@startuml
+left to right direction 
+(神经胶质细胞) as (A1)
+
+(星形胶质细胞) as (B1)
+(少突胶质细胞) as (B2)
+ (小胶质细胞) as (B3)
+
+
+
+(A1) --&gt; (B1)
+(A1) --&gt; (B2)
+(A1) --&gt; (B3)
+
+note right of (B1) #FFB2CA : 1. 填充、支持、隔离作用\n2. 参与血脑屏障的形成，具有营养和保护作用\n3.稳定细胞外液浓度，特别是K＋浓度,摄取和灭活神经递质，参与递质的代谢\n4. 星形胶质细胞也表达一些受体，在突触传递过程中起调节作用
+note right of (B2) #FFA12A : 1. 形成中枢神经系统的髓鞘;识别、粘附、缠绕三个阶段\n2. 分泌神经营养因子，促进神经元功能发挥和存活\n3. 表达抑制性蛋白，阻止神经纤维过度增长
+note right of (B3) #FFA17A  : 在正常情况下处于静息状态，可在炎症刺激下激活。</code></pre>
+<h3 id="神经系统信号的传递">神经系统信号的传递</h3>
+
+<p>神经系统的信号传递分为<strong>细胞内部</strong>和<strong>细胞之间</strong>的信号传递。</p>
+
+<p><span style="color:  Tomato;">
+<i class="fas fa-thumbtack"></i>
+</span><strong>膜电位形成的两个条件</strong>：</p>
+
+<ul>
+<li>细胞质和细胞外液</li>
+<li>磷脂膜和离子通道
+
+<ul>
+<li>对离子有通透性： K:Na:CL=1:0.04:0.45</li>
+</ul></li>
+</ul>
+
+<p><span style="color:  Tomato;">
+<i class="fas fa-thumbtack"></i>
+</span> <strong>神经元被动电学特征&mdash;膜电位下的离子流动</strong></p>
+
+<ul>
+<li>电化学梯度=化学梯度+电位梯度
+
+<ul>
+<li>化学梯度：高浓度一侧移动到低浓度一侧</li>
+<li>电位梯度：沿着膜两侧的电位差异从膜一侧移动到另一侧</li>
+</ul></li>
+<li>当化学力和电场力达到平衡的时候，即因为化学梯度和电位梯度平衡而没有离子净流动，称为离子平衡电位（电场力=化学力时的膜电位）。</li>
+</ul>
+
+<p><span style="color:  Tomato;">
+<i class="fas fa-thumbtack"></i>
+</span> <strong>神经元被动电学特征&mdash;Goldman-Hodgkin-Katz方程</strong></p>
+
+<div>
+$$
+E_{rest}=\frac{RT}{F}ln\frac{p_k[K^{+}]o+p_{Na}[Na^{+}]o+p_{Cl}[Cl^{-}]o}{p_k[K^{+}]i+p_{Na}[Na^{+}]i+p_{Cl}[Cl^{-}]i}
+$$
+</div>
+
+<p>其中，R气体常数，Ⅰ绝对温度，F法拉第常数。$\color{red}离子驱动力$:任何单一离子的膜电位和平衡电位都不一样，因而会存在推动每种离子进出细胞的力</p>
+
+<p><span style="color:  Tomato;">
+<i class="fas fa-thumbtack"></i>
+</span> <strong>神经元被动电学特征&mdash;去极化和超极化</strong></p>
+
+<ul>
+<li>任何打破静息膜电位的事件成为极化:去极化+超极化
+
+<ul>
+<li>去极化：让细胞内更正</li>
+<li>超极化：让细胞内更负</li>
+</ul></li>
+</ul>
+
+<p><span style="color:  Tomato;">
+<i class="fas fa-thumbtack"></i>
+</span> <strong>神经元被动电学特征&mdash;动作电位特性</strong></p>
+
+<ul>
+<li><strong>全或无</strong>，刺激低于阈下，不产生动作电位，动作电位波形取决于胞内外离子浓度，生理情况下内外离子浓度非常稳定;</li>
+<li>动作电位可以再生，在传播中毫<strong>无衰减</strong>，一个动作电位的上升期引起周围膜的去极化，达到阈值再产生一个动作电位，如此往复;</li>
+<li>动作电位的传播是<strong>单向</strong>的(总是沿着轴突的方向)</li>
+</ul>
+
+<p><span style="color:  Tomato;">
+<i class="fas fa-thumbtack"></i>
+</span> <strong>神经元被动电学特征&mdash;动作电位的传播</strong></p>
+
+<ul>
+<li>动作电位的产生部位：轴丘、钠通道密集。感觉神经元：神经末梢</li>
+<li>动作电位的传播：沿$\color{red}郎飞结$跳跃传播</li>
 </ul>
 
     </div>
