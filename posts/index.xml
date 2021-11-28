@@ -6,10 +6,37 @@
     <description>Recent content in Posts on shishuoCh&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 28 Sep 2021 17:14:57 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 27 Nov 2021 18:48:17 +0800</lastBuildDate>
     
 	<atom:link href="https://shishuochen.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>4I3IG53rL</title>
+      <link>https://shishuochen.github.io/2021/4i3ig53rl/</link>
+      <pubDate>Sat, 27 Nov 2021 18:48:17 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2021/4i3ig53rl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>RzPs6Rl8E</title>
+      <link>https://shishuochen.github.io/2021/rzps6rl8e/</link>
+      <pubDate>Sat, 27 Nov 2021 18:48:08 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2021/rzps6rl8e/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>读取DICOM、NifTi等文件</title>
+      <link>https://shishuochen.github.io/2021/8wucs4her/</link>
+      <pubDate>Sat, 27 Nov 2021 18:47:56 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2021/8wucs4her/</guid>
+      <description>原文网址 1. 简介 以下列表是 DSI Studio 支持的图像格式。 DICOM格式，包括SIEMENS TIM、SIEMENS Trio、GE SIGNA HDx、Philips 4D</description>
+    </item>
     
     <item>
       <title>神经生物学</title>

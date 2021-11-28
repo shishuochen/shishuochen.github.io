@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+<meta name="google-site-verification" content="PgRvRggX4FPNmBfLmc_IBoedK_gPlyCB_p49I3DfNSA" />
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="ANY_ME">
+    <meta name="description" content="shishuoCh的个人博客">
+    
+    <meta name="google-site-verification" content=" " />
+    <link rel="prev" href="https://shishuochen.github.io/2021/kaaysw4my/" />
+    <link rel="next" href="https://shishuochen.github.io/2021/rzps6rl8e/" />
+    <link rel="canonical" href="https://shishuochen.github.io/2021/8wucs4her/" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+        
+        
+            读取DICOM、NifTi等文件 | shishuoCh&#39;s Blog
+        
+    </title>
+    <meta name="title" content="读取DICOM、NifTi等文件 | shishuoCh&#39;s Blog">
+    
+<link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/shishuochen.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "读取DICOM、NifTi等文件",
+    "headline" : "读取DICOM、NifTi等文件",
+    "description" : "原文网址 1. 简介 以下列表是 DSI Studio 支持的图像格式。 DICOM格式，包括SIEMENS TIM、SIEMENS Trio、GE SIGNA HDx、Philips 4D",
+    "inLanguage" : "zh-cn",
+    "author" : "ANY_ME",
+    "creator" : "ANY_ME",
+    "publisher": "ANY_ME",
+    "accountablePerson" : "ANY_ME",
+    "copyrightHolder" : "ANY_ME",
+    "copyrightYear" : "2021",
+    "datePublished": "2021-11-27 18:47:56 \u002b0800 CST",
+    "dateModified" : "2021-11-27 18:47:56 \u002b0800 CST",
+    "url" : "https:\/\/shishuochen.github.io\/2021\/8wucs4her\/",
+    "wordCount" : "5143",
+    "keywords" : [ "dsi_studio", "shishuoCh\u0027s Blog"]
+}
+</script>
+
+	<link rel="stylesheet" href=
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
+</link>
+    
+    <script src="https://kit.fontawesome.com/fb6088b71c.js" crossorigin="anonymous"></script>
+	
+
+  </head>
+    <body class="">
+        <div class="wrapper">
+            <nav class="navbar">
+    
+        <progress class="content_progress" max="0" value="0"></progress>
+    
+    <div class="container">
+        
+            <div class="navbar-header header-back2home-logo">
+                <span class="logo_mark" >>$</span>
+                <a href="https://shishuochen.github.io">
+                    <span class="logo_text" >cd /home/</span>
+                    <span class="logo_cursor" ></span>
+                </a>
+            </div>
+        
+        <div class="navbar-right">
+                
+                <span class="menu">
+                
+                <a class="menu-item" href="/posts/" title="">📖Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">📁Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">🎨Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">💬About</a>
+                
+                <a class="menu-item" href="/about/" title="">ANY_ME</a>
+                
+                <span class="divide"></span>
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-dark-mode"></i></a>
+                </span>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display:none">
+    
+        <progress class="content_progress" max="0" value="0"></progress>
+    
+     <div class="container">
+        <div class="navbar">
+            <div class="navbar-header header-logo">
+                    <a href="https://shishuochen.github.io">shishuoCh&#39;s Blog</a>
+            </div>
+            <div class="navbar-right">
+                <div><a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-dark-mode"></i></a></div>
+                <div class="menu-toggle">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                <nav class="mb-md">
+                    
+                    
+                        <a class="menu-item" href="/posts/" title="" white-space="nowrap">
+						<nobr>📖Blog</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/categories/" title="" white-space="nowrap">
+						<nobr>📁Categories</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/tags/" title="" white-space="nowrap">
+						<nobr>🎨Tags</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/about/" title="" white-space="nowrap">
+						<nobr>💬About</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/about/" title="" white-space="nowrap">
+						<nobr>ANY_ME</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                </nav>
+        </div>
+    </div>
+</nav>
+            <main class="main">
+                <div class="container">
+                    
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">读取DICOM、NifTi等文件</h1>
+        <div class="post-meta">
+                <i class="fas fa-user-circle"></i> <a itemprop="name" href="https://shishuochen.github.io" rel="author">ANY_ME</a> 
+				&thinsp;$\bm\vert$&thinsp; 
+				<i class="fas fa-calendar-check "></i>
+				发布:2021-11-27
+				
+                </span>
+                
+				&thinsp;$\bm\vert$&thinsp; 
+				
+				
+				<i class="fas fa-history"></i> 更新:2021-11-28
+				
+                
+				&thinsp;$\bm\vert$&thinsp; 
+                
+                <i class="fas fa-folder-open "></i>
+                <span class="post-category">
+                        
+                        
+                        
+                          <a href="https://shishuochen.github.io/categories/%E8%BD%AF%E4%BB%B6%E6%89%8B%E5%86%8C/"> 软件手册</a>
+                        
+                        
+                </span>
+				
+				&thinsp;$\bm\vert$&thinsp; 
+				<i class="fas fa-file-word "></i>
+				
+                <span class="post-word-count">5143字</span>
+				
+				&thinsp;$\bm\vert$&thinsp;   
+				<i class="fas fa-coffee "></i>
+				
+                <span class="post-word-count">17分钟</span>
+				
+        </div>
+    </header>
+	  
+     
+          <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title"></h2>
+  
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#1-简介">1. 简介</a></li>
+<li><a href="#2-读取dicom文件">2. 读取DICOM文件</a>
+<ul>
+<li><a href="#重命名">重命名</a></li>
+<li><a href="#转换为src数据">转换为src数据</a></li>
+</ul></li>
+<li><a href="#3-读取nifti文件">3. 读取NIFTI文件</a>
+<ul>
+<li><a href="#转换为src数据-1">转换为src数据</a></li>
+</ul></li>
+<li><a href="#4-质量检验">4. 质量检验</a>
+<ul>
+<li><a href="#src文件批量质量控制">SRC文件批量质量控制</a></li>
+</ul></li>
+<li><a href="#5-其他可选项">5. 其他可选项</a>
+<ul>
+<li><a href="#翻转b表">翻转b表</a></li>
+<li><a href="#批量创建src文件">批量创建SRC文件</a></li>
+<li><a href="#内插dmri信号">内插dMRI信号</a></li>
+<li><a href="#聚合多个扫描">聚合多个扫描</a></li>
+<li><a href="#切片校正">切片校正</a></li>
+</ul></li>
+<li><a href="#6-修正磁化率伪影">6. 修正磁化率伪影</a></li>
+<li><a href="#相关文章">相关文章</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+<script type="text/javascript">
+  window.onload = function () {
+    var fix = $('.post-toc');
+    var end = $('.post-comment');
+    var fixTop = fix.offset().top, fixHeight = fix.height();
+    var endTop, miss;
+    var offsetTop = fix[0].offsetTop;
+    $(window).scroll(function () {
+      var docTop = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
+      if (end.length > 0) {
+        endTop = end.offset().top;
+        miss = endTop - docTop - fixHeight;
+      }
+      if (fixTop < docTop) {
+        fix.css({ 'position': 'fixed' });
+        if ((end.length > 0) && (endTop < (docTop + fixHeight))) {
+          fix.css({ top: miss });
+        } else {
+          fix.css({ top: 0 });
+        }
+      } else {
+        fix.css({ 'position': 'absolute' });
+        fix.css({ top: offsetTop });
+      }
+    })
+  }
+</script> 
+	
+    <div class="post-content">
+        
+        
+        
+
+        
+        
+        
+        
+        
+
+        
+        
+        
+
+        
+
+<p><a href="http://dsi-studio.labsolver.org/Manual/Parse-DICOM" rel="nofollow noreferrer" target="_blank">原文网址 <i class="fas fa-link"></i></a></p>
+
+<h2 id="1-简介">1. 简介</h2>
+
+<p>以下列表是 DSI Studio 支持的图像格式。</p>
+
+<ul>
+<li>DICOM格式，包括SIEMENS TIM、SIEMENS Trio、GE SIGNA HDx、Philips 4D DICOM采集的图像。</li>
+<li>分析格式，Nifti格式，3D体积或4D体积（扩散空间为最高维阶）</li>
+<li>Bruker 2dseq、 Varian and Agilent FDF files</li>
+</ul>
+
+<h2 id="2-读取dicom文件">2. 读取DICOM文件</h2>
+
+<h3 id="重命名">重命名</h3>
+
+<p>在使用DICOM文件前，我建议使用</p>
+
+<ul>
+<li><strong><code>[Batch Processing] Step B1a:Rename DICOM Files</code></strong>或者</li>
+<li><strong><code>[Batch Processing] Step B1b:Rename DICOM in Subfolders</code></strong></li>
+</ul>
+
+<p>进行重命名。前者需要你将所有要重命名的文件放在一个文件夹下，并全选中他们；后者则只需选择这些文件的根文件夹（从命令名称也可以看出二者的不同之处）。如果不太清楚它是如何运行的，可以建立demo尝试后再真正使用它。输出结果类似下图。</p>
+
+<p><a name="tree"></a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-latex" data-lang="latex">📦my_dataset
+ ┣ 📂20170316_F10.7_NDAR_INV0DVK13LU
+ ┃ ┗ 📂700_ABCD_DTI_GE_original_baseline_year_1_arm_1_
+ ┃ ┃ ┣ 📜ABCD_DTI_GE_original_baseline_year_1_arm_1__i1.dcm
+ ┃ ┃ ┣ 📜ABCD_DTI_GE_original_baseline_year_1_arm_1__i2-8342.dcm
+ ┃ ┃ ┗ 📜ABCD_DTI_GE_original_baseline_year_1_arm_1__i8343.dcm
+ ┣ 📂20170514_F10.2_NDAR_INVZ6Z9DP4H
+ ┃ ┗ 📂14_ABCD_DTI_SIEMENS_mosaic_original_baseline_year_1_arm_1_
+ ┃ ┃ ┣ 📜ABCD_DTI_SIEMENS_mosaic_original_baseline_year_1_arm_1__i1.dcm
+ ┃ ┃ ┣ 📜ABCD_DTI_SIEMENS_mosaic_original_baseline_year_1_arm_1__i103.dcm
+ ┃ ┃ ┗ 📜ABCD_DTI_SIEMENS_mosaic_original_baseline_year_1_arm_1__i2-102.dcm
+ ┗ 📂20170829_F10.9_NDAR_INV6PX8VT24</code></pre></div>
+<p><a name="transform"></a></p>
+
+<h3 id="转换为src数据">转换为src数据</h3>
+
+<p>重命名DICOM文件后可以使用<strong><code>[Batch Processing] Step B2</code></strong>，这里有好几种方式可以用来进行<code>SRC</code>文件的生成。</p>
+
+<ul>
+<li><p><strong><code>B2a: NIFTI to SRC(BIDS)</code></strong></p>
+
+<ul>
+<li>如果你的数据格式为NifTi，并且按照BIDS存储格式的话，建议使用这种方法，你只需要选定根目录即可。</li>
+
+<li><p><a href="https://bids.neuroimaging.io/" rel="nofollow noreferrer" target="_blank">什么是BIDS存储格式 ? <i class="fas fa-link"></i></a> 类似下图</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-latex" data-lang="latex">📦my_dataset
+┣ 📂sub01
+┃ ┣ 📂anat
+┃ ┃ ┗ 📜sub-01_T1W.nii
+┃ ┣ 📂dwi
+┃ ┃ ┣ 📜sub-01_dw.bvec
+┃ ┃ ┣ 📜sub-01_dwi.bval
+┃ ┃ ┣ 📜sub-01_dwi.json
+┃ ┃ ┗ 📜sub-01_dwi.nii
+┃ ┗ 📂func
+┃ ┃ ┣ 📜sub-01_task-rest_bold.json
+┃ ┃ ┗ 📜sub-01_task-rest_bold.nii
+┣ 📂sub02
+┗ 📂sub03</code></pre></div></li>
+</ul></li>
+
+<li><p><strong><code>B2b: NIFTI to SRC(Single Folder)</code></strong></p>
+
+<ul>
+<li><p>如果你的数据格式为NIfTi且所有的nii文件包含在单个文件夹内，一定要确保每个nii文件对应的bval、bvec文件也在其中，同时命名应该相一致，不然无法生成SRC文件。（确保你的文件目录格式和下面的类似）</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-latex" data-lang="latex">📦my_dataset
+┣ 📜sub00_15old.bval
+┣ 📜sub00_15old.bvec
+┣ 📜sub00_15old.nii
+┣ 📜sub01_20160625.bval
+┣ 📜sub01_20160625.bvec
+┣ 📜sub01_20160625.nii
+┣ 📜sub03_li20171104.bval
+┣ 📜sub03_li20171104.bvec
+┗ 📜sub03_li20171104.nii</code></pre></div></li>
+</ul></li>
+
+<li><p><strong><code>B2c: DICOM to SRC</code></strong></p>
+
+<ul>
+<li>如果你的原始文件格式为DICOM格式，我建议你先进行上述操作：重命名，这样文件目录格式较为统一。或者先将数据格式转换为nii格式（<a href="https://shishuochen.github.io/2021/5hy3l2plc/#3-%E6%9F%A5%E7%9C%8B%E5%9B%BE%E5%83%8F%E5%8F%8A%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2" rel="nofollow noreferrer" target="_blank">转换方法</a>）再利用<code>B2a</code>或者<code>B2b</code>方法进行SRC文件生成。</li>
+<li>另：可能是预先设定的程序，如果你选择的是DICOM的父级文件夹，dsi_studio将不能正常的工作（无法生成SRC文件），你必须<strong>选择祖父级文件夹或者更高</strong>，所以再次建议你在运行前先使用<code>Step B1</code>进行重命名工作。生成<a href="#tree">这样</a>的文件目录结构，并选择DICOM文件的祖父级（祖祖父）文件夹以生成（所有）SRC文件。</li>
+<li>因为DICOM文件包含b值相关信息，因此缺少bval、bvec文件不影响（实际上DICOM转换为Nii的时候会生成相应的b-table文件）。</li>
+<li>选项中描述的NIFTI文件，并没有生成，但我提出了疑问（<a href="https://groups.google.com/g/dsi-studio/c/Yd4Vc1oyTKc）。" rel="nofollow noreferrer" target="_blank">https://groups.google.com/g/dsi-studio/c/Yd4Vc1oyTKc）。</a>
+<br /></li>
+</ul></li>
+</ul>
+
+<p>当然，你也可以使用主窗口中的<strong><code>[Diffusion MRI Analysis]Step T1: Open Source Images</code></strong>并选择所有的dMRI文件，此后会有交互窗口供选择以生成SRC文件，此外你还可以保存b值相关信息等。 <span style="font-size: 1; color: Tomato;">
+  <i class="fas fa-exclamation-triangle"></i>
+</span>提示：GE、飞利浦和东芝扫描仪输出大量 DICOM 图像用于 dMRI 采集。您可以在<strong><code>[Step T1: Open Source Images]</code></strong>中 只选择一个 DICOM 文件， 而不是选择所有文件，DSI Studio 将询问您是否要加载所有其他 DICOM 图像。选择 yes 指定要加载所有 DICOM 文件。</p>
+
+<h2 id="3-读取nifti文件">3. 读取NIFTI文件</h2>
+
+<p>要读取4D NIFTI文件，请单击主窗口中的<strong><code>[Step T1: Open Source Images]</code></strong>并选择NIFTI文件。值得注意的是，NIFTI 文件头不包含任何 b-table 信息，因此通常需要一个或多个b-table 文本文件来提供信息。
+DSI Studio 可以采用 FSL 的 bval 和 bvec 文件。该 BVAL文件是一个文本文件 stroing 每个DWI的b值，而 bvec 存储在单位矢量格式的扩散编码方向。DSI Studio 将在 NIFTI 文件目录中搜索“ bvals ”或“bvals.txt”以及“ bvecs ”或“bvecs.txt”。如果 DSI Studio 找不到任何 b-table 文件，它会通知用户缺少 b-table，然后 需要使用顶部菜单 <strong><code>[Files][Open b-table]</code></strong>手动加载文件</p>
+
+<h3 id="转换为src数据-1">转换为src数据</h3>
+
+<p>除了使用主窗口的<strong><code>[Diffusion MRI Analysis]Step T1: Open Source Images</code></strong>，同样可以利用批处理窗口中的<strong><code>B2a、B2b</code></strong>。 DSI Studio 也有自己的 b-table 文本文件格式： (bvalue bvectorx bvectory bvectorz)。 第一列是b值，其余是扩散梯度方向的单位向量。DSI Studio 还将在 NIFTI 文件目录下搜索名为“grad_dev.nii.gz”的文件以包含 梯度非线性信息以及 “nodif_brain_mask.nii.gz”作为大脑掩码。</p>
+
+<h2 id="4-质量检验">4. 质量检验</h2>
+
+<p>打开 <strong><code>[Step T2: Reconstruction]</code></strong>并选择之前创建的SRC文件，切换到第一个标签页<strong><code>[Raw DWI data]</code></strong></p>
+
+<ul>
+<li><p><strong>检查涡流畸变和运动</strong>：单击左侧的 b 表列表，使用键盘箭头键向下滚动列表。如果大脑在 DWI 上扭曲，则很可能是由涡流引起的。滚动浏览 DWI 时也可以看到对象的头部移动。</p></li>
+
+<li><p><strong>检查坏片</strong>：点击<strong><code>[Show bad slices]</code></strong>按钮（10/2/2019 版本后可用），DSI Studio 会用红色标记坏片及其所属的 DWI 卷。我建议使用矢状视图来检查坏切片（点击右侧的矢状视图按钮）</p></li>
+</ul>
+
+<h3 id="src文件批量质量控制">SRC文件批量质量控制</h3>
+
+<p>建议通过质量控制程序检查 SRC 文件，以确保其完整性和质量。为此，请使用<strong><code>[Diffusion MRI Analysis][QC1: SRC Files Quality Control]</code></strong>并选择包含 SRC 文件的文件夹（DSI Studio 将搜索子目录中的所有 SRC 文件）。DSI Studio 将提供以下格式的报告，可粘贴到 Excel 中：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-latex" data-lang="latex">FileName Image dimension Resolution DWI count Shell count Max b-value B-table matched Neighboring DWI correlation #Bad Slices
+100206 145 174 145  1.25 1.25 1.25  271 3 3010 Yes 0.940147 0
+100307 145 174 145  1.25 1.25 1.25  271 3 3010 Yes 0.94786         0
+100408 145 174 145  1.25 1.25 1.25  271 3 3010 Yes 0.939901 0
+100610 145 174 145  1.25 1.25 1.25  271 3 3010 Yes 0.936777 0
+101006 145 174 145  1.25 1.25 1.25  271 3 3010 Yes 0.94627         0
+101107 145 174 145  1.25 1.25 1.25  271 3 3010 Yes 0.936007 0
+101309 145 174 145  1.25 1.25 1.25  271 3 3010 Yes 0.892282 0 low-quality outlier 
+101410 145 174 145  1.25 1.25 1.25  271 3 3010 Yes 0.952898 0
+101915 145 174 145  1.25 1.25 1.25  271 3 3010 Yes 0.94145         0
+102008 145 174 145  1.25 1.25 1.25  180 3 3010 No 0.937926 0</code></pre></div>
+<ul>
+<li><p>首先要检查图像尺寸、分辨率、DWI计数、外壳计数的一致性。某些扫描很可能不完整，并且总 DWI 计数会有所不同。</p></li>
+
+<li><p>要检查的第二件事是“相邻的 DWI 相关性”。 “相邻 DWI 相关性”计算具有相似梯度方向的低 b值的 DWI 体积的相关系数。较高的相关性表明良好的质量。如果存在明显的涡流伪影、头部运动或任何可能影响扩散信号的头部线圈问题，该值将减小。</p></li>
+
+<li><p>DSI Studio 将使用异常值检查功能（例如3中值绝对偏差）将有问题的数据标记为“低质量异常值”。顶部的示例标识了一个相邻 DWI 相关性仅为 0.892282 的数据集，该数据集显着低于另一个。另一个数据集 102008 有一个不同的 b 表，不能与其他数据集一起使用。   如果数据集的相邻 DWI 相关性非常低，则需要检查原始 DWI 图像以查看问题是否可以纠正。否则，应从分析中排除有问题的数据集。</p></li>
+</ul>
+
+<h2 id="5-其他可选项">5. 其他可选项</h2>
+
+<h3 id="翻转b表">翻转b表</h3>
+
+<p>DSI Studio 允许在创建 SRC 文件之前翻转 b 表。功能在<strong><code>[Edit]</code></strong>菜单下。</p>
+
+<h3 id="批量创建src文件">批量创建SRC文件</h3>
+
+<p>批量创建在“读取DICOM文件”已经做了介绍，<a href="#transform">详情</a>。</p>
+
+<h3 id="内插dmri信号">内插dMRI信号</h3>
+
+<p>DSI Studio 可以对 dMRI 信号进行上（下）采样以实现高空间分辨率。创建 SRC 文件后（按照上述步骤），您可以使用以下步骤获取新的 SRC 文件，该文件具有内插的 dMRI 信号，可实现 x2 或 x4 上（下）采样（原始文档未更新，但软件中上下采样都可以）。</p>
+
+<ol>
+<li>在<strong><code>[Step T2: Reconstruction]</code></strong>下打开已经创建的SRC文件</li>
+<li>使用<strong><code>[Files][Save 4D nifti]</code></strong>导出4D NIFTI文件，<strong><code>[B-table][Save B-table]</code></strong>导出b表文件</li>
+<li>在<strong><code>[Step T1: Open source iamges]</code></strong>打开导出的4D nii文件，并使用<strong><code>[Files][Open b-table]</code></strong>加载b表</li>
+<li>左下角可以看到，上下采样的选择菜单</li>
+<li>创建一个具有内插 dMRI 信号的新 SRC 文件（这会导致内插的方向分布函数（orientation distribution function，ODF））</li>
+</ol>
+
+<p><span style="font-size: 1; color: Tomato;">
+  <i class="fas fa-exclamation-triangle"></i>
+</span>注意：其实可以看出，如果你原始的文件是DICOM格式，直接从<strong><code>[Step T1: Open source iamges]</code></strong>加载数据，同样可以生成采样后的SRC文件。但是注意，这两种方法生成的文件的后缀有所不同，也代表了处理的过程不同（更能从后缀分辨出哪个是采样后的数据），但不确定结果是否有区别。</p>
+
+<h3 id="聚合多个扫描">聚合多个扫描</h3>
+
+<p>DSI Studio 允许合并同一主题的多个扫描。有两种方法可以合并它们。第一种方式假设扫描的头部位置相同（例如，对象被连续扫描两次）。</p>
+
+<ul>
+<li>合并来自 NIFTI 文件或 DICOM 文件的扫描：
+
+<ul>
+<li>单击选项<strong><code>[Step T1: Open source images]</code></strong>并从第一次扫描中选择文件。DSI Studio 将打开一个对话框，显示已加载 DWI。然后在顶部菜单中，单击选项<strong><code>[Files][Open images]</code></strong>并从第二次扫描中选择文件。该对话框会将这些新的 DWI 附加到现有列表中。如果您在此处加载 4D NIFTI 文件，您可能需要手动连接 b-table 并使用<strong><code>[Files][Load b-table]</code></strong>加载合并的 b-table 。</li>
+</ul></li>
+<li>合并来自两个 SRC 文件的扫描：
+
+<ul>
+<li>使用<strong><code>[Step T2: Reconstruction]</code></strong>打开 SRC 文件，并使用顶部菜单 <strong><code>[File] [Save 4D nifti]</code></strong>导出 4D  NIFTI 文件。您还需要在此处将 b 表导出为单个文本文件。</li>
+<li>对另一个 SRC 文件重复相同的步骤。</li>
+<li>使用文本编辑器手动合并两个b-table文本文件，一个接一个地添加。</li>
+<li>返回 DSI Studio 主窗口。单击<strong><code>[Step T1: Open source images]</code></strong>并打开第一个导出的 4D nifti 文件。DSI Studio 将打开一个新对话框。使用顶部菜单项<strong><code>[Files][Open images]</code></strong>添加第二个 4D NIFTI 。</li>
+<li>使用顶部菜单项 <strong><code>[Files][Load b-table...]</code></strong>加载之前创建的合并 b-table</li>
+<li>创建一个已合并所有先前扫描的联合 SRC 文件。</li>
+</ul></li>
+</ul>
+
+<p>如果扫描是在不同时间点获得的，则需要额外的注册步骤来线性对齐头部位置。步骤如下：</p>
+
+<ul>
+<li>首先为每次扫描创建单独的 SRC 文件</li>
+<li>使用<strong><code>[Step T2: Reconstruction]</code></strong>打开SRC 文件，并使用顶部菜单项<strong><code>[Edit] [Resample to T1w/T2w space]</code></strong>将音量旋转为普通T1w 图像。DSI Studio 将要求提供 T1W 图像卷。</li>
+<li>后续的操作同上</li>
+</ul>
+
+<h3 id="切片校正">切片校正</h3>
+
+<p>DSI Studio 将对 b 表应用切片方向校正：</p>
+
+<ul>
+<li>校正后的b向量 = [切片方向矩阵] $\ast$原始 b向量</li>
+<li>切片方向矩阵的前两列从 DICOM 标头 (0x0020，0x0037) 中获得。第三列是从前两列计算的正交向量，使这个矩阵成为<a href="https://en.wikipedia.org/wiki/Unitary_matrix" rel="nofollow noreferrer" target="_blank">酉矩阵</a>。通过将方向矩阵应用于原始 b 向量来计算校正后的 b 向量。</li>
+<li>NIFTI 文件在标题中没有切片方向矩阵，如果使用 nifti 文件作为输入，DSI Studio 将不会对 b 表应用旋转。因此，建议用户通过将切片方向矩阵乘以 b 表来旋转 b 表。</li>
+</ul>
+
+<h2 id="6-修正磁化率伪影">6. 修正磁化率伪影</h2>
+
+<p>DSI Studio 现在提供了一个程序来纠正类似于 FSL 的 TOPUP 的磁化率伪像。要使用它，您需要</p>
+
+<ol>
+<li>创建一个 SRC 文件</li>
+<li>准备一个以相反相位编码获取的 b0 图像的 NIFTI 文件（AP/PA）</li>
+</ol>
+
+<p>然后在<strong><code>[STEP T2: Reconstruction]</code></strong>中打开SRC文件，点击<strong><code>[Edit][Correct AP-PA scans]</code></strong>，选择以相反相位编码获取的b0。DSI Studio 将处理其余的校正工作。先打开AP扫描还是PA扫描都没有关系，DSI Studio都会搞清楚的。<span style="font-size: 1; color: Tomato;">
+  <i class="fas fa-exclamation-triangle"></i>
+</span>请注意，DSI Studio 的失真校正程序无法处理涡流校正。 如果您的数据是在没有“双极脉冲”的情况下获得的，我建议按照以下步骤使用<a href="https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FslInstallation" rel="nofollow noreferrer" target="_blank">FSL</a> 的涡流（eddy）和TOPUP：<a href="http://dsi-studio.labsolver.org/Manual/Parse-DICOM#TOC-1.-Convert-DICOMS-to-NIfTI" rel="nofollow noreferrer" target="_blank">详见 <i class="fas fa-link"></i></a>。
+主要包括以下流程：</p>
+
+<ol>
+<li>DICOM to  NifTi</li>
+<li>提取b0像</li>
+<li>制作参数文件</li>
+<li>运行充值（topup）</li>
+<li>涡流校正（eddy）</li>
+</ol>
+
+<h2 id="相关文章">相关文章</h2>
+
+<ul>
+<li><a href="https://shishuochen.github.io/2021/5hy3l2plc/" rel="nofollow noreferrer" target="_blank">MRI 数据分析常用软件合集</a></li>
+<li><a href="https://shishuochen.github.io/2021/i-v08kuvx/" rel="nofollow noreferrer" target="_blank">DTI 数据处理流程概述 (FA、TBSS)</a></li>
+</ul>
+
+<p><center></p>
+
+<p>$\cdots$ <strong>end</strong> $\cdots$</p>
+
+<p></center></p>
+
+    </div>
+
+    <div class="post-copyright">
+            
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>ANY_ME </span>
+                </p>
+            
+
+            
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://shishuochen.github.io/2021/8wucs4her/>https://shishuochen.github.io/2021/8wucs4her/</span>
+            </p>
+            
+            
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://shishuochen.github.io/tags/dsi_studio/">
+                    #dsi_studio</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> ·
+                <span><a href="https://shishuochen.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://shishuochen.github.io/2021/kaaysw4my/" class="prev" rel="prev" title="神经生物学"><i class="fas fa-caret-left"></i>&nbsp;神经生物学</a>
+        
+        
+        <a href="https://shishuochen.github.io/2021/rzps6rl8e/" class="next" rel="next" title="RzPs6Rl8E">RzPs6Rl8E&nbsp;<i class="fas fas fa-caret-right"></i></a>
+        
+    </div>
+	
+    <div class="post-comment">
+        
+            
+                <p></p>
+<br>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
+<div id="vcomments" style="padding: 10px 0px 0px 0px"></div>
+<style>
+  .v .veditor {
+    min-height: 10rem;
+    background-image: url('<%= site.customConfig.valineimage %>');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+    background-color: rgba(255, 255, 255, 0);
+    resize: none;
+  }
+
+  .v .vwrap {
+    border: 1px solid #000 !important;
+  }
+
+  .v .vbtn {
+    padding: .4rem 1.2rem !important;
+    border-color: #fff !important;
+    background-color: #49b1f5 !important;
+    color: #fff !important;
+    font-size: .7rem !important;
+  }
+
+  .v .vcards .vcard .vh .vmeta .vat {
+    padding: 0 .8rem !important;
+    border: 1px solid #00c4b6 !important;
+    border-radius: 5px !important;
+    color: #00c4b6 !important;
+  }
+</style>
+<script>
+  new Valine({
+        el: '#vcomments' ,
+        appId: 'WfSBqbaIFwwLUytPuTLtMKu9-MdYXbMMI',
+        appKey: 'ELF39FBTTfSuVVLOHMM4uqWf',
+        notify:  true ,
+        verify:  true , 
+        avatar:'mm', 
+		enableQQ: true,
+        placeholder: '【在昵称处填写企鹅号会自动拉取昵称、头像和邮箱，这样你就可以通过邮箱收到留言回复了，因此请检查自己的输入的企鹅号是否正确，方便自己的同时也避免给他人带来不便，Thanks♪(･ω･)ﾉ】',
+        visitor:  true 
+  });
+</script>
+
+            
+        
+    </div>
+</article>
+                </div>
+            </main>
+            
+<div class="footer-box">
+<footer class="footer">
+   <div class="copyright">
+      &copy;
+      
+      <span itemprop="copyrightYear">2019 - 2021</span>
+      
+      <span class="with-love">
+         <i class="fas fa-heart"></i>
+      </span>
+      
+      <span class="author" itemprop="copyrightHolder"><a href="https://shishuochen.github.io">ANY_ME</a> |
+      </span>
+      
+      
+	  <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+      <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a
+            href="https://github.com/Mogeko/Mogege" target="_blank" rel="external nofollow">Mogege</a></span>
+</footer>
+
+      <div class="back-to-top" id="back_to_top">
+         
+         <span><i class="fas fa-arrow-up"></i></span>
+         
+         <span class="scrollpercent">
+            <span id="back_to_top_text">0</span>%
+         </span>
+      </div>
+</div>
+<script>
+
+   let sideBarOpen = 'sidebar-open';
+   let body = document.body;
+   let back2Top = document.querySelector('#back_to_top'),
+      back2TopText = document.querySelector('#back_to_top_text'),
+      drawerBox = document.querySelector('#drawer_box'),
+      rightSideBar = document.querySelector('.sidebar'),
+      viewport = document.querySelector('body');
+
+   function scrollAnimation(currentY, targetY) {
+
+      let needScrollTop = targetY - currentY
+      let _currentY = currentY
+      setTimeout(() => {
+         const dist = Math.ceil(needScrollTop / 10)
+         _currentY += dist
+         window.scrollTo(_currentY, currentY)
+         if (needScrollTop > 10 || needScrollTop < -10) {
+            scrollAnimation(_currentY, targetY)
+         } else {
+            window.scrollTo(_currentY, targetY)
+         }
+      }, 1)
+   }
+
+   back2Top.addEventListener("click", function (e) {
+      scrollAnimation(document.scrollingElement.scrollTop, 0);
+      e.stopPropagation();
+      return false;
+   });
+
+   window.addEventListener('scroll', function (e) {
+      let percent = document.scrollingElement.scrollTop / (document.scrollingElement.scrollHeight - document.scrollingElement.clientHeight) * 100;
+      if (percent > 1 && !back2Top.classList.contains('back-top-active')) {
+         back2Top.classList.add('back-top-active');
+      }
+      if (percent == 0) {
+         back2Top.classList.remove('back-top-active');
+      }
+      if (back2TopText) {
+         back2TopText.textContent = Math.floor(percent);
+      }
+   });
+</script>
+
+
+
+
+
+
+<script defer src="/js/vendor_main.min.js"></script>
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/love.min.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha256-V8SV2MO1FUb63Bwht5Wx9x6PVHNa02gv8BgH/uH3ung=" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha256-F/Xda58SPdcUCr+xhSGz9MA2zQBPb0ASEYKohl8UCHc=" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha256-90d2pnfw0r4K8CZAWPko4rpFXQsZvJhTBGYNkipDprI=" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+           delimiters: [
+     {left: "$$", right: "$$", display: true},
+     {left: "$", right: "$", display: false},
+   ],
+        });
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/jmnote/plantuml-encoder@1.2.4/dist/plantuml-encoder.min.js"></script>
+<script>
+(function(){
+    let plantumlPrefix = "language-plantuml";
+    Array.prototype.forEach.call(document.querySelectorAll("[class^=" + plantumlPrefix + "]"), function(code){
+        let image = document.createElement("IMG");
+        image.loading = 'lazy'; 
+        image.src = 'http://www.plantuml.com/plantuml/svg/~1' + plantumlEncoder.encode(code.innerText);
+        code.parentNode.insertBefore(image, code);
+        code.style.display = 'none'
+    });
+})();
+</script>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script> pangu.spacingPage();</script>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+        </div>
+    </body>
+</html>
