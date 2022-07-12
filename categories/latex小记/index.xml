@@ -6,11 +6,7 @@
     <description>Recent content in LaTeX小记 on shishuoCh&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 07 Feb 2020 22:03:21 +0000</lastBuildDate>
-    
-	<atom:link href="https://shishuochen.github.io/categories/latex%E5%B0%8F%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 07 Feb 2020 22:03:21 +0000</lastBuildDate><atom:link href="https://shishuochen.github.io/categories/latex%E5%B0%8F%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Compile Chinese documents with pdfLaTeX compiler</title>
       <link>https://shishuochen.github.io/2020/yen-2yhvj/</link>

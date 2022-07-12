@@ -6,11 +6,7 @@
     <description>Recent content in linux on shishuoCh&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 26 Feb 2021 11:16:42 +0800</lastBuildDate>
-    
-	<atom:link href="https://shishuochen.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 26 Feb 2021 11:16:42 +0800</lastBuildDate><atom:link href="https://shishuochen.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>双系统Ubuntu分区扩容</title>
       <link>https://shishuochen.github.io/2021/essp_skj2/</link>

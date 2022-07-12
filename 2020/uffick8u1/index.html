@@ -57,7 +57,7 @@
     "datePublished": "2020-07-23 23:31:01 \u002b0000 UTC",
     "dateModified" : "2020-07-23 23:31:01 \u002b0000 UTC",
     "url" : "https:\/\/shishuochen.github.io\/2020\/uffick8u1\/",
-    "wordCount" : "3730",
+    "wordCount" : "3932",
     "keywords" : [ "博客搭建", "shishuoCh\u0027s Blog"]
 }
 </script>
@@ -173,7 +173,7 @@
 				&thinsp;$\bm\vert$&thinsp; 
 				
 				
-				<i class="fas fa-history"></i> 更新:2021-10-08
+				<i class="fas fa-history"></i> 更新:2022-07-11
 				
                 
 				&thinsp;$\bm\vert$&thinsp; 
@@ -191,12 +191,12 @@
 				&thinsp;$\bm\vert$&thinsp; 
 				<i class="fas fa-file-word "></i>
 				
-                <span class="post-word-count">3730字</span>
+                <span class="post-word-count">3932字</span>
 				
 				&thinsp;$\bm\vert$&thinsp;   
 				<i class="fas fa-coffee "></i>
 				
-                <span class="post-word-count">12分钟</span>
+                <span class="post-word-count">13分钟</span>
 				
         </div>
     </header>
@@ -241,6 +241,7 @@
 <li><a href="#配置日期变量">配置日期变量</a></li>
 <li><a href="#应用于页面">应用于页面</a></li>
 </ul></li>
+<li><a href="#19-文首添加分隔线">19. 文首添加分隔线</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -274,11 +275,11 @@
   }
 </script> 
 	
+	<hr class="hr-twill-colorful">
     <div class="post-content">
         
         
         
-
         
         
         
@@ -288,7 +289,6 @@
         
         
         
-
         
 
 <p><i class="fas fa-quote-left fa-2x fa-pull-left"></i> <strong>之前写博客一直是在<a href="https://gridea.dev/" rel="nofollow noreferrer" target="_blank">Gridea</a>平台，用的是<a href="https://yeming.site/" rel="nofollow noreferrer" target="_blank">@hao</a>大佬的<a href="https://github.com/hsxyhao/gridea-theme-next" rel="nofollow noreferrer" target="_blank">Next</a>主题。后来接触了<a href="https://github.com/Mogeko/Mogege" rel="nofollow noreferrer" target="_blank">Mogege</a>主题，感觉简洁好用，所以就又搭建了个博客并将文章迁移过来，但是自己又喜欢Next主题的一些特点，遂自己添加了一些功能。除此之外，Mogege主题也有一些不方便的地方，也将其改了下。在此记录下来，一方面给可能的有缘人一个示例，另一方面算是备份吧，等Mogege主题更新了也知道改哪里&hellip;&hellip;</strong></p>
@@ -326,6 +326,18 @@
 <td align="center">添加文章更新日期、更改打字机实现方式</td>
 <td align="center">主题功能类</td>
 </tr>
+
+<tr>
+<td align="center"><strong>2022-07-14</strong></td>
+<td align="center"><del>重新配置config.toml文件</del></td>
+<td align="center"><del>适应新版本Hugo</del></td>
+</tr>
+
+<tr>
+<td align="center"><strong>2022-07-14</strong></td>
+<td align="center">介绍文后添加分隔线</td>
+<td align="center">主题更新（早就改了，但是没记录）</td>
+</tr>
 </tbody>
 </table>
 
@@ -357,16 +369,16 @@
 </ul>
 
 <h2 id="2-新建文档默认设置">2. 新建文档默认设置</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml"><span style="color:#960050;background-color:#1e0010">---</span>
-<span style="color:#a6e22e">title</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;{{ replace .Name &#34;</span><span style="color:#960050;background-color:#1e0010">-</span><span style="color:#e6db74">&#34; &#34;</span> <span style="color:#e6db74">&#34; | title }}&#34;</span>
-<span style="color:#a6e22e">date</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#960050;background-color:#1e0010">{{</span> .<span style="color:#a6e22e">Date</span> <span style="color:#960050;background-color:#1e0010">}}</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml"><span style="color:#a6e22e">---</span>
+<span style="color:#a6e22e">title</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;{{ replace .Name &#34;</span><span style="color:#a6e22e">-</span><span style="color:#e6db74">&#34; &#34;</span> <span style="color:#e6db74">&#34; | title }}&#34;</span>
+<span style="color:#a6e22e">date</span><span style="color:#960050;background-color:#1e0010">:</span> {{ .<span style="color:#a6e22e">Date</span> }}
 <span style="color:#a6e22e">tags</span><span style="color:#960050;background-color:#1e0010">:</span>[]
 <span style="color:#a6e22e">categories</span><span style="color:#960050;background-color:#1e0010">:</span> []
 <span style="color:#a6e22e">draft</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#66d9ef">false</span>
 <span style="color:#a6e22e">menu</span><span style="color:#960050;background-color:#1e0010">:</span> 
 <span style="color:#a6e22e">showComments</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#66d9ef">true</span>
 <span style="color:#a6e22e">featured_image</span><span style="color:#960050;background-color:#1e0010">:</span>
-<span style="color:#960050;background-color:#1e0010">---</span></code></pre></div>
+<span style="color:#a6e22e">---</span></code></pre></div>
 <h2 id="3-自定义css">3. 自定义CSS</h2>
 
 <h2 id="4-开启html语法支持">4. 开启html语法支持</h2>
@@ -392,37 +404,37 @@
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scss" data-lang="scss"><span style="color:#f92672">html</span> {
 <span style="color:#75715e">/* 滚动条 */</span>
 <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">::-webkit-scrollbar</span> {
-  <span style="color:#f92672">width</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">11px</span>;
-  <span style="color:#f92672">height</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">8px</span>;
+  <span style="color:#a6e22e">width</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">11</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#a6e22e">height</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">8</span><span style="color:#66d9ef">px</span>;
 }
 
 <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">::-webkit-scrollbar-track</span> {
-  <span style="color:#f92672">background-color</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">rgba</span><span style="color:#f92672">(</span><span style="color:#f92672">73</span><span style="color:#f92672">,</span> <span style="color:#f92672">177</span><span style="color:#f92672">,</span> <span style="color:#f92672">245</span><span style="color:#f92672">,</span> <span style="color:#f92672">0</span><span style="color:#a6e22e">.2</span><span style="color:#f92672">)</span>;
-  <span style="color:#f92672">border-radius</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">2em</span>;
+  <span style="color:#a6e22e">background-color</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">rgba</span>(<span style="color:#ae81ff">73</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">177</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">245</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">0</span><span style="color:#ae81ff">.2</span>);
+  <span style="color:#a6e22e">border-radius</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2</span><span style="color:#66d9ef">em</span>;
 }
 
 <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">::-webkit-scrollbar-thumb</span> {
-  <span style="color:#f92672">background-color</span><span style="color:#a6e22e">:</span> #49b1f5;
-  <span style="color:#f92672">background-image</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">-webkit-linear-gradient</span><span style="color:#f92672">(</span>
-    <span style="color:#f92672">45deg</span><span style="color:#f92672">,</span>
-    <span style="color:#f92672">rgba</span><span style="color:#f92672">(</span><span style="color:#f92672">255</span><span style="color:#f92672">,</span> <span style="color:#f92672">255</span><span style="color:#f92672">,</span> <span style="color:#f92672">255</span><span style="color:#f92672">,</span> <span style="color:#f92672">0</span><span style="color:#a6e22e">.4</span><span style="color:#f92672">)</span> <span style="color:#f92672">25</span><span style="color:#960050;background-color:#1e0010">%</span><span style="color:#f92672">,</span>
-    <span style="color:#f92672">transparent</span> <span style="color:#f92672">25</span><span style="color:#960050;background-color:#1e0010">%</span><span style="color:#f92672">,</span>
-    <span style="color:#f92672">transparent</span> <span style="color:#f92672">50</span><span style="color:#960050;background-color:#1e0010">%</span><span style="color:#f92672">,</span>
-    <span style="color:#f92672">rgba</span><span style="color:#f92672">(</span><span style="color:#f92672">255</span><span style="color:#f92672">,</span> <span style="color:#f92672">255</span><span style="color:#f92672">,</span> <span style="color:#f92672">255</span><span style="color:#f92672">,</span> <span style="color:#f92672">0</span><span style="color:#a6e22e">.4</span><span style="color:#f92672">)</span> <span style="color:#f92672">50</span><span style="color:#960050;background-color:#1e0010">%</span><span style="color:#f92672">,</span>
-    <span style="color:#f92672">rgba</span><span style="color:#f92672">(</span><span style="color:#f92672">255</span><span style="color:#f92672">,</span> <span style="color:#f92672">255</span><span style="color:#f92672">,</span> <span style="color:#f92672">255</span><span style="color:#f92672">,</span> <span style="color:#f92672">0</span><span style="color:#a6e22e">.4</span><span style="color:#f92672">)</span> <span style="color:#f92672">75</span><span style="color:#960050;background-color:#1e0010">%</span><span style="color:#f92672">,</span>
-    <span style="color:#f92672">transparent</span> <span style="color:#f92672">75</span><span style="color:#960050;background-color:#1e0010">%</span><span style="color:#f92672">,</span>
-    <span style="color:#f92672">transparent</span>
-  <span style="color:#f92672">)</span>;
-  <span style="color:#f92672">border-radius</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">2em</span>;
+  <span style="color:#a6e22e">background-color</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">#49b1f5</span>;
+  <span style="color:#a6e22e">background-image</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">-webkit-linear-gradient</span>(
+    <span style="color:#ae81ff">45</span><span style="color:#66d9ef">deg</span><span style="color:#f92672">,</span>
+    <span style="color:#a6e22e">rgba</span>(<span style="color:#ae81ff">255</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">255</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">255</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">0</span><span style="color:#ae81ff">.4</span>) <span style="color:#ae81ff">25</span><span style="color:#66d9ef">%</span><span style="color:#f92672">,</span>
+    transparent <span style="color:#ae81ff">25</span><span style="color:#66d9ef">%</span><span style="color:#f92672">,</span>
+    transparent <span style="color:#ae81ff">50</span><span style="color:#66d9ef">%</span><span style="color:#f92672">,</span>
+    <span style="color:#a6e22e">rgba</span>(<span style="color:#ae81ff">255</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">255</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">255</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">0</span><span style="color:#ae81ff">.4</span>) <span style="color:#ae81ff">50</span><span style="color:#66d9ef">%</span><span style="color:#f92672">,</span>
+    <span style="color:#a6e22e">rgba</span>(<span style="color:#ae81ff">255</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">255</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">255</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">0</span><span style="color:#ae81ff">.4</span>) <span style="color:#ae81ff">75</span><span style="color:#66d9ef">%</span><span style="color:#f92672">,</span>
+    transparent <span style="color:#ae81ff">75</span><span style="color:#66d9ef">%</span><span style="color:#f92672">,</span>
+    transparent
+  );
+  <span style="color:#a6e22e">border-radius</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2</span><span style="color:#66d9ef">em</span>;
 }
 
 <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">::-webkit-scrollbar-corner</span> {
-  <span style="color:#f92672">background-color</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">transparent</span>;
+  <span style="color:#a6e22e">background-color</span><span style="color:#f92672">:</span> transparent;
 }
 
 <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">::-moz-selection</span> {
-  <span style="color:#f92672">color</span><span style="color:#a6e22e">:</span> #fff;
-  <span style="color:#f92672">background-color</span><span style="color:#a6e22e">:</span> #49b1f5;
+  <span style="color:#a6e22e">color</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">#fff</span>;
+  <span style="color:#a6e22e">background-color</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">#49b1f5</span>;
 }
 }</code></pre></div>
 <h2 id="7-鼠标点击特效和蜘蛛网特效">7. 鼠标点击特效和蜘蛛网特效</h2>
@@ -486,7 +498,7 @@
 <p><code>\themes\mogege\assets\css\_common\_partials\hom.scss</code></p>
 
 <p>更改代码：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scss" data-lang="scss"><span style="color:#f92672">transform</span><span style="color:#a6e22e">:translateY</span><span style="color:#f92672">(</span><span style="color:#f92672">-0</span><span style="color:#a6e22e">.75em</span><span style="color:#f92672">)</span> <span style="color:#f92672">rotate</span><span style="color:#f92672">(</span><span style="color:#f92672">360deg</span><span style="color:#f92672">)</span>;</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scss" data-lang="scss"><span style="color:#a6e22e">transform</span><span style="color:#f92672">:</span><span style="color:#a6e22e">translateY</span>(<span style="color:#f92672">-</span><span style="color:#ae81ff">0</span><span style="color:#ae81ff">.75</span><span style="color:#66d9ef">em</span>) <span style="color:#a6e22e">rotate</span>(<span style="color:#ae81ff">360</span><span style="color:#66d9ef">deg</span>);</code></pre></div>
 <p>并且将subtitle字体大小改为1.1em</p>
 
 <h2 id="10-右下角添加到顶部按钮和进度比例">10. 右下角添加到顶部按钮和进度比例</h2>
@@ -494,39 +506,39 @@
 <p><strong>先定义文本框文件<code>\themes\mogege\assets\css\_common\_core\layout.scss</code>添加如下代码（代码参考next主题大佬@hao）：</strong></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scss" data-lang="scss"><span style="color:#75715e">/** 进度比例和到顶部**/</span>
 <span style="color:#a6e22e">.back-to-top</span> {
-  <span style="color:#f92672">box-sizing</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">border-box</span>;
-  <span style="color:#f92672">border-radius</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">8px</span>;       <span style="color:#75715e">/** 圆角**/</span>
-  <span style="color:#f92672">position</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">fixed</span>;
-  <span style="color:#f92672">right</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">30px</span>;
-  <span style="color:#f92672">z-index</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">1050</span>;
-  <span style="color:#f92672">padding</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">0</span> <span style="color:#f92672">6px</span>;
-  <span style="color:#f92672">width</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">initial</span>;
-  <span style="color:#f92672">background</span><span style="color:#a6e22e">:</span> #222;
-  <span style="color:#f92672">font-size</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">12px</span>;
-  <span style="color:#f92672">opacity</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">0</span><span style="color:#a6e22e">.6</span>;
-  <span style="color:#f92672">color</span><span style="color:#a6e22e">:</span> #fff;
-  <span style="color:#f92672">cursor</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">pointer</span>;
-  <span style="color:#f92672">text-align</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">center</span>;
-  <span style="color:#f92672">transition-property</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">bottom</span>;
-  <span style="color:#f92672">transition-duration</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">0</span><span style="color:#a6e22e">.2s</span>;
-  <span style="color:#f92672">transition-timing-function</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">ease-in-out</span>;
-  <span style="color:#f92672">transition-delay</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">0s</span>;
-  <span style="color:#f92672">bottom</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">-40px</span>;
+  <span style="color:#a6e22e">box-sizing</span><span style="color:#f92672">:</span> border-box;
+  <span style="color:#a6e22e">border-radius</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">8</span><span style="color:#66d9ef">px</span>;       <span style="color:#75715e">/** 圆角**/</span>
+  <span style="color:#a6e22e">position</span><span style="color:#f92672">:</span> fixed;
+  <span style="color:#a6e22e">right</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">30</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#a6e22e">z-index</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1050</span>;
+  <span style="color:#a6e22e">padding</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">6</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#a6e22e">width</span><span style="color:#f92672">:</span> initial;
+  <span style="color:#a6e22e">background</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">#222</span>;
+  <span style="color:#a6e22e">font-size</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">12</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#a6e22e">opacity</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span><span style="color:#ae81ff">.6</span>;
+  <span style="color:#a6e22e">color</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">#fff</span>;
+  <span style="color:#a6e22e">cursor</span><span style="color:#f92672">:</span> pointer;
+  <span style="color:#a6e22e">text-align</span><span style="color:#f92672">:</span> center;
+  <span style="color:#a6e22e">transition-property</span><span style="color:#f92672">:</span> bottom;
+  <span style="color:#a6e22e">transition-duration</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span><span style="color:#ae81ff">.2</span><span style="color:#66d9ef">s</span>;
+  <span style="color:#a6e22e">transition-timing-function</span><span style="color:#f92672">:</span> ease-in-out;
+  <span style="color:#a6e22e">transition-delay</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span><span style="color:#66d9ef">s</span>;
+  <span style="color:#a6e22e">bottom</span><span style="color:#f92672">:</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">40</span><span style="color:#66d9ef">px</span>;
 }
 
 <span style="color:#a6e22e">.back-top-active</span> {
-  <span style="color:#f92672">bottom</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">30px</span>;
+  <span style="color:#a6e22e">bottom</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">30</span><span style="color:#66d9ef">px</span>;
 }
 
-<span style="color:#66d9ef">@media</span> (<span style="color:#66d9ef">max-width</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">767</span><span style="color:#66d9ef">px</span>) {
+<span style="color:#66d9ef">@media</span> (<span style="color:#a6e22e">max-width</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">767</span><span style="color:#66d9ef">px</span>) {
 
   <span style="color:#a6e22e">.back-to-top</span> {
-    <span style="color:#f92672">right</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">10px</span>;
+    <span style="color:#a6e22e">right</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">10</span><span style="color:#66d9ef">px</span>;
   }
 
 
   <span style="color:#a6e22e">.back-top-active</span> {
-    <span style="color:#f92672">bottom</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">10px</span>;
+    <span style="color:#a6e22e">bottom</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">10</span><span style="color:#66d9ef">px</span>;
   }
 }</code></pre></div>
 <p>然后在<code>\themes\mogege\layouts\partials\footer.html</code>中更改底部显示</p>
@@ -575,15 +587,15 @@
    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">scrollAnimation</span>(<span style="color:#a6e22e">currentY</span>, <span style="color:#a6e22e">targetY</span>) {
 
       <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">needScrollTop</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">targetY</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">currentY</span>
-      <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">_currentY</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">currentY</span>
+      <span style="color:#66d9ef">let</span> <span style="color:#ae81ff">_</span><span style="color:#a6e22e">currentY</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">currentY</span>
       <span style="color:#a6e22e">setTimeout</span>(() =&gt; {
          <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">dist</span> <span style="color:#f92672">=</span> Math.<span style="color:#a6e22e">ceil</span>(<span style="color:#a6e22e">needScrollTop</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">10</span>)
-         <span style="color:#a6e22e">_currentY</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">dist</span>
-         window.<span style="color:#a6e22e">scrollTo</span>(<span style="color:#a6e22e">_currentY</span>, <span style="color:#a6e22e">currentY</span>)
+         <span style="color:#ae81ff">_</span><span style="color:#a6e22e">currentY</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">dist</span>
+         window.<span style="color:#a6e22e">scrollTo</span>(<span style="color:#ae81ff">_</span><span style="color:#a6e22e">currentY</span>, <span style="color:#a6e22e">currentY</span>)
          <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">needScrollTop</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">10</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">needScrollTop</span> <span style="color:#f92672">&lt;</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">10</span>) {
-            <span style="color:#a6e22e">scrollAnimation</span>(<span style="color:#a6e22e">_currentY</span>, <span style="color:#a6e22e">targetY</span>)
+            <span style="color:#a6e22e">scrollAnimation</span>(<span style="color:#ae81ff">_</span><span style="color:#a6e22e">currentY</span>, <span style="color:#a6e22e">targetY</span>)
          } <span style="color:#66d9ef">else</span> {
-            window.<span style="color:#a6e22e">scrollTo</span>(<span style="color:#a6e22e">_currentY</span>, <span style="color:#a6e22e">targetY</span>)
+            window.<span style="color:#a6e22e">scrollTo</span>(<span style="color:#ae81ff">_</span><span style="color:#a6e22e">currentY</span>, <span style="color:#a6e22e">targetY</span>)
          }
       }, <span style="color:#ae81ff">1</span>)
    }
@@ -728,61 +740,61 @@
 
 <p>&emsp;&emsp;$\bullet$ <strong>在主题文件<code>/themes/Mogege/assets/css/_common/home.scss</code>内添加toc样式(自己也可以自定义修改下)</strong></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scss" data-lang="scss"><span style="color:#a6e22e">.post-toc</span> {
-    <span style="color:#f92672">position</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">absolute</span>;
-    <span style="color:#f92672">width</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">200px</span>;
-    <span style="color:#f92672">margin-left</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">780px</span>;
-    <span style="color:#f92672">padding</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">10px</span>;
-    <span style="color:#f92672">word-wrap</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">break-word</span>;
-    <span style="color:#f92672">box-sizing</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">border-box</span>;
+    <span style="color:#a6e22e">position</span><span style="color:#f92672">:</span> absolute;
+    <span style="color:#a6e22e">width</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">200</span><span style="color:#66d9ef">px</span>;
+    <span style="color:#a6e22e">margin-left</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">780</span><span style="color:#66d9ef">px</span>;
+    <span style="color:#a6e22e">padding</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">10</span><span style="color:#66d9ef">px</span>;
+    <span style="color:#a6e22e">word-wrap</span><span style="color:#f92672">:</span> break-word;
+    <span style="color:#a6e22e">box-sizing</span><span style="color:#f92672">:</span> border-box;
     <span style="color:#a6e22e">.post-toc-title</span> {
-        <span style="color:#f92672">margin</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">0</span>;
-        <span style="color:#f92672">font-weight</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">400</span>;
-        <span style="color:#f92672">text-transform</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">uppercase</span>;
+        <span style="color:#a6e22e">margin</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>;
+        <span style="color:#a6e22e">font-weight</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">400</span>;
+        <span style="color:#a6e22e">text-transform</span><span style="color:#f92672">:</span> uppercase;
     }
     <span style="color:#a6e22e">.post-toc-content</span> {
         <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">.always-active</span> <span style="color:#f92672">ul</span> {
-            <span style="color:#f92672">display</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">block</span>;
+            <span style="color:#a6e22e">display</span><span style="color:#f92672">:</span> block;
         }
         <span style="color:#f92672">&gt;</span><span style="color:#f92672">nav</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">ul</span> {
-            <span style="color:#f92672">margin</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">10px</span> <span style="color:#f92672">0</span>;
+            <span style="color:#a6e22e">margin</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">10</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">0</span>;
         }
         <span style="color:#f92672">ul</span> {
-            <span style="color:#f92672">padding-left</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">0</span>;
-            <span style="color:#f92672">list-style</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">none</span>;
+            <span style="color:#a6e22e">padding-left</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>;
+            <span style="color:#a6e22e">list-style</span><span style="color:#f92672">:</span> none;
             <span style="color:#f92672">ul</span> {
-            <span style="color:#f92672">padding-left</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">15px</span>;
-            <span style="color:#f92672">display</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">none</span>;
+            <span style="color:#a6e22e">padding-left</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">15</span><span style="color:#66d9ef">px</span>;
+            <span style="color:#a6e22e">display</span><span style="color:#f92672">:</span> none;
             }
             <span style="color:#a6e22e">.has-active</span> <span style="color:#f92672">&gt;</span> <span style="color:#f92672">ul</span> {
-                <span style="color:#f92672">display</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">block</span>;
+                <span style="color:#a6e22e">display</span><span style="color:#f92672">:</span> block;
             }
         }
     }
     <span style="color:#f92672">a</span><span style="color:#a6e22e">:hover</span> {
-        <span style="color:#f92672">color</span><span style="color:#a6e22e">:</span> #c05b4d;
-        <span style="color:#f92672">-webkit-transform</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">scale</span><span style="color:#f92672">(</span><span style="color:#f92672">1</span><span style="color:#a6e22e">.1</span><span style="color:#f92672">)</span>;
-        <span style="color:#f92672">-ms-transform</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">scale</span><span style="color:#f92672">(</span><span style="color:#f92672">1</span><span style="color:#a6e22e">.1</span><span style="color:#f92672">)</span>;
-        <span style="color:#f92672">transform</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">scale</span><span style="color:#f92672">(</span><span style="color:#f92672">1</span><span style="color:#a6e22e">.1</span><span style="color:#f92672">)</span>;
+        <span style="color:#a6e22e">color</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">#c05b4d</span>;
+        <span style="color:#a6e22e">-webkit-transform</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">scale</span>(<span style="color:#ae81ff">1</span><span style="color:#ae81ff">.1</span>);
+        <span style="color:#a6e22e">-ms-transform</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">scale</span>(<span style="color:#ae81ff">1</span><span style="color:#ae81ff">.1</span>);
+        <span style="color:#a6e22e">transform</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">scale</span>(<span style="color:#ae81ff">1</span><span style="color:#ae81ff">.1</span>);
     }
     <span style="color:#f92672">a</span> {
-        <span style="color:#f92672">display</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">block</span>;
-        <span style="color:#f92672">line-height</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">30px</span>;
-        <span style="color:#f92672">overflow</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">hidden</span>;
-        <span style="color:#f92672">white-space</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">nowrap</span>;
-        <span style="color:#f92672">text-overflow</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">ellipsis</span>;
-        <span style="color:#f92672">-webkit-transition-duration</span><span style="color:#a6e22e">:</span> <span style="color:#a6e22e">.2s</span>;
-        <span style="color:#f92672">transition-duration</span><span style="color:#a6e22e">:</span> <span style="color:#a6e22e">.2s</span>;
-        <span style="color:#f92672">-webkit-transition-property</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">-webkit-transform</span>;
-        <span style="color:#f92672">transition-property</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">-webkit-transform</span>;
-        <span style="color:#f92672">transition-property</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">transform</span>;
-        <span style="color:#f92672">transition-property</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">transform</span><span style="color:#f92672">,</span><span style="color:#f92672">-webkit-transform</span>;
-        <span style="color:#f92672">-webkit-transition-timing-function</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">ease-out</span>;
-        <span style="color:#f92672">transition-timing-function</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">ease-out</span>;
+        <span style="color:#a6e22e">display</span><span style="color:#f92672">:</span> block;
+        <span style="color:#a6e22e">line-height</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">30</span><span style="color:#66d9ef">px</span>;
+        <span style="color:#a6e22e">overflow</span><span style="color:#f92672">:</span> hidden;
+        <span style="color:#a6e22e">white-space</span><span style="color:#f92672">:</span> nowrap;
+        <span style="color:#a6e22e">text-overflow</span><span style="color:#f92672">:</span> ellipsis;
+        <span style="color:#a6e22e">-webkit-transition-duration</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">.2</span><span style="color:#66d9ef">s</span>;
+        <span style="color:#a6e22e">transition-duration</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">.2</span><span style="color:#66d9ef">s</span>;
+        <span style="color:#a6e22e">-webkit-transition-property</span><span style="color:#f92672">:</span> <span style="color:#f92672">-</span>webkit-transform;
+        <span style="color:#a6e22e">transition-property</span><span style="color:#f92672">:</span> <span style="color:#f92672">-</span>webkit-transform;
+        <span style="color:#a6e22e">transition-property</span><span style="color:#f92672">:</span> transform;
+        <span style="color:#a6e22e">transition-property</span><span style="color:#f92672">:</span> transform<span style="color:#f92672">,-</span>webkit-transform;
+        <span style="color:#a6e22e">-webkit-transition-timing-function</span><span style="color:#f92672">:</span> ease-out;
+        <span style="color:#a6e22e">transition-timing-function</span><span style="color:#f92672">:</span> ease-out;
     }
 }
-<span style="color:#66d9ef">@media</span> only screen <span style="color:#f92672">and</span> (<span style="color:#66d9ef">max-width</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1224</span><span style="color:#66d9ef">px</span>) {
+<span style="color:#66d9ef">@media</span> only screen <span style="color:#f92672">and</span> (<span style="color:#a6e22e">max-width</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1224</span><span style="color:#66d9ef">px</span>) {
     <span style="color:#a6e22e">.post-toc</span> {
-        <span style="color:#f92672">display</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">none</span>;
+        <span style="color:#a6e22e">display</span><span style="color:#f92672">:</span> none;
     }
 } </code></pre></div>
 <p>&emsp;&emsp;$\bullet$ <strong>在主题路径<code>/themes/Mogege/layouts/partials/</code>下新建toc.html文件</strong></p>
@@ -899,8 +911,11 @@
 </ul></li>
 </ul>
 
-    </div>
+<h2 id="19-文首添加分隔线">19. 文首添加分隔线</h2>
 
+<p>这里借鉴了<a href="https://www.zhangxinxu.com/wordpress/2021/05/css-html-hr/" rel="nofollow noreferrer" target="_blank">大佬的代码</a>，具体操作首先在<code>\themes\mogege\assets\css\_common\_partials\home_post.scss</code>文件中添加css样式，然后在<code>\themes\mogege\layouts\_default\single.html</code>文件中设置样式。</p>
+
+    </div>
     <div class="post-copyright">
             
             <p class="copyright-item">
@@ -1011,7 +1026,7 @@
    <div class="copyright">
       &copy;
       
-      <span itemprop="copyrightYear">2019 - 2021</span>
+      <span itemprop="copyrightYear">2019 - 2022</span>
       
       <span class="with-love">
          <i class="fas fa-heart"></i>
@@ -1092,7 +1107,7 @@
 
 
 
-
+<script type="text/javascript" src="https://demo.hellozwh.com/source/canvas-nest.min.js"></script>
 
 <script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/love.min.js"></script>
 

@@ -243,11 +243,11 @@
   }
 </script> 
 	
+	<hr class="hr-twill-colorful">
     <div class="post-content">
         
         
         
-
         
         
         
@@ -257,7 +257,6 @@
         
         
         
-
         
 
 <p>  <strong>在一次C++的练习中，我发现了这个问题，并在网上查找到了原因，特在此记录下来。</strong></p>
@@ -268,13 +267,11 @@
 
 <p>从字面意思来看就是说，类型<code>int</code>和<code>double</code>为二进制运算符<code>％</code>的无效操作数。这是因为对于取模运算符 <code>%</code>，你的操作数只能是整型的，也就相当于没有为<code>double</code>类型定义<code>%</code>运算符。所以当你的取模运算中包含非整型数据时，类似这样：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">int</span> a<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>;
-cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#ae81ff">11.0</span> <span style="color:#f92672">%</span> a<span style="color:#f92672">&lt;&lt;</span>endl;
-</code></pre></div>
+cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#ae81ff">11.0</span> <span style="color:#f92672">%</span> a<span style="color:#f92672">&lt;&lt;</span>endl;</code></pre></div>
 <p>就会报错。但是当你的取模运算中一定要有<code>double</code>类型数据时，可以考虑如下代码：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;math.h&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> a<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>;
-cout<span style="color:#f92672">&lt;&lt;</span>fmod(<span style="color:#ae81ff">11.0</span> , a)<span style="color:#f92672">&lt;&lt;</span>endl;
-</code></pre></div>
+cout<span style="color:#f92672">&lt;&lt;</span>fmod(<span style="color:#ae81ff">11.0</span> , a)<span style="color:#f92672">&lt;&lt;</span>endl;</code></pre></div>
 <h1 id="2-拓展">2️⃣ 拓展</h1>
 
 <p>  其实，不仅仅是取模运算未对<code>double</code>类型定义，诸如<code>&amp;，^，|，~，&lt;&lt;，&gt;&gt;</code>之类的按位运算符也是这样。</p>
@@ -284,7 +281,6 @@ cout<span style="color:#f92672">&lt;&lt;</span>fmod(<span style="color:#ae81ff">
 <p>在<a href="https://stackoverflow.com/questions/9278224/invalid-operands-of-types-int-and-double-to-binary-operator" rel="nofollow noreferrer" target="_blank">这里</a></p>
 
     </div>
-
     <div class="post-copyright">
             
             <p class="copyright-item">
@@ -395,7 +391,7 @@ cout<span style="color:#f92672">&lt;&lt;</span>fmod(<span style="color:#ae81ff">
    <div class="copyright">
       &copy;
       
-      <span itemprop="copyrightYear">2019 - 2021</span>
+      <span itemprop="copyrightYear">2019 - 2022</span>
       
       <span class="with-love">
          <i class="fas fa-heart"></i>
@@ -476,7 +472,7 @@ cout<span style="color:#f92672">&lt;&lt;</span>fmod(<span style="color:#ae81ff">
 
 
 
-
+<script type="text/javascript" src="https://demo.hellozwh.com/source/canvas-nest.min.js"></script>
 
 <script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/love.min.js"></script>
 
