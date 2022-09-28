@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ANTs on shishuoCh&#39;s Blog</title>
+    <link>https://shishuochen.github.io/tags/ants/</link>
+    <description>Recent content in ANTs on shishuoCh&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 27 Sep 2022 10:29:50 +0800</lastBuildDate><atom:link href="https://shishuochen.github.io/tags/ants/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ANTs/AFNI配准fMRI到标准空间</title>
+      <link>https://shishuochen.github.io/2022/a5ooapv0n/</link>
+      <pubDate>Tue, 27 Sep 2022 10:29:50 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2022/a5ooapv0n/</guid>
+      <description>1. 配准思路 fMRI分析的几个方面需要以某种方式进行图像的空间变换，例如个体内部的图像匹配（头动校正、功能到个体）或者个体间的图像配准（用于完</description>
+    </item>
+    
+  </channel>
+</rss>

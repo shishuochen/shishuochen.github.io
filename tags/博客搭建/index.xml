@@ -6,9 +6,36 @@
     <description>Recent content in 博客搭建 on shishuoCh&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 23 Jul 2020 23:31:01 +0000</lastBuildDate><atom:link href="https://shishuochen.github.io/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 28 Sep 2022 12:08:20 +0800</lastBuildDate><atom:link href="https://shishuochen.github.io/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Hugo博客自定义优化</title>
+      <title>Hugo BLOG常用代码合集</title>
+      <link>https://shishuochen.github.io/2022/ogpurjwl4/</link>
+      <pubDate>Wed, 28 Sep 2022 12:08:20 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2022/ogpurjwl4/</guid>
+      <description>$\cdots$ end $\cdots$</description>
+    </item>
+    
+    <item>
+      <title>Hugo博客自定义优化 II</title>
+      <link>https://shishuochen.github.io/2022/cpvuqozuc/</link>
+      <pubDate>Tue, 27 Sep 2022 18:24:41 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2022/cpvuqozuc/</guid>
+      <description>上一次修改博客主题还是在上一次，这次也是2022开年这么久以来第一篇BLOG，再次写下最近最博客主题的改进. 加上上一篇优化文章内容已经足够长</description>
+    </item>
+    
+    <item>
+      <title>Termux提交代码到GitHub</title>
+      <link>https://shishuochen.github.io/2021/b8ejeacp/</link>
+      <pubDate>Tue, 14 Sep 2021 03:30:22 +0000</pubDate>
+      
+      <guid>https://shishuochen.github.io/2021/b8ejeacp/</guid>
+      <description>1. Termux的使用 Termux是什么 Termux 是一个Android 终端模拟器和 Linux 环境应用程序，无需 root 或设置即可直接运行，可以使用APT包管理器可以</description>
+    </item>
+    
+    <item>
+      <title>Hugo博客自定义优化 I</title>
       <link>https://shishuochen.github.io/2020/uffick8u1/</link>
       <pubDate>Thu, 23 Jul 2020 23:31:01 +0000</pubDate>
       

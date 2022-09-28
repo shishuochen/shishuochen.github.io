@@ -6,29 +6,38 @@
     <description>Recent content in Posts on shishuoCh&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 27 Nov 2021 18:48:17 +0800</lastBuildDate><atom:link href="https://shishuochen.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 28 Sep 2022 12:08:20 +0800</lastBuildDate><atom:link href="https://shishuochen.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>4I3IG53rL</title>
-      <link>https://shishuochen.github.io/2021/4i3ig53rl/</link>
-      <pubDate>Sat, 27 Nov 2021 18:48:17 +0800</pubDate>
+      <title>Hugo BLOG常用代码合集</title>
+      <link>https://shishuochen.github.io/2022/ogpurjwl4/</link>
+      <pubDate>Wed, 28 Sep 2022 12:08:20 +0800</pubDate>
       
-      <guid>https://shishuochen.github.io/2021/4i3ig53rl/</guid>
-      <description></description>
+      <guid>https://shishuochen.github.io/2022/ogpurjwl4/</guid>
+      <description>$\cdots$ end $\cdots$</description>
     </item>
     
     <item>
-      <title>RzPs6Rl8E</title>
-      <link>https://shishuochen.github.io/2021/rzps6rl8e/</link>
-      <pubDate>Sat, 27 Nov 2021 18:48:08 +0800</pubDate>
+      <title>Hugo博客自定义优化 II</title>
+      <link>https://shishuochen.github.io/2022/cpvuqozuc/</link>
+      <pubDate>Tue, 27 Sep 2022 18:24:41 +0800</pubDate>
       
-      <guid>https://shishuochen.github.io/2021/rzps6rl8e/</guid>
-      <description></description>
+      <guid>https://shishuochen.github.io/2022/cpvuqozuc/</guid>
+      <description>上一次修改博客主题还是在上一次，这次也是2022开年这么久以来第一篇BLOG，再次写下最近最博客主题的改进. 加上上一篇优化文章内容已经足够长</description>
     </item>
     
     <item>
-      <title>读取DICOM、NifTi等文件</title>
+      <title>ANTs/AFNI配准fMRI到标准空间</title>
+      <link>https://shishuochen.github.io/2022/a5ooapv0n/</link>
+      <pubDate>Tue, 27 Sep 2022 10:29:50 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2022/a5ooapv0n/</guid>
+      <description>1. 配准思路 fMRI分析的几个方面需要以某种方式进行图像的空间变换，例如个体内部的图像匹配（头动校正、功能到个体）或者个体间的图像配准（用于完</description>
+    </item>
+    
+    <item>
+      <title>DSI Studio分析数据Manual</title>
       <link>https://shishuochen.github.io/2021/8wucs4her/</link>
-      <pubDate>Sat, 27 Nov 2021 18:47:56 +0800</pubDate>
+      <pubDate>Sat, 27 Nov 2021 10:47:56 +0000</pubDate>
       
       <guid>https://shishuochen.github.io/2021/8wucs4her/</guid>
       <description>原文网址 1. 简介 以下列表是 DSI Studio 支持的图像格式。 DICOM格式，包括SIEMENS TIM、SIEMENS Trio、GE SIGNA HDx、Philips 4D</description>
@@ -37,7 +46,7 @@
     <item>
       <title>神经生物学</title>
       <link>https://shishuochen.github.io/2021/kaaysw4my/</link>
-      <pubDate>Tue, 28 Sep 2021 17:14:57 +0800</pubDate>
+      <pubDate>Tue, 28 Sep 2021 09:14:57 +0000</pubDate>
       
       <guid>https://shishuochen.github.io/2021/kaaysw4my/</guid>
       <description>第一部分 主要内容 .tg {border-collapse:collapse;border-color:#93a1a1;border-spacing:0;} .tg td{background-color:#fdf6e3;border-color:#93a1a1;border-style:solid;border-width:1px;color:#002b36; font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;word-break:normal;} .tg th{background-color:#657b83;border-color:#93a1a1;border-style:solid;border-width:1px;color:#fdf6e3; font-family:Arial, sans-serif;font-size:14px;font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;} .tg .tg-9wq8{border-color:inherit;text-align:center;vertical-align:middle} 概述 信号处理 感觉系统 本能行为 运动系统 学习记忆 神经系统疾病 神经科学发展史 神经元的电学特征 视觉 节律 运</description>
@@ -46,7 +55,7 @@
     <item>
       <title>Termux提交代码到GitHub</title>
       <link>https://shishuochen.github.io/2021/b8ejeacp/</link>
-      <pubDate>Tue, 14 Sep 2021 11:30:22 +0800</pubDate>
+      <pubDate>Tue, 14 Sep 2021 03:30:22 +0000</pubDate>
       
       <guid>https://shishuochen.github.io/2021/b8ejeacp/</guid>
       <description>1. Termux的使用 Termux是什么 Termux 是一个Android 终端模拟器和 Linux 环境应用程序，无需 root 或设置即可直接运行，可以使用APT包管理器可以</description>
@@ -55,7 +64,7 @@
     <item>
       <title>MRI数据分析常用软件合集</title>
       <link>https://shishuochen.github.io/2021/5hy3l2plc/</link>
-      <pubDate>Fri, 12 Mar 2021 15:30:44 +0800</pubDate>
+      <pubDate>Fri, 12 Mar 2021 07:30:44 +0000</pubDate>
       
       <guid>https://shishuochen.github.io/2021/5hy3l2plc/</guid>
       <description>1. MATALB工具箱 SPM（Statistical Parametric Mapping） 官网地址 手册文档 使用方法 将下载文件解压并复制到MATLAB的toolbo</description>
@@ -64,7 +73,7 @@
     <item>
       <title>DTI数据处理流程概述(FA、TBSS)</title>
       <link>https://shishuochen.github.io/2021/i-v08kuvx/</link>
-      <pubDate>Tue, 09 Mar 2021 19:49:57 +0800</pubDate>
+      <pubDate>Tue, 09 Mar 2021 11:49:57 +0000</pubDate>
       
       <guid>https://shishuochen.github.io/2021/i-v08kuvx/</guid>
       <description>扩散加权磁共振成像（DWI或DW-MRI）是使用特定的MRI序列以及从所得数据生成图像的软件，该软件使用水分子的扩散在MR图像中产生对比度。</description>
@@ -73,7 +82,7 @@
     <item>
       <title>双系统Ubuntu分区扩容</title>
       <link>https://shishuochen.github.io/2021/essp_skj2/</link>
-      <pubDate>Fri, 26 Feb 2021 11:16:42 +0800</pubDate>
+      <pubDate>Fri, 26 Feb 2021 03:16:42 +0000</pubDate>
       
       <guid>https://shishuochen.github.io/2021/essp_skj2/</guid>
       <description>新年第一记，空间不足是常有的事，特在此记录下以备下次之需。本文最大缺点就是未能图文并茂，称不上一篇好的教程，可能不如图片来的直接，可以结合网</description>
@@ -242,7 +251,7 @@
     </item>
     
     <item>
-      <title>Hugo博客自定义优化</title>
+      <title>Hugo博客自定义优化 I</title>
       <link>https://shishuochen.github.io/2020/uffick8u1/</link>
       <pubDate>Thu, 23 Jul 2020 23:31:01 +0000</pubDate>
       

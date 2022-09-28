@@ -412,59 +412,22 @@ $$
     <div class="post-comment">
         
             
-                <p></p>
-<br>
-<script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
-<div id="vcomments" style="padding: 10px 0px 0px 0px"></div>
-<style>
-  .v .veditor {
-    min-height: 10rem;
-    background-image: url('<%= site.customConfig.valineimage %>');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: right;
-    background-color: rgba(255, 255, 255, 0);
-    resize: none;
-  }
-
-  .v .vwrap {
-    border: 1px solid #000 !important;
-  }
-
-  .v .vbtn {
-    padding: .4rem 1.2rem !important;
-    border-color: #fff !important;
-    background-color: #49b1f5 !important;
-    color: #fff !important;
-    font-size: .7rem !important;
-  }
-
-  .v .vcards .vcard .vh .vmeta .vat {
-    padding: 0 .8rem !important;
-    border: 1px solid #00c4b6 !important;
-    border-radius: 5px !important;
-    color: #00c4b6 !important;
-  }
-</style>
-<script>
-  new Valine({
-        el: '#vcomments' ,
-        appId: 'WfSBqbaIFwwLUytPuTLtMKu9-MdYXbMMI',
-        appKey: 'ELF39FBTTfSuVVLOHMM4uqWf',
-        notify:  true ,
-        verify:  true , 
-        avatar:'mm', 
-		enableQQ: true,
-        placeholder: '【在昵称处填写企鹅号会自动拉取昵称、头像和邮箱，这样你就可以通过邮箱收到留言回复了，因此请检查自己的输入的企鹅号是否正确，方便自己的同时也避免给他人带来不便，Thanks♪(･ω･)ﾉ】',
-        visitor:  true 
-  });
+                <script src="https://utteranc.es/client.js"
+    repo="shishuochen.github.io"
+    issue-term="pathname"
+    label="Comment"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
 </script>
-
             
         
     </div>
 </article>
                 </div>
+                <link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
             </main>
             
 <div class="footer-box">
@@ -553,7 +516,6 @@ $$
 
 
 
-<script type="text/javascript" src="https://demo.hellozwh.com/source/canvas-nest.min.js"></script>
 
 <script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/love.min.js"></script>
 
@@ -604,3 +566,4 @@ $$
         </div>
     </body>
 </html>
+
