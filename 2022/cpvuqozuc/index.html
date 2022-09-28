@@ -57,7 +57,7 @@
     "datePublished": "2022-09-27 18:24:41 \u002b0800 CST",
     "dateModified" : "2022-09-27 18:24:41 \u002b0800 CST",
     "url" : "https:\/\/shishuochen.github.io\/2022\/cpvuqozuc\/",
-    "wordCount" : "1612",
+    "wordCount" : "1708",
     "keywords" : [ "博客搭建", "shishuoCh\u0027s Blog"]
 }
 </script>
@@ -191,7 +191,7 @@
 				&thinsp;$\bm\vert$&thinsp; 
 				<i class="fas fa-file-word "></i>
 				
-                <span class="post-word-count">1612字</span>
+                <span class="post-word-count">1708字</span>
 				
 				&thinsp;$\bm\vert$&thinsp;   
 				<i class="fas fa-coffee "></i>
@@ -310,8 +310,24 @@
             <span style="color:#66d9ef">box-shadow</span>: <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">0</span> <span style="color:#960050;background-color:#1e0010">$</span>dark-font-secondary-color, <span style="color:#ae81ff">2</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">2</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">0</span> <span style="color:#960050;background-color:#1e0010">$</span>dark-font-secondary-color;
             }
         <span style="color:#960050;background-color:#1e0010">}</span></code></pre></div>
-<p>这其中还包括另一个功能实现，就是给长代码添加垂直、水平滑动条。按照该<a href="https://segmentfault.com/q/1010000020432864" rel="nofollow noreferrer" target="_blank">网址</a>方法添加代码，已经包含在上述代码中。但是更改之后原本右下角的<code>copy</code>按钮在有滚动条的情况下就会很乱，因此在浏览器中改成右上角，然后调整好位置后同样应用于上述文件中。</p>
+<p>这其中还包括另一个功能实现，就是给长代码添加垂直、水平滑动条。按照该<a href="https://segmentfault.com/q/1010000020432864" rel="nofollow noreferrer" target="_blank">网址</a>方法添加代码，即<code>overflow-y: auto;</code>已经包含在上述代码中。</p>
 
+<p>但是更改之后原本右下角的<code>copy</code>按钮在有滚动条的情况下就会很乱，因此在浏览器中改成右上角，然后调整好位置后同样应用于上述文件中。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#a6e22e">post-warp</span> .<span style="color:#a6e22e">post-content</span> .<span style="color:#a6e22e">highlight</span> .<span style="color:#a6e22e">copy-code-button</span> {
+    <span style="color:#66d9ef">position</span>: <span style="color:#66d9ef">absolute</span>;
+    <span style="color:#66d9ef">top</span>: <span style="color:#ae81ff">4</span><span style="color:#66d9ef">px</span>;
+    <span style="color:#75715e">/* bottom: 10px; */</span>
+    <span style="color:#66d9ef">right</span>: <span style="color:#ae81ff">25</span><span style="color:#66d9ef">px</span>;
+    <span style="color:#66d9ef">border</span>: <span style="color:#ae81ff">0</span>;
+    <span style="color:#66d9ef">border-radius</span>: <span style="color:#ae81ff">4</span><span style="color:#66d9ef">px</span>;
+    <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span>;
+    <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">0.7</span><span style="color:#66d9ef">em</span>;
+    <span style="color:#66d9ef">line-height</span>: <span style="color:#ae81ff">1.8</span>;
+    <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#fff</span>;
+    <span style="color:#66d9ef">background-color</span>: <span style="color:#ae81ff">#777</span>;
+    <span style="color:#66d9ef">min-width</span>: <span style="color:#ae81ff">55</span><span style="color:#66d9ef">px</span>;
+    <span style="color:#66d9ef">text-align</span>: <span style="color:#66d9ef">center</span>;
+}</code></pre></div>
 <p>这次改动学精明了点，之前调试主题效果都是本地改动，渲染效果，今天突然间意识到浏览器就可以了。</p>
 
 <p><del>原本想更改下选中文本颜色的，但感觉蓝色也不错的。</del></p>
@@ -403,12 +419,19 @@
   <span style="color:#a6e22e">theme</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;github-light&#34;</span>
   <span style="color:#a6e22e">crossorigin</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;anonymous&#34;</span>
   <span style="color:#a6e22e">async</span>&gt;
-&lt;/<span style="color:#f92672">script</span>&gt;</code></pre></div>
-<p>如果你是想在自己的主题中加入utterances评论，可以参考以下文章：</p>
+&lt;/<span style="color:#f92672">script</span>&gt;
+
+&lt;<span style="color:#f92672">style</span>&gt;
+    .<span style="color:#a6e22e">utterances</span> {
+        <span style="color:#66d9ef">max-width</span>: <span style="color:#ae81ff">95</span><span style="color:#66d9ef">%</span>;
+    }
+&lt;/<span style="color:#f92672">style</span>&gt;</code></pre></div>
+<p>其中的<code>&lt;style&gt;</code>标签是更改默认的宽度的，这一点<a href="https://utteranc.es/#heading-enable:~:text=Customize%20the%20layout%20using%20the%20.utterances%20and%20.utterances%2Dframe%20selectors" rel="nofollow noreferrer" target="_blank">官网</a>也有说明。如果你是想在自己的主题中加入utterances评论，可以参考以下文章：</p>
 
 <ul>
-<li><a href="https://jdhao.github.io/2021/08/15/hugo_even_add_utterance/" rel="nofollow noreferrer" target="_blank">MICHELE SCIPIONI</a>（主要是这个）</li>
-<li><a href="https://jdhao.github.io/2021/08/15/hugo_even_add_utterance/" rel="nofollow noreferrer" target="_blank">jdhao&rsquo;s digital space</a></li>
+<li><p><a href="https://jdhao.github.io/2021/08/15/hugo_even_add_utterance/" rel="nofollow noreferrer" target="_blank">MICHELE SCIPIONI</a>（主要是这个）</p></li>
+
+<li><p><a href="https://jdhao.github.io/2021/08/15/hugo_even_add_utterance/" rel="nofollow noreferrer" target="_blank">jdhao&rsquo;s digital space</a></p></li>
 </ul>
 
 <h2 id="相关文章推荐">相关文章推荐</h2>
@@ -417,11 +440,9 @@
 <li><a href="https://shishuochen.github.io/2020/uffick8u1/" rel="nofollow noreferrer" target="_blank">Hugo 博客自定义优化 I</a></li>
 </ul>
 
-<p><center></p>
-
-<p>$\cdots$ <strong>end</strong> $\cdots$</p>
-
-<p></center></p>
+<p><center>
+$\cdots$ <strong>end</strong> $\cdots$
+</center></p>
 
     </div>
     <div class="post-copyright">
@@ -470,21 +491,7 @@
         <a href="https://shishuochen.github.io/2022/ogpurjwl4/" class="next" rel="next" title="Hugo BLOG常用代码合集">Hugo BLOG常用代码合集&nbsp;<i class="fas fas fa-caret-right"></i></a>
         
     </div>
-	
-    <div class="post-comment">
-        
-            
-                <script src="https://utteranc.es/client.js"
-    repo="shishuochen/Bolg-comments"
-    issue-term="pathname"
-    label="Comment"
-    theme="github-light"
-    crossorigin="anonymous"
-    async>
-</script>
-            
-        
-        <style>
+	        <style>
     .utterances {
       position: relative;
       box-sizing: border-box;
@@ -505,6 +512,25 @@
       border: 0;
     }
   </style>
+    <div class="post-comment">
+        
+            
+                <script src="https://utteranc.es/client.js"
+    repo="shishuochen/Bolg-comments"
+    issue-term="pathname"
+    label="Comment"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+</script>
+<style>
+    .utterances {
+        max-width: 95%;
+    }
+</style>
+            
+        
+
     </div>
 </article>
                 </div>
