@@ -55,7 +55,7 @@
     "articleSection" : "posts",
     "name" : "Hugo BLOG常用代码合集",
     "headline" : "Hugo BLOG常用代码合集",
-    "description" : "指定文本 https:\/\/utteranc.es\/#heading-enable:~:text=Customize%20the%20layout%20using%20the%20.utterances%20and%20.utterances%2Dframe%20selectors $\\cdots$ end $\\cdots$",
+    "description" : "每次写文章，有一些不常用的命令容易忘记，还要去过往的代码里找，很是麻烦。所以特别的记录整合到一起\u0026hellip;.. 插入图片及题注 \u0026lt;a data-fancybox=\u0026#34;gallery\u0026#34; href=\u0026#34;https:\/\/s1.ax1x.com\/2022\/09\/27\/xeekrD.jpg\u0026#34; pcked=\u0026#34;1\u0026#34;\u0026gt;\u0026lt;img src=\u0026#34;https:\/\/s1.ax1x.com\/2022\/09\/27\/xeekrD.jpg\u0026#34;",
     "inLanguage" : "zh-cn",
     "author" : "ANY_ME",
     "creator" : "ANY_ME",
@@ -66,7 +66,7 @@
     "datePublished": "2022-09-28 12:08:20 \u002b0800 CST",
     "dateModified" : "2022-09-28 12:08:20 \u002b0800 CST",
     "url" : "https:\/\/shishuochen.github.io\/2022\/ogpurjwl4\/",
-    "wordCount" : "8",
+    "wordCount" : "276",
     "keywords" : [ "博客搭建","Markdown", "shishuoCh\u0027s Blog"]
 }
 </script>
@@ -183,6 +183,8 @@
 				&thinsp;$\bm\vert$&thinsp; 
 				
 				
+				<i class="fas fa-history"></i> 更新:2022-09-29
+				
                 
 				&thinsp;$\bm\vert$&thinsp; 
                 
@@ -199,7 +201,7 @@
 				&thinsp;$\bm\vert$&thinsp; 
 				<i class="fas fa-file-word "></i>
 				
-                <span class="post-word-count">8字</span>
+                <span class="post-word-count">276字</span>
 				
 				&thinsp;$\bm\vert$&thinsp;   
 				<i class="fas fa-coffee "></i>
@@ -214,7 +216,16 @@
   <h2 class="post-toc-title"></h2>
   
   <div class="post-toc-content always-active">
-    
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#插入图片及题注">插入图片及题注</a></li>
+<li><a href="#内嵌pdf文件">内嵌PDF文件</a></li>
+<li><a href="#交叉引用">交叉引用</a></li>
+</ul></li>
+</ul>
+</nav>
   </div>
 </div>
 <script type="text/javascript">
@@ -259,9 +270,21 @@
         
         
         
-        <p>指定文本</p>
+        
 
-<p><a href="https://utteranc.es/#heading-enable:~:text=Customize%20the%20layout%20using%20the%20.utterances%20and%20.utterances%2Dframe%20selectors" rel="nofollow noreferrer" target="_blank">https://utteranc.es/#heading-enable:~:text=Customize%20the%20layout%20using%20the%20.utterances%20and%20.utterances%2Dframe%20selectors</a></p>
+<blockquote>
+<p>每次写文章，有一些不常用的命令容易忘记，还要去过往的代码里找，很是麻烦。所以特别的记录整合到一起&hellip;..</p>
+</blockquote>
+
+<h2 id="插入图片及题注">插入图片及题注</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">data-fancybox</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;gallery&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://s1.ax1x.com/2022/09/27/xeekrD.jpg&#34;</span> <span style="color:#a6e22e">pcked</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1&#34;</span>&gt;&lt;<span style="color:#f92672">img</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://s1.ax1x.com/2022/09/27/xeekrD.jpg&#34;</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;zoom: 70%;&#34;</span>&gt;
+&lt;/<span style="color:#f92672">a</span>&gt;
+&lt;<span style="color:#f92672">figcaption</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;image-caption&#34;</span>&gt;fMRI配准到标准空间一般流程&lt;/<span style="color:#f92672">figcaption</span>&gt;</code></pre></div>
+<h2 id="内嵌pdf文件">内嵌PDF文件</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">center</span>&gt;&lt;<span style="color:#f92672">embed</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/code1.pdf&#34;</span> <span style="color:#a6e22e">width</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;850&#34;</span> <span style="color:#a6e22e">height</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;550&#34;</span>&gt;&lt;/<span style="color:#f92672">center</span>&gt;</code></pre></div>
+<h2 id="交叉引用">交叉引用</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;target name&#34;</span>&gt;&lt;/<span style="color:#f92672">a</span>&gt;</code></pre></div>
+<p>先使用上述代码在需要引用处构建锚元素，然后在引用处使用<code>[Presentation](target name)</code>；如果是想引用网页中的某一段话，在浏览器中选中后右键选择【复制指向突出显示的链接】，然后用链接语法就搞定了，<a href="https://utteranc.es/#heading-enable:~:text=Customize%20the%20layout%20using%20the%20.utterances%20and%20.utterances%2Dframe%20selectors" rel="nofollow noreferrer" target="_blank">【来个例子】</a>。</p>
 
 <p><center>
 $\cdots$ <strong>end</strong> $\cdots$
