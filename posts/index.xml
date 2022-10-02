@@ -17,7 +17,7 @@
     </item>
     
     <item>
-      <title>Hugo博客自定义优化 II</title>
+      <title>Hugo博客自定义优化 III</title>
       <link>https://shishuochen.github.io/2022/cpvuqozuc/</link>
       <pubDate>Tue, 27 Sep 2022 18:24:41 +0800</pubDate>
       
@@ -32,6 +32,15 @@
       
       <guid>https://shishuochen.github.io/2022/a5ooapv0n/</guid>
       <description>1. 配准思路 fMRI分析的几个方面需要以某种方式进行图像的空间变换，例如个体内部的图像匹配（头动校正、功能到个体）或者个体间的图像配准（用于完</description>
+    </item>
+    
+    <item>
+      <title>Hugo博客自定义优化 II</title>
+      <link>https://shishuochen.github.io/2022/fayxu7qqt/</link>
+      <pubDate>Sun, 25 Sep 2022 20:57:22 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2022/fayxu7qqt/</guid>
+      <description>第一篇主题优化文章内容条例太长了，拆成两部分 1. 博客更换为valine评论 将路文件\themes\mogege\layouts\partial</description>
     </item>
     
     <item>
@@ -364,7 +373,7 @@
       <pubDate>Sun, 01 Mar 2020 19:29:11 +0000</pubDate>
       
       <guid>https://shishuochen.github.io/2020/evcfke7nv/</guid>
-      <description>在Microsoft Word 中插入代码，保留颜色和格式 1. 使用编辑器粘贴代码到Word 1.1 Visual Studio Code 戳我进官网 直接粘贴到Word &amp;emsp;&amp;emsp;$\bullet$ 从Visual Studio Code</description>
+      <description>在Microsoft Word 中插入代码，保留颜色和格式 1. 使用编辑器粘贴代码到Word Visual Studio Code 戳我进官网 直接粘贴到Word &amp;emsp;&amp;emsp;$\bullet$ 从Visual Studio Code直</description>
     </item>
     
     <item>

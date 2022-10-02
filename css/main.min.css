@@ -108,6 +108,21 @@ blockquote {
 .dark-theme blockquote {
     background-color: #252529;
 }
+.katex-display > .katex {
+  display: block;
+    height: auto;
+    padding-bottom: 12px;
+    -webkit-box-sizing: border-box;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+.katex {
+  font: normal 1.21em KaTeX_Main, Times New Roman, serif;
+  line-height: 1.2;
+  white-space: normal;
+  text-indent: 0;
+}
+
 .wrapper {
     display: flex;
     flex-direction: column;
@@ -635,22 +650,42 @@ code:not([class]) {
     content: ' ';
     display: table;
 }
-.post-warp .post-nav a.prev,
+.post-warp .post-nav a.prev{
+    font-weight: 600;
+    font-size: 16px;
+    transition-property: transform;
+    transition-timing-function: ease-out;
+    transition-duration: 0.3s;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+
 .post-warp .post-nav a.next {
     font-weight: 600;
     font-size: 16px;
     transition-property: transform;
     transition-timing-function: ease-out;
     transition-duration: 0.3s;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    direction: ltr;
+    text-align:right;
 }
+
 .post-warp .post-nav a.prev {
     float: left;
+    width: 90%;
 }
 .post-warp .post-nav a.prev:hover {
     transform: translateX(-4px);
 }
 .post-warp .post-nav a.next {
     float: right;
+    width: 90%;
+    
 }
 .post-warp .post-nav a.next:hover {
     transform: translateX(4px);

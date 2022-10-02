@@ -17,12 +17,21 @@
     </item>
     
     <item>
-      <title>Hugo博客自定义优化 II</title>
+      <title>Hugo博客自定义优化 III</title>
       <link>https://shishuochen.github.io/2022/cpvuqozuc/</link>
       <pubDate>Tue, 27 Sep 2022 18:24:41 +0800</pubDate>
       
       <guid>https://shishuochen.github.io/2022/cpvuqozuc/</guid>
       <description>上一次修改博客主题还是在上一次，这次也是2022开年这么久以来第一篇BLOG，再次写下最近最博客主题的改进. 加上上一篇优化文章内容已经足够长</description>
+    </item>
+    
+    <item>
+      <title>Hugo博客自定义优化 II</title>
+      <link>https://shishuochen.github.io/2022/fayxu7qqt/</link>
+      <pubDate>Sun, 25 Sep 2022 20:57:22 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2022/fayxu7qqt/</guid>
+      <description>第一篇主题优化文章内容条例太长了，拆成两部分 1. 博客更换为valine评论 将路文件\themes\mogege\layouts\partial</description>
     </item>
     
     <item>

@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HZXHKZW7E0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HZXHKZW7E0');
+</script>
+<meta name="google-site-verification" content="PgRvRggX4FPNmBfLmc_IBoedK_gPlyCB_p49I3DfNSA" />
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="ANY_ME">
+    <meta name="description" content="shishuoCh的个人博客">
+    
+    <meta name="google-site-verification" content=" " />
+    <link rel="prev" href="https://shishuochen.github.io/2021/8wucs4her/" />
+    <link rel="next" href="https://shishuochen.github.io/2022/a5ooapv0n/" />
+    <link rel="canonical" href="https://shishuochen.github.io/2022/fayxu7qqt/" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+        
+        
+            Hugo博客自定义优化 II | shishuoCh&#39;s Blog
+        
+    </title>
+    <meta name="title" content="Hugo博客自定义优化 II | shishuoCh&#39;s Blog">
+    
+<link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/shishuochen.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "Hugo博客自定义优化 II",
+    "headline" : "Hugo博客自定义优化 II",
+    "description" : "第一篇主题优化文章内容条例太长了，拆成两部分 1. 博客更换为valine评论 将路文件\\themes\\mogege\\layouts\\partial",
+    "inLanguage" : "zh-cn",
+    "author" : "ANY_ME",
+    "creator" : "ANY_ME",
+    "publisher": "ANY_ME",
+    "accountablePerson" : "ANY_ME",
+    "copyrightHolder" : "ANY_ME",
+    "copyrightYear" : "2022",
+    "datePublished": "2022-09-25 20:57:22 \u002b0800 CST",
+    "dateModified" : "2022-09-25 20:57:22 \u002b0800 CST",
+    "url" : "https:\/\/shishuochen.github.io\/2022\/fayxu7qqt\/",
+    "wordCount" : "2311",
+    "keywords" : [ "博客搭建", "shishuoCh\u0027s Blog"]
+}
+</script>
+
+	<link rel="stylesheet" href=
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
+</link>
+    
+    <script src="https://kit.fontawesome.com/fb6088b71c.js" crossorigin="anonymous"></script>
+	
+
+
+  </head>
+    <body class="">
+        <div class="wrapper">
+            <nav class="navbar">
+    
+        <progress class="content_progress" max="0" value="0"></progress>
+    
+    <div class="container">
+        
+            <div class="navbar-header header-back2home-logo">
+                <span class="logo_mark" >>$</span>
+                <a href="https://shishuochen.github.io">
+                    <span class="logo_text" >cd /home/</span>
+                    <span class="logo_cursor" ></span>
+                </a>
+            </div>
+        
+        <div class="navbar-right">
+                
+                <span class="menu">
+                
+                <a class="menu-item" href="/posts/" title="">📖Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">📁Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">🎨Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">💬About</a>
+                
+                <a class="menu-item" href="/about/" title="">ANY_ME</a>
+                
+                <span class="divide"></span>
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-dark-mode"></i></a>
+                </span>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display:none">
+    
+        <progress class="content_progress" max="0" value="0"></progress>
+    
+     <div class="container">
+        <div class="navbar">
+            <div class="navbar-header header-logo">
+                    <a href="https://shishuochen.github.io">shishuoCh&#39;s Blog</a>
+            </div>
+            <div class="navbar-right">
+                <div><a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-dark-mode"></i></a></div>
+                <div class="menu-toggle">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                <nav class="mb-md">
+                    
+                    
+                        <a class="menu-item" href="/posts/" title="" white-space="nowrap">
+						<nobr>📖Blog</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/categories/" title="" white-space="nowrap">
+						<nobr>📁Categories</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/tags/" title="" white-space="nowrap">
+						<nobr>🎨Tags</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/about/" title="" white-space="nowrap">
+						<nobr>💬About</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/about/" title="" white-space="nowrap">
+						<nobr>ANY_ME</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                </nav>
+        </div>
+    </div>
+</nav>
+            <main class="main">
+                <div class="container">
+                    
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Hugo博客自定义优化 II</h1>
+        <div class="post-meta">
+                <i class="fas fa-user-circle"></i> <a itemprop="name" href="https://shishuochen.github.io" rel="author">ANY_ME</a> 
+				&thinsp;$\bm\vert$&thinsp; 
+				<i class="fas fa-calendar-check "></i>
+				发布:2022-09-25
+				
+                </span>
+                
+				&thinsp;$\bm\vert$&thinsp; 
+				
+				
+				<i class="fas fa-history"></i> 更新:2022-10-02
+				
+                
+				&thinsp;$\bm\vert$&thinsp; 
+                
+                <i class="fas fa-folder-open "></i>
+                <span class="post-category">
+                        
+                        
+                        
+                          <a href="https://shishuochen.github.io/categories/%E5%8D%9A%E5%AE%A2%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/"> 博客那些事儿</a>
+                        
+                        
+                </span>
+				
+				&thinsp;$\bm\vert$&thinsp; 
+				<i class="fas fa-file-word "></i>
+				
+                <span class="post-word-count">2311字</span>
+				
+				&thinsp;$\bm\vert$&thinsp;   
+				<i class="fas fa-coffee "></i>
+				
+                <span class="post-word-count">7分钟</span>
+				
+        </div>
+    </header>
+	  
+     
+          <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title"></h2>
+  
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#1-博客更换为valine评论">1. 博客更换为valine评论</a></li>
+<li><a href="#2-文章menu更新为带有图标">2. 文章menu更新为带有图标</a></li>
+<li><a href="#3-修复menu带有图标后移动端显示不全的问题">3. 修复menu带有图标后移动端显示不全的问题</a></li>
+<li><a href="#4-添加灯箱">4. 添加灯箱</a></li>
+<li><a href="#5-添加-i-class-fab-fa-font-awesome-i-font-awesome图标">5. 添加 <i class="fab fa-font-awesome"></i>  Font Awesome图标</a></li>
+<li><a href="#6-为文章添加目录">6. 为文章添加目录</a></li>
+<li><a href="#7-更改上下篇文章的图标">7. 更改上下篇文章的图标</a></li>
+<li><a href="#8-添加文章更新日期等部件">8. 添加文章更新日期等部件</a>
+<ul>
+<li><a href="#配置日期变量">配置日期变量</a></li>
+<li><a href="#应用于页面">应用于页面</a></li>
+</ul></li>
+<li><a href="#9-文首添加分隔线">9. 文首添加分隔线</a></li>
+<li><a href="#相关文章推荐">相关文章推荐</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+<script type="text/javascript">
+  window.onload = function () {
+    var fix = $('.post-toc');
+    var end = $('.post-comment');
+    var fixTop = fix.offset().top, fixHeight = fix.height();
+    var endTop, miss;
+    var offsetTop = fix[0].offsetTop;
+    $(window).scroll(function () {
+      var docTop = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
+      if (end.length > 0) {
+        endTop = end.offset().top;
+        miss = endTop - docTop - fixHeight;
+      }
+      if (fixTop < docTop) {
+        fix.css({ 'position': 'fixed' });
+        if ((end.length > 0) && (endTop < (docTop + fixHeight))) {
+          fix.css({ top: miss });
+        } else {
+          fix.css({ top: 0 });
+        }
+      } else {
+        fix.css({ 'position': 'absolute' });
+        fix.css({ top: offsetTop });
+      }
+    })
+  }
+</script> 
+	
+	<hr class="hr-twill-colorful">
+    <div class="post-content">
+        
+        
+        
+        
+        
+        
+        
+        
+
+        
+        
+        
+        
+
+<blockquote>
+<p>第一篇主题优化文章内容条例太长了，拆成两部分</p>
+</blockquote>
+
+<h2 id="1-博客更换为valine评论">1. 博客更换为valine评论</h2>
+
+<p>将路文件<code>\themes\mogege\layouts\partials\gitlak.html</code>内容改写为valine配置，开启QQ头像拉取，评论通知功能，代码参考<a href="https://www.smslit.top/2018/07/08/hugo-valine/和next主题大佬@hao（第二种代码比较好）" rel="nofollow noreferrer" target="_blank">https://www.smslit.top/2018/07/08/hugo-valine/和next主题大佬@hao（第二种代码比较好）</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;gitalk-container&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+<span style="color:#75715e">&lt;!-- valine --&gt;</span>
+  {{- if .Site.Params.valine.enable -}}
+  <span style="color:#75715e">&lt;!-- id 将作为查询条件 --&gt;</span>
+  &lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .URL | relURL }}&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;leancloud_visitors&#34;</span> <span style="color:#a6e22e">data-flag-title</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Title }}&#34;</span>&gt;
+    &lt;<span style="color:#f92672">p</span>&gt;&lt;/<span style="color:#f92672">p</span>&gt;
+  &lt;/<span style="color:#f92672">span</span>&gt;
+  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;vcomments&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+  &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;//cdn1.lncld.net/static/js/3.0.4/av-min.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+  &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span>&gt;
+    <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Valine</span>({
+        <span style="color:#a6e22e">el</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;#vcomments&#39;</span> ,
+        <span style="color:#a6e22e">appId</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;{{ .Site.Params.valine.appId }}&#39;</span>,
+        <span style="color:#a6e22e">appKey</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;{{ .Site.Params.valine.appKey }}&#39;</span>,
+        <span style="color:#a6e22e">notify</span><span style="color:#f92672">:</span> {{ .<span style="color:#a6e22e">Site</span>.<span style="color:#a6e22e">Params</span>.<span style="color:#a6e22e">valine</span>.<span style="color:#a6e22e">notify</span> }},
+        <span style="color:#a6e22e">verify</span><span style="color:#f92672">:</span> {{ .<span style="color:#a6e22e">Site</span>.<span style="color:#a6e22e">Params</span>.<span style="color:#a6e22e">valine</span>.<span style="color:#a6e22e">verify</span> }}, 
+        <span style="color:#a6e22e">avatar</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;{{ .Site.Params.valine.avatar }}&#39;</span>, 
+		<span style="color:#a6e22e">enableQQ</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,    
+        <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;{{ .Site.Params.valine.placeholder }}&#39;</span>,
+        <span style="color:#a6e22e">visitor</span><span style="color:#f92672">:</span> {{ .<span style="color:#a6e22e">Site</span>.<span style="color:#a6e22e">Params</span>.<span style="color:#a6e22e">valine</span>.<span style="color:#a6e22e">visitor</span> }}
+    });
+  &lt;/<span style="color:#f92672">script</span>&gt;
+{{- end }}</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">p</span>&gt;&lt;/<span style="color:#f92672">p</span>&gt;
+&lt;<span style="color:#f92672">br</span>&gt;    <span style="color:#75715e">&lt;!-- id 修复移动端问题 --&gt;</span>
+&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;vcomments&#34;</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;padding: 10px 0px 0px 0px&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+&lt;<span style="color:#f92672">style</span>&gt;
+  .<span style="color:#a6e22e">v</span> .<span style="color:#a6e22e">veditor</span> {
+    <span style="color:#66d9ef">min-height</span>: <span style="color:#ae81ff">10</span><span style="color:#66d9ef">rem</span>;
+    <span style="color:#66d9ef">background-image</span>: url(<span style="color:#e6db74">&#39;&lt;%= site.customConfig.valineimage %&gt;&#39;</span>);
+    <span style="color:#66d9ef">background-size</span>: <span style="color:#66d9ef">contain</span>;
+    <span style="color:#66d9ef">background-repeat</span>: <span style="color:#66d9ef">no-repeat</span>;
+    <span style="color:#66d9ef">background-position</span>: <span style="color:#66d9ef">right</span>;
+    <span style="color:#66d9ef">background-color</span>: rgba(<span style="color:#ae81ff">255</span>, <span style="color:#ae81ff">255</span>, <span style="color:#ae81ff">255</span>, <span style="color:#ae81ff">0</span>);
+    <span style="color:#66d9ef">resize</span>: <span style="color:#66d9ef">none</span>;
+  }
+
+  .<span style="color:#a6e22e">v</span> .<span style="color:#a6e22e">vwrap</span> {
+    <span style="color:#66d9ef">border</span>: <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> <span style="color:#ae81ff">#000</span> <span style="color:#75715e">!important</span>;
+  }
+
+  .<span style="color:#a6e22e">v</span> .<span style="color:#a6e22e">vbtn</span> {
+    <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">.4</span><span style="color:#66d9ef">rem</span> <span style="color:#ae81ff">1.2</span><span style="color:#66d9ef">rem</span> <span style="color:#75715e">!important</span>;
+    <span style="color:#66d9ef">border-color</span>: <span style="color:#ae81ff">#fff</span> <span style="color:#75715e">!important</span>;
+    <span style="color:#66d9ef">background-color</span>: <span style="color:#ae81ff">#49b1f5</span> <span style="color:#75715e">!important</span>;
+    <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#fff</span> <span style="color:#75715e">!important</span>;
+    <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">.7</span><span style="color:#66d9ef">rem</span> <span style="color:#75715e">!important</span>;
+  }
+
+  .<span style="color:#a6e22e">v</span> .<span style="color:#a6e22e">vcards</span> .<span style="color:#a6e22e">vcard</span> .<span style="color:#a6e22e">vh</span> .<span style="color:#a6e22e">vmeta</span> .<span style="color:#a6e22e">vat</span> {
+    <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">.8</span><span style="color:#66d9ef">rem</span> <span style="color:#75715e">!important</span>;
+    <span style="color:#66d9ef">border</span>: <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> <span style="color:#ae81ff">#00c4b6</span> <span style="color:#75715e">!important</span>;
+    <span style="color:#66d9ef">border-radius</span>: <span style="color:#ae81ff">5</span><span style="color:#66d9ef">px</span> <span style="color:#75715e">!important</span>;
+    <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#00c4b6</span> <span style="color:#75715e">!important</span>;
+  }
+&lt;/<span style="color:#f92672">style</span>&gt;
+&lt;<span style="color:#f92672">script</span>&gt;
+  <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Valine</span>({
+        <span style="color:#a6e22e">el</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;#vcomments&#39;</span> ,
+        <span style="color:#a6e22e">appId</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;{{ .Site.Params.valine.appId }}&#39;</span>,
+        <span style="color:#a6e22e">appKey</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;{{ .Site.Params.valine.appKey }}&#39;</span>,
+        <span style="color:#a6e22e">notify</span><span style="color:#f92672">:</span> {{ .<span style="color:#a6e22e">Site</span>.<span style="color:#a6e22e">Params</span>.<span style="color:#a6e22e">valine</span>.<span style="color:#a6e22e">notify</span> }},
+        <span style="color:#a6e22e">verify</span><span style="color:#f92672">:</span> {{ .<span style="color:#a6e22e">Site</span>.<span style="color:#a6e22e">Params</span>.<span style="color:#a6e22e">valine</span>.<span style="color:#a6e22e">verify</span> }}, 
+        <span style="color:#a6e22e">avatar</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;{{ .Site.Params.valine.avatar }}&#39;</span>, 
+		<span style="color:#a6e22e">enableQQ</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+        <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;{{ .Site.Params.valine.placeholder }}&#39;</span>,
+        <span style="color:#a6e22e">visitor</span><span style="color:#f92672">:</span> {{ .<span style="color:#a6e22e">Site</span>.<span style="color:#a6e22e">Params</span>.<span style="color:#a6e22e">valine</span>.<span style="color:#a6e22e">visitor</span> }}
+  });
+&lt;/<span style="color:#f92672">script</span>&gt;</code></pre></div>
+<p><strong>顺便更改邮件通知内容</strong></p>
+
+<h2 id="2-文章menu更新为带有图标">2. 文章menu更新为带有图标</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml"> <span style="color:#a6e22e">name</span> = <span style="color:#e6db74">&#34;📖Blog&#34;</span> 
+ <span style="color:#a6e22e">name</span> = <span style="color:#e6db74">&#34;📁Categories&#34;</span>
+ <span style="color:#a6e22e">name</span> = <span style="color:#e6db74">&#34;💬About&#34;</span> 
+ <span style="color:#a6e22e">name</span> = <span style="color:#e6db74">&#34;🎨Tags&#34;</span></code></pre></div>
+<h2 id="3-修复menu带有图标后移动端显示不全的问题">3. 修复menu带有图标后移动端显示不全的问题</h2>
+
+<p>文件中 <code>\themes\mogege\layouts\partials\gitlak.html</code>更改标签样式，使用<code>&lt;nobr&gt;  &lt;/nobr&gt;</code>禁止换行操作</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">nav</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;mb-md&#34;</span>&gt;
+	{{ $currentPage := . }}
+	{{ range .Site.Menus.main }}
+	&lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;menu-item{{if or ($currentPage.IsMenuCurrent &#34;</span><span style="color:#a6e22e">main</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#960050;background-color:#1e0010">.)</span> <span style="color:#960050;background-color:#1e0010">($</span><span style="color:#a6e22e">currentPage</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">HasMenuCurrent</span> <span style="color:#960050;background-color:#1e0010">&#34;</span><span style="color:#a6e22e">main</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#960050;background-color:#1e0010">.)</span> <span style="color:#960050;background-color:#1e0010">}}</span> <span style="color:#a6e22e">active</span><span style="color:#960050;background-color:#1e0010">{{</span><span style="color:#a6e22e">end</span><span style="color:#960050;background-color:#1e0010">}}&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .URL }}&#34;</span> <span style="color:#a6e22e">title</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Title }}&#34;</span> <span style="color:#a6e22e">white-space</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;nowrap&#34;</span>&gt;
+		&lt;<span style="color:#f92672">nobr</span>&gt;{{.Name}}&lt;/<span style="color:#f92672">nobr</span>&gt;
+		&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;menu-active&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+	&lt;/<span style="color:#f92672">a</span>&gt;
+	{{ end }}
+&lt;/<span style="color:#f92672">nav</span>&gt;</code></pre></div>
+<h2 id="4-添加灯箱">4. 添加灯箱</h2>
+
+<p>方法源自<a href="https://corpython.github.io/post/%E6%B5%8B%E8%AF%95fancybox%E5%8A%9F%E8%83%BD/#top" rel="nofollow noreferrer" target="_blank">here</a>，
+在博客文件<code>footer.html</code>中添加下面的代码</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+
+&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css&#34;</span> /&gt;
+&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;</code></pre></div>
+<p><strong>引用</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">data-fancybox</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;gallery&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;图片链接&#34;</span>&gt;&lt;<span style="color:#f92672">img</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;图片链接&#34;</span>&gt;&lt;/<span style="color:#f92672">a</span>&gt;</code></pre></div>
+<h2 id="5-添加-i-class-fab-fa-font-awesome-i-font-awesome图标">5. 添加 <i class="fab fa-font-awesome"></i>  Font Awesome图标</h2>
+
+<ul>
+<li>进入<a href="https://fontawesome.com/start" rel="nofollow noreferrer" target="_blank">Font Awesome官网</a></li>
+<li>注册账号登录获取代码</li>
+<li><code>paths/themes\mogege\layouts\partials\head.html</code>添加代码<i calss="fab fa-font-awesome"></i></li>
+<li>文章中使用 <code>&lt;i class=&quot;fab fa-iconname&quot;&gt;&lt;/i&gt;</code>或者 <code>&lt;i class=&quot;fas fa-iconname&quot;&gt;&lt;/i&gt;</code></li>
+</ul>
+
+<h2 id="6-为文章添加目录">6. 为文章添加目录</h2>
+
+<p>&emsp;&emsp;<strong>借鉴这位<a href="https://huaien.co/technology/hugo-leaveit-theme-modified-of-bugs-1/#%E6%A0%87%E7%AD%BE%E5%A4%84%E7%9A%84back-home%E6%8C%89%E9%92%AE%E4%BD%8D%E7%BD%AE%E9%94%99%E4%BD%8D" rel="nofollow noreferrer" target="_blank">带佬</a>的，碰巧的是使用的主题是大差不差的，很好添加代码，主要包含以下几个部分：</strong></p>
+
+<p>&emsp;&emsp;$\bullet$ <strong>在主题文件<code>/themes/Mogege/assets/css/_common/home.scss</code>内添加toc样式(自己也可以自定义修改下)</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scss" data-lang="scss"><span style="color:#a6e22e">.post-toc</span> {
+    <span style="color:#a6e22e">position</span><span style="color:#f92672">:</span> absolute;
+    <span style="color:#a6e22e">width</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">200</span><span style="color:#66d9ef">px</span>;
+    <span style="color:#a6e22e">margin-left</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">780</span><span style="color:#66d9ef">px</span>;
+    <span style="color:#a6e22e">padding</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">10</span><span style="color:#66d9ef">px</span>;
+    <span style="color:#a6e22e">word-wrap</span><span style="color:#f92672">:</span> break-word;
+    <span style="color:#a6e22e">box-sizing</span><span style="color:#f92672">:</span> border-box;
+    <span style="color:#a6e22e">.post-toc-title</span> {
+        <span style="color:#a6e22e">margin</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>;
+        <span style="color:#a6e22e">font-weight</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">400</span>;
+        <span style="color:#a6e22e">text-transform</span><span style="color:#f92672">:</span> uppercase;
+    }
+    <span style="color:#a6e22e">.post-toc-content</span> {
+        <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">.always-active</span> <span style="color:#f92672">ul</span> {
+            <span style="color:#a6e22e">display</span><span style="color:#f92672">:</span> block;
+        }
+        <span style="color:#f92672">&gt;</span><span style="color:#f92672">nav</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">ul</span> {
+            <span style="color:#a6e22e">margin</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">10</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">0</span>;
+        }
+        <span style="color:#f92672">ul</span> {
+            <span style="color:#a6e22e">padding-left</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>;
+            <span style="color:#a6e22e">list-style</span><span style="color:#f92672">:</span> none;
+            <span style="color:#f92672">ul</span> {
+            <span style="color:#a6e22e">padding-left</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">15</span><span style="color:#66d9ef">px</span>;
+            <span style="color:#a6e22e">display</span><span style="color:#f92672">:</span> none;
+            }
+            <span style="color:#a6e22e">.has-active</span> <span style="color:#f92672">&gt;</span> <span style="color:#f92672">ul</span> {
+                <span style="color:#a6e22e">display</span><span style="color:#f92672">:</span> block;
+            }
+        }
+    }
+    <span style="color:#f92672">a</span><span style="color:#a6e22e">:hover</span> {
+        <span style="color:#a6e22e">color</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">#c05b4d</span>;
+        <span style="color:#a6e22e">-webkit-transform</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">scale</span>(<span style="color:#ae81ff">1</span><span style="color:#ae81ff">.1</span>);
+        <span style="color:#a6e22e">-ms-transform</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">scale</span>(<span style="color:#ae81ff">1</span><span style="color:#ae81ff">.1</span>);
+        <span style="color:#a6e22e">transform</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">scale</span>(<span style="color:#ae81ff">1</span><span style="color:#ae81ff">.1</span>);
+    }
+    <span style="color:#f92672">a</span> {
+        <span style="color:#a6e22e">display</span><span style="color:#f92672">:</span> block;
+        <span style="color:#a6e22e">line-height</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">30</span><span style="color:#66d9ef">px</span>;
+        <span style="color:#a6e22e">overflow</span><span style="color:#f92672">:</span> hidden;
+        <span style="color:#a6e22e">white-space</span><span style="color:#f92672">:</span> nowrap;
+        <span style="color:#a6e22e">text-overflow</span><span style="color:#f92672">:</span> ellipsis;
+        <span style="color:#a6e22e">-webkit-transition-duration</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">.2</span><span style="color:#66d9ef">s</span>;
+        <span style="color:#a6e22e">transition-duration</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">.2</span><span style="color:#66d9ef">s</span>;
+        <span style="color:#a6e22e">-webkit-transition-property</span><span style="color:#f92672">:</span> <span style="color:#f92672">-</span>webkit-transform;
+        <span style="color:#a6e22e">transition-property</span><span style="color:#f92672">:</span> <span style="color:#f92672">-</span>webkit-transform;
+        <span style="color:#a6e22e">transition-property</span><span style="color:#f92672">:</span> transform;
+        <span style="color:#a6e22e">transition-property</span><span style="color:#f92672">:</span> transform<span style="color:#f92672">,-</span>webkit-transform;
+        <span style="color:#a6e22e">-webkit-transition-timing-function</span><span style="color:#f92672">:</span> ease-out;
+        <span style="color:#a6e22e">transition-timing-function</span><span style="color:#f92672">:</span> ease-out;
+    }
+}
+<span style="color:#66d9ef">@media</span> only screen <span style="color:#f92672">and</span> (<span style="color:#a6e22e">max-width</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1224</span><span style="color:#66d9ef">px</span>) {
+    <span style="color:#a6e22e">.post-toc</span> {
+        <span style="color:#a6e22e">display</span><span style="color:#f92672">:</span> none;
+    }
+} </code></pre></div>
+<p>&emsp;&emsp;$\bullet$ <strong>在主题路径<code>/themes/Mogege/layouts/partials/</code>下新建toc.html文件</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;post-toc&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;post-toc&#34;</span>&gt;
+  &lt;<span style="color:#f92672">h2</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;post-toc-title&#34;</span>&gt;{{ T &#34;toc&#34; }}&lt;/<span style="color:#f92672">h2</span>&gt;
+  {{ $globalAutoCollapseToc := .Site.Params.autoCollapseToc | default false }}
+  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;post-toc-content{{ if not (or .Params.autoCollapseToc (and $globalAutoCollapseToc (ne .Params.autoCollapseToc false))) }} always-active{{ end }}&#34;</span>&gt;
+    {{.TableOfContents}}
+  &lt;/<span style="color:#f92672">div</span>&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;
+&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span>&gt;
+  window.<span style="color:#a6e22e">onload</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> () {
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">fix</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;.post-toc&#39;</span>);
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">end</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;.post-comment&#39;</span>);
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">fixTop</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">fix</span>.<span style="color:#a6e22e">offset</span>().<span style="color:#a6e22e">top</span>, <span style="color:#a6e22e">fixHeight</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">fix</span>.<span style="color:#a6e22e">height</span>();
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">endTop</span>, <span style="color:#a6e22e">miss</span>;
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">offsetTop</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">fix</span>[<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">offsetTop</span>;
+    <span style="color:#a6e22e">$</span>(window).<span style="color:#a6e22e">scroll</span>(<span style="color:#66d9ef">function</span> () {
+      <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">docTop</span> <span style="color:#f92672">=</span> Math.<span style="color:#a6e22e">max</span>(document.<span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">scrollTop</span>, document.<span style="color:#a6e22e">documentElement</span>.<span style="color:#a6e22e">scrollTop</span>);
+      <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">end</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>) {
+        <span style="color:#a6e22e">endTop</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">end</span>.<span style="color:#a6e22e">offset</span>().<span style="color:#a6e22e">top</span>;
+        <span style="color:#a6e22e">miss</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">endTop</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">docTop</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">fixHeight</span>;
+      }
+      <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">fixTop</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">docTop</span>) {
+        <span style="color:#a6e22e">fix</span>.<span style="color:#a6e22e">css</span>({ <span style="color:#e6db74">&#39;position&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;fixed&#39;</span> });
+        <span style="color:#66d9ef">if</span> ((<span style="color:#a6e22e">end</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>) <span style="color:#f92672">&amp;&amp;</span> (<span style="color:#a6e22e">endTop</span> <span style="color:#f92672">&lt;</span> (<span style="color:#a6e22e">docTop</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">fixHeight</span>))) {
+          <span style="color:#a6e22e">fix</span>.<span style="color:#a6e22e">css</span>({ <span style="color:#a6e22e">top</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">miss</span> });
+        } <span style="color:#66d9ef">else</span> {
+          <span style="color:#a6e22e">fix</span>.<span style="color:#a6e22e">css</span>({ <span style="color:#a6e22e">top</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span> });
+        }
+      } <span style="color:#66d9ef">else</span> {
+        <span style="color:#a6e22e">fix</span>.<span style="color:#a6e22e">css</span>({ <span style="color:#e6db74">&#39;position&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;absolute&#39;</span> });
+        <span style="color:#a6e22e">fix</span>.<span style="color:#a6e22e">css</span>({ <span style="color:#a6e22e">top</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">offsetTop</span> });
+      }
+    })
+  }
+&lt;/<span style="color:#f92672">script</span>&gt; </code></pre></div>
+<p>&emsp;&emsp;$\bullet$ <strong>在主题文件<code>/themes/Mogege/layouts/_default/single.html</code>内<code>&lt;/header&gt;</code>标签后引入toc模板</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">{{ if ( .Site.Params.toc | default true ) }}
+          {{ partial &#34;toc.html&#34; . }}
+	{{ end }}</code></pre></div>
+<p>&emsp;&emsp;$\bullet$ <strong>配置文件<code>config.toml</code>中添加如下代码：</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml"><span style="color:#a6e22e">toc</span> = <span style="color:#66d9ef">true</span>                <span style="color:#75715e"># 是否开启目录</span>
+<span style="color:#a6e22e">autoCollapseToc</span> = <span style="color:#66d9ef">true</span>   <span style="color:#75715e"># Auto expand and collapse toc</span></code></pre></div>
+<h2 id="7-更改上下篇文章的图标">7. 更改上下篇文章的图标</h2>
+
+<p><strong>主题文件<code>/themes/Mogege/layouts/_default/single.html</code>的<code>post-nav</code>部分更改（需要FontAwesome支持，参见前面部分）</strong></p>
+
+<ul>
+<li><strong><code>&lt;i class=&quot;fas fa-caret-right&quot;&gt;&lt;/i&gt;</code></strong></li>
+<li><strong><code>&lt;i class=&quot;fas fa-caret-right&quot;&gt;&lt;/i&gt;</code></strong></li>
+</ul>
+
+<h2 id="8-添加文章更新日期等部件">8. 添加文章更新日期等部件</h2>
+
+<h3 id="配置日期变量">配置日期变量</h3>
+
+<p>配置 Hugo 如何为您的内容页面分配日期，在<code>config.toml</code>中添加如下代码。具体<a href="https://gohugo.io/getting-started/configuration/#configure-front-matter" rel="nofollow noreferrer" target="_blank">了解更多</a>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">[frontmatter]
+  date = [&#39;date&#39;, &#39;publishDate&#39;, &#39;lastmod&#39;]
+  expiryDate = [&#39;expiryDate&#39;]
+  lastmod = [&#39;lastmod&#39;,&#39;:fileModTime&#39;]
+  publishDate = [&#39;publishDate&#39;, &#39;date&#39;]</code></pre></div>
+<p>此外，你可以在每篇文章的信息区，添加<code>lastmod</code>选项以设置更新日期。</p>
+
+<h3 id="应用于页面">应用于页面</h3>
+
+<p>在<code>\themes\mogege\layouts\_default\single.html</code>文件中更改代码，将对应的代码区域更改为以下代码。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;post-meta&#34;</span>&gt;
+    <span style="color:#75715e">&lt;!--作者--&gt;</span>
+    &lt;<span style="color:#f92672">i</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;fas fa-user-circle&#34;</span>&gt;&lt;/<span style="color:#f92672">i</span>&gt; &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">itemprop</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;name&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{.Site.BaseURL }}&#34;</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;author&#34;</span>&gt;{{ if isset .Params &#34;author&#34; }}{{ .Params.author }}{{ else }}{{ .Site.Params.author }}{{ end }}&lt;/<span style="color:#f92672">a</span>&gt; 
+    <span style="color:#960050;background-color:#1e0010">&amp;</span>nbsp 
+    &lt;<span style="color:#f92672">i</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;fas fa-calendar-check &#34;</span>&gt;&lt;/<span style="color:#f92672">i</span>&gt;
+	发布:{{ .Date.Format (.Site.Params.dateFormatToUse | default &#34;2006-01-02&#34;) }}
+    &lt;/<span style="color:#f92672">span</span>&gt;      
+    <span style="color:#960050;background-color:#1e0010">&amp;</span>nbsp
+	<span style="color:#75715e">&lt;!--新增更新日期--&gt;</span>
+    {{ if or (not (eq .Date.Month .Lastmod.Month ) ) (not  (eq .Date.Day .Lastmod.Day ) ) }}
+	&lt;<span style="color:#f92672">i</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;fas fa-calendar-plus &#34;</span>&gt;&lt;/<span style="color:#f92672">i</span>&gt; 更新:{{.Lastmod.Format (.Site.Params.dateFormatToUse | default &#34;2006-01-02&#34;) }}
+    {{end}}
+	<span style="color:#75715e">&lt;!--所属类别--&gt;</span>
+    <span style="color:#960050;background-color:#1e0010">&amp;</span>nbsp 
+    {{ with .Params.categories }}
+    &lt;<span style="color:#f92672">i</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;fas fa-folder &#34;</span>&gt;&lt;/<span style="color:#f92672">i</span>&gt;
+    &lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;post-category&#34;</span>&gt;
+    {{ range . }}
+    {{ $name := . }}
+    {{ with $.Site.GetPage &#34;taxonomy&#34; (printf &#34;categories/%s&#34; $name) | default ($.Site.GetPage &#34;taxonomy&#34; (printf &#34;categories/%s&#34; ($name | urlize))) }}
+    &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Permalink }}&#34;</span>&gt; {{ $name }}&lt;/<span style="color:#f92672">a</span>&gt;
+    {{ end }}
+    {{ end }}
+    &lt;/<span style="color:#f92672">span</span>&gt;
+    {{- end }}
+	<span style="color:#75715e">&lt;!--字数及阅读时长--&gt;</span>
+	<span style="color:#960050;background-color:#1e0010">&amp;</span>nbsp 
+	&lt;<span style="color:#f92672">i</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;fas fa-file-word &#34;</span>&gt;&lt;/<span style="color:#f92672">i</span>&gt;
+    &lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;post-word-count&#34;</span>&gt;{{ .WordCount }}字&lt;/<span style="color:#f92672">span</span>&gt;
+	<span style="color:#960050;background-color:#1e0010">&amp;</span>nbsp 
+	&lt;<span style="color:#f92672">i</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;fas fa-coffee &#34;</span>&gt;&lt;/<span style="color:#f92672">i</span>&gt;
+	{{if not (div .WordCount 300)}}
+	&lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;post-word-count&#34;</span>&gt;1分钟&lt;/<span style="color:#f92672">span</span>&gt;
+	{{else}}
+    &lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;post-word-count&#34;</span>&gt;{{div .WordCount 300 }}分钟&lt;/<span style="color:#f92672">span</span>&gt;
+	{{end}}
+&lt;/<span style="color:#f92672">div</span>&gt;</code></pre></div>
+<p>这其中主要用到了Font Awesome图标，GO语言的条件判断（日期比较，阅读时长判断等），相应参考链接如下：</p>
+
+<ul>
+<li><strong>日期比较</strong>
+
+<ul>
+<li><a href="https://gohugohq.com/howto/compare-date-strings-in-hugo/" rel="nofollow noreferrer" target="_blank">日期的属性提取</a></li>
+<li><a href="https://www.mikedane.com/static-site-generators/hugo/conditionals/" rel="nofollow noreferrer" target="_blank">条件比较</a></li>
+</ul></li>
+</ul>
+
+<h2 id="9-文首添加分隔线">9. 文首添加分隔线</h2>
+
+<p>这里借鉴了<a href="https://www.zhangxinxu.com/wordpress/2021/05/css-html-hr/" rel="nofollow noreferrer" target="_blank">大佬的代码</a>，具体操作首先在<code>\themes\mogege\assets\css\_common\_partials\home_post.scss</code>文件中添加css样式，然后在<code>\themes\mogege\layouts\_default\single.html</code>文件中设置样式。</p>
+
+<h2 id="相关文章推荐">相关文章推荐</h2>
+
+<ul>
+<li><a href="https://shishuochen.github.io/2020/uffick8u1/" rel="nofollow noreferrer" target="_blank">Hugo博客自定义优化 I</a></li>
+<li><a href="https://shishuochen.github.io/2022/cpvuqozuc/" rel="nofollow noreferrer" target="_blank">Hugo博客自定义优化 III</a></li>
+</ul>
+
+<p><center></p>
+
+<p>$\cdots$ <strong>end</strong> $\cdots$</p>
+
+<p></center></p>
+
+    </div>
+    <div class="post-copyright">
+            
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>ANY_ME </span>
+                </p>
+            
+
+            
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://shishuochen.github.io/2022/fayxu7qqt/>https://shishuochen.github.io/2022/fayxu7qqt/</span>
+            </p>
+            
+            
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://shishuochen.github.io/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">
+                    #博客搭建</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> ·
+                <span><a href="https://shishuochen.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://shishuochen.github.io/2021/8wucs4her/" class="prev" rel="prev" title="DSI Studio分析数据Manual"><i class="fas fa-caret-left"></i>&nbsp;DSI Studio分析数据Manual</a>
+        
+        
+        <a href="https://shishuochen.github.io/2022/a5ooapv0n/" class="next" rel="next" title="ANTs/AFNI配准fMRI到标准空间">ANTs/AFNI配准fMRI到标准空间&nbsp;<i class="fas fas fa-caret-right"></i></a>
+        
+    </div>
+	        <style>
+    .utterances {
+      position: relative;
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .utterances-frame {
+      color-scheme: light;
+      position: absolute;
+      left: 0;
+      right: 0;
+      width: 1px;
+      min-width: 100%;
+      max-width: 100%;
+      height: 100%;
+      border: 0;
+    }
+  </style>
+    <div class="post-comment">
+        
+            
+                <script src="https://utteranc.es/client.js"
+    repo="shishuochen/Bolg-comments"
+    issue-term="title"
+    label="Comment"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+</script>
+<style>
+    .utterances {
+        max-width: 99%;
+    }
+</style>
+            
+        
+
+    </div>
+</article>
+                </div>
+                <link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+            </main>
+            
+<div class="footer-box">
+<footer class="footer">
+   <div class="copyright">
+      &copy;
+      
+      <span itemprop="copyrightYear">2019 - 2022</span>
+      
+      <span class="with-love">
+         <i class="fas fa-heart"></i>
+      </span>
+      
+      <span class="author" itemprop="copyrightHolder"><a href="https://shishuochen.github.io">ANY_ME</a> |
+      </span>
+      
+      
+	  <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+      <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a
+            href="https://github.com/Mogeko/Mogege" target="_blank" rel="external nofollow">Mogege</a></span>
+</footer>
+
+      <div class="back-to-top" id="back_to_top">
+         
+         <span><i class="fas fa-arrow-up"></i></span>
+         
+         <span class="scrollpercent">
+            <span id="back_to_top_text">0</span>%
+         </span>
+      </div>
+</div>
+<script>
+
+   let sideBarOpen = 'sidebar-open';
+   let body = document.body;
+   let back2Top = document.querySelector('#back_to_top'),
+      back2TopText = document.querySelector('#back_to_top_text'),
+      drawerBox = document.querySelector('#drawer_box'),
+      rightSideBar = document.querySelector('.sidebar'),
+      viewport = document.querySelector('body');
+
+   function scrollAnimation(currentY, targetY) {
+
+      let needScrollTop = targetY - currentY
+      let _currentY = currentY
+      setTimeout(() => {
+         const dist = Math.ceil(needScrollTop / 10)
+         _currentY += dist
+         window.scrollTo(_currentY, currentY)
+         if (needScrollTop > 10 || needScrollTop < -10) {
+            scrollAnimation(_currentY, targetY)
+         } else {
+            window.scrollTo(_currentY, targetY)
+         }
+      }, 1)
+   }
+
+   back2Top.addEventListener("click", function (e) {
+      scrollAnimation(document.scrollingElement.scrollTop, 0);
+      e.stopPropagation();
+      return false;
+   });
+
+   window.addEventListener('scroll', function (e) {
+      let percent = document.scrollingElement.scrollTop / (document.scrollingElement.scrollHeight - document.scrollingElement.clientHeight) * 100;
+      if (percent > 1 && !back2Top.classList.contains('back-top-active')) {
+         back2Top.classList.add('back-top-active');
+      }
+      if (percent == 0) {
+         back2Top.classList.remove('back-top-active');
+      }
+      if (back2TopText) {
+         back2TopText.textContent = Math.floor(percent);
+      }
+   });
+</script>
+
+
+
+
+
+
+<script defer src="/js/vendor_main.min.js"></script>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/love.min.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha256-V8SV2MO1FUb63Bwht5Wx9x6PVHNa02gv8BgH/uH3ung=" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha256-F/Xda58SPdcUCr+xhSGz9MA2zQBPb0ASEYKohl8UCHc=" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha256-90d2pnfw0r4K8CZAWPko4rpFXQsZvJhTBGYNkipDprI=" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+           delimiters: [
+     {left: "$$", right: "$$", display: true},
+     {left: "$", right: "$", display: false},
+   ],
+        });
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/jmnote/plantuml-encoder@1.2.4/dist/plantuml-encoder.min.js"></script>
+<script>
+(function(){
+    let plantumlPrefix = "language-plantuml";
+    Array.prototype.forEach.call(document.querySelectorAll("[class^=" + plantumlPrefix + "]"), function(code){
+        let image = document.createElement("IMG");
+        image.loading = 'lazy'; 
+        image.src = 'http://www.plantuml.com/plantuml/svg/~1' + plantumlEncoder.encode(code.innerText);
+        code.parentNode.insertBefore(image, code);
+        code.style.display = 'none'
+    });
+})();
+</script>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script> pangu.spacingPage();</script>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+        </div>
+    </body>
+</html>
+
