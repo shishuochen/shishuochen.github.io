@@ -6,7 +6,16 @@
     <description>Recent content in Posts on shishuoCh&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 20 Oct 2022 12:06:56 +0800</lastBuildDate><atom:link href="https://shishuochen.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 26 Oct 2022 21:15:32 +0800</lastBuildDate><atom:link href="https://shishuochen.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>找不到尝试执行工作进程的 parfor 循环的源代码</title>
+      <link>https://shishuochen.github.io/2022/3ogq2zfjp/</link>
+      <pubDate>Wed, 26 Oct 2022 21:15:32 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2022/3ogq2zfjp/</guid>
+      <description>在一次跑代码的过程中，遇到了找不到尝试执行工作进程的 parfor 循环的源代码的错误信息 $\cdots$ end $\cdots$</description>
+    </item>
+    
     <item>
       <title>MATLAB子图添加统一标题和Xlabel，Ylabel</title>
       <link>https://shishuochen.github.io/2022/nideormrv/</link>
