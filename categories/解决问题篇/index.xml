@@ -8,12 +8,12 @@
     <language>zh-cn</language>
     <lastBuildDate>Wed, 26 Oct 2022 21:15:32 +0800</lastBuildDate><atom:link href="https://shishuochen.github.io/categories/%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98%E7%AF%87/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>找不到尝试执行工作进程的 parfor 循环的源代码</title>
+      <title>找不到尝试执行工作进程的 parfor 循环的源代码（MATLAB）</title>
       <link>https://shishuochen.github.io/2022/3ogq2zfjp/</link>
       <pubDate>Wed, 26 Oct 2022 21:15:32 +0800</pubDate>
       
       <guid>https://shishuochen.github.io/2022/3ogq2zfjp/</guid>
-      <description>在一次跑代码的过程中，遇到了找不到尝试执行工作进程的 parfor 循环的源代码的错误信息 $\cdots$ end $\cdots$</description>
+      <description>在一次跑代码的过程中，遇到了（找不到尝试执行工作进程的 parfor 循环的源代码）的错误信息。在此之前，代码是可以正常运行的，我只是改了parfor循环</description>
     </item>
     
     <item>

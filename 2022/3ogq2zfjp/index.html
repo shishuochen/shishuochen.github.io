@@ -32,10 +32,10 @@
     <title>
         
         
-            找不到尝试执行工作进程的 parfor 循环的源代码 | shishuoCh&#39;s Blog
+            找不到尝试执行工作进程的 parfor 循环的源代码（MATLAB） | shishuoCh&#39;s Blog
         
     </title>
-    <meta name="title" content="找不到尝试执行工作进程的 parfor 循环的源代码 | shishuoCh&#39;s Blog">
+    <meta name="title" content="找不到尝试执行工作进程的 parfor 循环的源代码（MATLAB） | shishuoCh&#39;s Blog">
     
 <link rel="stylesheet" href="/css/main.min.css">
 
@@ -53,9 +53,9 @@
          "@id": "https:\/\/shishuochen.github.io"
     },
     "articleSection" : "posts",
-    "name" : "找不到尝试执行工作进程的 parfor 循环的源代码",
-    "headline" : "找不到尝试执行工作进程的 parfor 循环的源代码",
-    "description" : "在一次跑代码的过程中，遇到了找不到尝试执行工作进程的 parfor 循环的源代码的错误信息 $\\cdots$ end $\\cdots$",
+    "name" : "找不到尝试执行工作进程的 parfor 循环的源代码（MATLAB）",
+    "headline" : "找不到尝试执行工作进程的 parfor 循环的源代码（MATLAB）",
+    "description" : "在一次跑代码的过程中，遇到了（找不到尝试执行工作进程的 parfor 循环的源代码）的错误信息。在此之前，代码是可以正常运行的，我只是改了parfor循环",
     "inLanguage" : "zh-cn",
     "author" : "ANY_ME",
     "creator" : "ANY_ME",
@@ -66,7 +66,7 @@
     "datePublished": "2022-10-26 21:15:32 \u002b0800 CST",
     "dateModified" : "2022-10-26 21:15:32 \u002b0800 CST",
     "url" : "https:\/\/shishuochen.github.io\/2022\/3ogq2zfjp\/",
-    "wordCount" : "41",
+    "wordCount" : "517",
     "keywords" : [ "matlab", "shishuoCh\u0027s Blog"]
 }
 </script>
@@ -171,7 +171,7 @@
                     
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">找不到尝试执行工作进程的 parfor 循环的源代码</h1>
+        <h1 class="post-title" itemprop="name headline">找不到尝试执行工作进程的 parfor 循环的源代码（MATLAB）</h1>
         <div class="post-meta">
                 <i class="fas fa-user-circle"></i> <a itemprop="name" href="https://shishuochen.github.io" rel="author">ANY_ME</a> 
 				&thinsp;$\bm\vert$&thinsp; 
@@ -204,13 +204,13 @@
 				&thinsp;$\bm\vert$&thinsp; 
 				<i class="fas fa-file-word "></i>
 				
-                <span class="post-word-count">41字</span>
+                <span class="post-word-count">517字</span>
 				
 				&thinsp;$\bm\vert$&thinsp;   
 				<i class="fas fa-coffee "></i>
 				
-				 <span class="post-word-count">1分钟</span>
-				 
+                <span class="post-word-count">1分钟</span>
+				
         </div>
     </header>
 	  
@@ -219,7 +219,16 @@
   <h2 class="post-toc-title"></h2>
   
   <div class="post-toc-content always-active">
-    
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#问题再现">问题再现</a></li>
+<li><a href="#分析解决问题">分析解决问题</a></li>
+<li><a href="#省流总结">省流总结</a></li>
+</ul></li>
+</ul>
+</nav>
   </div>
 </div>
 <script type="text/javascript">
@@ -255,6 +264,8 @@
         
         
         
+            
+        
         
         
         
@@ -264,9 +275,58 @@
         
         
         
-        <blockquote>
-<p>在一次跑代码的过程中，遇到了<code>找不到尝试执行工作进程的 parfor 循环的源代码</code>的错误信息</p>
+        
+
+<blockquote>
+<p><strong>在一次跑代码的过程中，遇到了（找不到尝试执行工作进程的 parfor 循环的源代码）的错误信息。在此之前，代码是可以正常运行的，我只是改了parfor循环中的代码，而且反复检查也没有发现问题&hellip;&hellip;</strong></p>
 </blockquote>
+
+<h2 id="问题再现">问题再现</h2>
+
+<p>MATLAB提示的报错信息如下：</p>
+
+<p><a data-fancybox="gallery" href="https://s1.ax1x.com/2022/10/27/xfNxeO.png" pcked="1"><img src="https://s1.ax1x.com/2022/10/27/xfNxeO.png" style="zoom: 70%;">
+</a>
+<figcaption class="image-caption">命令行提示的错误信息1</figcaption></p>
+
+<p>定位到提示的错误位置，代码如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-matlab" data-lang="matlab"><span style="color:#75715e">%% rsHRF_deconv_job.m</span>
+<span style="color:#66d9ef">if</span> flag_parfor
+    <span style="color:#66d9ef">parfor</span> ii=<span style="color:#ae81ff">1</span>:nvar
+        hrf1 = hrfa(:,ii);
+        PARA(:,ii) = rsHRF_get_HRF_parameters(hrf1,<span style="color:#ae81ff">1</span>);<span style="color:#75715e">% estimate HRF parameter</span>
+        event_number(ii)=length(event_bold{<span style="color:#ae81ff">1</span>,ii});
+    <span style="color:#66d9ef">end</span>
+<span style="color:#66d9ef">else</span>
+    <span style="color:#66d9ef">for</span> ii=<span style="color:#ae81ff">1</span>:nvar
+        hrf1 = hrfa(:,ii);
+        PARA(:,ii) = rsHRF_get_HRF_parameters(hrf1,para.TR<span style="color:#f92672">/</span>para.T);<span style="color:#75715e">% estimate HRF parameter</span>
+        event_number(ii)=length(event_bold{<span style="color:#ae81ff">1</span>,ii});
+    <span style="color:#66d9ef">end</span>
+<span style="color:#66d9ef">end</span></code></pre></div>
+<h2 id="分析解决问题">分析解决问题</h2>
+
+<p>我只知道在此之前，代码是运行成功的；当我改了<code>rsHRF_get_HRF_parameters</code>函数后，程序开始运行错误。但是令人费神的是，我怎么也看不出来改之后的代码有什么问题（尽管我怀疑它有问题）。</p>
+
+<p>然后我想到了一个办法，在该<code>parfor</code>循环前设置断点，然后在命令行内输入该循环代码，我得到了以下答案：</p>
+
+<p><a data-fancybox="gallery" href="https://s1.ax1x.com/2022/10/27/xfNjOK.png" pcked="1"><img src="https://s1.ax1x.com/2022/10/27/xfNjOK.png" style="zoom: 70%;">
+</a>
+<figcaption class="image-caption">命令行提示的错误信息2</figcaption></p>
+
+<p>是的，没错；是改之后的代码有问题，但是直接在程序里运行没有明确的错误提示。</p>
+
+<h2 id="省流总结">省流总结</h2>
+
+<ol>
+<li><strong>找不到尝试执行工作进程的 parfor 循环的源代码的报错信息，一般来说意味着的循环内部的代码有问题</strong></li>
+<li><strong>解决方法：</strong>
+
+<ul>
+<li>在<code>parfor</code>循环前设置断点，在命令行运行该循环程序</li>
+<li>将<code>parfor</code>循环改为<code>for</code>循环，同样可以显示报错信息，同时还可以定位到具体的错误位置（<strong>最优方法</strong>）</li>
+</ul></li>
+</ol>
 
 <p><center></p>
 
