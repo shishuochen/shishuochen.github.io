@@ -66,16 +66,16 @@
     "datePublished": "2022-09-27 10:29:50 \u002b0800 CST",
     "dateModified" : "2022-09-27 10:29:50 \u002b0800 CST",
     "url" : "https:\/\/shishuochen.github.io\/2022\/a5ooapv0n\/",
-    "wordCount" : "1087",
+    "wordCount" : "1163",
     "keywords" : [ "ANTs","AFNI", "shishuoCh\u0027s Blog"]
 }
 </script>
 
 	<link rel="stylesheet" href=
-"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
 </link>
     
-    <script src="https://kit.fontawesome.com/fb6088b71c.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/860bffd803.js" crossorigin="anonymous"></script>
 	
 
 
@@ -183,7 +183,7 @@
 				&thinsp;$\bm\vert$&thinsp; 
 				
 				
-				<i class="fas fa-history"></i> 更新:2022-09-28
+				<i class="fas fa-history"></i> 更新:2022-11-04
 				
                 
 				&thinsp;$\bm\vert$&thinsp; 
@@ -201,7 +201,7 @@
 				&thinsp;$\bm\vert$&thinsp; 
 				<i class="fas fa-file-word "></i>
 				
-                <span class="post-word-count">1087字</span>
+                <span class="post-word-count">1163字</span>
 				
 				&thinsp;$\bm\vert$&thinsp;   
 				<i class="fas fa-coffee "></i>
@@ -297,6 +297,25 @@
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">flirt <span style="color:#f92672">[</span>options<span style="color:#f92672">]</span> -in &lt;inputvol&gt; -ref &lt;refvol&gt; -out &lt;outputvol&gt;
 flirt <span style="color:#f92672">[</span>options<span style="color:#f92672">]</span> -in &lt;inputvol&gt; -ref &lt;refvol&gt; -omat &lt;outputmatrix&gt;
 flirt <span style="color:#f92672">[</span>options<span style="color:#f92672">]</span> -in &lt;inputvol&gt; -ref &lt;refvol&gt; -applyxfm -init &lt;matrix&gt; -out &lt;outputvol&gt;</code></pre></div>
+<p>具体流程如下：</p>
+
+<ol>
+<li><p><em>FlIRT pre-alignment for BBR registration.</em></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">flirt -ref $T1_brain.nii -in $BOLD_mean.nii -dof <span style="color:#ae81ff">6</span> -omat $Bold2struc_1.mat</code></pre></div></li>
+
+<li><p><em>Estimating transformation matrix for BBR registration</em></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">flirt -ref $T1_brain.nii -in $BOLD_mean.nii -dof <span style="color:#ae81ff">6</span> -cost bbr -wmseg $STRUC_WM.nii -init $Bold2struc_1.mat -omat $Bold2struc_2.mat -schedule $FSLDIR/etc/flirtsch/bbr.shr</code></pre></div></li>
+
+<li><p><em>Apply BBR registration to BOLD FILE</em></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">applywarp -i $BOLD.nii -r $T1_brain.nii -o $BOLD_reg2_T1.nii --premat<span style="color:#f92672">=</span>$Bold2struc_2.mat  --interp<span style="color:#f92672">=</span>spline</code></pre></div></li>
+</ol>
+
+<p>可结合下图理解代码：</p>
+
+<p><a data-fancybox="gallery" href="https://s1.ax1x.com/2022/11/04/xL7PJA.png" pcked="1"><img src="https://s1.ax1x.com/2022/11/04/xL7PJA.png" style="zoom: 100%;"></a></p>
+
+<figcaption class="image-caption">共配准代码示例</figcaption>
+
 <p>这一步可以获取配准到<code>Structural Space</code>的fMRI像，因此下一步只需要获得<code>Structutal Space -&gt; Standard Space</code>的变换矩阵，然后应用于fMRI即可得到最终配准到标准空间的BOLD像。</p>
 
 <h3 id="结构像标准化">结构像标准化</h3>
