@@ -6,7 +6,25 @@
     <description>Recent content in Tags on shishuoCh&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 26 Oct 2022 21:15:32 +0800</lastBuildDate><atom:link href="https://shishuochen.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 07 Nov 2022 14:19:10 +0800</lastBuildDate><atom:link href="https://shishuochen.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AFNI</title>
+      <link>https://shishuochen.github.io/tags/afni/</link>
+      <pubDate>Mon, 07 Nov 2022 14:19:10 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/tags/afni/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ANTs</title>
+      <link>https://shishuochen.github.io/tags/ants/</link>
+      <pubDate>Mon, 07 Nov 2022 14:19:10 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/tags/ants/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>matlab</title>
       <link>https://shishuochen.github.io/tags/matlab/</link>
@@ -31,24 +49,6 @@
       <pubDate>Wed, 28 Sep 2022 12:08:20 +0800</pubDate>
       
       <guid>https://shishuochen.github.io/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>AFNI</title>
-      <link>https://shishuochen.github.io/tags/afni/</link>
-      <pubDate>Tue, 27 Sep 2022 10:29:50 +0800</pubDate>
-      
-      <guid>https://shishuochen.github.io/tags/afni/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ANTs</title>
-      <link>https://shishuochen.github.io/tags/ants/</link>
-      <pubDate>Tue, 27 Sep 2022 10:29:50 +0800</pubDate>
-      
-      <guid>https://shishuochen.github.io/tags/ants/</guid>
       <description></description>
     </item>
     

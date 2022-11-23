@@ -6,7 +6,16 @@
     <description>Recent content in AFNI on shishuoCh&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 27 Sep 2022 10:29:50 +0800</lastBuildDate><atom:link href="https://shishuochen.github.io/tags/afni/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 07 Nov 2022 14:19:10 +0800</lastBuildDate><atom:link href="https://shishuochen.github.io/tags/afni/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AFNI/FSLの日常使用命令</title>
+      <link>https://shishuochen.github.io/2022/7oppy6sjq/</link>
+      <pubDate>Mon, 07 Nov 2022 14:19:10 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2022/7oppy6sjq/</guid>
+      <description>想来整理下常用的AFNI和FSL软件的命令，从而满足一些常用的MRI图像处理操作 I. AFNI类 目的 命令 参数项 更多 制作Mask文件 3dAutomask [options] -input dataset -prefix See more</description>
+    </item>
+    
     <item>
       <title>ANTs/AFNI配准fMRI到标准空间</title>
       <link>https://shishuochen.github.io/2022/a5ooapv0n/</link>
