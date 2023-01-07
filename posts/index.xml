@@ -22,7 +22,7 @@
       <pubDate>Mon, 07 Nov 2022 14:19:10 +0800</pubDate>
       
       <guid>https://shishuochen.github.io/2022/7oppy6sjq/</guid>
-      <description>想来整理下常用的AFNI和FSL软件的命令，从而满足一些常用的MRI图像处理操作 I. AFNI类 目的 命令 参数项 更多 制作Mask文件 3dAutomask [options] -input dataset -prefix See more</description>
+      <description>想来整理下常用的AFNI和FSL软件的命令，从而满足一些常用的MRI图像处理操作 I. AFNI类 目的 命令 参数项 更多 制作Mask文件 3dAutomask -prefix See more 去颅骨</description>
     </item>
     
     <item>

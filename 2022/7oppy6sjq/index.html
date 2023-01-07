@@ -55,7 +55,7 @@
     "articleSection" : "posts",
     "name" : "AFNI\/FSLの日常使用命令",
     "headline" : "AFNI\/FSLの日常使用命令",
-    "description" : "想来整理下常用的AFNI和FSL软件的命令，从而满足一些常用的MRI图像处理操作 I. AFNI类 目的 命令 参数项 更多 制作Mask文件 3dAutomask [options] -input dataset -prefix See more",
+    "description" : "想来整理下常用的AFNI和FSL软件的命令，从而满足一些常用的MRI图像处理操作 I. AFNI类 目的 命令 参数项 更多 制作Mask文件 3dAutomask -prefix See more 去颅骨",
     "inLanguage" : "zh-cn",
     "author" : "ANY_ME",
     "creator" : "ANY_ME",
@@ -66,7 +66,7 @@
     "datePublished": "2022-11-07 14:19:10 \u002b0800 CST",
     "dateModified" : "2022-11-07 14:19:10 \u002b0800 CST",
     "url" : "https:\/\/shishuochen.github.io\/2022\/7oppy6sjq\/",
-    "wordCount" : "220",
+    "wordCount" : "275",
     "keywords" : [ "ANTs","AFNI", "shishuoCh\u0027s Blog"]
 }
 </script>
@@ -183,7 +183,7 @@
 				&thinsp;$\bm\vert$&thinsp; 
 				
 				
-				<i class="fas fa-history"></i> 更新:2022-11-26
+				<i class="fas fa-history"></i> 更新:2023-01-07
 				
                 
 				&thinsp;$\bm\vert$&thinsp; 
@@ -201,7 +201,7 @@
 				&thinsp;$\bm\vert$&thinsp; 
 				<i class="fas fa-file-word "></i>
 				
-                <span class="post-word-count">220字</span>
+                <span class="post-word-count">275字</span>
 				
 				&thinsp;$\bm\vert$&thinsp;   
 				<i class="fas fa-coffee "></i>
@@ -221,6 +221,11 @@
 <li>
 <ul>
 <li><a href="#i-afni类">I. AFNI类</a></li>
+<li><a href="#2-fsl类">2. FSL类</a></li>
+<li><a href="#3-脚本类">3. 脚本类</a>
+<ul>
+<li><a href="#并行计算">并行计算</a></li>
+</ul></li>
 </ul></li>
 </ul>
 </nav>
@@ -291,66 +296,84 @@
 <tbody>
 <tr>
 <td align="center"><strong>制作Mask文件</strong></td>
-<td align="center"><strong>3dAutomask [options] -input dataset</strong></td>
+<td align="center"><strong>3dAutomask</strong></td>
 <td align="center">-prefix</td>
 <td align="center"><a href="https://afni.nimh.nih.gov/pub/dist/doc/program_help/3dAutomask.html" rel="nofollow noreferrer" target="_blank">See more <i class="fa-solid fa-up-right-from-square"></i></a></td>
 </tr>
 
 <tr>
 <td align="center"><strong>去颅骨，剥脑</strong></td>
-<td align="center"><strong>3dSkullStrip &lt;-input DSET&gt;</strong></td>
+<td align="center"><strong>3dSkullStrip</strong></td>
 <td align="center">-prefix、-push_to_edge</td>
 <td align="center"><a href="https://afni.nimh.nih.gov/pub/dist/doc/program_help/3dSkullStrip.html" rel="nofollow noreferrer" target="_blank">See more <i class="fa-solid fa-up-right-from-square"></i></a></td>
 </tr>
 
 <tr>
 <td align="center"><strong>查看文件信息</strong></td>
-<td align="center"><strong>3dinfo dataset</strong></td>
+<td align="center"><strong>3dinfo</strong></td>
 <td align="center">\</td>
 <td align="center"><a href="https://afni.nimh.nih.gov/pub/dist/doc/program_help/3dinfo.html" rel="nofollow noreferrer" target="_blank">See more <i class="fa-solid fa-up-right-from-square"></i></a></td>
 </tr>
 
 <tr>
 <td align="center"><strong>转换格式</strong></td>
-<td align="center"><strong>3dAFNItoNIFTI [options] dataset</strong></td>
-<td align="center">-prefix（其他命令在使用该选项时指明类型<br>可以减少此步骤）</td>
+<td align="center"><strong>3dAFNItoNIFTI</strong></td>
+<td align="center">-prefix（其他命令在使用该选项时指明类型可以<br>减少此步骤）</td>
 <td align="center"><a href="https://afni.nimh.nih.gov/pub/dist/doc/program_help/3dAFNItoNIFTI.html" rel="nofollow noreferrer" target="_blank">See more <i class="fa-solid fa-up-right-from-square"></i></a></td>
 </tr>
 
 <tr>
 <td align="center"><strong>查看文件信息</strong></td>
-<td align="center"><strong>3dinfo dataset</strong></td>
+<td align="center"><strong>3dinfo</strong></td>
 <td align="center">\</td>
 <td align="center"><a href="https://afni.nimh.nih.gov/pub/dist/doc/program_help/3dinfo.html" rel="nofollow noreferrer" target="_blank">See more <i class="fa-solid fa-up-right-from-square"></i></a></td>
+</tr>
+
+<tr>
+<td align="center"><strong>重采样</strong></td>
+<td align="center"><strong>3dresample</strong></td>
+<td align="center">-dxyz、-master</td>
+<td align="center"><a href="https://afni.nimh.nih.gov/pub/dist/doc/program_help/3dresample.html" rel="nofollow noreferrer" target="_blank">See more <i class="fa-solid fa-up-right-from-square"></i></a></td>
+</tr>
+
+<tr>
+<td align="center"><strong>影像数据计算</strong></td>
+<td align="center"><strong>3dcalc</strong></td>
+<td align="center">制作mask（&rsquo;ispositive(a-0.5)&lsquo;）</td>
+<td align="center"><a href="https://afni.nimh.nih.gov/pub/dist/doc/program_help/3dcalc.html" rel="nofollow noreferrer" target="_blank">See more <i class="fa-solid fa-up-right-from-square"></i></a></td>
+</tr>
+
+<tr>
+<td align="center"><strong>提取提素值</strong></td>
+<td align="center">**3dmaskdump **</td>
+<td align="center">\</td>
+<td align="center"><a href="https://afni.nimh.nih.gov/pub/dist/doc/program_help/3dmaskdump.html" rel="nofollow noreferrer" target="_blank">See more <i class="fa-solid fa-up-right-from-square"></i></a></td>
+</tr>
+
+<tr>
+<td align="center"><strong>截取Volume</strong></td>
+<td align="center">**3dTcat **</td>
+<td align="center">demo.nii[3..$]</td>
+<td align="center"><a href="https://afni.nimh.nih.gov/pub/dist/doc/program_help/3dTcat.html" rel="nofollow noreferrer" target="_blank">See more <i class="fa-solid fa-up-right-from-square"></i></a></td>
 </tr>
 </tbody>
 </table>
 
 <p></center></p>
 
-<ol>
-<li>3dresample</li>
-</ol>
+<h2 id="2-fsl类">2. FSL类</h2>
 
-<p>3dcalc 计算、制作mask文件 3dcalc -a c2t1_brain_3mm.nii -expr &lsquo;ispositive(a-0.5)&rsquo; -prefix c2t1_brain_3mm_mask.nii</p>
+<h2 id="3-脚本类">3. 脚本类</h2>
 
-<p>3dmaskdump  提取体素值</p>
-
-<p>3dTcat 截取volume</p>
-
+<h3 id="并行计算">并行计算</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">foo<span style="color:#f92672">(){</span>
+cd <span style="color:#e6db74">${</span>data_path<span style="color:#e6db74">}</span>/<span style="color:#e6db74">${</span>i<span style="color:#e6db74">}</span>
+<span style="color:#f92672">}</span>
+<span style="color:#66d9ef">for</span> i in <span style="color:#e6db74">${</span>type[@]<span style="color:#e6db74">}</span>; <span style="color:#66d9ef">do</span> foo <span style="color:#e6db74">&#34;</span>$i<span style="color:#e6db74">&#34;</span> &amp; <span style="color:#66d9ef">done</span></code></pre></div>
 <ol>
 <li>fslmerge</li>
 <li></li>
 </ol>
-
-<p>foo(){</p>
-
-<p>cd ${data_path}/${i}</p>
-
-<p>3dMean -prefix ${target_path}/Average_178<em>trans</em>${i}.nii.gz *</p>
-
-<p>}
-for i in ${type[@]}; do foo &ldquo;$i&rdquo; &amp; done</p>
 
 <p><center></p>
 
@@ -461,7 +484,7 @@ for i in ${type[@]}; do foo &ldquo;$i&rdquo; &amp; done</p>
    <div class="copyright">
       &copy;
       
-      <span itemprop="copyrightYear">2019 - 2022</span>
+      <span itemprop="copyrightYear">2019 - 2023</span>
       
       <span class="with-love">
          <i class="fas fa-heart"></i>
