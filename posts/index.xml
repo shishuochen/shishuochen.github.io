@@ -6,7 +6,16 @@
     <description>Recent content in Posts on shishuoCh&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 09 Dec 2022 13:56:37 +0800</lastBuildDate><atom:link href="https://shishuochen.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 07 Jan 2023 15:06:56 +0800</lastBuildDate><atom:link href="https://shishuochen.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>FSL的离线安装方法</title>
+      <link>https://shishuochen.github.io/2023/gv-z65lmb/</link>
+      <pubDate>Sat, 07 Jan 2023 15:06:56 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2023/gv-z65lmb/</guid>
+      <description>记录一下FSL（FMRIB Software Library）离线安装 $\cdots$ end $\cdots$</description>
+    </item>
+    
     <item>
       <title> 我的电脑</title>
       <link>https://shishuochen.github.io/2022/s_hmj_rr/</link>

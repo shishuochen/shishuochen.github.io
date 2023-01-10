@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MRI 数据分析工具 on shishuoCh&#39;s Blog</title>
+    <link>https://shishuochen.github.io/tags/mri-%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7/</link>
+    <description>Recent content in MRI 数据分析工具 on shishuoCh&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 07 Jan 2023 15:06:56 +0800</lastBuildDate><atom:link href="https://shishuochen.github.io/tags/mri-%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>FSL的离线安装方法</title>
+      <link>https://shishuochen.github.io/2023/gv-z65lmb/</link>
+      <pubDate>Sat, 07 Jan 2023 15:06:56 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2023/gv-z65lmb/</guid>
+      <description>记录一下FSL（FMRIB Software Library）离线安装 $\cdots$ end $\cdots$</description>
+    </item>
+    
+  </channel>
+</rss>

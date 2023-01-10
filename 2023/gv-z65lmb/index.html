@@ -19,9 +19,9 @@
     <meta name="description" content="shishuoCh的个人博客">
     
     <meta name="google-site-verification" content=" " />
+    <link rel="prev" href="https://shishuochen.github.io/2022/s_hmj_rr/" />
     
-    
-    <link rel="canonical" href="https://shishuochen.github.io/tags/" />
+    <link rel="canonical" href="https://shishuochen.github.io/2023/gv-z65lmb/" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -32,20 +32,44 @@
     <title>
         
         
-            Tags | shishuoCh&#39;s Blog
+            FSL的离线安装方法 | shishuoCh&#39;s Blog
         
     </title>
-    <meta name="title" content="Tags | shishuoCh&#39;s Blog">
+    <meta name="title" content="FSL的离线安装方法 | shishuoCh&#39;s Blog">
     
 <link rel="stylesheet" href="/css/main.min.css">
 
 
     
-    <link rel="alternate" href="/tags/index.xml" type="application/rss+xml" title="shishuoCh&#39;s Blog">
-    <link rel="feed" href="/tags/index.xml" type="application/rss+xml" title="shishuoCh&#39;s Blog">
-    
     
  
+
+<script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/shishuochen.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "FSL的离线安装方法",
+    "headline" : "FSL的离线安装方法",
+    "description" : "记录一下FSL（FMRIB Software Library）离线安装 $\\cdots$ end $\\cdots$",
+    "inLanguage" : "zh-cn",
+    "author" : "ANY_ME",
+    "creator" : "ANY_ME",
+    "publisher": "ANY_ME",
+    "accountablePerson" : "ANY_ME",
+    "copyrightHolder" : "ANY_ME",
+    "copyrightYear" : "2023",
+    "datePublished": "2023-01-07 15:06:56 \u002b0800 CST",
+    "dateModified" : "2023-01-07 15:06:56 \u002b0800 CST",
+    "url" : "https:\/\/shishuochen.github.io\/2023\/gv-z65lmb\/",
+    "wordCount" : "29",
+    "keywords" : [ "MRI 数据分析工具", "shishuoCh\u0027s Blog"]
+}
+</script>
 
 	<link rel="stylesheet" href=
 "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
@@ -59,6 +83,8 @@
     <body class="">
         <div class="wrapper">
             <nav class="navbar">
+    
+        <progress class="content_progress" max="0" value="0"></progress>
     
     <div class="container">
         
@@ -78,7 +104,7 @@
                 
                 <a class="menu-item" href="/categories/" title="">📁Categories</a>
                 
-                <a class="menu-item active" href="/tags/" title="">🎨Tags</a>
+                <a class="menu-item" href="/tags/" title="">🎨Tags</a>
                 
                 <a class="menu-item" href="/about/" title="">💬About</a>
                 
@@ -91,6 +117,8 @@
     </div>
 </nav>
 <nav class="navbar-mobile" id="nav-mobile" style="display:none">
+    
+        <progress class="content_progress" max="0" value="0"></progress>
     
      <div class="container">
         <div class="navbar">
@@ -119,7 +147,7 @@
                             <div class="menu-active"></div>
 							</a>
                     
-                        <a class="menu-item active" href="/tags/" title="" white-space="nowrap">
+                        <a class="menu-item" href="/tags/" title="" white-space="nowrap">
 						<nobr>🎨Tags</nobr>
                             <div class="menu-active"></div>
 							</a>
@@ -141,114 +169,193 @@
             <main class="main">
                 <div class="container">
                     
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">FSL的离线安装方法</h1>
+        <div class="post-meta">
+                <i class="fas fa-user-circle"></i> <a itemprop="name" href="https://shishuochen.github.io" rel="author">ANY_ME</a> 
+				&thinsp;$\bm\vert$&thinsp; 
+				<i class="fas fa-calendar-check "></i>
+				发布:2023-01-07
+				
+                </span>
+                
+				&thinsp;$\bm\vert$&thinsp; 
+				
+				
+                
+				&thinsp;$\bm\vert$&thinsp; 
+                
+                <i class="fas fa-folder-open "></i>
+                <span class="post-category">
+                        
+                        
+                        
+                          <a href="https://shishuochen.github.io/categories/%E5%8C%BB%E5%AD%A6%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"> 医学图像处理</a>
+                        
+                        
+                </span>
+				
+				&thinsp;$\bm\vert$&thinsp; 
+				<i class="fas fa-file-word "></i>
+				
+                <span class="post-word-count">29字</span>
+				
+				&thinsp;$\bm\vert$&thinsp;   
+				<i class="fas fa-coffee "></i>
+				
+				 <span class="post-word-count">1分钟</span>
+				 
+        </div>
+    </header>
+	  
+     
+          <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title"></h2>
+  
+  <div class="post-toc-content always-active">
+    
+  </div>
+</div>
+<script type="text/javascript">
+  window.onload = function () {
+    var fix = $('.post-toc');
+    var end = $('.post-comment');
+    var fixTop = fix.offset().top, fixHeight = fix.height();
+    var endTop, miss;
+    var offsetTop = fix[0].offsetTop;
+    $(window).scroll(function () {
+      var docTop = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
+      if (end.length > 0) {
+        endTop = end.offset().top;
+        miss = endTop - docTop - fixHeight;
+      }
+      if (fixTop < docTop) {
+        fix.css({ 'position': 'fixed' });
+        if ((end.length > 0) && (endTop < (docTop + fixHeight))) {
+          fix.css({ top: miss });
+        } else {
+          fix.css({ top: 0 });
+        }
+      } else {
+        fix.css({ 'position': 'absolute' });
+        fix.css({ top: offsetTop });
+      }
+    })
+  }
+</script> 
+	
+	<hr class="hr-twill-colorful">
+    <div class="post-content">
+        
+        
+        
+        
+        
+        
+        
+        
 
+        
+        
+        
+        <blockquote>
+<p><strong>记录一下FSL（<font color=Red>F</font>MRIB <font color=Red>S</font>oftware <font color=Red>L</font>ibrary）离线安装</strong></p>
+</blockquote>
 
+<p><center></p>
 
+<p>$\cdots$ <strong>end</strong> $\cdots$</p>
 
+<p></center></p>
 
-<div class="post-warp tags">
-    <h2 class="post-title" style="text-align:right;padding-bottom:0em">-&nbsp;Tags&nbsp;-</h2>
+    </div>
+    <div class="post-copyright">
+            
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>ANY_ME </span>
+                </p>
+            
 
-    <div class="tag-cloud-tags">
-    
-        
-        <a href="/tags/shell/"> shell <small>(9)</small></a>
-        
-    
-        
-        <a href="/tags/matlab/"> matlab <small>(8)</small></a>
-        
-    
-        
-        <a href="/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/"> 线性代数 <small>(7)</small></a>
-        
-    
-        
-        <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"> 博客搭建 <small>(5)</small></a>
-        
-    
-        
-        <a href="/tags/linux/"> linux <small>(4)</small></a>
-        
-    
-        
-        <a href="/tags/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"> 数字图像处理 <small>(4)</small></a>
-        
-    
-        
-        <a href="/tags/%E8%AE%B0%E5%BD%95/"> 记录 <small>(4)</small></a>
-        
-    
-        
-        <a href="/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/"> 信号与系统 <small>(3)</small></a>
-        
-    
-        
-        <a href="/tags/afni/"> afni <small>(2)</small></a>
-        
-    
-        
-        <a href="/tags/ants/"> ants <small>(2)</small></a>
-        
-    
-        
-        <a href="/tags/c&#43;&#43;/"> c&#43;&#43; <small>(2)</small></a>
-        
-    
-        
-        <a href="/tags/latex/"> latex <small>(2)</small></a>
-        
-    
-        
-        <a href="/tags/markdown/"> markdown <small>(2)</small></a>
-        
-    
-        
-        <a href="/tags/dsi_studio/"> dsi_studio <small>(1)</small></a>
-        
-    
-        
-        <a href="/tags/dti%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"> dti数据处理 <small>(1)</small></a>
-        
-    
-        
-        <a href="/tags/mri-%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7/"> mri-数据分析工具 <small>(1)</small></a>
-        
-    
-        
-        <a href="/tags/mri%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7/"> mri数据分析工具 <small>(1)</small></a>
-        
-    
-        
-        <a href="/tags/ms-word/"> ms-word <small>(1)</small></a>
-        
-    
-        
-        <a href="/tags/termux/"> termux <small>(1)</small></a>
-        
-    
-        
-        <a href="/tags/tikz-pgf/"> tikz-pgf <small>(1)</small></a>
-        
-    
-        
-        <a href="/tags/windows/"> windows <small>(1)</small></a>
-        
-    
-        
-        <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%94%9F%E7%89%A9%E5%AD%A6/"> 神经生物学 <small>(1)</small></a>
-        
-    
-        
-        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/"> 计算方法 <small>(1)</small></a>
-        
-    
+            
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://shishuochen.github.io/2023/gv-z65lmb/>https://shishuochen.github.io/2023/gv-z65lmb/</span>
+            </p>
+            
+            
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
     </div>
 
 
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://shishuochen.github.io/tags/mri-%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7/">
+                    #MRI 数据分析工具</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> ·
+                <span><a href="https://shishuochen.github.io">home</a></span>
+        </section>
+    </div>
 
-</div>
+    <div class="post-nav">
+        
+        <a href="https://shishuochen.github.io/2022/s_hmj_rr/" class="prev" rel="prev" title=" 我的电脑"><i class="fas fa-caret-left"></i>&nbsp; 我的电脑</a>
+        
+        
+    </div>
+	        <style>
+    .utterances {
+      position: relative;
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .utterances-frame {
+      color-scheme: light;
+      position: absolute;
+      left: 0;
+      right: 0;
+      width: 1px;
+      min-width: 100%;
+      max-width: 100%;
+      height: 100%;
+      border: 0;
+    }
+  </style>
+    <div class="post-comment">
+        
+            
+                <script src="https://utteranc.es/client.js"
+    repo="shishuochen/Bolg-comments"
+    issue-term="title"
+    label="Comment"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+</script>
+<style>
+    .utterances {
+        max-width: 99%;
+    }
+</style>
+            
+        
 
+    </div>
+</article>
                 </div>
                 <link rel="stylesheet"
       href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
