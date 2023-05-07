@@ -19,9 +19,9 @@
     <meta name="description" content="shishuoCh的个人博客">
     
     <meta name="google-site-verification" content=" " />
-    <link rel="prev" href="https://shishuochen.github.io/2022/s_hmj_rr/" />
-    <link rel="next" href="https://shishuochen.github.io/2023/ujcg5-_kj/" />
-    <link rel="canonical" href="https://shishuochen.github.io/2023/gv-z65lmb/" />
+    <link rel="prev" href="https://shishuochen.github.io/2023/gv-z65lmb/" />
+    
+    <link rel="canonical" href="https://shishuochen.github.io/2023/ujcg5-_kj/" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -32,10 +32,10 @@
     <title>
         
         
-            FSL的离线安装方法 | shishuoCh&#39;s Blog
+            AFNI给FMRI的sub-brick添加命名 | shishuoCh&#39;s Blog
         
     </title>
-    <meta name="title" content="FSL的离线安装方法 | shishuoCh&#39;s Blog">
+    <meta name="title" content="AFNI给FMRI的sub-brick添加命名 | shishuoCh&#39;s Blog">
     
 <link rel="stylesheet" href="/css/main.min.css">
 
@@ -53,9 +53,9 @@
          "@id": "https:\/\/shishuochen.github.io"
     },
     "articleSection" : "posts",
-    "name" : "FSL的离线安装方法",
-    "headline" : "FSL的离线安装方法",
-    "description" : "记录一下FSL（FMRIB Software Library）离线安装方法，也算是2023年的第一篇； 这篇文章主要参考的是CSDN上的一篇文章。 前言 关于FSL",
+    "name" : "AFNI给FMRI的sub-brick添加命名",
+    "headline" : "AFNI给FMRI的sub-brick添加命名",
+    "description" : "对于一个fMRI文件，众所周知它是一个包含许多个Volumes的4D文件，一般的fMRI可能是保存的时间序列，但也有一些是用户自己写入的参数",
     "inLanguage" : "zh-cn",
     "author" : "ANY_ME",
     "creator" : "ANY_ME",
@@ -63,11 +63,11 @@
     "accountablePerson" : "ANY_ME",
     "copyrightHolder" : "ANY_ME",
     "copyrightYear" : "2023",
-    "datePublished": "2023-01-07 15:06:56 \u002b0800 CST",
-    "dateModified" : "2023-01-07 15:06:56 \u002b0800 CST",
-    "url" : "https:\/\/shishuochen.github.io\/2023\/gv-z65lmb\/",
-    "wordCount" : "428",
-    "keywords" : [ "MRI数据分析工具", "shishuoCh\u0027s Blog"]
+    "datePublished": "2023-04-11 16:34:05 \u002b0800 CST",
+    "dateModified" : "2023-04-11 16:34:05 \u002b0800 CST",
+    "url" : "https:\/\/shishuochen.github.io\/2023\/ujcg5-_kj\/",
+    "wordCount" : "106",
+    "keywords" : [ "AFNI","fMRI", "shishuoCh\u0027s Blog"]
 }
 </script>
 
@@ -171,19 +171,19 @@
                     
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">FSL的离线安装方法</h1>
+        <h1 class="post-title" itemprop="name headline">AFNI给FMRI的sub-brick添加命名</h1>
         <div class="post-meta">
                 <i class="fas fa-user-circle"></i> <a itemprop="name" href="https://shishuochen.github.io" rel="author">ANY_ME</a> 
 				&thinsp;$\bm\vert$&thinsp; 
 				<i class="fas fa-calendar-check "></i>
-				发布:2023-01-07
+				发布:2023-04-11
 				
                 </span>
                 
 				&thinsp;$\bm\vert$&thinsp; 
 				
 				
-				<i class="fas fa-history"></i> 更新:2023-04-22
+				<i class="fas fa-history"></i> 更新:2023-04-28
 				
                 
 				&thinsp;$\bm\vert$&thinsp; 
@@ -201,13 +201,13 @@
 				&thinsp;$\bm\vert$&thinsp; 
 				<i class="fas fa-file-word "></i>
 				
-                <span class="post-word-count">428字</span>
+                <span class="post-word-count">106字</span>
 				
 				&thinsp;$\bm\vert$&thinsp;   
 				<i class="fas fa-coffee "></i>
 				
-                <span class="post-word-count">1分钟</span>
-				
+				 <span class="post-word-count">1分钟</span>
+				 
         </div>
     </header>
 	  
@@ -220,14 +220,7 @@
 <ul>
 <li>
 <ul>
-<li><a href="#前言">前言</a></li>
-<li><a href="#安装过程">安装过程</a>
-<ul>
-<li><a href="#下载安装包">下载安装包</a></li>
-<li><a href="#解压文件到指定位置">解压文件到指定位置</a></li>
-<li><a href="#配置环境">配置环境</a></li>
-</ul></li>
-<li><a href="#开始体验">开始体验</a></li>
+<li><a href="#相关命令">相关命令</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -278,63 +271,16 @@
         
 
 <blockquote>
-<p><strong>记录一下FSL（<font color=Red>F</font>MRIB <font color=Red>S</font>oftware <font color=Red>L</font>ibrary）离线安装方法，也算是2023年的第一篇；</strong>
-<strong>这篇文章主要参考的是<a href="https://blog.csdn.net/qq_41763734/article/details/104721471" rel="nofollow noreferrer" target="_blank">CSDN上的一篇文章</a>。</strong></p>
+<p>对于一个fMRI文件，众所周知它是一个包含许多个Volumes的4D文件，一般的fMRI可能是保存的时间序列，但也有一些是用户自己写入的参数文件，每一个Volume代表这不同的含义。</p>
 </blockquote>
 
-<h2 id="前言">前言</h2>
+<p><a href="https://afni.nimh.nih.gov/afni/community/board/read.php?1,65211,87898" rel="nofollow noreferrer" target="_blank">参考链接</a></p>
 
-<p>关于FSL的介绍不再赘述了，能用到的朋友自然知晓其用处，下面主要说一下它的两种安装方法。一种就是官网手册提供的在线安装方法，这种方法的缺点就是慢、容易中途失败，这里我们介绍的一种以安装包的方式进行离线安装方法。</p>
-
-<h2 id="安装过程">安装过程</h2>
-
-<h3 id="下载安装包">下载安装包</h3>
-
-<p>文件地址： <a href="http://fsl.fmrib.ox.ac.uk/fsldownloads/fsl-6.0.3-centos6_64.tar.gz" rel="nofollow noreferrer" target="_blank">这里</a>（推荐使用IDM等工具下载）</p>
-
-<h3 id="解压文件到指定位置">解压文件到指定位置</h3>
-
-<p>一般来说，大家都把软件放在<code>/usr/local</code>或者<code>/opt/</code>路径下，以下是以前者为例展开介绍。</p>
+<h2 id="相关命令">相关命令</h2>
 
 <ol>
-<li>更改目标位置权限
-
-<ul>
-<li>依次使用命令：<code>cd /usr/local/</code> $\to$ <code>sudo chmod -R 777 ./*</code></li>
-</ul></li>
-<li>解压文件到指定位置<br />
-
-<ul>
-<li>首先<code>cd</code>到安装包所在目录</li>
-<li>输入命令: <code>tar -zxvf fsl*.tar.gz -C /usr/local/</code></li>
-</ul></li>
+<li>可以使用</li>
 </ol>
-
-<h3 id="配置环境">配置环境</h3>
-
-<ol>
-<li>打开<code>/home/user/</code>路径下，即<code>~/.bashrc</code>文件
-
-<ul>
-<li>利用Vim打开： <code>vim ~/.bashrc</code></li>
-</ul></li>
-
-<li><p>在文件末尾添加以下内容</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">export FSLDIR<span style="color:#f92672">=</span>/usr/local/fsl
-export PATH<span style="color:#f92672">=</span>$PATH:$FSLDIR/bin
-source $FSLDIR/etc/fslconf/fsl.sh</code></pre></div></li>
-
-<li><p>刷新配置文件</p>
-
-<ul>
-<li>终端输入：<code>source ~/.bashrc</code>
-<br /></li>
-</ul></li>
-</ol>
-
-<h2 id="开始体验">开始体验</h2>
-
-<p>至此，已经完成了安装配置等工作，接下里在终端输入<code>fsl</code>即可体验~</p>
 
 <p><center></p>
 
@@ -354,7 +300,7 @@ source $FSLDIR/etc/fslconf/fsl.sh</code></pre></div></li>
             
             <p class="copyright-item">
                     <span>Link:</span>
-                    <a href=https://shishuochen.github.io/2023/gv-z65lmb/>https://shishuochen.github.io/2023/gv-z65lmb/</span>
+                    <a href=https://shishuochen.github.io/2023/ujcg5-_kj/>https://shishuochen.github.io/2023/ujcg5-_kj/</span>
             </p>
             
             
@@ -370,8 +316,11 @@ source $FSLDIR/etc/fslconf/fsl.sh</code></pre></div></li>
             <section>
             <i class="iconfont icon-tag"></i>Tag(s):
             
-            <span class="tag"><a href="https://shishuochen.github.io/tags/mri%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7/">
-                    #MRI数据分析工具</a></span>
+            <span class="tag"><a href="https://shishuochen.github.io/tags/afni/">
+                    #AFNI</a></span>
+            
+            <span class="tag"><a href="https://shishuochen.github.io/tags/fmri/">
+                    #fMRI</a></span>
             
             </section>
         
@@ -383,10 +332,8 @@ source $FSLDIR/etc/fslconf/fsl.sh</code></pre></div></li>
 
     <div class="post-nav">
         
-        <a href="https://shishuochen.github.io/2022/s_hmj_rr/" class="prev" rel="prev" title=" 我的电脑"><i class="fas fa-caret-left"></i>&nbsp; 我的电脑</a>
+        <a href="https://shishuochen.github.io/2023/gv-z65lmb/" class="prev" rel="prev" title="FSL的离线安装方法"><i class="fas fa-caret-left"></i>&nbsp;FSL的离线安装方法</a>
         
-        
-        <a href="https://shishuochen.github.io/2023/ujcg5-_kj/" class="next" rel="next" title="AFNI给FMRI的sub-brick添加命名">AFNI给FMRI的sub-brick添加命名&nbsp;<i class="fas fas fa-caret-right"></i></a>
         
     </div>
 	        <style>

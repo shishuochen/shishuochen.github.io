@@ -6,7 +6,16 @@
     <description>Recent content in 医学图像处理 on shishuoCh&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 07 Jan 2023 15:06:56 +0800</lastBuildDate><atom:link href="https://shishuochen.github.io/categories/%E5%8C%BB%E5%AD%A6%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 11 Apr 2023 16:34:05 +0800</lastBuildDate><atom:link href="https://shishuochen.github.io/categories/%E5%8C%BB%E5%AD%A6%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AFNI给FMRI的sub-brick添加命名</title>
+      <link>https://shishuochen.github.io/2023/ujcg5-_kj/</link>
+      <pubDate>Tue, 11 Apr 2023 16:34:05 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2023/ujcg5-_kj/</guid>
+      <description>对于一个fMRI文件，众所周知它是一个包含许多个Volumes的4D文件，一般的fMRI可能是保存的时间序列，但也有一些是用户自己写入的参数</description>
+    </item>
+    
     <item>
       <title>FSL的离线安装方法</title>
       <link>https://shishuochen.github.io/2023/gv-z65lmb/</link>

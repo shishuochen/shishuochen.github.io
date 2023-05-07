@@ -6,7 +6,16 @@
     <description>Recent content in MRI数据分析工具 on shishuoCh&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 12 Mar 2021 07:30:44 +0000</lastBuildDate><atom:link href="https://shishuochen.github.io/tags/mri%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 07 Jan 2023 15:06:56 +0800</lastBuildDate><atom:link href="https://shishuochen.github.io/tags/mri%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>FSL的离线安装方法</title>
+      <link>https://shishuochen.github.io/2023/gv-z65lmb/</link>
+      <pubDate>Sat, 07 Jan 2023 15:06:56 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2023/gv-z65lmb/</guid>
+      <description>记录一下FSL（FMRIB Software Library）离线安装方法，也算是2023年的第一篇； 这篇文章主要参考的是CSDN上的一篇文章。 前言 关于FSL</description>
+    </item>
+    
     <item>
       <title>MRI数据分析常用软件合集</title>
       <link>https://shishuochen.github.io/2021/5hy3l2plc/</link>
