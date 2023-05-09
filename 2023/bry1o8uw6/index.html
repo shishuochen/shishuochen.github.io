@@ -19,7 +19,7 @@
     <meta name="description" content="shishuoCh的个人博客">
     
     <meta name="google-site-verification" content=" " />
-    <link rel="prev" href="https://shishuochen.github.io/2023/ujcg5-_kj/" />
+    <link rel="prev" href="https://shishuochen.github.io/2023/eybhawgtk/" />
     <link rel="next" href="https://shishuochen.github.io/2023/ebxcy0680/" />
     <link rel="canonical" href="https://shishuochen.github.io/2023/bry1o8uw6/" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -66,7 +66,7 @@
     "datePublished": "2023-05-09 14:19:25 \u002b0800 CST",
     "dateModified" : "2023-05-09 14:19:25 \u002b0800 CST",
     "url" : "https:\/\/shishuochen.github.io\/2023\/bry1o8uw6\/",
-    "wordCount" : "76",
+    "wordCount" : "468",
     "keywords" : [ "shell", "shishuoCh\u0027s Blog"]
 }
 </script>
@@ -204,13 +204,13 @@
 				&thinsp;$\bm\vert$&thinsp; 
 				<i class="fas fa-file-word "></i>
 				
-                <span class="post-word-count">76字</span>
+                <span class="post-word-count">468字</span>
 				
 				&thinsp;$\bm\vert$&thinsp;   
 				<i class="fas fa-coffee "></i>
 				
-				 <span class="post-word-count">1分钟</span>
-				 
+                <span class="post-word-count">1分钟</span>
+				
         </div>
     </header>
 	  
@@ -227,6 +227,14 @@
 <ul>
 <li><a href="#linux命令结果输出到变量">Linux命令结果输出到变量</a></li>
 <li><a href="#抑制命令界面输出">抑制命令界面输出</a></li>
+<li><a href="#find命令查找特定文件名称">find命令查找特定文件名称</a></li>
+<li><a href="#挂后台nohup命令">挂后台nohup命令</a></li>
+<li><a href="#写入文件名称到第一行">写入文件名称到第一行</a></li>
+</ul></li>
+<li><a href="#脚本常用类"><strong>脚本常用类</strong></a>
+<ul>
+<li><a href="#获取数组个数或者序列值">获取数组个数或者序列值</a></li>
+<li><a href="#截取字符串-很常用">截取字符串（很常用）</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -288,7 +296,62 @@
 <h3 id="抑制命令界面输出">抑制命令界面输出</h3>
 
 <ul>
-<li><code>: $(command line)</code> 注意：冒号后面有空格</li>
+<li><code>: $(command line)</code> <span style="color:  Tomato;">
+<i class="fas fa-exclamation-triangle"></i>
+</span> 注意：冒号后面有空格</li>
+</ul>
+
+<h3 id="find命令查找特定文件名称">find命令查找特定文件名称</h3>
+
+<ul>
+<li>正则匹配： <code>a=$(find -iname &quot;1*&quot; -o -iname &quot;2*&quot;|wc -l)</code></li>
+<li><a href="https://blog.csdn.net/pcyph/article/details/41683383" rel="nofollow noreferrer" target="_blank">资料1</a>、<a href="https://coderbee.net/index.php/linux/20130502/78" rel="nofollow noreferrer" target="_blank">资料2</a></li>
+</ul>
+
+<h3 id="挂后台nohup命令">挂后台nohup命令</h3>
+
+<ul>
+<li><code>nohup command &gt;output.file 2&gt;&amp;1 &amp;</code></li>
+<li><code>jobs</code>查看任务、<code>fg %n</code>关闭</li>
+</ul>
+
+<h3 id="写入文件名称到第一行">写入文件名称到第一行</h3>
+
+<ul>
+<li><p><a href="https://www.zhihu.com/question/457284239" rel="nofollow noreferrer" target="_blank">资料1</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ls *.txt|awk <span style="color:#e6db74">&#39;{gsub(&#34;*&#34;,&#34;&#34;);a=$0;gsub(/\.txt/,&#34;&#34;,a);printf &#34;sed -i &#39;</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">&#39;1s/^/&#34;a&#34;\\n/&#39;</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">&#39; &#34;;print}&#39;</span>|bash</code></pre></div></li>
+</ul>
+
+<h2 id="脚本常用类"><strong>脚本常用类</strong></h2>
+
+<h3 id="获取数组个数或者序列值">获取数组个数或者序列值</h3>
+
+<ul>
+<li>例：a=(sub1 sub2 sub3 sub4)
+
+<ul>
+<li>数组个数可以表示为<code>${#a[@]}</code>，值为4</li>
+<li>数组序列表示为<code>${!a[@]}</code>，值为0，1，2，3</li>
+<li>数组所有元素为<code>${a[@]}</code>，结果为sub1 sub2 sub3 sub4</li>
+</ul></li>
+</ul>
+
+<h3 id="截取字符串-很常用">截取字符串（很常用）</h3>
+
+<ul>
+<li><a href="http://c.biancheng.net/view/1120.html" rel="nofollow noreferrer" target="_blank">资料1</a></li>
+<li><strong>从前到后</strong>
+
+<ul>
+<li><code>${string: start :length}</code>、<code>${string: start}</code>(直到最后)</li>
+<li><code>${string: 0-start :length}</code>(从倒数第几个往后)、<code>${string: 0-start}</code></li>
+</ul></li>
+<li><strong>截取特定字符左边或右边的</strong>
+
+<ul>
+<li>右边所有：<code>${string#*chars}</code>(第一次出现chars)、<code>${string##*chars}</code>(最后一次出现)</li>
+<li>左边所有：<code>${string%chars*}</code>(第一次出现chars)、<code>${string%%chars*}</code>(最后一次出现)</li>
+</ul></li>
 </ul>
 
 <p><center></p>
@@ -338,7 +401,7 @@
 
     <div class="post-nav">
         
-        <a href="https://shishuochen.github.io/2023/ujcg5-_kj/" class="prev" rel="prev" title="AFNI给FMRI的sub-brick添加命名"><i class="fas fa-caret-left"></i>&nbsp;AFNI给FMRI的sub-brick添加命名</a>
+        <a href="https://shishuochen.github.io/2023/eybhawgtk/" class="prev" rel="prev" title="ChatGPT高效使用Promot合集"><i class="fas fa-caret-left"></i>&nbsp;ChatGPT高效使用Promot合集</a>
         
         
         <a href="https://shishuochen.github.io/2023/ebxcy0680/" class="next" rel="next" title="SPM相关问题合集">SPM相关问题合集&nbsp;<i class="fas fas fa-caret-right"></i></a>
