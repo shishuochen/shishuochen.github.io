@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SPM on shishuoCh&#39;s Blog</title>
+    <link>https://shishuochen.github.io/tags/spm/</link>
+    <description>Recent content in SPM on shishuoCh&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 09 May 2023 14:36:22 +0800</lastBuildDate><atom:link href="https://shishuochen.github.io/tags/spm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SPM相关问题合集</title>
+      <link>https://shishuochen.github.io/2023/ebxcy0680/</link>
+      <pubDate>Tue, 09 May 2023 14:36:22 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2023/ebxcy0680/</guid>
+      <description>汇总下SPM中常见的问题及科研需求，其实一般来说，SPM12 Manual中应该都可以解决问题，但是它实在太繁杂了。持续更新但不勤快~ SPM中</description>
+    </item>
+    
+  </channel>
+</rss>

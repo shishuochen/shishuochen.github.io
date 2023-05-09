@@ -19,8 +19,8 @@
     <meta name="description" content="shishuoCh的个人博客">
     
     <meta name="google-site-verification" content=" " />
-    <link rel="prev" href="https://shishuochen.github.io/2023/gv-z65lmb/" />
-    
+    <link rel="prev" href="https://shishuochen.github.io/2023/eybhawgtk/" />
+    <link rel="next" href="https://shishuochen.github.io/2023/bry1o8uw6/" />
     <link rel="canonical" href="https://shishuochen.github.io/2023/ujcg5-_kj/" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -55,7 +55,7 @@
     "articleSection" : "posts",
     "name" : "AFNI给FMRI的sub-brick添加命名",
     "headline" : "AFNI给FMRI的sub-brick添加命名",
-    "description" : "对于一个fMRI文件，众所周知它是一个包含许多个Volumes的4D文件，一般的fMRI可能是保存的时间序列，但也有一些是用户自己写入的参数",
+    "description" : "问题需求 对于一个fMRI文件，众所周知它是一个包含许多个Volumes的4D文件，一般的fMRI可能是保存的时间序列。 但也有一些是用户自己写",
     "inLanguage" : "zh-cn",
     "author" : "ANY_ME",
     "creator" : "ANY_ME",
@@ -66,7 +66,7 @@
     "datePublished": "2023-04-11 16:34:05 \u002b0800 CST",
     "dateModified" : "2023-04-11 16:34:05 \u002b0800 CST",
     "url" : "https:\/\/shishuochen.github.io\/2023\/ujcg5-_kj\/",
-    "wordCount" : "106",
+    "wordCount" : "415",
     "keywords" : [ "AFNI","fMRI", "shishuoCh\u0027s Blog"]
 }
 </script>
@@ -183,7 +183,7 @@
 				&thinsp;$\bm\vert$&thinsp; 
 				
 				
-				<i class="fas fa-history"></i> 更新:2023-04-28
+				<i class="fas fa-history"></i> 更新:2023-05-07
 				
                 
 				&thinsp;$\bm\vert$&thinsp; 
@@ -201,13 +201,13 @@
 				&thinsp;$\bm\vert$&thinsp; 
 				<i class="fas fa-file-word "></i>
 				
-                <span class="post-word-count">106字</span>
+                <span class="post-word-count">415字</span>
 				
 				&thinsp;$\bm\vert$&thinsp;   
 				<i class="fas fa-coffee "></i>
 				
-				 <span class="post-word-count">1分钟</span>
-				 
+                <span class="post-word-count">1分钟</span>
+				
         </div>
     </header>
 	  
@@ -220,7 +220,12 @@
 <ul>
 <li>
 <ul>
-<li><a href="#相关命令">相关命令</a></li>
+<li><a href="#问题需求">问题需求</a></li>
+<li><a href="#相关命令">相关命令</a>
+<ul>
+<li><a href="#3drefit">3drefit</a></li>
+</ul></li>
+<li><a href="#参考更多">参考更多</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -259,28 +264,66 @@
         
         
         
+            
         
         
-        
-        
-        
-
         
         
         
         
 
-<blockquote>
-<p>对于一个fMRI文件，众所周知它是一个包含许多个Volumes的4D文件，一般的fMRI可能是保存的时间序列，但也有一些是用户自己写入的参数文件，每一个Volume代表这不同的含义。</p>
-</blockquote>
+        
+        
+        
+        
 
-<p><a href="https://afni.nimh.nih.gov/afni/community/board/read.php?1,65211,87898" rel="nofollow noreferrer" target="_blank">参考链接</a></p>
+<h2 id="问题需求">问题需求</h2>
+
+<p>对于一个fMRI文件，众所周知它是一个包含许多个Volumes的4D文件，一般的fMRI可能是保存的时间序列。</p>
+
+<p>但也有一些是用户自己写入的参数文件，每一个Volume代表这不同的含义。当Volume数目较少时，可以清楚的知道其含义，但是数目较多时就有些吃力了~</p>
+
+<p><a data-fancybox="gallery" href="https://s1.ax1x.com/2023/05/07/p9dNjmj.png" pcked="1"><img src="https://s1.ax1x.com/2023/05/07/p9dNjmj.png" style="zoom: 70%;">
+</a>
+<figcaption class="image-caption">Volumes有无label的比照</figcaption></p>
 
 <h2 id="相关命令">相关命令</h2>
 
+<h3 id="3drefit">3drefit</h3>
+
 <ol>
-<li>可以使用</li>
+<li><a href="https://afni.nimh.nih.gov/afni/community/board/read.php?1,65211,87898" rel="nofollow noreferrer" target="_blank">官方文档</a></li>
+<li><strong>主要用途</strong>
+
+<ul>
+<li>修改或添加给定NIfTI头文件的内容</li>
+</ul></li>
+<li><strong>常用</strong>
+
+<ul>
+<li>转换空间（<code>-space MNI</code>）等，其实就是更改个头文件，对NIfTI文件没有实质更改</li>
+<li>添加更改信息等</li>
+</ul></li>
+<li><strong>具体用法</strong>
+
+<ul>
+<li>官方文档其实写的很详细，主要可选项是<code>-relabel_all xx</code>，见名知意即更改标签信息</li>
+<li>示例： <code>3drefit -relabel_all label.txt yourNiftiFileName.nii</code></li>
+<li>关于 lable.txt文件，你可通过空格、制表符、新行来区分写入的标签</li>
+</ul></li>
+<li><strong>其他</strong>
+
+<ul>
+<li>你也可以只写入部分，详见<code>-sublabel option</code>，值得注意的是<code>-relabel_all option</code>执行在前面，因此<code>-sublabel</code>会重写前者的信息</li>
+</ul></li>
 </ol>
+
+<h2 id="参考更多">参考更多</h2>
+
+<ul>
+<li><a href="https://afni.nimh.nih.gov/afni/community/board/read.php?1,65211,87898" rel="nofollow noreferrer" target="_blank">AFNI Message Board</a></li>
+<li><a href="https://afni.nimh.nih.gov/pub/dist/doc/program_help/3drefit.html#:~:text=%2Drelabel_all%C2%A0xx%C2%A0%C2%A0Reads,tabs%2C%C2%A0new%C2%A0lines" rel="nofollow noreferrer" target="_blank">AFNI 3drefit -relabel_all option</a></li>
+</ul>
 
 <p><center></p>
 
@@ -332,8 +375,10 @@
 
     <div class="post-nav">
         
-        <a href="https://shishuochen.github.io/2023/gv-z65lmb/" class="prev" rel="prev" title="FSL的离线安装方法"><i class="fas fa-caret-left"></i>&nbsp;FSL的离线安装方法</a>
+        <a href="https://shishuochen.github.io/2023/eybhawgtk/" class="prev" rel="prev" title="ChatGPT高效使用Promot合集"><i class="fas fa-caret-left"></i>&nbsp;ChatGPT高效使用Promot合集</a>
         
+        
+        <a href="https://shishuochen.github.io/2023/bry1o8uw6/" class="next" rel="next" title="科研脚本常用的Shell知识汇总">科研脚本常用的Shell知识汇总&nbsp;<i class="fas fas fa-caret-right"></i></a>
         
     </div>
 	        <style>

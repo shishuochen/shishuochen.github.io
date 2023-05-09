@@ -55,7 +55,7 @@
     "articleSection" : "posts",
     "name" : "AFNI\/FSLの日常使用命令",
     "headline" : "AFNI\/FSLの日常使用命令",
-    "description" : "想来整理下常用的AFNI和FSL软件的命令，从而满足一些常用的MRI图像处理操作 I. AFNI类 目的 命令 参数项 更多 制作Mask文件 3dAutomask -prefix See more 去颅骨",
+    "description" : "想来整理下常用的AFNI和FSL软件的命令，从而满足一些常用的MRI图像处理操作 AFNI类 常用命令简介表 目的 命令 参数项 更多 制作Mask文件 3dAutomask",
     "inLanguage" : "zh-cn",
     "author" : "ANY_ME",
     "creator" : "ANY_ME",
@@ -66,8 +66,8 @@
     "datePublished": "2022-11-07 14:19:10 \u002b0800 CST",
     "dateModified" : "2022-11-07 14:19:10 \u002b0800 CST",
     "url" : "https:\/\/shishuochen.github.io\/2022\/7oppy6sjq\/",
-    "wordCount" : "281",
-    "keywords" : [ "ANTs","AFNI", "shishuoCh\u0027s Blog"]
+    "wordCount" : "391",
+    "keywords" : [ "ANTs","AFNI","shell", "shishuoCh\u0027s Blog"]
 }
 </script>
 
@@ -183,7 +183,7 @@
 				&thinsp;$\bm\vert$&thinsp; 
 				
 				
-				<i class="fas fa-history"></i> 更新:2023-01-07
+				<i class="fas fa-history"></i> 更新:2023-05-09
 				
                 
 				&thinsp;$\bm\vert$&thinsp; 
@@ -201,13 +201,13 @@
 				&thinsp;$\bm\vert$&thinsp; 
 				<i class="fas fa-file-word "></i>
 				
-                <span class="post-word-count">281字</span>
+                <span class="post-word-count">391字</span>
 				
 				&thinsp;$\bm\vert$&thinsp;   
 				<i class="fas fa-coffee "></i>
 				
-				 <span class="post-word-count">1分钟</span>
-				 
+                <span class="post-word-count">1分钟</span>
+				
         </div>
     </header>
 	  
@@ -220,9 +220,13 @@
 <ul>
 <li>
 <ul>
-<li><a href="#i-afni类">I. AFNI类</a></li>
-<li><a href="#2-fsl类">2. FSL类</a></li>
-<li><a href="#3-脚本类">3. 脚本类</a>
+<li><a href="#afni类">AFNI类</a>
+<ul>
+<li><a href="#常用命令简介表">常用命令简介表</a></li>
+<li><a href="#其他">其他</a></li>
+</ul></li>
+<li><a href="#fsl类">FSL类</a></li>
+<li><a href="#脚本类">脚本类</a>
 <ul>
 <li><a href="#并行计算">并行计算</a></li>
 </ul></li>
@@ -279,7 +283,9 @@
 <p><strong>想来整理下常用的AFNI和FSL软件的命令，从而满足一些常用的MRI图像处理操作</strong></p>
 </blockquote>
 
-<h2 id="i-afni类">I. AFNI类</h2>
+<h2 id="afni类">AFNI类</h2>
+
+<h3 id="常用命令简介表">常用命令简介表</h3>
 
 <p><center></p>
 
@@ -323,13 +329,6 @@
 </tr>
 
 <tr>
-<td align="center"><strong>查看文件信息</strong></td>
-<td align="center"><strong>3dinfo</strong></td>
-<td align="center">\</td>
-<td align="center"><a href="https://afni.nimh.nih.gov/pub/dist/doc/program_help/3dinfo.html" rel="nofollow noreferrer" target="_blank">See more <i class="fa-solid fa-up-right-from-square"></i></a></td>
-</tr>
-
-<tr>
 <td align="center"><strong>重采样</strong></td>
 <td align="center"><strong>3dresample</strong></td>
 <td align="center">-dxyz、-master</td>
@@ -356,14 +355,56 @@
 <td align="center">demo.nii[3..$]</td>
 <td align="center"><a href="https://afni.nimh.nih.gov/pub/dist/doc/program_help/3dTcat.html" rel="nofollow noreferrer" target="_blank">See more <i class="fa-solid fa-up-right-from-square"></i></a></td>
 </tr>
+
+<tr>
+<td align="center"><strong>更改头文件信息</strong></td>
+<td align="center"><strong>3drefit</strong></td>
+<td align="center">-space、-relabel_all</td>
+<td align="center"><a href="https://afni.nimh.nih.gov/pub/dist/doc/program_help/3drefit.html" rel="nofollow noreferrer" target="_blank">See more <i class="fa-solid fa-up-right-from-square"></i></a></td>
+</tr>
 </tbody>
 </table>
 
 <p></center></p>
 
-<h2 id="2-fsl类">2. FSL类</h2>
+<h3 id="其他">其他</h3>
 
-<h2 id="3-脚本类">3. 脚本类</h2>
+<ol>
+<li><strong>AFNI命令中如何使用shell变量</strong>
+
+<ul>
+<li>使用双引号即可，举个栗子，在<code>3dcalc</code>命令中，<code>3dcalc -a &quot;${id}&quot; ....</code></li>
+<li><a href="https://afni.nimh.nih.gov/pub/dist/doc/program_help/3dcalc.html#:~:text=NOTE%3A%C2%A0If%C2%A0you%C2%A0want%C2%A0to%C2%A0include%C2%A0shell%C2%A0variables%C2%A0in%C2%A0the%C2%A0expression%C2%A0(or%C2%A0in%C2%A0%C2%A0%0A%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0the%C2%A0dataset%C2%A0sub%2Dbrick%C2%A0selection)%2C%C2%A0then%C2%A0you%C2%A0should%C2%A0use%C2%A0double%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%0A%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%22quotes%22%C2%A0and%C2%A0the%C2%A0%27%24%27%C2%A0notation%C2%A0for%C2%A0the%C2%A0shell%C2%A0variables%3B%C2%A0this%C2%A0%C2%A0%C2%A0%C2%A0%0A%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0example%C2%A0uses%C2%A0csh%C2%A0notation%C2%A0to%C2%A0set%C2%A0the%C2%A0shell%C2%A0variable%C2%A0%27z%27%3A" rel="nofollow noreferrer" target="_blank">了解更多</a></li>
+</ul></li>
+</ol>
+
+<h2 id="fsl类">FSL类</h2>
+
+<p><center></p>
+
+<table>
+<thead>
+<tr>
+<th align="center"><strong>目的</strong></th>
+<th align="center"><strong>命令</strong></th>
+<th align="center"><strong>参数项</strong></th>
+<th align="center"><strong>更多</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center"><strong>数值、逻辑计算</strong></td>
+<td align="center"><strong>fslmaths</strong></td>
+<td align="center">-bin、-thr</td>
+<td align="center"><a href="https://mandymejia.com/fsl-maths-commands/" rel="nofollow noreferrer" target="_blank">See more <i class="fa-solid fa-up-right-from-square"></i></a></td>
+</tr>
+</tbody>
+</table>
+
+<p></center></p>
+
+<h2 id="脚本类">脚本类</h2>
 
 <h3 id="并行计算">并行计算</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">foo<span style="color:#f92672">(){</span>
@@ -372,12 +413,8 @@ cd <span style="color:#e6db74">${</span>data_path<span style="color:#e6db74">}</
 <span style="color:#66d9ef">for</span> i in <span style="color:#e6db74">${</span>type[@]<span style="color:#e6db74">}</span>; <span style="color:#66d9ef">do</span> foo <span style="color:#e6db74">&#34;</span>$i<span style="color:#e6db74">&#34;</span> &amp; <span style="color:#66d9ef">done</span></code></pre></div>
 <ol>
 <li>fslmerge</li>
-<li></li>
+<li>查询存储空间：<code>df -h</code></li>
 </ol>
-
-<p>查询存储空间</p>
-
-<p>df -h</p>
 
 <p><center></p>
 
@@ -418,6 +455,9 @@ cd <span style="color:#e6db74">${</span>data_path<span style="color:#e6db74">}</
             
             <span class="tag"><a href="https://shishuochen.github.io/tags/afni/">
                     #AFNI</a></span>
+            
+            <span class="tag"><a href="https://shishuochen.github.io/tags/shell/">
+                    #shell</a></span>
             
             </section>
         

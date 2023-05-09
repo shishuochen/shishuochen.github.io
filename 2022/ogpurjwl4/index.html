@@ -55,7 +55,7 @@
     "articleSection" : "posts",
     "name" : "Hugo BLOG常用代码合集",
     "headline" : "Hugo BLOG常用代码合集",
-    "description" : "每次写文章，有一些不常用的命令容易忘记，还要去过往的代码里找，很是麻烦。所以特别的记录整合到一起\u0026hellip;.. 插入图片及题注 \u0026lt;a data-fancybox=\u0026#34;gallery\u0026#34; href=\u0026#34;https:\/\/s1.ax1x.com\/2022\/09\/27\/xeekrD.jpg\u0026#34; pcked=\u0026#34;1\u0026#34;\u0026gt;\u0026lt;img src=\u0026#34;https:\/\/s1.ax1x.com\/2022\/09\/27\/xeekrD.jpg\u0026#34;",
+    "description" : "每次写文章及本地预览效果时，有一些不常用的命令容易忘记，还要去过往的代码里找，很是麻烦。所以特别的记录整合到一起\u0026hellip;.. 插入图片",
     "inLanguage" : "zh-cn",
     "author" : "ANY_ME",
     "creator" : "ANY_ME",
@@ -66,7 +66,7 @@
     "datePublished": "2022-09-28 12:08:20 \u002b0800 CST",
     "dateModified" : "2022-09-28 12:08:20 \u002b0800 CST",
     "url" : "https:\/\/shishuochen.github.io\/2022\/ogpurjwl4\/",
-    "wordCount" : "276",
+    "wordCount" : "322",
     "keywords" : [ "博客搭建","Markdown", "shishuoCh\u0027s Blog"]
 }
 </script>
@@ -183,7 +183,7 @@
 				&thinsp;$\bm\vert$&thinsp; 
 				
 				
-				<i class="fas fa-history"></i> 更新:2022-10-03
+				<i class="fas fa-history"></i> 更新:2023-05-09
 				
                 
 				&thinsp;$\bm\vert$&thinsp; 
@@ -201,13 +201,13 @@
 				&thinsp;$\bm\vert$&thinsp; 
 				<i class="fas fa-file-word "></i>
 				
-                <span class="post-word-count">276字</span>
+                <span class="post-word-count">322字</span>
 				
 				&thinsp;$\bm\vert$&thinsp;   
 				<i class="fas fa-coffee "></i>
 				
-				 <span class="post-word-count">1分钟</span>
-				 
+                <span class="post-word-count">1分钟</span>
+				
         </div>
     </header>
 	  
@@ -223,6 +223,7 @@
 <li><a href="#插入图片及题注">插入图片及题注</a></li>
 <li><a href="#内嵌pdf文件">内嵌PDF文件</a></li>
 <li><a href="#交叉引用">交叉引用</a></li>
+<li><a href="#hugo本地预览">Hugo本地预览</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -273,7 +274,7 @@
         
 
 <blockquote>
-<p>每次写文章，有一些不常用的命令容易忘记，还要去过往的代码里找，很是麻烦。所以特别的记录整合到一起&hellip;..</p>
+<p>每次写文章及本地预览效果时，有一些不常用的命令容易忘记，还要去过往的代码里找，很是麻烦。所以特别的记录整合到一起&hellip;..</p>
 </blockquote>
 
 <h2 id="插入图片及题注">插入图片及题注</h2>
@@ -285,6 +286,14 @@
 <h2 id="交叉引用">交叉引用</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;target name&#34;</span>&gt;&lt;/<span style="color:#f92672">a</span>&gt;</code></pre></div>
 <p>先使用上述代码在需要引用处构建锚元素，然后在引用处使用<code>[Presentation](target name)</code>；如果是想引用网页中的某一段话，在浏览器中选中后右键选择【复制指向突出显示的链接】，然后用链接语法就搞定了，<a href="https://utteranc.es/#heading-enable:~:text=Customize%20the%20layout%20using%20the%20.utterances%20and%20.utterances%2Dframe%20selectors" rel="nofollow noreferrer" target="_blank">【来个例子】</a>。</p>
+
+<h2 id="hugo本地预览">Hugo本地预览</h2>
+
+<ol>
+<li>构建：<code>hugo</code></li>
+<li>新建文件：<code>hugo new /posts/filename.md</code></li>
+<li>本地预览：<code>hugo server --buildDrafts -w</code></li>
+</ol>
 
 <p><center>
 $\cdots$ <strong>end</strong> $\cdots$

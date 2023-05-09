@@ -6,14 +6,50 @@
     <description>Recent content in Posts on shishuoCh&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 11 Apr 2023 16:34:05 +0800</lastBuildDate><atom:link href="https://shishuochen.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 09 May 2023 14:50:03 +0800</lastBuildDate><atom:link href="https://shishuochen.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>NtO8NftQj</title>
+      <link>https://shishuochen.github.io/2023/nto8nftqj/</link>
+      <pubDate>Tue, 09 May 2023 14:50:03 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2023/nto8nftqj/</guid>
+      <description>$\cdots$ end $\cdots$</description>
+    </item>
+    
+    <item>
+      <title>SPM相关问题合集</title>
+      <link>https://shishuochen.github.io/2023/ebxcy0680/</link>
+      <pubDate>Tue, 09 May 2023 14:36:22 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2023/ebxcy0680/</guid>
+      <description>汇总下SPM中常见的问题及科研需求，其实一般来说，SPM12 Manual中应该都可以解决问题，但是它实在太繁杂了。持续更新但不勤快~ SPM中</description>
+    </item>
+    
+    <item>
+      <title>科研脚本常用的Shell知识汇总</title>
+      <link>https://shishuochen.github.io/2023/bry1o8uw6/</link>
+      <pubDate>Tue, 09 May 2023 14:19:25 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2023/bry1o8uw6/</guid>
+      <description>记在本地还是不方便，搬上来吧~ 命令类 Linux命令结果输出到变量 var=$(com)、var=`com` 抑制命令界面输出 : $(command line) 注意：冒号后面</description>
+    </item>
+    
     <item>
       <title>AFNI给FMRI的sub-brick添加命名</title>
       <link>https://shishuochen.github.io/2023/ujcg5-_kj/</link>
       <pubDate>Tue, 11 Apr 2023 16:34:05 +0800</pubDate>
       
       <guid>https://shishuochen.github.io/2023/ujcg5-_kj/</guid>
-      <description>对于一个fMRI文件，众所周知它是一个包含许多个Volumes的4D文件，一般的fMRI可能是保存的时间序列，但也有一些是用户自己写入的参数</description>
+      <description>问题需求 对于一个fMRI文件，众所周知它是一个包含许多个Volumes的4D文件，一般的fMRI可能是保存的时间序列。 但也有一些是用户自己写</description>
+    </item>
+    
+    <item>
+      <title>ChatGPT高效使用Promot合集</title>
+      <link>https://shishuochen.github.io/2023/eybhawgtk/</link>
+      <pubDate>Wed, 15 Feb 2023 16:27:32 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2023/eybhawgtk/</guid>
+      <description>$\cdots$ end $\cdots$</description>
     </item>
     
     <item>
@@ -40,7 +76,7 @@
       <pubDate>Mon, 07 Nov 2022 14:19:10 +0800</pubDate>
       
       <guid>https://shishuochen.github.io/2022/7oppy6sjq/</guid>
-      <description>想来整理下常用的AFNI和FSL软件的命令，从而满足一些常用的MRI图像处理操作 I. AFNI类 目的 命令 参数项 更多 制作Mask文件 3dAutomask -prefix See more 去颅骨</description>
+      <description>想来整理下常用的AFNI和FSL软件的命令，从而满足一些常用的MRI图像处理操作 AFNI类 常用命令简介表 目的 命令 参数项 更多 制作Mask文件 3dAutomask</description>
     </item>
     
     <item>
@@ -67,7 +103,7 @@
       <pubDate>Wed, 28 Sep 2022 12:08:20 +0800</pubDate>
       
       <guid>https://shishuochen.github.io/2022/ogpurjwl4/</guid>
-      <description>每次写文章，有一些不常用的命令容易忘记，还要去过往的代码里找，很是麻烦。所以特别的记录整合到一起&amp;hellip;.. 插入图片及题注 &amp;lt;a data-fancybox=&amp;#34;gallery&amp;#34; href=&amp;#34;https://s1.ax1x.com/2022/09/27/xeekrD.jpg&amp;#34; pcked=&amp;#34;1&amp;#34;&amp;gt;&amp;lt;img src=&amp;#34;https://s1.ax1x.com/2022/09/27/xeekrD.jpg&amp;#34;</description>
+      <description>每次写文章及本地预览效果时，有一些不常用的命令容易忘记，还要去过往的代码里找，很是麻烦。所以特别的记录整合到一起&amp;hellip;.. 插入图片</description>
     </item>
     
     <item>

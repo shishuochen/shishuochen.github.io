@@ -13,7 +13,7 @@
       <pubDate>Tue, 11 Apr 2023 16:34:05 +0800</pubDate>
       
       <guid>https://shishuochen.github.io/2023/ujcg5-_kj/</guid>
-      <description>对于一个fMRI文件，众所周知它是一个包含许多个Volumes的4D文件，一般的fMRI可能是保存的时间序列，但也有一些是用户自己写入的参数</description>
+      <description>问题需求 对于一个fMRI文件，众所周知它是一个包含许多个Volumes的4D文件，一般的fMRI可能是保存的时间序列。 但也有一些是用户自己写</description>
     </item>
     
   </channel>

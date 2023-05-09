@@ -6,14 +6,23 @@
     <description>Recent content in 医学图像处理 on shishuoCh&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 11 Apr 2023 16:34:05 +0800</lastBuildDate><atom:link href="https://shishuochen.github.io/categories/%E5%8C%BB%E5%AD%A6%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 09 May 2023 14:36:22 +0800</lastBuildDate><atom:link href="https://shishuochen.github.io/categories/%E5%8C%BB%E5%AD%A6%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SPM相关问题合集</title>
+      <link>https://shishuochen.github.io/2023/ebxcy0680/</link>
+      <pubDate>Tue, 09 May 2023 14:36:22 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2023/ebxcy0680/</guid>
+      <description>汇总下SPM中常见的问题及科研需求，其实一般来说，SPM12 Manual中应该都可以解决问题，但是它实在太繁杂了。持续更新但不勤快~ SPM中</description>
+    </item>
+    
     <item>
       <title>AFNI给FMRI的sub-brick添加命名</title>
       <link>https://shishuochen.github.io/2023/ujcg5-_kj/</link>
       <pubDate>Tue, 11 Apr 2023 16:34:05 +0800</pubDate>
       
       <guid>https://shishuochen.github.io/2023/ujcg5-_kj/</guid>
-      <description>对于一个fMRI文件，众所周知它是一个包含许多个Volumes的4D文件，一般的fMRI可能是保存的时间序列，但也有一些是用户自己写入的参数</description>
+      <description>问题需求 对于一个fMRI文件，众所周知它是一个包含许多个Volumes的4D文件，一般的fMRI可能是保存的时间序列。 但也有一些是用户自己写</description>
     </item>
     
     <item>
@@ -31,7 +40,7 @@
       <pubDate>Mon, 07 Nov 2022 14:19:10 +0800</pubDate>
       
       <guid>https://shishuochen.github.io/2022/7oppy6sjq/</guid>
-      <description>想来整理下常用的AFNI和FSL软件的命令，从而满足一些常用的MRI图像处理操作 I. AFNI类 目的 命令 参数项 更多 制作Mask文件 3dAutomask -prefix See more 去颅骨</description>
+      <description>想来整理下常用的AFNI和FSL软件的命令，从而满足一些常用的MRI图像处理操作 AFNI类 常用命令简介表 目的 命令 参数项 更多 制作Mask文件 3dAutomask</description>
     </item>
     
     <item>

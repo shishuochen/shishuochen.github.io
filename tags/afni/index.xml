@@ -13,7 +13,7 @@
       <pubDate>Tue, 11 Apr 2023 16:34:05 +0800</pubDate>
       
       <guid>https://shishuochen.github.io/2023/ujcg5-_kj/</guid>
-      <description>对于一个fMRI文件，众所周知它是一个包含许多个Volumes的4D文件，一般的fMRI可能是保存的时间序列，但也有一些是用户自己写入的参数</description>
+      <description>问题需求 对于一个fMRI文件，众所周知它是一个包含许多个Volumes的4D文件，一般的fMRI可能是保存的时间序列。 但也有一些是用户自己写</description>
     </item>
     
     <item>
@@ -22,7 +22,7 @@
       <pubDate>Mon, 07 Nov 2022 14:19:10 +0800</pubDate>
       
       <guid>https://shishuochen.github.io/2022/7oppy6sjq/</guid>
-      <description>想来整理下常用的AFNI和FSL软件的命令，从而满足一些常用的MRI图像处理操作 I. AFNI类 目的 命令 参数项 更多 制作Mask文件 3dAutomask -prefix See more 去颅骨</description>
+      <description>想来整理下常用的AFNI和FSL软件的命令，从而满足一些常用的MRI图像处理操作 AFNI类 常用命令简介表 目的 命令 参数项 更多 制作Mask文件 3dAutomask</description>
     </item>
     
     <item>
