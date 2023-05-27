@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HZXHKZW7E0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HZXHKZW7E0');
+</script>
+<meta name="google-site-verification" content="PgRvRggX4FPNmBfLmc_IBoedK_gPlyCB_p49I3DfNSA" />
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="ANY_ME">
+    <meta name="description" content="shishuoCh的个人博客">
+    
+    <meta name="google-site-verification" content=" " />
+    <link rel="prev" href="https://shishuochen.github.io/2023/ebxcy0680/" />
+    
+    <link rel="canonical" href="https://shishuochen.github.io/2023/k-flhnrms/" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+        
+        
+            字符串匹配-KMP算法 | shishuoCh&#39;s Blog
+        
+    </title>
+    <meta name="title" content="字符串匹配-KMP算法 | shishuoCh&#39;s Blog">
+    
+<link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/shishuochen.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "字符串匹配-KMP算法",
+    "headline" : "字符串匹配-KMP算法",
+    "description" : "KMP算法接触是从滑动窗口的使用开始的，因为涉及到模式（字符串）匹配，自己也是理解了好久才差不多弄懂，写在了LeetCode题解里，直接复制",
+    "inLanguage" : "zh-cn",
+    "author" : "ANY_ME",
+    "creator" : "ANY_ME",
+    "publisher": "ANY_ME",
+    "accountablePerson" : "ANY_ME",
+    "copyrightHolder" : "ANY_ME",
+    "copyrightYear" : "2023",
+    "datePublished": "2023-05-27 15:23:45 \u002b0800 CST",
+    "dateModified" : "2023-05-27 15:23:45 \u002b0800 CST",
+    "url" : "https:\/\/shishuochen.github.io\/2023\/k-flhnrms\/",
+    "wordCount" : "2445",
+    "keywords" : [ "C\u002b\u002b", "shishuoCh\u0027s Blog"]
+}
+</script>
+
+	<link rel="stylesheet" href=
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
+</link>
+    
+    <script src="https://kit.fontawesome.com/860bffd803.js" crossorigin="anonymous"></script>
+	
+
+
+  </head>
+    <body class="">
+        <div class="wrapper">
+            <nav class="navbar">
+    
+        <progress class="content_progress" max="0" value="0"></progress>
+    
+    <div class="container">
+        
+            <div class="navbar-header header-back2home-logo">
+                <span class="logo_mark" >>$</span>
+                <a href="https://shishuochen.github.io">
+                    <span class="logo_text" >cd /home/</span>
+                    <span class="logo_cursor" ></span>
+                </a>
+            </div>
+        
+        <div class="navbar-right">
+                
+                <span class="menu">
+                
+                <a class="menu-item" href="/posts/" title="">📖Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">📁Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">🎨Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">💬About</a>
+                
+                <a class="menu-item" href="/about/" title="">ANY_ME</a>
+                
+                <span class="divide"></span>
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-dark-mode"></i></a>
+                </span>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display:none">
+    
+        <progress class="content_progress" max="0" value="0"></progress>
+    
+     <div class="container">
+        <div class="navbar">
+            <div class="navbar-header header-logo">
+                    <a href="https://shishuochen.github.io">shishuoCh&#39;s Blog</a>
+            </div>
+            <div class="navbar-right">
+                <div><a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-dark-mode"></i></a></div>
+                <div class="menu-toggle">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                <nav class="mb-md">
+                    
+                    
+                        <a class="menu-item" href="/posts/" title="" white-space="nowrap">
+						<nobr>📖Blog</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/categories/" title="" white-space="nowrap">
+						<nobr>📁Categories</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/tags/" title="" white-space="nowrap">
+						<nobr>🎨Tags</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/about/" title="" white-space="nowrap">
+						<nobr>💬About</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/about/" title="" white-space="nowrap">
+						<nobr>ANY_ME</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                </nav>
+        </div>
+    </div>
+</nav>
+            <main class="main">
+                <div class="container">
+                    
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">字符串匹配-KMP算法</h1>
+        <div class="post-meta">
+                <i class="fas fa-user-circle"></i> <a itemprop="name" href="https://shishuochen.github.io" rel="author">ANY_ME</a> 
+				&thinsp;$\bm\vert$&thinsp; 
+				<i class="fas fa-calendar-check "></i>
+				发布:2023-05-27
+				
+                </span>
+                
+				&thinsp;$\bm\vert$&thinsp; 
+				
+				
+                
+				&thinsp;$\bm\vert$&thinsp; 
+                
+                <i class="fas fa-folder-open "></i>
+                <span class="post-category">
+                        
+                        
+                        
+                          <a href="https://shishuochen.github.io/categories/code%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/"> Code那些事儿</a>
+                        
+                        
+                </span>
+				
+				&thinsp;$\bm\vert$&thinsp; 
+				<i class="fas fa-file-word "></i>
+				
+                <span class="post-word-count">2445字</span>
+				
+				&thinsp;$\bm\vert$&thinsp;   
+				<i class="fas fa-coffee "></i>
+				
+                <span class="post-word-count">8分钟</span>
+				
+        </div>
+    </header>
+	  
+     
+          <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title"></h2>
+  
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#本文缺点-没有图">本文缺点：没有图</a></li>
+<li><a href="#i-一般思路">I. 一般思路</a>
+<ul>
+<li><a href="#利用内置函数来操作">利用内置函数来操作</a></li>
+<li><a href="#朴素匹配法">朴素匹配法</a></li>
+</ul></li>
+<li><a href="#ii-kmp-算法">II. KMP 算法</a>
+<ul>
+<li><a href="#kmp算法要解决的问题">KMP算法要解决的问题</a></li>
+<li><a href="#kmp算法用什么解决这个问题">KMP算法用什么解决这个问题</a></li>
+<li><a href="#pmt表-to-next数组">PMT表$\to$ next数组</a></li>
+</ul></li>
+<li><a href="#iii-next数组的计算">III. next数组的计算</a>
+<ul>
+<li><a href="#总的来说">总的来说</a></li>
+</ul></li>
+<li><a href="#参考链接">参考链接</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+<script type="text/javascript">
+  window.onload = function () {
+    var fix = $('.post-toc');
+    var end = $('.post-comment');
+    var fixTop = fix.offset().top, fixHeight = fix.height();
+    var endTop, miss;
+    var offsetTop = fix[0].offsetTop;
+    $(window).scroll(function () {
+      var docTop = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
+      if (end.length > 0) {
+        endTop = end.offset().top;
+        miss = endTop - docTop - fixHeight;
+      }
+      if (fixTop < docTop) {
+        fix.css({ 'position': 'fixed' });
+        if ((end.length > 0) && (endTop < (docTop + fixHeight))) {
+          fix.css({ top: miss });
+        } else {
+          fix.css({ top: 0 });
+        }
+      } else {
+        fix.css({ 'position': 'absolute' });
+        fix.css({ top: offsetTop });
+      }
+    })
+  }
+</script> 
+	
+	<hr class="hr-twill-colorful">
+    <div class="post-content">
+        
+        
+        
+        
+        
+        
+        
+        
+
+        
+        
+        
+        
+
+<blockquote>
+<p>KMP算法接触是从滑动窗口的使用开始的，因为涉及到模式（字符串）匹配，自己也是理解了好久才差不多弄懂，写在了LeetCode题解里，直接复制过来，以作记录，唯一缺点就是没有图。 在<a href="https://leetcode.cn/problems/repeated-dna-sequences/" rel="nofollow noreferrer" target="_blank">187. 重复的DNA序列</a>问题中，用到的是<strong>滑动窗口加目标串编码</strong>的方式，但是该问题中匹配串的长度可以很长，因此不适用于<strong>编码-增删位</strong>，从而一一对应。</p>
+</blockquote>
+
+<h2 id="本文缺点-没有图">本文缺点：没有图</h2>
+
+<blockquote>
+<p>结合别的大佬的图凑合看~</p>
+</blockquote>
+
+<h2 id="i-一般思路">I. 一般思路</h2>
+
+<h3 id="利用内置函数来操作">利用内置函数来操作</h3>
+
+<ul>
+<li>使用C++中的内置函数<code>substr(int begin, int length)</code>，维护一个固定长度的窗口，每次取出窗口字符串与目标字符串比较，从而返回结果</li>
+</ul>
+
+<h3 id="朴素匹配法">朴素匹配法</h3>
+
+<ul>
+<li>在总的字符串序列中，不断更新起始位置<code>start</code>，对于每个<code>start</code>，比较后续字符与目标字符串中是否一一相等，从而返回结果</li>
+<li>整体复杂度为 $O(n*(m-n))$，其中 $n$ 为目标字符串长度， $m$ 为总的字符串长度。</li>
+</ul>
+
+<h2 id="ii-kmp-算法">II. KMP 算法</h2>
+
+<p><a href="https://www.zhihu.com/question/21923021/answer/281346746" rel="nofollow noreferrer" target="_blank">如何更好地理解和掌握 KMP 算法? - 知乎</a></p>
+
+<blockquote>
+<p>其实在<strong>朴素匹配法</strong>中，存在可以优化的地方，也就是当对于起始位置<code>start</code>的的后续匹配中，如果出现了与目标字符串不匹配的字符，目标字符串的索引不一定要回退到起始位置，从头开始，因为这中间有可能有一部分是匹配好的。</p>
+</blockquote>
+
+<ul>
+<li>最极端的例子，目标字符串中的所有字母都不一样，那么肯定需要从头开始</li>
+<li>假如目标字符串前几个都一样，<code>aaaaf</code>，而总的字符串为<code>aaaaaaf</code>，很显然，不需要对总字符串中的每个<code>start</code>，都将目标字符串从头开始</li>
+</ul>
+
+<h3 id="kmp算法要解决的问题">KMP算法要解决的问题</h3>
+
+<ul>
+<li><strong>因此，KMP算法解决的问题其实就是，当遇见不匹配的字符时，快速告诉我们目标字符串的索引应该回退到哪里?</strong> 开始位置？ where？</li>
+</ul>
+
+<h3 id="kmp算法用什么解决这个问题">KMP算法用什么解决这个问题</h3>
+
+<blockquote>
+<p>部分匹配表(PMT表，Partial Match Table)）或者叫前缀表</p>
+</blockquote>
+
+<ul>
+<li><p><strong>PMT表中元素的含义</strong>：</p>
+
+<ul>
+<li>$PMT[i]$: <a href="https://www.zhihu.com/question/21923021/answer/281346746#:~:text=PMT%E4%B8%AD%E7%9A%84%E5%80%BC%E6%98%AF%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%89%8D%E7%BC%80%E9%9B%86%E5%90%88%E4%B8%8E%E5%90%8E%E7%BC%80%E9%9B%86%E5%90%88%E7%9A%84%E4%BA%A4%E9%9B%86%E4%B8%AD%E6%9C%80%E9%95%BF%E5%85%83%E7%B4%A0%E7%9A%84%E9%95%BF%E5%BA%A6" rel="nofollow noreferrer" target="_blank">PMT中的值是字符串的前缀集合与后缀集合的交集中最长元素的长度</a>，这里的字符串指的是从 $s[0]$ 到 $s[i]$ 。</li>
+<li><strong>前缀与后缀</strong>：例如字符串<code>LeetC</code>的前缀集合有<code>{L,Le,Lee,Leet}</code>，后缀集合有<code>{C,tC,etC,eeTc}</code></li>
+<li>前缀集合不能包含<code>s[i]</code>元素，后缀集合不能包含<code>s[0]</code>元素；也就是说<strong>字符串本身不是自己的前缀或后缀</strong>。</li>
+</ul></li>
+
+<li><p><strong>PMT表如何解决快速定位回退位置的问题</strong></p>
+
+<ul>
+<li>思考一个例子，总的字符串为<code>string s1=abababcf</code>，目标字符串为<code>string s2=ababc</code>。</li>
+<li>很显然，在第一轮匹配过程中<code>s1[4]</code>和<code>s2[4]</code>失配，按照朴素匹配的方法，<code>s1</code>的索引回退到索引 $1$，<code>s2</code>则回退到索引 $0$ 从头开始。</li>
+<li>但其实，肉眼观察可以看出<code>s1</code>和<code>s2</code>的索引都不需要回退到上述位置，而应该<code>s1</code>索引保持不变，<code>s2</code>索引回退到 $2$，为什么？可以从PMT表中得到这个信息吗？</li>
+<li>答案是可以的，具体来说。因为是在索引 $4$ 失配，则说明<code>s1[0]到s1[3]</code>和<code>s2[0]到s2[3]</code>是完全匹配的，二者分别记为<code>ss1</code>和<code>ss2</code>（内容为<code>abab</code>）。</li>
+<li>所以利用索引 $3$ 的PMT值，很容计算得到<code>PMT[3]=2</code>，也就是字符串<code>abab</code>的前缀集合（<code>{a,ab,aba}</code>）与后缀集合（<code>{b,ab,bab}</code>）的交集中最长元素（<code>ab</code>）的长度，即等于 $2$。</li>
+<li><strong>这就意味着<code>ss1</code>的前 $2$ 个字符和<code>ss1</code>的后 $2$ 个字符是相同的，又因为<code>ss1和ss2是相等的</code>，则<code>ss2</code>的前 $2$ 个字符和<code>ss1</code>的后 $2$ 个字符是相同的</strong>（自己画个图会好理解点），那这个时候就只需要<code>s1</code>的索引保持不变（为$4$），<code>s2</code>的索引回退到 $2$（索引4回退2个位置得到的），然后继续匹配。</li>
+<li>因为<code>s1</code>从索引 $4$ 倒数两个字符和<code>s2</code>正数两个字符是相同的，因此可以跳过匹配。</li>
+</ul></li>
+</ul>
+
+<h3 id="pmt表-to-next数组">PMT表$\to$ next数组</h3>
+
+<blockquote>
+<p>在上述的例子中，失配的索引是 $4$ ，但是我们关注的是 $PMT[3]$，为了方便起见，可以将 $PMT$表整体右移，对于 $PMT[0]$ 则赋值为 -1，就称为<code>next数组</code>。</p>
+</blockquote>
+
+<h2 id="iii-next数组的计算">III. next数组的计算</h2>
+
+<blockquote>
+<p>我个人觉得这个才是KMP算法中最难理解的地方，呜呜呜~</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> getNext(string p)
+{
+    <span style="color:#75715e">// 定义前后的指针
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">int</span> left<span style="color:#f92672">=-</span><span style="color:#ae81ff">1</span>,right<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;
+    <span style="color:#75715e">// 匹配串的长度
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">int</span> n<span style="color:#f92672">=</span>p.size();
+    <span style="color:#75715e">// 返回的结果，即next数组，注意是next数组，不是PMT表，也就是PMT表右移一位的结果
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// 也就是说next[i]记录的是字符串 p[0]-p[i-1]的前后缀集合交集最大长度
+</span><span style="color:#75715e"></span>    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> next(n);
+    next[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">=-</span><span style="color:#ae81ff">1</span>;
+    <span style="color:#66d9ef">while</span>(right<span style="color:#f92672">&lt;</span>n<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)  <span style="color:#75715e">// 因为right=n-2时的计算结果，存储在next[n-1]中
+</span><span style="color:#75715e"></span>    {
+        <span style="color:#75715e">// 如果left在最开始位置或者当前left索引值与right索引值相等
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">// 那么从0到right的这段字符串的前后缀集合交集最大长度为left+1，且应该存储在next[right+1]中
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">// 为什么要加这个left==-1这个条件呢，因为如果不加这个条件，left从零开始，right从1开始
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">// 假如一开始就不相等，则else分支将索引出错，left=next[0]=-1,再次进入时，将索引错误
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span>(left<span style="color:#f92672">==-</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">||</span> p[left]<span style="color:#f92672">==</span>p[right])
+        {
+            left<span style="color:#f92672">++</span>;
+            right<span style="color:#f92672">++</span>;
+            next[right]<span style="color:#f92672">=</span>left;
+        }
+        <span style="color:#75715e">// 如果不相等，且left也不是在-1位置，则left应该回退到一个特定位置
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">// 此时left索引值与right索引值不匹配，类似于KMP的匹配机制一样
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">// 根据已经生成的next表,next[left]保存的是 0到left-1的最长公共前后缀
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">// 也就意味着 p[0]到p[left-1]字符串中的最大公共前后缀长度是 next[left]
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">// 假设回退索引位置为 x，则应有 x-0=next[left]，即索引位置是next[left]
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">else</span>
+        {
+
+            left<span style="color:#f92672">=</span>next[left];
+        }
+    }
+    <span style="color:#66d9ef">return</span> next;
+}</code></pre></div>
+<h3 id="总的来说">总的来说</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">int</span> strStr(string haystack, string needle) {
+        <span style="color:#75715e">// 尝试下KMP算法
+</span><span style="color:#75715e"></span>        vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> next<span style="color:#f92672">=</span>getNext(needle);
+        <span style="color:#66d9ef">int</span> left<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>,right<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;
+        <span style="color:#66d9ef">int</span> hLen<span style="color:#f92672">=</span>haystack.size(),nLen<span style="color:#f92672">=</span>needle.size();
+        <span style="color:#66d9ef">while</span>(right<span style="color:#f92672">&lt;</span>hLen)
+        {
+            <span style="color:#66d9ef">char</span> c<span style="color:#f92672">=</span>haystack[right];
+            <span style="color:#66d9ef">char</span> t<span style="color:#f92672">=</span>needle[left];
+            <span style="color:#66d9ef">if</span>(c<span style="color:#f92672">==</span>t)
+            {
+                left<span style="color:#f92672">++</span>;
+                right<span style="color:#f92672">++</span>;
+                <span style="color:#75715e">// 相等之后，left走完needle字符串
+</span><span style="color:#75715e"></span>                <span style="color:#66d9ef">if</span>(left<span style="color:#f92672">==</span>nLen)
+                    <span style="color:#66d9ef">return</span> right<span style="color:#f92672">-</span>nLen;
+            }
+            <span style="color:#66d9ef">else</span>
+            {
+                <span style="color:#66d9ef">if</span>(left<span style="color:#f92672">==</span><span style="color:#ae81ff">0</span>)
+                    right<span style="color:#f92672">++</span>;
+                <span style="color:#66d9ef">else</span>
+                {
+                    left<span style="color:#f92672">=</span>next[left];
+                }
+            }
+
+        }
+        <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+    }
+    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> getNext(string p)
+    {
+        <span style="color:#66d9ef">int</span> left<span style="color:#f92672">=-</span><span style="color:#ae81ff">1</span>,right<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;
+        <span style="color:#66d9ef">int</span> n<span style="color:#f92672">=</span>p.size();
+        vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> next(n);
+        next[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">=-</span><span style="color:#ae81ff">1</span>;
+        <span style="color:#66d9ef">while</span>(right<span style="color:#f92672">&lt;</span>n<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+        {
+            <span style="color:#66d9ef">if</span>(left<span style="color:#f92672">==-</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">||</span> p[left]<span style="color:#f92672">==</span>p[right])
+            {
+                <span style="color:#75715e">// 这一段表达的其实是 索引0到right的最大公共前后缀长度 left+1应该保存在next[rgiht+1]中
+</span><span style="color:#75715e"></span>                <span style="color:#75715e">// 为什么是left+1，因为left对应的是索引位置，是从零开始的
+</span><span style="color:#75715e"></span>                left<span style="color:#f92672">++</span>;
+                right<span style="color:#f92672">++</span>;
+                next[right]<span style="color:#f92672">=</span>left;
+            }
+            <span style="color:#66d9ef">else</span>
+            {
+                <span style="color:#75715e">// 否则回退到匹配好的位置，回退的是索引位置，回退的数目是next[left]，则从零开始索引
+</span><span style="color:#75715e"></span>                <span style="color:#75715e">// 假如，最大公共长度next[left]=2，意味着索引0、1是最大长度，应该继续从2开始匹配
+</span><span style="color:#75715e"></span>                left<span style="color:#f92672">=</span>next[left];
+            }
+        }
+        <span style="color:#66d9ef">return</span> next;
+    }
+};</code></pre></div>
+<h2 id="参考链接">参考链接</h2>
+
+<ul>
+<li><a href="https://www.zhihu.com/question/21923021/answer/281346746" rel="nofollow noreferrer" target="_blank">如何更好地理解和掌握 KMP 算法? - 知乎</a></li>
+<li><a href="https://leetcode.cn/problems/find-the-index-of-the-first-occurrence-in-a-string/solution/shua-chuan-lc-shuang-bai-po-su-jie-fa-km-tb86/" rel="nofollow noreferrer" target="_blank">【宫水三叶】简单题学 KMP 算法</a></li>
+</ul>
+
+<p><center></p>
+
+<p>$\cdots$ <strong>end</strong> $\cdots$</p>
+
+<p></center></p>
+
+    </div>
+    <div class="post-copyright">
+            
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>ANY_ME </span>
+                </p>
+            
+
+            
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://shishuochen.github.io/2023/k-flhnrms/>https://shishuochen.github.io/2023/k-flhnrms/</span>
+            </p>
+            
+            
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://shishuochen.github.io/tags/c&#43;&#43;/">
+                    #C&#43;&#43;</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> ·
+                <span><a href="https://shishuochen.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://shishuochen.github.io/2023/ebxcy0680/" class="prev" rel="prev" title="SPM相关问题合集"><i class="fas fa-caret-left"></i>&nbsp;SPM相关问题合集</a>
+        
+        
+    </div>
+	        <style>
+    .utterances {
+      position: relative;
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .utterances-frame {
+      color-scheme: light;
+      position: absolute;
+      left: 0;
+      right: 0;
+      width: 1px;
+      min-width: 100%;
+      max-width: 100%;
+      height: 100%;
+      border: 0;
+    }
+  </style>
+    <div class="post-comment">
+        
+            
+                <script src="https://utteranc.es/client.js"
+    repo="shishuochen/Bolg-comments"
+    issue-term="title"
+    label="Comment"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+</script>
+<style>
+    .utterances {
+        max-width: 99%;
+    }
+</style>
+            
+        
+
+    </div>
+</article>
+                </div>
+                <link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+            </main>
+            
+<div class="footer-box">
+<footer class="footer">
+   <div class="copyright">
+      &copy;
+      
+      <span itemprop="copyrightYear">2019 - 2023</span>
+      
+      <span class="with-love">
+         <i class="fas fa-heart"></i>
+      </span>
+      
+      <span class="author" itemprop="copyrightHolder"><a href="https://shishuochen.github.io">ANY_ME</a> |
+      </span>
+      
+      
+	  <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+      <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a
+            href="https://github.com/Mogeko/Mogege" target="_blank" rel="external nofollow">Mogege</a></span>
+</footer>
+
+      <div class="back-to-top" id="back_to_top">
+         
+         <span><i class="fas fa-arrow-up"></i></span>
+         
+         <span class="scrollpercent">
+            <span id="back_to_top_text">0</span>%
+         </span>
+      </div>
+</div>
+<script>
+
+   let sideBarOpen = 'sidebar-open';
+   let body = document.body;
+   let back2Top = document.querySelector('#back_to_top'),
+      back2TopText = document.querySelector('#back_to_top_text'),
+      drawerBox = document.querySelector('#drawer_box'),
+      rightSideBar = document.querySelector('.sidebar'),
+      viewport = document.querySelector('body');
+
+   function scrollAnimation(currentY, targetY) {
+
+      let needScrollTop = targetY - currentY
+      let _currentY = currentY
+      setTimeout(() => {
+         const dist = Math.ceil(needScrollTop / 10)
+         _currentY += dist
+         window.scrollTo(_currentY, currentY)
+         if (needScrollTop > 10 || needScrollTop < -10) {
+            scrollAnimation(_currentY, targetY)
+         } else {
+            window.scrollTo(_currentY, targetY)
+         }
+      }, 1)
+   }
+
+   back2Top.addEventListener("click", function (e) {
+      scrollAnimation(document.scrollingElement.scrollTop, 0);
+      e.stopPropagation();
+      return false;
+   });
+
+   window.addEventListener('scroll', function (e) {
+      let percent = document.scrollingElement.scrollTop / (document.scrollingElement.scrollHeight - document.scrollingElement.clientHeight) * 100;
+      if (percent > 1 && !back2Top.classList.contains('back-top-active')) {
+         back2Top.classList.add('back-top-active');
+      }
+      if (percent == 0) {
+         back2Top.classList.remove('back-top-active');
+      }
+      if (back2TopText) {
+         back2TopText.textContent = Math.floor(percent);
+      }
+   });
+</script>
+
+
+
+
+
+
+<script defer src="/js/vendor_main.min.js"></script>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/love.min.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha256-V8SV2MO1FUb63Bwht5Wx9x6PVHNa02gv8BgH/uH3ung=" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha256-F/Xda58SPdcUCr+xhSGz9MA2zQBPb0ASEYKohl8UCHc=" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha256-90d2pnfw0r4K8CZAWPko4rpFXQsZvJhTBGYNkipDprI=" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+           delimiters: [
+     {left: "$$", right: "$$", display: true},
+     {left: "$", right: "$", display: false},
+   ],
+        });
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/jmnote/plantuml-encoder@1.2.4/dist/plantuml-encoder.min.js"></script>
+<script>
+(function(){
+    let plantumlPrefix = "language-plantuml";
+    Array.prototype.forEach.call(document.querySelectorAll("[class^=" + plantumlPrefix + "]"), function(code){
+        let image = document.createElement("IMG");
+        image.loading = 'lazy'; 
+        image.src = 'http://www.plantuml.com/plantuml/svg/~1' + plantumlEncoder.encode(code.innerText);
+        code.parentNode.insertBefore(image, code);
+        code.style.display = 'none'
+    });
+})();
+</script>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script> pangu.spacingPage();</script>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+        </div>
+    </body>
+</html>
+

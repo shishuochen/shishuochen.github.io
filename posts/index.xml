@@ -6,7 +6,16 @@
     <description>Recent content in Posts on shishuoCh&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 09 May 2023 14:36:22 +0800</lastBuildDate><atom:link href="https://shishuochen.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 27 May 2023 15:23:45 +0800</lastBuildDate><atom:link href="https://shishuochen.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>字符串匹配-KMP算法</title>
+      <link>https://shishuochen.github.io/2023/k-flhnrms/</link>
+      <pubDate>Sat, 27 May 2023 15:23:45 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2023/k-flhnrms/</guid>
+      <description>KMP算法接触是从滑动窗口的使用开始的，因为涉及到模式（字符串）匹配，自己也是理解了好久才差不多弄懂，写在了LeetCode题解里，直接复制</description>
+    </item>
+    
     <item>
       <title>SPM相关问题合集</title>
       <link>https://shishuochen.github.io/2023/ebxcy0680/</link>
