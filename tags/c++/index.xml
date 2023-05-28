@@ -6,7 +6,16 @@
     <description>Recent content in C&#43;&#43; on shishuoCh&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 27 May 2023 15:23:45 +0800</lastBuildDate><atom:link href="https://shishuochen.github.io/tags/c++/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 28 May 2023 22:42:17 +0800</lastBuildDate><atom:link href="https://shishuochen.github.io/tags/c++/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>528. 按权重随机选择</title>
+      <link>https://shishuochen.github.io/2023/arinpegej/</link>
+      <pubDate>Sun, 28 May 2023 22:42:17 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2023/arinpegej/</guid>
+      <description>最朴素的想法 一开始，不会做，就想到了最简单的方法，那就是根据权重数组 $w$ 的索引值依次构建 $w[i]$ 个 $i$ 值，放入数组nums中，然后利用随机数生成一个值</description>
+    </item>
+    
     <item>
       <title>字符串匹配-KMP算法</title>
       <link>https://shishuochen.github.io/2023/k-flhnrms/</link>

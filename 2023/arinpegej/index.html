@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HZXHKZW7E0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HZXHKZW7E0');
+</script>
+<meta name="google-site-verification" content="PgRvRggX4FPNmBfLmc_IBoedK_gPlyCB_p49I3DfNSA" />
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="ANY_ME">
+    <meta name="description" content="shishuoCh的个人博客">
+    
+    <meta name="google-site-verification" content=" " />
+    <link rel="prev" href="https://shishuochen.github.io/2023/k-flhnrms/" />
+    
+    <link rel="canonical" href="https://shishuochen.github.io/2023/arinpegej/" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+        
+        
+            528. 按权重随机选择 | shishuoCh&#39;s Blog
+        
+    </title>
+    <meta name="title" content="528. 按权重随机选择 | shishuoCh&#39;s Blog">
+    
+<link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/shishuochen.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "528. 按权重随机选择",
+    "headline" : "528. 按权重随机选择",
+    "description" : "最朴素的想法 一开始，不会做，就想到了最简单的方法，那就是根据权重数组 $w$ 的索引值依次构建 $w[i]$ 个 $i$ 值，放入数组nums中，然后利用随机数生成一个值",
+    "inLanguage" : "zh-cn",
+    "author" : "ANY_ME",
+    "creator" : "ANY_ME",
+    "publisher": "ANY_ME",
+    "accountablePerson" : "ANY_ME",
+    "copyrightHolder" : "ANY_ME",
+    "copyrightYear" : "2023",
+    "datePublished": "2023-05-28 22:42:17 \u002b0800 CST",
+    "dateModified" : "2023-05-28 22:42:17 \u002b0800 CST",
+    "url" : "https:\/\/shishuochen.github.io\/2023\/arinpegej\/",
+    "wordCount" : "1115",
+    "keywords" : [ "C\u002b\u002b","LeetCode", "shishuoCh\u0027s Blog"]
+}
+</script>
+
+	<link rel="stylesheet" href=
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
+</link>
+    
+    <script src="https://kit.fontawesome.com/860bffd803.js" crossorigin="anonymous"></script>
+	
+
+
+  </head>
+    <body class="">
+        <div class="wrapper">
+            <nav class="navbar">
+    
+        <progress class="content_progress" max="0" value="0"></progress>
+    
+    <div class="container">
+        
+            <div class="navbar-header header-back2home-logo">
+                <span class="logo_mark" >>$</span>
+                <a href="https://shishuochen.github.io">
+                    <span class="logo_text" >cd /home/</span>
+                    <span class="logo_cursor" ></span>
+                </a>
+            </div>
+        
+        <div class="navbar-right">
+                
+                <span class="menu">
+                
+                <a class="menu-item" href="/posts/" title="">📖Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">📁Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">🎨Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">💬About</a>
+                
+                <a class="menu-item" href="/about/" title="">ANY_ME</a>
+                
+                <span class="divide"></span>
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-dark-mode"></i></a>
+                </span>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display:none">
+    
+        <progress class="content_progress" max="0" value="0"></progress>
+    
+     <div class="container">
+        <div class="navbar">
+            <div class="navbar-header header-logo">
+                    <a href="https://shishuochen.github.io">shishuoCh&#39;s Blog</a>
+            </div>
+            <div class="navbar-right">
+                <div><a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-dark-mode"></i></a></div>
+                <div class="menu-toggle">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                <nav class="mb-md">
+                    
+                    
+                        <a class="menu-item" href="/posts/" title="" white-space="nowrap">
+						<nobr>📖Blog</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/categories/" title="" white-space="nowrap">
+						<nobr>📁Categories</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/tags/" title="" white-space="nowrap">
+						<nobr>🎨Tags</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/about/" title="" white-space="nowrap">
+						<nobr>💬About</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/about/" title="" white-space="nowrap">
+						<nobr>ANY_ME</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                </nav>
+        </div>
+    </div>
+</nav>
+            <main class="main">
+                <div class="container">
+                    
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">528. 按权重随机选择</h1>
+        <div class="post-meta">
+                <i class="fas fa-user-circle"></i> <a itemprop="name" href="https://shishuochen.github.io" rel="author">ANY_ME</a> 
+				&thinsp;$\bm\vert$&thinsp; 
+				<i class="fas fa-calendar-check "></i>
+				发布:2023-05-28
+				
+                </span>
+                
+				&thinsp;$\bm\vert$&thinsp; 
+				
+				
+                
+				&thinsp;$\bm\vert$&thinsp; 
+                
+                <i class="fas fa-folder-open "></i>
+                <span class="post-category">
+                        
+                        
+                        
+                          <a href="https://shishuochen.github.io/categories/code%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/"> Code那些事儿</a>
+                        
+                        
+                </span>
+				
+				&thinsp;$\bm\vert$&thinsp; 
+				<i class="fas fa-file-word "></i>
+				
+                <span class="post-word-count">1115字</span>
+				
+				&thinsp;$\bm\vert$&thinsp;   
+				<i class="fas fa-coffee "></i>
+				
+                <span class="post-word-count">3分钟</span>
+				
+        </div>
+    </header>
+	  
+     
+          <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title"></h2>
+  
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#最朴素的想法">最朴素的想法</a></li>
+<li><a href="#前缀和-二分查找">前缀和+二分查找</a>
+<ul>
+<li><a href="#前缀和">前缀和</a></li>
+<li><a href="#二分查找">二分查找</a></li>
+<li><a href="#贴个代码">贴个代码</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+<script type="text/javascript">
+  window.onload = function () {
+    var fix = $('.post-toc');
+    var end = $('.post-comment');
+    var fixTop = fix.offset().top, fixHeight = fix.height();
+    var endTop, miss;
+    var offsetTop = fix[0].offsetTop;
+    $(window).scroll(function () {
+      var docTop = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
+      if (end.length > 0) {
+        endTop = end.offset().top;
+        miss = endTop - docTop - fixHeight;
+      }
+      if (fixTop < docTop) {
+        fix.css({ 'position': 'fixed' });
+        if ((end.length > 0) && (endTop < (docTop + fixHeight))) {
+          fix.css({ top: miss });
+        } else {
+          fix.css({ top: 0 });
+        }
+      } else {
+        fix.css({ 'position': 'absolute' });
+        fix.css({ top: offsetTop });
+      }
+    })
+  }
+</script> 
+	
+	<hr class="hr-twill-colorful">
+    <div class="post-content">
+        
+        
+        
+        
+        
+        
+        
+        
+
+        
+        
+        
+        
+
+<h2 id="最朴素的想法">最朴素的想法</h2>
+
+<blockquote>
+<p>一开始，不会做，就想到了最简单的方法，那就是根据权重数组 $w$ 的索引值依次构建 $w[i]$ 个 $i$ 值，放入数组<code>nums</code>中，然后利用随机数生成一个值<code>randomNUm</code>，则<code>nums[randomNum]</code>就是每次选出来的索引，同时也符合其概率。</p>
+</blockquote>
+
+<ul>
+<li>可惜的是这样会超出内存限制</li>
+<li>有没有可以减少内存使用的方法？</li>
+</ul>
+
+<h2 id="前缀和-二分查找">前缀和+二分查找</h2>
+
+<p>思路是根据 <a href="https://labuladong.github.io/algo/di-yi-zhan-da78c/shou-ba-sh-48c1d/dai-quan-z-585d6/" rel="nofollow noreferrer" target="_blank">带权重的随机选择算法::labuladong</a>总结的</p>
+
+<blockquote>
+<p>类似于上述构建的<code>nums</code>，其实某一段（假设是index1到index2）中都是相同的数字，也就是说对于随机生成的数字，假如在index1到index2之间，则返回的结果是一样的，那是不是没有必要记录所有索引的位置，只需要该索引的起始位置和结束位置就可以了，<strong>前缀和可以做到这些。</strong></p>
+</blockquote>
+
+<h3 id="前缀和">前缀和</h3>
+
+<blockquote>
+<p>假设权重数组 $w[4]={2,3,1,2}$，则在朴素想法中，生成的<code>nums</code>数组应该是<code>nums[]={0,0,1,1,1,2,3,3}</code>，这样对于<code>[0-nums.size()-1]</code>的随机数选出来的结果是符合其权重的。其实可以发现，$0\sim 1$ 都是输出索引 $0$，$2\sim 4$ 都是输出索引 $1$，依次类推&hellip;&hellip;</p>
+</blockquote>
+
+<ul>
+<li>也就是说，随机数字在某个区间对应着索引值</li>
+<li>因此记录一个前缀和数组，数组内容就是记录着每个索引值的边界位置，对应于上述例子，<code>preSum[]={2,5,6,8}</code>（就是由权重数组得来），因此随机数的范围应该是 <code>1-8</code>之间。</li>
+<li><strong>注意：前缀和数组记录的是索引相对应的边界位置，如果找到，直接返回对应索引即可，但如果生成的随机数不在前缀和数组中，应该如何返回值呢？</strong></li>
+<li>其实也很简单，类似于力扣的 <a href="https://leetcode.cn/problems/search-insert-position/" rel="nofollow noreferrer" target="_blank">35. 搜索插入位置</a>，举个栗子：如果随机数是3，应该返回5的索引位置，类似于其插入位置，只不过随机数一定是在<code>preSum</code>的范围内，这是与 <a href="https://leetcode.cn/problems/search-insert-position/" rel="nofollow noreferrer" target="_blank">35. 搜索插入位置</a> 不同的。</li>
+</ul>
+
+<h3 id="二分查找">二分查找</h3>
+
+<blockquote>
+<p>在前缀和部分，其实已经说明了二分查找位置的方法，几乎和 <a href="https://leetcode.cn/problems/search-insert-position/" rel="nofollow noreferrer" target="_blank">35. 搜索插入位置</a> 一样。</p>
+</blockquote>
+
+<ul>
+<li>参考 <a href="https://leetcode.cn/problems/search-insert-position/" rel="nofollow noreferrer" target="_blank">35. 搜索插入位置</a> 写的 <a href="https://leetcode.cn/problems/search-insert-position/solution/er-fen-fa-zhao-wei-zhi-by-happy-6reider4-m1t7/" rel="nofollow noreferrer" target="_blank">题解</a></li>
+</ul>
+
+<h3 id="贴个代码">贴个代码</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    Solution(vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&amp;</span> w) {
+        <span style="color:#66d9ef">int</span> n<span style="color:#f92672">=</span>w.size();
+        preSum.resize(n); <span style="color:#75715e">// 大小和权重数组一样
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">// 构造前缀和数组
+</span><span style="color:#75715e"></span>        preSum[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">=</span>w[<span style="color:#ae81ff">0</span>];
+        <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;i<span style="color:#f92672">&lt;</span>n;i<span style="color:#f92672">++</span>)
+        {
+            preSum[i]<span style="color:#f92672">=</span>preSum[i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]<span style="color:#f92672">+</span>w[i];
+        }
+    }
+    <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">pickIndex</span>() {
+        <span style="color:#75715e">// 根据前缀和来找出，随机数字的位置
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">// 因为权重数组是大于等于1的，因此只需要生成[1,preSum[end]]范围的数字即可
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">int</span> n<span style="color:#f92672">=</span>preSum.size();
+        <span style="color:#66d9ef">int</span> target<span style="color:#f92672">=</span>rand()<span style="color:#f92672">%</span>preSum[n<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>;
+        <span style="color:#75715e">// 接下来就是找这个随机数字所在的区间或者说索引
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">// 采用二分法查找，如果preSum中存在这个随机数字，则说明它刚好在右边界位置
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">// 因此如果找不到这个随机数字，则应该返回大于它的数的索引，或者说类似于35.搜索插入位置题
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">int</span> left<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>,right<span style="color:#f92672">=</span>n<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+        <span style="color:#75715e">// 类似于LeetCode 35题写法
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">while</span>(left<span style="color:#f92672">&lt;</span>right)
+        {
+            <span style="color:#66d9ef">int</span> mid<span style="color:#f92672">=</span>left<span style="color:#f92672">+</span>(right<span style="color:#f92672">-</span>left)<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>;
+            <span style="color:#66d9ef">if</span>(preSum[mid]<span style="color:#f92672">==</span>target)
+                <span style="color:#66d9ef">return</span> mid;
+            <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span>(preSum[mid]<span style="color:#f92672">&gt;</span>target)
+                right<span style="color:#f92672">=</span>mid<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+            <span style="color:#66d9ef">else</span>
+                left<span style="color:#f92672">=</span>mid<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>;
+        }
+        <span style="color:#75715e">// 结束条件：left=right，注意left索引值还没有进行过比较
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span>(preSum[left]<span style="color:#f92672">==</span>target)
+            <span style="color:#66d9ef">return</span> left;
+        <span style="color:#75715e">// 因为升序排列
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span>(preSum[left]<span style="color:#f92672">&lt;</span>target)
+            <span style="color:#66d9ef">return</span> left<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>;  
+        <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span>(preSum[left]<span style="color:#f92672">&gt;</span>target)
+            <span style="color:#66d9ef">return</span> left;
+        <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+    }
+<span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> preSum;
+};</code></pre></div>
+<p><center></p>
+
+<p>$\cdots$ <strong>end</strong> $\cdots$</p>
+
+<p></center></p>
+
+    </div>
+    <div class="post-copyright">
+            
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>ANY_ME </span>
+                </p>
+            
+
+            
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://shishuochen.github.io/2023/arinpegej/>https://shishuochen.github.io/2023/arinpegej/</span>
+            </p>
+            
+            
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://shishuochen.github.io/tags/c&#43;&#43;/">
+                    #C&#43;&#43;</a></span>
+            
+            <span class="tag"><a href="https://shishuochen.github.io/tags/leetcode/">
+                    #LeetCode</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> ·
+                <span><a href="https://shishuochen.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://shishuochen.github.io/2023/k-flhnrms/" class="prev" rel="prev" title="字符串匹配-KMP算法"><i class="fas fa-caret-left"></i>&nbsp;字符串匹配-KMP算法</a>
+        
+        
+    </div>
+	        <style>
+    .utterances {
+      position: relative;
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .utterances-frame {
+      color-scheme: light;
+      position: absolute;
+      left: 0;
+      right: 0;
+      width: 1px;
+      min-width: 100%;
+      max-width: 100%;
+      height: 100%;
+      border: 0;
+    }
+  </style>
+    <div class="post-comment">
+        
+            
+                <script src="https://utteranc.es/client.js"
+    repo="shishuochen/Bolg-comments"
+    issue-term="title"
+    label="Comment"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+</script>
+<style>
+    .utterances {
+        max-width: 99%;
+    }
+</style>
+            
+        
+
+    </div>
+</article>
+                </div>
+                <link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+            </main>
+            
+<div class="footer-box">
+<footer class="footer">
+   <div class="copyright">
+      &copy;
+      
+      <span itemprop="copyrightYear">2019 - 2023</span>
+      
+      <span class="with-love">
+         <i class="fas fa-heart"></i>
+      </span>
+      
+      <span class="author" itemprop="copyrightHolder"><a href="https://shishuochen.github.io">ANY_ME</a> |
+      </span>
+      
+      
+	  <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+      <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a
+            href="https://github.com/Mogeko/Mogege" target="_blank" rel="external nofollow">Mogege</a></span>
+</footer>
+
+      <div class="back-to-top" id="back_to_top">
+         
+         <span><i class="fas fa-arrow-up"></i></span>
+         
+         <span class="scrollpercent">
+            <span id="back_to_top_text">0</span>%
+         </span>
+      </div>
+</div>
+<script>
+
+   let sideBarOpen = 'sidebar-open';
+   let body = document.body;
+   let back2Top = document.querySelector('#back_to_top'),
+      back2TopText = document.querySelector('#back_to_top_text'),
+      drawerBox = document.querySelector('#drawer_box'),
+      rightSideBar = document.querySelector('.sidebar'),
+      viewport = document.querySelector('body');
+
+   function scrollAnimation(currentY, targetY) {
+
+      let needScrollTop = targetY - currentY
+      let _currentY = currentY
+      setTimeout(() => {
+         const dist = Math.ceil(needScrollTop / 10)
+         _currentY += dist
+         window.scrollTo(_currentY, currentY)
+         if (needScrollTop > 10 || needScrollTop < -10) {
+            scrollAnimation(_currentY, targetY)
+         } else {
+            window.scrollTo(_currentY, targetY)
+         }
+      }, 1)
+   }
+
+   back2Top.addEventListener("click", function (e) {
+      scrollAnimation(document.scrollingElement.scrollTop, 0);
+      e.stopPropagation();
+      return false;
+   });
+
+   window.addEventListener('scroll', function (e) {
+      let percent = document.scrollingElement.scrollTop / (document.scrollingElement.scrollHeight - document.scrollingElement.clientHeight) * 100;
+      if (percent > 1 && !back2Top.classList.contains('back-top-active')) {
+         back2Top.classList.add('back-top-active');
+      }
+      if (percent == 0) {
+         back2Top.classList.remove('back-top-active');
+      }
+      if (back2TopText) {
+         back2TopText.textContent = Math.floor(percent);
+      }
+   });
+</script>
+
+
+
+
+
+
+<script defer src="/js/vendor_main.min.js"></script>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/love.min.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha256-V8SV2MO1FUb63Bwht5Wx9x6PVHNa02gv8BgH/uH3ung=" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha256-F/Xda58SPdcUCr+xhSGz9MA2zQBPb0ASEYKohl8UCHc=" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha256-90d2pnfw0r4K8CZAWPko4rpFXQsZvJhTBGYNkipDprI=" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+           delimiters: [
+     {left: "$$", right: "$$", display: true},
+     {left: "$", right: "$", display: false},
+   ],
+        });
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/jmnote/plantuml-encoder@1.2.4/dist/plantuml-encoder.min.js"></script>
+<script>
+(function(){
+    let plantumlPrefix = "language-plantuml";
+    Array.prototype.forEach.call(document.querySelectorAll("[class^=" + plantumlPrefix + "]"), function(code){
+        let image = document.createElement("IMG");
+        image.loading = 'lazy'; 
+        image.src = 'http://www.plantuml.com/plantuml/svg/~1' + plantumlEncoder.encode(code.innerText);
+        code.parentNode.insertBefore(image, code);
+        code.style.display = 'none'
+    });
+})();
+</script>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script> pangu.spacingPage();</script>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+        </div>
+    </body>
+</html>
+
