@@ -6,7 +6,16 @@
     <description>Recent content in LeetCode on shishuoCh&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 28 May 2023 22:42:17 +0800</lastBuildDate><atom:link href="https://shishuochen.github.io/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 30 May 2023 11:05:17 +0800</lastBuildDate><atom:link href="https://shishuochen.github.io/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>二分查找框架: x、f(x)、target</title>
+      <link>https://shishuochen.github.io/2023/ff7ripv_q/</link>
+      <pubDate>Tue, 30 May 2023 11:05:17 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2023/ff7ripv_q/</guid>
+      <description>抽象出 $x、f(x)、target$ 框架 此题思路同 1011. 在 D 天内送达包裹的能力 - 力扣（LeetCode） 以及 875. 爱吃香蕉的珂珂 - 力扣（LeetCo</description>
+    </item>
+    
     <item>
       <title>528. 按权重随机选择</title>
       <link>https://shishuochen.github.io/2023/arinpegej/</link>
