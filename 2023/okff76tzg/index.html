@@ -19,9 +19,9 @@
     <meta name="description" content="shishuoCh的个人博客">
     
     <meta name="google-site-verification" content=" " />
-    <link rel="prev" href="https://shishuochen.github.io/2023/arinpegej/" />
-    <link rel="next" href="https://shishuochen.github.io/2023/okff76tzg/" />
-    <link rel="canonical" href="https://shishuochen.github.io/2023/ff7ripv_q/" />
+    <link rel="prev" href="https://shishuochen.github.io/2023/ff7ripv_q/" />
+    
+    <link rel="canonical" href="https://shishuochen.github.io/2023/okff76tzg/" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -32,10 +32,10 @@
     <title>
         
         
-            二分查找框架: x、f(x)、target | shishuoCh&#39;s Blog
+            二叉树的遍历：Morris遍历 | shishuoCh&#39;s Blog
         
     </title>
-    <meta name="title" content="二分查找框架: x、f(x)、target | shishuoCh&#39;s Blog">
+    <meta name="title" content="二叉树的遍历：Morris遍历 | shishuoCh&#39;s Blog">
     
 <link rel="stylesheet" href="/css/main.min.css">
 
@@ -53,9 +53,9 @@
          "@id": "https:\/\/shishuochen.github.io"
     },
     "articleSection" : "posts",
-    "name" : "二分查找框架: x、f(x)、target",
-    "headline" : "二分查找框架: x、f(x)、target",
-    "description" : "抽象出 $x、f(x)、target$ 框架 此题思路同 1011. 在 D 天内送达包裹的能力 - 力扣（LeetCode） 以及 875. 爱吃香蕉的珂珂 - 力扣（LeetCo",
+    "name" : "二叉树的遍历：Morris遍历",
+    "headline" : "二叉树的遍历：Morris遍历",
+    "description" : "写在前面 这种题回过头来再做一下，别有一番风味。之前没看过题解中的 Morris 遍历方法，只是简单的AC然后下一题，可能也不是很明所以然，借此记录一下 Morris 遍",
     "inLanguage" : "zh-cn",
     "author" : "ANY_ME",
     "creator" : "ANY_ME",
@@ -63,10 +63,10 @@
     "accountablePerson" : "ANY_ME",
     "copyrightHolder" : "ANY_ME",
     "copyrightYear" : "2023",
-    "datePublished": "2023-05-30 11:05:17 \u002b0800 CST",
-    "dateModified" : "2023-05-30 11:05:17 \u002b0800 CST",
-    "url" : "https:\/\/shishuochen.github.io\/2023\/ff7ripv_q\/",
-    "wordCount" : "1003",
+    "datePublished": "2023-06-06 18:15:28 \u002b0800 CST",
+    "dateModified" : "2023-06-06 18:15:28 \u002b0800 CST",
+    "url" : "https:\/\/shishuochen.github.io\/2023\/okff76tzg\/",
+    "wordCount" : "1164",
     "keywords" : [ "C\u002b\u002b","LeetCode", "shishuoCh\u0027s Blog"]
 }
 </script>
@@ -171,12 +171,12 @@
                     
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">二分查找框架: x、f(x)、target</h1>
+        <h1 class="post-title" itemprop="name headline">二叉树的遍历：Morris遍历</h1>
         <div class="post-meta">
                 <i class="fas fa-user-circle"></i> <a itemprop="name" href="https://shishuochen.github.io" rel="author">ANY_ME</a> 
 				&thinsp;$\bm\vert$&thinsp; 
 				<i class="fas fa-calendar-check "></i>
-				发布:2023-05-30
+				发布:2023-06-06
 				
                 </span>
                 
@@ -199,7 +199,7 @@
 				&thinsp;$\bm\vert$&thinsp; 
 				<i class="fas fa-file-word "></i>
 				
-                <span class="post-word-count">1003字</span>
+                <span class="post-word-count">1164字</span>
 				
 				&thinsp;$\bm\vert$&thinsp;   
 				<i class="fas fa-coffee "></i>
@@ -218,11 +218,13 @@
 <ul>
 <li>
 <ul>
-<li><a href="#抽象出-x-f-x-target-框架">抽象出 $x、f(x)、target$ 框架</a></li>
-<li><a href="#什么是自变量-x-对应函数-f-x-以及-target">什么是自变量 $x$，对应函数 $f(x)$ 以及 $target$</a></li>
-<li><a href="#对应函数-f-x-是什么">对应函数 $f(x)$ 是什么</a></li>
-<li><a href="#二分怎么找">二分怎么找？</a></li>
-<li><a href="#具体实现">具体实现</a></li>
+<li><a href="#写在前面">写在前面</a></li>
+<li><a href="#递归遍历一遍与迭代">递归遍历一遍与迭代</a></li>
+<li><a href="#分解成子问题的递归">分解成子问题的递归</a></li>
+<li><a href="#morris-遍历">Morris 遍历</a>
+<ul>
+<li><a href="#如何线索化与去线索化">如何线索化与去线索化</a></li>
+</ul></li>
 </ul></li>
 </ul>
 </nav>
@@ -272,96 +274,129 @@
         
         
 
-<h2 id="抽象出-x-f-x-target-框架">抽象出 $x、f(x)、target$ 框架</h2>
+<h2 id="写在前面">写在前面</h2>
 
 <blockquote>
-<p>此题思路同 <a href="https://leetcode.cn/problems/capacity-to-ship-packages-within-d-days/" rel="nofollow noreferrer" target="_blank">1011. 在 D 天内送达包裹的能力 - 力扣（LeetCode）</a> 以及 <a href="https://leetcode.cn/problems/koko-eating-bananas/" rel="nofollow noreferrer" target="_blank">875. 爱吃香蕉的珂珂 - 力扣（LeetCode）</a>，同样根据 <a href="https://mp.weixin.qq.com/s/EjL65QmfX20xhhd-wKlgSg" rel="nofollow noreferrer" target="_blank">laluladong的总结</a> 写出来的。一开始还给它排了序，提交时有些例子不过，才知道要求连续子数组，删除排序操作就可以了。</p>
+<p>这种题回过头来再做一下，别有一番风味。之前没看过题解中的 Morris 遍历方法，只是简单的AC然后下一题，可能也不是很明所以然，借此记录一下 Morris 遍历（好像是KMP中的M）。</p>
 </blockquote>
 
-<h2 id="什么是自变量-x-对应函数-f-x-以及-target">什么是自变量 $x$，对应函数 $f(x)$ 以及 $target$</h2>
+<h2 id="递归遍历一遍与迭代">递归遍历一遍与迭代</h2>
 
 <blockquote>
-<p>题目要求m个子数组的各自和的最大值最小，其实也就说在满足分组数目的条件下，尽可能的让分组的最大和最小；所以完全可以把分组的最大和设置为变量x，所以在计算 $f(x)$ 时，将 $x$ 理解为每个分组和的<strong>限制条件</strong>即可。</p>
-</blockquote>
-
-<h2 id="对应函数-f-x-是什么">对应函数 $f(x)$ 是什么</h2>
-
-<ul>
-<li>$f(x)$ 就对应的是分组和限制条件 $x$ 下的分组数目，很显然，$x$ 越大分组数目越少，$x$ 越小，分组数目越多（<strong>注意：不同的 $x$ 可能对应相同的分组数</strong>）</li>
-</ul>
-
-<h2 id="二分怎么找">二分怎么找？</h2>
-
-<blockquote>
-<p>对于返回值判断的问题取决于二分查找区间的设计，我喜欢左右都闭的情况，以下只针对该情况分析。</p>
+<p>根据前序遍历的特点，很容易写出前序遍历的思路，就是打印当前值，然后遍历其左右子树，<strong>其中的栈是由系统自动维护的。</strong></p>
 </blockquote>
 
 <ul>
-<li><strong>target在哪</strong>：这道题，一定存在一个 $x$ 使得，$f(x)==target$，而且可能存在多个 $x$ 满足，所以要找的是左边界。</li>
-<li>这一点与 <a href="https://leetcode.cn/problems/capacity-to-ship-packages-within-d-days/" rel="nofollow noreferrer" target="_blank">1011. 在 D 天内送达包裹的能力 - 力扣（LeetCode）</a> 以及 <a href="https://leetcode.cn/problems/koko-eating-bananas/" rel="nofollow noreferrer" target="_blank">875. 爱吃香蕉的珂珂 - 力扣（LeetCode）</a> 这两道题是不同的，<strong>吃香蕉和运货物中不一定存在 $x$ 满足 $f(x)==target$</strong>，因此对于返回条件 $left==right$，需要根据 $left$ 对应的函数值来做出判断。</li>
-<li>虽然，该题与运送货物极为相似，但还是略有不同；该题一定可以将<code>nums</code>分成 $K$ 组，只不过不同的分法对应不同的限制条件，但是运送货物不一定能够保证在  $days$ 天完成，可能就是在 $days+1$ 或者 $days-1$ 天完成，所以为了满足条件，只能取 $days-1$ 对应的运输能力。</li>
-<li><strong>自变量的左右边界</strong>：最少分成1组，对应的是数组和；最多分成<code>nums.size()</code>组，对应的是其中的最大值。</li>
+<li>遍历的过程中同时写入相应的元素值，因此该递归函数是不需要返回值的，<strong>那就说明它需要传入参数（不设置全局变量的话）</strong></li>
+
+<li><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">traverse</span>(TreeNode<span style="color:#f92672">*</span> root,vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> <span style="color:#f92672">&amp;</span> res)
+{
+    <span style="color:#66d9ef">if</span>(root<span style="color:#f92672">==</span><span style="color:#66d9ef">nullptr</span>)
+        <span style="color:#66d9ef">return</span>;
+    res.push_back(root<span style="color:#f92672">-&gt;</span>val);
+    traverse(root<span style="color:#f92672">-&gt;</span>left,res);
+    traverse(root<span style="color:#f92672">-&gt;</span>right,res);
+}</code></pre></div></li>
+
+<li><p><strong>与迭代的区别：</strong> <strong>需要自己显式的维护一个栈</strong>，其实也就是在遍历到当前节点时，在写入该元素值时，将结点入栈，<strong>等需要它的时候再出栈（左孩子为空）</strong>，进行右子树的处理。</p></li>
 </ul>
 
-<h2 id="具体实现">具体实现</h2>
+<h2 id="分解成子问题的递归">分解成子问题的递归</h2>
+
+<blockquote>
+<p>前序遍历的思路也可以这样理解，就是将<strong>该节点、该节点左孩子的前序遍历、该节点右孩子的前序遍历拼接起来</strong>，是不是就可以通过分解成子任务来完成。</p>
+</blockquote>
+
+<ul>
+<li>对于递归函数，一定要写清楚三要素：<strong>终止条件、传入参数、返回值</strong></li>
+
+<li><p>很明显：<strong>对于分解子问题是需要有返回值</strong>，因为对于根节点，它需要整合来自左右子树的前序遍历。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">// 返回值类型及传入参数类型
+</span><span style="color:#75715e"></span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> traverse(TreeNode<span style="color:#f92672">*</span> root)
+{   
+    <span style="color:#75715e">// 终止条件
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span>(root<span style="color:#f92672">==</span><span style="color:#66d9ef">nullptr</span>)
+        <span style="color:#66d9ef">return</span> {};
+    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> left<span style="color:#f92672">=</span>traverse(root<span style="color:#f92672">-&gt;</span>left);
+    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> right<span style="color:#f92672">=</span>traverse(root<span style="color:#f92672">-&gt;</span>right);
+    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> res<span style="color:#f92672">=</span>{root<span style="color:#f92672">-&gt;</span>val};
+    res.insert(res.end(),left.begin(),left.end());
+    res.insert(res.end(),right.begin(),right.end());
+    <span style="color:#66d9ef">return</span> res;
+}</code></pre></div></li>
+</ul>
+
+<h2 id="morris-遍历">Morris 遍历</h2>
+
+<blockquote>
+<p>看了一些介绍，Morris遍历就是在将树进行线索化，其实之前的递归利用栈的特性也是一种线索化，具体来说就是栈里面保存了下一步需要访问的点。因为前序遍历直观上来看是从上一直往左下角遍历，然后遇到空指针回溯遍历右侧；栈中其实就是保存了线索化的信息。Morris遍历就是利用其中的空指针来减少内存空间使用，利用这些将这棵树线索化。</p>
+</blockquote>
+
+<h3 id="如何线索化与去线索化">如何线索化与去线索化</h3>
+
+<blockquote>
+<p>结合这个视频和官方解答，可以快速的了解它是如何线索化以及去线索化的，<a href="https://zhuanlan.zhihu.com/p/384818393" rel="nofollow noreferrer" target="_blank">视频来源</a>。</p>
+</blockquote>
+
+<p><strong>线索化具体来说：</strong></p>
+
+<blockquote>
+<p>其实就是要明白什么时候需要<strong>用到栈中节点的信息</strong>（栈不存在，利用线索化信息找到）</p>
+</blockquote>
+
+<ul>
+<li>对于当前节点p：其实就是当该节点的左孩子（如果存在）的右子树遍历完了就会用到当前节点 p 的信息。这就对应 <a href="https://leetcode.cn/problems/binary-tree-preorder-traversal/solution/er-cha-shu-de-qian-xu-bian-li-by-leetcode-solution/" rel="nofollow noreferrer" target="_blank">官解</a> 中所描述的：<strong>在当前节点的左子树中找到当前节点在中序遍历下的前驱节点 Q</strong>；因为该节点（Q节点）遍历完后就会用到当前节点（p节点）的右子树信息。</li>
+</ul>
+
+<p><strong>去线索化具体来说：</strong></p>
+
+<blockquote>
+<p>其实对于有左子树的点，它会被遍历两次，一次是入栈前，另外一次是“栈内弹出”的；前者是发生在遍历左子树之前，后者发生在遍历左子树之后。如果发生在之前，则需要将其线索化，反之则需要将其去线索化，将二叉树还原。</p>
+</blockquote>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> {
 <span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
-    <span style="color:#66d9ef">int</span> splitArray(vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&amp;</span> nums, <span style="color:#66d9ef">int</span> k) {
-        <span style="color:#75715e">// 先排序
-</span><span style="color:#75715e"></span>        <span style="color:#75715e">// sort(nums.begin(),nums.end());
-</span><span style="color:#75715e"></span>        vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> ans<span style="color:#f92672">=</span>minMax(nums);
-        <span style="color:#66d9ef">int</span> left<span style="color:#f92672">=</span>ans[<span style="color:#ae81ff">0</span>],right<span style="color:#f92672">=</span>ans[<span style="color:#ae81ff">1</span>];
-        <span style="color:#66d9ef">while</span>(left<span style="color:#f92672">&lt;</span>right)
+    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> preorderTraversal(TreeNode<span style="color:#f92672">*</span> root) {
+        <span style="color:#66d9ef">if</span>(root<span style="color:#f92672">==</span><span style="color:#66d9ef">nullptr</span>)
+            <span style="color:#66d9ef">return</span> {};
+        vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> ans;
+        TreeNode<span style="color:#f92672">*</span> p1<span style="color:#f92672">=</span>root;
+        TreeNode<span style="color:#f92672">*</span> p2<span style="color:#f92672">=</span><span style="color:#66d9ef">nullptr</span>;
+        <span style="color:#66d9ef">while</span>(p1<span style="color:#f92672">!=</span><span style="color:#66d9ef">nullptr</span>)
         {
-            <span style="color:#75715e">// f(x)递减，因为要求在特定的组数目，groupSum最小，找左边界，而且一定存在left或者mid==groupNum
-</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">int</span> mid<span style="color:#f92672">=</span>left<span style="color:#f92672">+</span>(right<span style="color:#f92672">-</span>left)<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>;
-            <span style="color:#66d9ef">if</span>(f(nums,mid)<span style="color:#f92672">==</span>k)
+            p2<span style="color:#f92672">=</span>p1<span style="color:#f92672">-&gt;</span>left;
+            <span style="color:#75715e">// 先进行线索化
+</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">if</span>(p2<span style="color:#f92672">!=</span><span style="color:#66d9ef">nullptr</span>)
             {
-                right<span style="color:#f92672">=</span>mid;
+                <span style="color:#75715e">// 找到当前节点p1的中序遍历的前驱节点，其实就是p1左子树的最右节点
+</span><span style="color:#75715e"></span>                <span style="color:#66d9ef">while</span>(p2<span style="color:#f92672">-&gt;</span>right<span style="color:#f92672">!=</span><span style="color:#66d9ef">nullptr</span> <span style="color:#f92672">&amp;&amp;</span> p2<span style="color:#f92672">-&gt;</span>right<span style="color:#f92672">!=</span>p1)
+                {
+                    p2<span style="color:#f92672">=</span>p2<span style="color:#f92672">-&gt;</span>right;
+                }
+                <span style="color:#75715e">// 如果因为p2-&gt;right为空，则说明还没有线索化
+</span><span style="color:#75715e"></span>                <span style="color:#66d9ef">if</span>(p2<span style="color:#f92672">-&gt;</span>right<span style="color:#f92672">==</span><span style="color:#66d9ef">nullptr</span>)
+                <span style="color:#75715e">// 没有线索化则构建线索化
+</span><span style="color:#75715e"></span>                {
+                     p2<span style="color:#f92672">-&gt;</span>right<span style="color:#f92672">=</span>p1;
+                     <span style="color:#75715e">// 写入当前值
+</span><span style="color:#75715e"></span>                     ans.push_back(p1<span style="color:#f92672">-&gt;</span>val);
+                     <span style="color:#75715e">// 索引左子树
+</span><span style="color:#75715e"></span>                     p1<span style="color:#f92672">=</span>p1<span style="color:#f92672">-&gt;</span>left;
+                     <span style="color:#75715e">// 避免索引右子树
+</span><span style="color:#75715e"></span>                     <span style="color:#66d9ef">continue</span>;
+                }
+                <span style="color:#66d9ef">else</span>
+                <span style="color:#75715e">// 如果有，说明左侧已经访问过，则断开该线索
+</span><span style="color:#75715e"></span>                p2<span style="color:#f92672">-&gt;</span>right<span style="color:#f92672">=</span><span style="color:#66d9ef">nullptr</span>;
             }
-            <span style="color:#66d9ef">else</span> <span style="color:#a6e22e">if</span>(f(nums,mid)<span style="color:#f92672">&gt;</span>k)
-                left<span style="color:#f92672">=</span>mid<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>;
-            <span style="color:#66d9ef">else</span> <span style="color:#a6e22e">if</span>(f(nums,mid)<span style="color:#f92672">&lt;</span>k)
-                right<span style="color:#f92672">=</span>mid<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
-        }
-        <span style="color:#66d9ef">return</span> left;
-    }
-    <span style="color:#75715e">// 构建f(x) 函数，自变量设置每一组的和,返回值是组数目
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">f</span>(vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&amp;</span>nums,<span style="color:#66d9ef">int</span> groupSum)
-    {
-        <span style="color:#75715e">// 返回值分组数组
-</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">int</span> temp<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>,group<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;
-        <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;i<span style="color:#f92672">&lt;</span>nums.size();i<span style="color:#f92672">++</span>)
-        {
-            temp<span style="color:#f92672">+=</span>nums[i];
-            <span style="color:#66d9ef">if</span>(temp<span style="color:#f92672">==</span>groupSum)
-            {
-                temp<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;
-                group<span style="color:#f92672">++</span>;
+            <span style="color:#66d9ef">else</span>
+            {   
+                <span style="color:#75715e">// 左子树为空则直接写入数值
+</span><span style="color:#75715e"></span>                ans.push_back(p1<span style="color:#f92672">-&gt;</span>val);
             }
-            <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span>(temp<span style="color:#f92672">&gt;</span>groupSum)
-            {
-                temp<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;
-                group<span style="color:#f92672">++</span>;
-                i<span style="color:#f92672">--</span>;
-            }
+            <span style="color:#75715e">// 遍历右子树
+</span><span style="color:#75715e"></span>            p1<span style="color:#f92672">=</span>p1<span style="color:#f92672">-&gt;</span>right;
         }
-        <span style="color:#75715e">// 如果索引完，结果temp还有值，则还需要一组
-</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span>(temp<span style="color:#f92672">&gt;</span><span style="color:#ae81ff">0</span>)   <span style="color:#75715e">//  if(temp&lt;groupSum)
-</span><span style="color:#75715e"></span>            group<span style="color:#f92672">++</span>;
-        <span style="color:#66d9ef">return</span> group;
-    }
-    <span style="color:#75715e">// 求左右边界，理论最小边界就是最大的元素值，这样分组数目最多
-</span><span style="color:#75715e"></span>    <span style="color:#75715e">// 理论最大边界就是所有元素之和，这样就只需要一组即可
-</span><span style="color:#75715e"></span>    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> minMax(vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&amp;</span>nums)
-    {
-        <span style="color:#66d9ef">int</span> sum<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>,maxNum<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;
-        <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;i<span style="color:#f92672">&lt;</span>nums.size();i<span style="color:#f92672">++</span>)
-        {
-            sum<span style="color:#f92672">+=</span>nums[i];
-            maxNum<span style="color:#f92672">=</span>maxNum<span style="color:#f92672">&gt;</span>nums[i] <span style="color:#f92672">?</span> maxNum : nums[i];
-        }
-        <span style="color:#66d9ef">return</span> {maxNum,sum};
+        <span style="color:#66d9ef">return</span> ans;
     }
 };</code></pre></div>
 <p><center></p>
@@ -382,7 +417,7 @@
             
             <p class="copyright-item">
                     <span>Link:</span>
-                    <a href=https://shishuochen.github.io/2023/ff7ripv_q/>https://shishuochen.github.io/2023/ff7ripv_q/</span>
+                    <a href=https://shishuochen.github.io/2023/okff76tzg/>https://shishuochen.github.io/2023/okff76tzg/</span>
             </p>
             
             
@@ -414,10 +449,8 @@
 
     <div class="post-nav">
         
-        <a href="https://shishuochen.github.io/2023/arinpegej/" class="prev" rel="prev" title="528. 按权重随机选择"><i class="fas fa-caret-left"></i>&nbsp;528. 按权重随机选择</a>
+        <a href="https://shishuochen.github.io/2023/ff7ripv_q/" class="prev" rel="prev" title="二分查找框架: x、f(x)、target"><i class="fas fa-caret-left"></i>&nbsp;二分查找框架: x、f(x)、target</a>
         
-        
-        <a href="https://shishuochen.github.io/2023/okff76tzg/" class="next" rel="next" title="二叉树的遍历：Morris遍历">二叉树的遍历：Morris遍历&nbsp;<i class="fas fas fa-caret-right"></i></a>
         
     </div>
 	        <style>
