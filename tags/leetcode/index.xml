@@ -6,7 +6,16 @@
     <description>Recent content in LeetCode on shishuoCh&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 06 Jun 2023 18:15:28 +0800</lastBuildDate><atom:link href="https://shishuochen.github.io/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 13 Jun 2023 14:47:47 +0800</lastBuildDate><atom:link href="https://shishuochen.github.io/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>归并排序及其应用</title>
+      <link>https://shishuochen.github.io/2023/gh9fzukz5/</link>
+      <pubDate>Tue, 13 Jun 2023 14:47:47 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2023/gh9fzukz5/</guid>
+      <description>写在前面 看完labuladong的归并排序的应用后，准备稍稍总结下；来到题解区，翻了下三叶姐的题解（恐怖如斯，惊掉下巴~~） 原始数组：$nu</description>
+    </item>
+    
     <item>
       <title>二叉树的遍历：Morris遍历</title>
       <link>https://shishuochen.github.io/2023/okff76tzg/</link>
