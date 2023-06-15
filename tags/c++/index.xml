@@ -6,7 +6,16 @@
     <description>Recent content in C&#43;&#43; on shishuoCh&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 13 Jun 2023 14:47:47 +0800</lastBuildDate><atom:link href="https://shishuochen.github.io/tags/c++/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 15 Jun 2023 20:21:47 +0800</lastBuildDate><atom:link href="https://shishuochen.github.io/tags/c++/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>二叉搜索树的构建</title>
+      <link>https://shishuochen.github.io/2023/ik6kuzdd9/</link>
+      <pubDate>Thu, 15 Jun 2023 20:21:47 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2023/ik6kuzdd9/</guid>
+      <description>写在前面 二叉搜索树的题一定要利用二叉搜索树的特性：中序遍历特性、任意节点左子树都小于根节点，右子树大于根节点。 主要分为三个部分： 从最基本搜索</description>
+    </item>
+    
     <item>
       <title>归并排序及其应用</title>
       <link>https://shishuochen.github.io/2023/gh9fzukz5/</link>
