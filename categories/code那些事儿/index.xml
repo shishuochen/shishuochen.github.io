@@ -6,7 +6,25 @@
     <description>Recent content in Code那些事儿 on shishuoCh&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 15 Jun 2023 20:21:47 +0800</lastBuildDate><atom:link href="https://shishuochen.github.io/categories/code%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 17 Jun 2023 22:53:15 +0800</lastBuildDate><atom:link href="https://shishuochen.github.io/categories/code%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>扁平化嵌套列表迭代器</title>
+      <link>https://shishuochen.github.io/2023/tw24pswjo/</link>
+      <pubDate>Sat, 17 Jun 2023 22:53:15 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2023/tw24pswjo/</guid>
+      <description>写在前面 看完题解，这道题其实应该不难，可能是因为看了题解所以不觉得难，哈哈哈；感觉主要是理解题意，特别要注意注释中的内部函数。 其实就相当于给</description>
+    </item>
+    
+    <item>
+      <title>快速排序详情及其应用</title>
+      <link>https://shishuochen.github.io/2023/b5xhddsnk/</link>
+      <pubDate>Sat, 17 Jun 2023 22:52:08 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2023/b5xhddsnk/</guid>
+      <description>写在前面 对于一个无序数组，求第 $K$ 个最大元素，最容易想到的就是排序，然后选择相应位置的元素；其中有些排序算法是可以提前终止的，比如快速排序、冒</description>
+    </item>
+    
     <item>
       <title>二叉搜索树的构建</title>
       <link>https://shishuochen.github.io/2023/ik6kuzdd9/</link>

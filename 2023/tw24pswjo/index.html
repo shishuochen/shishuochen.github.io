@@ -19,9 +19,9 @@
     <meta name="description" content="shishuoCh的个人博客">
     
     <meta name="google-site-verification" content=" " />
-    <link rel="prev" href="https://shishuochen.github.io/2023/gh9fzukz5/" />
-    <link rel="next" href="https://shishuochen.github.io/2023/b5xhddsnk/" />
-    <link rel="canonical" href="https://shishuochen.github.io/2023/ik6kuzdd9/" />
+    <link rel="prev" href="https://shishuochen.github.io/2023/b5xhddsnk/" />
+    
+    <link rel="canonical" href="https://shishuochen.github.io/2023/tw24pswjo/" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -32,10 +32,10 @@
     <title>
         
         
-            二叉搜索树的构建 | shishuoCh&#39;s Blog
+            扁平化嵌套列表迭代器 | shishuoCh&#39;s Blog
         
     </title>
-    <meta name="title" content="二叉搜索树的构建 | shishuoCh&#39;s Blog">
+    <meta name="title" content="扁平化嵌套列表迭代器 | shishuoCh&#39;s Blog">
     
 <link rel="stylesheet" href="/css/main.min.css">
 
@@ -53,9 +53,9 @@
          "@id": "https:\/\/shishuochen.github.io"
     },
     "articleSection" : "posts",
-    "name" : "二叉搜索树的构建",
-    "headline" : "二叉搜索树的构建",
-    "description" : "写在前面 二叉搜索树的题一定要利用二叉搜索树的特性：中序遍历特性、任意节点左子树都小于根节点，右子树大于根节点。 主要分为三个部分： 从最基本搜索",
+    "name" : "扁平化嵌套列表迭代器",
+    "headline" : "扁平化嵌套列表迭代器",
+    "description" : "写在前面 看完题解，这道题其实应该不难，可能是因为看了题解所以不觉得难，哈哈哈；感觉主要是理解题意，特别要注意注释中的内部函数。 其实就相当于给",
     "inLanguage" : "zh-cn",
     "author" : "ANY_ME",
     "creator" : "ANY_ME",
@@ -63,11 +63,11 @@
     "accountablePerson" : "ANY_ME",
     "copyrightHolder" : "ANY_ME",
     "copyrightYear" : "2023",
-    "datePublished": "2023-06-15 20:21:47 \u002b0800 CST",
-    "dateModified" : "2023-06-15 20:21:47 \u002b0800 CST",
-    "url" : "https:\/\/shishuochen.github.io\/2023\/ik6kuzdd9\/",
-    "wordCount" : "1549",
-    "keywords" : [ "C\u002b\u002b","LeetCode","二叉搜索树", "shishuoCh\u0027s Blog"]
+    "datePublished": "2023-06-17 22:53:15 \u002b0800 CST",
+    "dateModified" : "2023-06-17 22:53:15 \u002b0800 CST",
+    "url" : "https:\/\/shishuochen.github.io\/2023\/tw24pswjo\/",
+    "wordCount" : "987",
+    "keywords" : [ "C\u002b\u002b","LeetCode", "shishuoCh\u0027s Blog"]
 }
 </script>
 
@@ -171,12 +171,12 @@
                     
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">二叉搜索树的构建</h1>
+        <h1 class="post-title" itemprop="name headline">扁平化嵌套列表迭代器</h1>
         <div class="post-meta">
                 <i class="fas fa-user-circle"></i> <a itemprop="name" href="https://shishuochen.github.io" rel="author">ANY_ME</a> 
 				&thinsp;$\bm\vert$&thinsp; 
 				<i class="fas fa-calendar-check "></i>
-				发布:2023-06-15
+				发布:2023-06-17
 				
                 </span>
                 
@@ -199,12 +199,12 @@
 				&thinsp;$\bm\vert$&thinsp; 
 				<i class="fas fa-file-word "></i>
 				
-                <span class="post-word-count">1549字</span>
+                <span class="post-word-count">987字</span>
 				
 				&thinsp;$\bm\vert$&thinsp;   
 				<i class="fas fa-coffee "></i>
 				
-                <span class="post-word-count">5分钟</span>
+                <span class="post-word-count">3分钟</span>
 				
         </div>
     </header>
@@ -219,10 +219,8 @@
 <li>
 <ul>
 <li><a href="#写在前面">写在前面</a></li>
-<li><a href="#二叉搜索树的种类">二叉搜索树的种类</a></li>
-<li><a href="#具体的二搜索树结构">具体的二搜索树结构</a></li>
-<li><a href="#利用memo记忆优化">利用memo记忆优化</a></li>
-<li><a href="#动态规划求数目思路">动态规划求数目思路</a></li>
+<li><a href="#初始化时即展开">初始化时即展开</a></li>
+<li><a href="#利用栈存储-需要时展开">利用栈存储，需要时展开</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -275,179 +273,122 @@
 <h2 id="写在前面">写在前面</h2>
 
 <blockquote>
-<p>二叉搜索树的题一定要利用二叉搜索树的特性：<strong>中序遍历特性、任意节点左子树都小于根节点，右子树大于根节点。</strong></p>
+<p>看完题解，这道题其实应该不难，可能是因为看了题解所以不觉得难，哈哈哈；感觉主要是理解题意，特别要注意注释中的内部函数。</p>
 </blockquote>
 
-<p><strong>主要分为三个部分</strong>：</p>
+<ul>
+<li>其实就相当于给你个<code>vector</code>，里面存储的数据类型是<code>NestedInteger</code>类,它可以是一个整数或者列表，列表中的类型又是<code>NestedInteger</code>，让你将它展开。</li>
+<li>题目给了三个内置函数:
 
 <ul>
-<li>从最基本搜索树数目到具体的树结构：<strong>递归的思路</strong></li>
-<li>利用memo来优化代码，加快整体速度（<strong>static变量设置</strong>）</li>
-<li>动态规划的实现方法</li>
+<li><code>bool isInteger()</code>:返回该<code>NestedInteger</code>是否是一个整数</li>
+<li><code>int getInteger()</code>: 如果<code>NestedInteger</code> 是整数，则可以调用这个函数</li>
+<li><code>vector&lt;NestedInteger&gt; &amp;getList()</code>: 如果不是整数，在可以调用这个函数，返回一个<code>vector</code>，里面存储的是<code>NestedInteger</code>列表的内容。</li>
+</ul></li>
+<li><strong>初始化展开或者栈实现</strong></li>
 </ul>
 
-<h2 id="二叉搜索树的种类">二叉搜索树的种类</h2>
+<h2 id="初始化时即展开">初始化时即展开</h2>
 
 <blockquote>
-<p>不要求输出具体结果，比较容易思考，考虑一个节点它需要做什么？如何获取以它为根节点的二叉搜索树种类？</p>
+<p>其实就是遍历一个<code>vector</code>，对于每一个元素，根据<code>isInteger</code>函数判断其类型，并调用相应的函数来获取其内容，因为我们不知道列表嵌套了多少层，因此需要用<code>DFS</code>来自动展开。需要用一个容器来保存展开的内容，为了方便存取内容并向后迭代，选用<code>deque</code>容器。</p>
 </blockquote>
 
 <ul>
-<li><strong>考虑一个节点的二叉搜索树数目</strong>
-
-<ul>
-<li>左边可能情况乘以右边的可能情况</li>
-<li>递归计算下去</li>
-</ul></li>
-<li><strong>特殊性</strong>
-
-<ul>
-<li><strong>只考虑节点数目</strong>：【1,3】与【4,6】能构成的二叉搜索树的数目是相同的，只不过元素值不同而已，所以只要考虑构造二叉搜索树的节点数目即可。</li>
-<li>另外构造过程<strong>具有一定的对称性</strong>，以【1,4】举例，节点1和节点4分别为根节点的二叉搜索树数目是一致的；同时要考虑总节点数目为奇数的情况。</li>
-</ul></li>
-
-<li><p><strong>注意点</strong></p>
-
-<ul>
-<li><p>对于只有一个节点或者没有节点的情况，对应的二叉搜索树数目都是1.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> {
+<li><p><strong>要注意每一个取出的数据的类型，这样才能调用对应的函数获取正确的结果</strong>。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">NestedIterator</span> {
 <span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
-<span style="color:#66d9ef">int</span> numTrees(<span style="color:#66d9ef">int</span> n) {
-<span style="color:#66d9ef">if</span>(n<span style="color:#f92672">==</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">||</span> n<span style="color:#f92672">==</span><span style="color:#ae81ff">0</span>)  <span style="color:#75715e">// 只有一个节点或者没有节点算是一种情况
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>;
-<span style="color:#66d9ef">int</span> nums<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;
-<span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;i<span style="color:#f92672">&lt;=</span>n<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>;i<span style="color:#f92672">++</span>) {
-    <span style="color:#66d9ef">int</span> left<span style="color:#f92672">=</span>numTrees(i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>);
-    <span style="color:#66d9ef">int</span> right<span style="color:#f92672">=</span>numTrees(n<span style="color:#f92672">-</span>i);
-    nums<span style="color:#f92672">+=</span>left<span style="color:#f92672">*</span>right;
-}
-nums<span style="color:#f92672">*=</span><span style="color:#ae81ff">2</span>;    <span style="color:#75715e">// 情况是对称的
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">if</span>(n<span style="color:#f92672">%</span><span style="color:#ae81ff">2</span><span style="color:#f92672">==</span><span style="color:#ae81ff">1</span>) {
-    <span style="color:#66d9ef">int</span> left<span style="color:#f92672">=</span>numTrees(n<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>);
-    nums<span style="color:#f92672">+=</span>left<span style="color:#f92672">*</span>left;
-}
-<span style="color:#66d9ef">return</span> nums;
-}
-};</code></pre></div></li>
-</ul></li>
-</ul>
-
-<h2 id="具体的二搜索树结构">具体的二搜索树结构</h2>
-
-<blockquote>
-<p>相比于只返回数目要难思考一些，整体思路大概明晰，感觉主要是一些函数返回值及具体实现需要着重思考。</p>
-</blockquote>
-
-<ul>
-<li><strong>递归函数返回值</strong>
-
-<ul>
-<li>返回值是<code>vector&lt;TreeNode*&gt;</code>里面是所有情况的根节点</li>
-</ul></li>
-<li><strong>函数主体</strong>：
-
-<ul>
-<li>思路应该是和上述计算总的数目类似，<strong>即组合当前节点的左右可能情况</strong></li>
-</ul></li>
-<li><strong>整体来看</strong>
-
-<ol>
-<li><strong>返回值</strong>：更改<code>int</code>返回值为<code>vector&lt;TreeNode*&gt;</code></li>
-<li><strong>传入的参数需要是一个范围，而不是数目，因为需要考虑具体节点</strong></li>
-<li>创建的<code>nums</code>改为<code>vector&lt;TreeNode*&gt; res</code></li>
-<li><strong>终止条件</strong>：如果区间内没有数，则添加空指针并返回结果</li>
-<li><strong>组合所有情况</strong>：不是简单的左边乘以右边，而是需要依次组合左右子树可能的根节点并将这种情况结果插入<code>res</code></li>
-</ol></li>
-
-<li><p><strong>下面代码中所有的节点在新的树结构中都被创建了一次，因此不同的树之间是没有关联的</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> {
-<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
-<span style="color:#75715e">// 返回根节点即可
-</span><span style="color:#75715e"></span>vector<span style="color:#f92672">&lt;</span>TreeNode<span style="color:#f92672">*&gt;</span> generateTrees(<span style="color:#66d9ef">int</span> n) {
-    <span style="color:#75715e">// if(n==0)
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">generate</span>(<span style="color:#ae81ff">1</span>,n);
-}
-vector<span style="color:#f92672">&lt;</span>TreeNode<span style="color:#f92672">*&gt;</span> generate(<span style="color:#66d9ef">int</span> lo,<span style="color:#66d9ef">int</span> hi){
-    vector<span style="color:#f92672">&lt;</span>TreeNode<span style="color:#f92672">*&gt;</span> res;
-    <span style="color:#75715e">// 边界不符
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span>(lo<span style="color:#f92672">&gt;</span>hi) {
-        res.push_back(<span style="color:#66d9ef">nullptr</span>);
-        <span style="color:#66d9ef">return</span> res;
-    }
-    <span style="color:#75715e">//  1. 穷举 root 节点的所有可能
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span>lo;i<span style="color:#f92672">&lt;=</span>hi;i<span style="color:#f92672">++</span>) {
-        <span style="color:#75715e">// 递归生成左右左右可能的情况
-</span><span style="color:#75715e"></span>        vector<span style="color:#f92672">&lt;</span>TreeNode<span style="color:#f92672">*&gt;</span> left<span style="color:#f92672">=</span>generate(lo,i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>);
-        vector<span style="color:#f92672">&lt;</span>TreeNode<span style="color:#f92672">*&gt;</span> right<span style="color:#f92672">=</span>generate(i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>,hi);
-        <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">auto</span> L:left) {
-            <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">auto</span> R:right) {
-                <span style="color:#75715e">// 构建并连接左右子树
-</span><span style="color:#75715e"></span>                res.push_back(<span style="color:#66d9ef">new</span> TreeNode(i,L,R));
-            }
+NestedIterator(vector<span style="color:#f92672">&lt;</span>NestedInteger<span style="color:#f92672">&gt;</span> <span style="color:#f92672">&amp;</span>nestedList) {
+    <span style="color:#75715e">// 依次取出 NestedInteger 类型
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;i<span style="color:#f92672">&lt;</span>nestedList.size();i<span style="color:#f92672">++</span>){
+        NestedInteger item<span style="color:#f92672">=</span>nestedList[i];
+        <span style="color:#75715e">// 判断并根据类型展开
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span>(item.isInteger()){
+            V.push_back(item.getInteger());
+        }
+        <span style="color:#66d9ef">else</span>{
+            dfs(item);
         }
     }
-    <span style="color:#75715e">// 这种方法生成的树结构整体是混乱的吗？
-</span><span style="color:#75715e"></span>        <span style="color:#75715e">// 不是的，每一次都是重新创建节点了
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> res;
 }
+<span style="color:#75715e">// DFS递归展开
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">dfs</span>(NestedInteger N){
+    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;i<span style="color:#f92672">&lt;</span>N.getList().size();i<span style="color:#f92672">++</span>){
+        <span style="color:#66d9ef">if</span>(N.getList()[i].isInteger())
+            V.push_back(N.getList()[i]);
+        <span style="color:#66d9ef">else</span>
+            dfs(N.getList()[i]);
+    }
+}
+<span style="color:#75715e">// deque头部并pop
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">next</span>() {
+    <span style="color:#66d9ef">int</span> N<span style="color:#f92672">=</span>V[<span style="color:#ae81ff">0</span>].getInteger();
+    V.pop_front();
+    <span style="color:#66d9ef">return</span> N;   
+}
+<span style="color:#75715e">// 根据大小来确定结尾
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">hasNext</span>() {
+    <span style="color:#66d9ef">if</span>(V.size()<span style="color:#f92672">==</span><span style="color:#ae81ff">0</span>)
+        <span style="color:#66d9ef">return</span> false;
+    <span style="color:#66d9ef">else</span> 
+        <span style="color:#66d9ef">return</span> true;
+}
+<span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+deque<span style="color:#f92672">&lt;</span>NestedInteger<span style="color:#f92672">&gt;</span> V;
 };</code></pre></div></li>
 </ul>
 
-<h2 id="利用memo记忆优化">利用memo记忆优化</h2>
+<h2 id="利用栈存储-需要时展开">利用栈存储，需要时展开</h2>
 
 <blockquote>
-<p>这里优化是针对整体的计算而言的，例如对于求二叉搜索树数目<strong>单个示例</strong>而言，上述方法没有重复计算的地方；但是对于多个示例则肯定是有重复计算的地方。对于具体的树结构也是同样的道理。思路来源于<a href="https://leetcode.cn/problems/unique-binary-search-trees-ii/solutions/339143/bu-tong-de-er-cha-sou-suo-shu-ii-by-leetcode-solut/#:~:text=2023.04.13-,%E5%A4%AA%E6%85%A2%E5%95%A6,-%EF%BC%8C%E6%9C%89%E5%A4%AA%E5%A4%9A%E9%87%8D%E5%A4%8D" rel="nofollow noreferrer" target="_blank">题解评论区</a> 。</p>
+<p>一般的迭代器求值应该是「惰性的」，也就是说，如果你要一个结果，我就算一个（或是一小部分）结果出来，而不是一次把所有结果都算出来。(来自<a href="https://mp.weixin.qq.com/s/uEmD5YVGG5LHQEmJQ2GSfw" rel="nofollow noreferrer" target="_blank">labuladong</a>)</p>
 </blockquote>
 
 <ul>
-<li>对于单个示例，每一种组合都需要计算一次，但是对于大量的示例来说就可以计算一次从而获取所有的组合情况。</li>
-<li>哈希表存储的数据：<code>unordered_map&lt;pair&lt;int,int&gt;,vector&lt;TreeNode*&gt;&gt; mp</code>;</li>
-<li>将其设置为静态变量</li>
-</ul>
-
-<h2 id="动态规划求数目思路">动态规划求数目思路</h2>
-
-<blockquote>
-<p>主要是递推公式的获取思路，最重要的部分</p>
-</blockquote>
+<li><p><strong>利用栈的先进后出特性</strong></p>
 
 <ul>
-<li><strong>递推公式的获取</strong></li>
+<li>有了前面的铺垫，其实比较简单了，先将<code>vector</code>的所有<code>NestedInteger</code>逆序入栈。</li>
+<li><code>hasNext()</code>函数需要判断栈顶元素的类型，是<code>isInteger</code>还是列表类型，如果是<code>Integer</code>则返回<code>true</code>，从而可以调用<code>next</code>函数。反之，则列表展开，依次入栈，<strong>这里有个细节为了将用的时候再展开贯彻到底，将一个列表展开反序入栈后，返回值是</strong><code>hasNext()</code>，而不需要像前文中的完全<code>dfs</code>展开。</li>
+
+<li><p>如果展开反序入栈后，栈顶是<code>Integer</code>类型，则返回<code>true</code>，反之将会再次展开。就做到了用的时候再展开。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">NestedIterator</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+NestedIterator(vector<span style="color:#f92672">&lt;</span>NestedInteger<span style="color:#f92672">&gt;</span> <span style="color:#f92672">&amp;</span>nestedList) {
+<span style="color:#75715e">// 逆序入栈
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span>nestedList.size()<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;i<span style="color:#f92672">&gt;=</span><span style="color:#ae81ff">0</span>;i<span style="color:#f92672">--</span>)
+    S.push(nestedList[i]);
+}
+    
+<span style="color:#75715e">// 注意栈内存储的都是 NestedInteger
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">next</span>() {
+<span style="color:#66d9ef">int</span> N<span style="color:#f92672">=</span>S.top().getInteger();
+S.pop();
+<span style="color:#66d9ef">return</span> N;
+
+}
+    
+<span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">hasNext</span>() {
+<span style="color:#75715e">// 栈为空则返回false
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">if</span>(S.empty())
+    <span style="color:#66d9ef">return</span> false;
+NestedInteger N<span style="color:#f92672">=</span>S.top();
+<span style="color:#66d9ef">if</span>(N.isInteger())
+    <span style="color:#66d9ef">return</span> true;
+<span style="color:#66d9ef">else</span>{
+    S.pop();
+    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span>N.getList().size()<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;i<span style="color:#f92672">&gt;=</span><span style="color:#ae81ff">0</span>;i<span style="color:#f92672">--</span>){
+        S.push(N.getList()[i]);
+    }
+    <span style="color:#66d9ef">return</span> hasNext();
+}
+}
+<span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+<span style="color:#75715e">// 利用栈存放数据
+</span><span style="color:#75715e"></span>stack<span style="color:#f92672">&lt;</span>NestedInteger<span style="color:#f92672">&gt;</span> S;
+};</code></pre></div></li>
+</ul></li>
 </ul>
-
-<p>首先，对于 $N$ 个结点，它所能构成的搜索二叉树是由 $1\sim N$ 中每个数字作为根节点的情况的总和。</p>
-
-<p>记 $G(N)$ 为 $N$ 个结点所能构成的二叉搜索树情况，$F(i,N)$ 为 第 $i$ 个结点作为根节点时二叉搜索树的数目，则有</p>
-
-<p>$$G(N)=\sum_{i=1}^{N}F(i,N)$$</p>
-
-<p><strong>最重要的部分</strong>：$F(i,N)$ 的数量是由什么决定的呢？</p>
-
-<ol>
-<li><strong>首先左子树</strong>，$i$ 为根节点的左边孩子都要小于 $i$，也就是由 $1\sim i-1$组成的二叉搜索树，这不就是  $G(i-1)$吗？</li>
-<li><strong>再者右子树</strong>，是由 $i+1\sim N$ 等数字组成的二叉搜索树，其实它的数目就是 $G(N-i)$，稍微思考下，$G(N)$ 和序列内容没有关系，只和序列长度有关</li>
-<li><strong>排列组合</strong>得到 $F(i,N)$ 的递推式： $F(i,N)=G(i-1)\dot G(N-i)$</li>
-</ol>
-
-<p>结合以下，就有：</p>
-
-<p>$$G(N)=\sum<em>{i=1}^{N}F(i,N)=\sum</em>{i=1}^{N}G(i-1)\dot G(N-i)$$</p>
-
-<p>至此，递推式确定。</p>
-
-<ul>
-<li><strong>递推公式初始化</strong></li>
-</ul>
-
-<ol>
-<li>考虑最简单的情况 $G(0)=0，G(1)=1$</li>
-</ol>
-
-<ul>
-<li><strong>遍历顺序</strong></li>
-</ul>
-
-<p>由递推式可得，从前往后依次遍历即可。</p>
 
 <p><center></p>
 
@@ -467,7 +408,7 @@ vector<span style="color:#f92672">&lt;</span>TreeNode<span style="color:#f92672"
             
             <p class="copyright-item">
                     <span>Link:</span>
-                    <a href=https://shishuochen.github.io/2023/ik6kuzdd9/>https://shishuochen.github.io/2023/ik6kuzdd9/</span>
+                    <a href=https://shishuochen.github.io/2023/tw24pswjo/>https://shishuochen.github.io/2023/tw24pswjo/</span>
             </p>
             
             
@@ -489,9 +430,6 @@ vector<span style="color:#f92672">&lt;</span>TreeNode<span style="color:#f92672"
             <span class="tag"><a href="https://shishuochen.github.io/tags/leetcode/">
                     #LeetCode</a></span>
             
-            <span class="tag"><a href="https://shishuochen.github.io/tags/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/">
-                    #二叉搜索树</a></span>
-            
             </section>
         
         <section>
@@ -502,10 +440,8 @@ vector<span style="color:#f92672">&lt;</span>TreeNode<span style="color:#f92672"
 
     <div class="post-nav">
         
-        <a href="https://shishuochen.github.io/2023/gh9fzukz5/" class="prev" rel="prev" title="归并排序及其应用"><i class="fas fa-caret-left"></i>&nbsp;归并排序及其应用</a>
+        <a href="https://shishuochen.github.io/2023/b5xhddsnk/" class="prev" rel="prev" title="快速排序详情及其应用"><i class="fas fa-caret-left"></i>&nbsp;快速排序详情及其应用</a>
         
-        
-        <a href="https://shishuochen.github.io/2023/b5xhddsnk/" class="next" rel="next" title="快速排序详情及其应用">快速排序详情及其应用&nbsp;<i class="fas fas fa-caret-right"></i></a>
         
     </div>
 	        <style>
