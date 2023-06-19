@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HZXHKZW7E0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HZXHKZW7E0');
+</script>
+<meta name="google-site-verification" content="PgRvRggX4FPNmBfLmc_IBoedK_gPlyCB_p49I3DfNSA" />
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="ANY_ME">
+    <meta name="description" content="shishuoCh的个人博客">
+    
+    <meta name="google-site-verification" content=" " />
+    <link rel="prev" href="https://shishuochen.github.io/2023/tw24pswjo/" />
+    
+    <link rel="canonical" href="https://shishuochen.github.io/2023/z3ekdp0wl/" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+        
+        
+            图的基本遍历、有向环检测、拓扑排序 | shishuoCh&#39;s Blog
+        
+    </title>
+    <meta name="title" content="图的基本遍历、有向环检测、拓扑排序 | shishuoCh&#39;s Blog">
+    
+<link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/shishuochen.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "图的基本遍历、有向环检测、拓扑排序",
+    "headline" : "图的基本遍历、有向环检测、拓扑排序",
+    "description" : "写在前面 主要分为两种思路：利用visited数组与onpath数组的DFS遍历（逆后序排列）、利用队列的BFS遍历（需要用到节点的入度信息）",
+    "inLanguage" : "zh-cn",
+    "author" : "ANY_ME",
+    "creator" : "ANY_ME",
+    "publisher": "ANY_ME",
+    "accountablePerson" : "ANY_ME",
+    "copyrightHolder" : "ANY_ME",
+    "copyrightYear" : "2023",
+    "datePublished": "2023-06-19 21:07:47 \u002b0800 CST",
+    "dateModified" : "2023-06-19 21:07:47 \u002b0800 CST",
+    "url" : "https:\/\/shishuochen.github.io\/2023\/z3ekdp0wl\/",
+    "wordCount" : "1173",
+    "keywords" : [ "C\u002b\u002b","LeetCode","图的遍历及应用", "shishuoCh\u0027s Blog"]
+}
+</script>
+
+	<link rel="stylesheet" href=
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
+</link>
+    
+    <script src="https://kit.fontawesome.com/860bffd803.js" crossorigin="anonymous"></script>
+	
+
+
+  </head>
+    <body class="">
+        <div class="wrapper">
+            <nav class="navbar">
+    
+        <progress class="content_progress" max="0" value="0"></progress>
+    
+    <div class="container">
+        
+            <div class="navbar-header header-back2home-logo">
+                <span class="logo_mark" >>$</span>
+                <a href="https://shishuochen.github.io">
+                    <span class="logo_text" >cd /home/</span>
+                    <span class="logo_cursor" ></span>
+                </a>
+            </div>
+        
+        <div class="navbar-right">
+                
+                <span class="menu">
+                
+                <a class="menu-item" href="/posts/" title="">📖Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">📁Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">🎨Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">💬About</a>
+                
+                <a class="menu-item" href="/about/" title="">ANY_ME</a>
+                
+                <span class="divide"></span>
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-dark-mode"></i></a>
+                </span>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display:none">
+    
+        <progress class="content_progress" max="0" value="0"></progress>
+    
+     <div class="container">
+        <div class="navbar">
+            <div class="navbar-header header-logo">
+                    <a href="https://shishuochen.github.io">shishuoCh&#39;s Blog</a>
+            </div>
+            <div class="navbar-right">
+                <div><a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-dark-mode"></i></a></div>
+                <div class="menu-toggle">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                <nav class="mb-md">
+                    
+                    
+                        <a class="menu-item" href="/posts/" title="" white-space="nowrap">
+						<nobr>📖Blog</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/categories/" title="" white-space="nowrap">
+						<nobr>📁Categories</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/tags/" title="" white-space="nowrap">
+						<nobr>🎨Tags</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/about/" title="" white-space="nowrap">
+						<nobr>💬About</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/about/" title="" white-space="nowrap">
+						<nobr>ANY_ME</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                </nav>
+        </div>
+    </div>
+</nav>
+            <main class="main">
+                <div class="container">
+                    
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">图的基本遍历、有向环检测、拓扑排序</h1>
+        <div class="post-meta">
+                <i class="fas fa-user-circle"></i> <a itemprop="name" href="https://shishuochen.github.io" rel="author">ANY_ME</a> 
+				&thinsp;$\bm\vert$&thinsp; 
+				<i class="fas fa-calendar-check "></i>
+				发布:2023-06-19
+				
+                </span>
+                
+				&thinsp;$\bm\vert$&thinsp; 
+				
+				
+                
+				&thinsp;$\bm\vert$&thinsp; 
+                
+                <i class="fas fa-folder-open "></i>
+                <span class="post-category">
+                        
+                        
+                        
+                          <a href="https://shishuochen.github.io/categories/code%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/"> Code那些事儿</a>
+                        
+                        
+                </span>
+				
+				&thinsp;$\bm\vert$&thinsp; 
+				<i class="fas fa-file-word "></i>
+				
+                <span class="post-word-count">1173字</span>
+				
+				&thinsp;$\bm\vert$&thinsp;   
+				<i class="fas fa-coffee "></i>
+				
+                <span class="post-word-count">3分钟</span>
+				
+        </div>
+    </header>
+	  
+     
+          <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title"></h2>
+  
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#写在前面">写在前面</a></li>
+<li><a href="#环检测">环检测</a>
+<ul>
+<li><a href="#dfs-深度优先遍历"><strong>DFS（深度优先遍历）</strong></a></li>
+<li><a href="#bfs-广度优先遍历"><strong>BFS（广度优先遍历）</strong></a></li>
+</ul></li>
+<li><a href="#拓扑排序">拓扑排序</a>
+<ul>
+<li><a href="#dfs对应的逆后序遍历">DFS对应的逆后序遍历</a></li>
+<li><a href="#bfs对应的前序队列">BFS对应的前序队列</a></li>
+</ul></li>
+<li><a href="#代码实现">代码实现</a>
+<ul>
+<li><a href="#dfs版本">DFS版本</a></li>
+<li><a href="#bfs版本">BFS版本</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+<script type="text/javascript">
+  window.onload = function () {
+    var fix = $('.post-toc');
+    var end = $('.post-comment');
+    var fixTop = fix.offset().top, fixHeight = fix.height();
+    var endTop, miss;
+    var offsetTop = fix[0].offsetTop;
+    $(window).scroll(function () {
+      var docTop = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
+      if (end.length > 0) {
+        endTop = end.offset().top;
+        miss = endTop - docTop - fixHeight;
+      }
+      if (fixTop < docTop) {
+        fix.css({ 'position': 'fixed' });
+        if ((end.length > 0) && (endTop < (docTop + fixHeight))) {
+          fix.css({ top: miss });
+        } else {
+          fix.css({ top: 0 });
+        }
+      } else {
+        fix.css({ 'position': 'absolute' });
+        fix.css({ top: offsetTop });
+      }
+    })
+  }
+</script> 
+	
+	<hr class="hr-twill-colorful">
+    <div class="post-content">
+        
+        
+        
+        
+        
+        
+        
+        
+
+        
+        
+        
+        
+
+<h2 id="写在前面">写在前面</h2>
+
+<blockquote>
+<p>主要分为两种思路：利用visited数组与onpath数组的DFS遍历（逆后序排列）、利用队列的BFS遍历（需要用到节点的入度信息）</p>
+</blockquote>
+
+<h2 id="环检测">环检测</h2>
+
+<h3 id="dfs-深度优先遍历"><strong>DFS（深度优先遍历）</strong></h3>
+
+<blockquote>
+<p>递归遍历的过程同时记录到过的位置，如果中途到过的位置又走了一遍，则肯定存在环。为了避免重复计算，全局记录<code>visited</code>数组。</p>
+</blockquote>
+
+<ul>
+<li><strong>合适的数据结构</strong>：根据题意生成的<strong>邻接表</strong></li>
+<li><strong>两个数组</strong>：<code>vector&lt;int&gt;&amp;visited</code>以及<code>vector&lt;int&gt;&amp;onpath</code>，前者用于减少重复计算，因为对于节点<code>i</code>，如果前面已经遍历过，那么对于它指向的节点也都遍历过，因此不必要再次遍历；后者则是记录当前遍历到达的节点，用于检测是否存在环。</li>
+<li><strong>递归函数</strong>：对于每一个节点，都应该加入<code>visited</code>数组，<code>onpath</code>则需要在遍历该节点的指向节点后撤销。</li>
+</ul>
+
+<h3 id="bfs-广度优先遍历"><strong>BFS（广度优先遍历）</strong></h3>
+
+<ul>
+<li><strong>合适的数据结构：队列</strong></li>
+<li><strong>邻接表</strong>以及计算的每个节点的<strong>入度</strong>信息
+
+<ul>
+<li>通过比较，入度为零出入栈的数目与总的数目；相等则说明遍历了所有点，不存在环。</li>
+</ul></li>
+</ul>
+
+<h2 id="拓扑排序">拓扑排序</h2>
+
+<blockquote>
+<p>只有在没有有向环的情况下才存在拓扑排序。</p>
+</blockquote>
+
+<h3 id="dfs对应的逆后序遍历">DFS对应的逆后序遍历</h3>
+
+<ul>
+<li><strong>为什么</strong>？
+
+<ul>
+<li>对于任意边<code>v → w</code>，在调用<code>dfs(v)</code> 时，下面三种情况必有其一成立:
+
+<ol>
+<li><code>dfs(w)</code>已经被调用过且已经返回了（<code>w</code>已经被标记）。</li>
+<li><code>dfs(w)</code> 还没有被调用（<code>w</code> 还未被标记），因此 <code>v → w</code> 会直接或间接调用并返回<code>dfs(w)</code>，且<code>dfs(w)</code> 会在<code>dfs(v)</code> 返回前返回</li>
+<li><code>dfs(w)</code>已经被调用但还未返回。证明的关键在于，在有向无环图中这种情况是不可能出现的，这是由于递归调用链意味着存在从<code>w</code> 到<code>v</code> 的路径，但存在<code>v → w</code> 则表示存在一个环。</li>
+</ol></li>
+<li>在两种可能的情况中，<code>dfs(w)</code> 都会在<code>dfs(v)</code> 之前完成，因此在后序排列中<code>w</code> 排在<code>v</code> 之前而，在逆后序中<code>w</code> 排在<code>v</code> 之后。因此任意一条边<code>v → w</code> 都如我们所愿地从排名较前顶点指向排名较后的顶点。</li>
+</ul></li>
+</ul>
+
+<h3 id="bfs对应的前序队列">BFS对应的前序队列</h3>
+
+<blockquote>
+<p>这个很好理解，如果最后没有环且依次遍历了所有的节点，那这个排序自然就是拓扑排序的。</p>
+</blockquote>
+
+<h2 id="代码实现">代码实现</h2>
+
+<h3 id="dfs版本">DFS版本</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#75715e">// 被依赖的构建下的graph的后序遍历的逆序刚好的拓扑排序
+</span><span style="color:#75715e"></span>    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> findOrder(<span style="color:#66d9ef">int</span> numCourses, vector<span style="color:#f92672">&lt;</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&gt;&amp;</span> prerequisites) {
+        <span style="color:#75715e">// 构建邻接表及访问数组及路径
+</span><span style="color:#75715e"></span>        hasCycle<span style="color:#f92672">=</span>false;
+        vector<span style="color:#f92672">&lt;</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&gt;</span> graph<span style="color:#f92672">=</span>buildGraph(numCourses,prerequisites);
+        vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">bool</span><span style="color:#f92672">&gt;</span> visited(numCourses,false);
+        vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">bool</span><span style="color:#f92672">&gt;</span> onpath(numCourses,false);
+
+        <span style="color:#75715e">// 以每个节点开始一次
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;i<span style="color:#f92672">&lt;</span>numCourses;i<span style="color:#f92672">++</span>){
+            traverse(graph,i,visited,onpath);
+        }
+        <span style="color:#75715e">// 
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">// 根绝hasCycle返回结果值
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span>(hasCycle)
+            <span style="color:#66d9ef">return</span> {};
+        <span style="color:#75715e">// 逆序输出
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>,j<span style="color:#f92672">=</span>postOrder.size()<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+        <span style="color:#66d9ef">while</span>(i<span style="color:#f92672">&lt;=</span>j){
+            swap(postOrder[i],postOrder[j]);
+            i<span style="color:#f92672">++</span>;
+            j<span style="color:#f92672">--</span>;
+        }
+        <span style="color:#66d9ef">return</span> postOrder;         
+    }
+    <span style="color:#75715e">// 构建邻接表
+</span><span style="color:#75715e"></span>    vector<span style="color:#f92672">&lt;</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&gt;</span> buildGraph(<span style="color:#66d9ef">int</span> numCourses,vector<span style="color:#f92672">&lt;</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&gt;&amp;</span>prerequisites){
+        vector<span style="color:#f92672">&lt;</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&gt;</span> graph(numCourses);
+        <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;i<span style="color:#f92672">&lt;</span>prerequisites.size();i<span style="color:#f92672">++</span>){
+            <span style="color:#66d9ef">int</span> from<span style="color:#f92672">=</span>prerequisites[i][<span style="color:#ae81ff">1</span>];
+            <span style="color:#66d9ef">int</span> to<span style="color:#f92672">=</span>prerequisites[i][<span style="color:#ae81ff">0</span>];
+            graph[from].push_back(to);
+        }
+        <span style="color:#66d9ef">return</span> graph;
+    }
+
+    <span style="color:#75715e">// traverse 递归函数
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">traverse</span>(vector<span style="color:#f92672">&lt;</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&gt;&amp;</span>graph,<span style="color:#66d9ef">int</span> s,vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">bool</span><span style="color:#f92672">&gt;&amp;</span> visited,vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">bool</span><span style="color:#f92672">&gt;&amp;</span> onpath){
+        <span style="color:#66d9ef">if</span>(onpath[s]){
+            hasCycle<span style="color:#f92672">=</span>true;
+            <span style="color:#66d9ef">return</span>;
+        }
+        <span style="color:#75715e">// 剪枝，避免重复计算
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span>(visited[s]) <span style="color:#66d9ef">return</span>;
+        visited[s]<span style="color:#f92672">=</span>true;
+        onpath[s]<span style="color:#f92672">=</span>true;
+        <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">auto</span> t:graph[s]){
+            traverse(graph,t,visited,onpath);
+        }
+        <span style="color:#75715e">// 后序遍历
+</span><span style="color:#75715e"></span>        postOrder.push_back(s);
+        onpath[s]<span style="color:#f92672">=</span>false;
+        <span style="color:#66d9ef">return</span>;
+    }
+<span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> postOrder;
+    <span style="color:#66d9ef">bool</span> hasCycle;
+};</code></pre></div>
+<h3 id="bfs版本">BFS版本</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#75715e">// BFS的前序遍历就是拓扑排序，不存在环的情况下
+</span><span style="color:#75715e"></span>    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> findOrder(<span style="color:#66d9ef">int</span> numCourses, vector<span style="color:#f92672">&lt;</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&gt;&amp;</span> prerequisites) {
+        <span style="color:#75715e">// 构建邻接表及入度表
+</span><span style="color:#75715e"></span>        vector<span style="color:#f92672">&lt;</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&gt;</span> graph<span style="color:#f92672">=</span>buildGraph(numCourses,prerequisites);
+        vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> indegree<span style="color:#f92672">=</span>buildDegree(numCourses,prerequisites);
+
+        <span style="color:#75715e">//  BFS 队列, 入度为零的节点先入队
+</span><span style="color:#75715e"></span>        queue<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> Q;
+        <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;i<span style="color:#f92672">&lt;</span>numCourses;i<span style="color:#f92672">++</span>){
+            <span style="color:#66d9ef">if</span>(indegree[i]<span style="color:#f92672">==</span><span style="color:#ae81ff">0</span>)
+                Q.push(i);
+        }
+        <span style="color:#75715e">// 前序返回顺序
+</span><span style="color:#75715e"></span>        vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> preOrder;
+        <span style="color:#75715e">// 计数变量
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">int</span> count<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;
+        <span style="color:#66d9ef">while</span>(<span style="color:#f92672">!</span>Q.empty()){
+            <span style="color:#66d9ef">int</span> cur<span style="color:#f92672">=</span>Q.front();
+            Q.pop();
+            count<span style="color:#f92672">++</span>;
+            preOrder.push_back(cur);
+            <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">auto</span> s:graph[cur]){
+                indegree[s]<span style="color:#f92672">--</span>;
+                <span style="color:#66d9ef">if</span>(indegree[s]<span style="color:#f92672">==</span><span style="color:#ae81ff">0</span>)
+                    Q.push(s);
+            }
+        }
+        <span style="color:#66d9ef">if</span>(count<span style="color:#f92672">==</span>numCourses)
+            <span style="color:#66d9ef">return</span> preOrder;
+        <span style="color:#66d9ef">return</span> {};
+    }
+    <span style="color:#75715e">// 构建入度表
+</span><span style="color:#75715e"></span>    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> buildDegree(<span style="color:#66d9ef">int</span> numCourses,vector<span style="color:#f92672">&lt;</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&gt;&amp;</span> prerequisites){
+        vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> indegree(numCourses);
+        <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;i<span style="color:#f92672">&lt;</span>prerequisites.size();i<span style="color:#f92672">++</span>){
+           <span style="color:#75715e">//  int from=prerequisites[i][1];
+</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">int</span> to<span style="color:#f92672">=</span>prerequisites[i][<span style="color:#ae81ff">0</span>];
+            indegree[to]<span style="color:#f92672">++</span>;   <span style="color:#75715e">// 入度加1
+</span><span style="color:#75715e"></span>        }
+        <span style="color:#66d9ef">return</span> indegree;
+    }
+    <span style="color:#75715e">// 构建邻接表
+</span><span style="color:#75715e"></span>    vector<span style="color:#f92672">&lt;</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&gt;</span> buildGraph(<span style="color:#66d9ef">int</span> numCourses,vector<span style="color:#f92672">&lt;</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&gt;&amp;</span>prerequisites){
+        vector<span style="color:#f92672">&lt;</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&gt;</span> graph(numCourses);
+        <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;i<span style="color:#f92672">&lt;</span>prerequisites.size();i<span style="color:#f92672">++</span>){
+            <span style="color:#66d9ef">int</span> from<span style="color:#f92672">=</span>prerequisites[i][<span style="color:#ae81ff">1</span>];
+            <span style="color:#66d9ef">int</span> to<span style="color:#f92672">=</span>prerequisites[i][<span style="color:#ae81ff">0</span>];
+            graph[from].push_back(to);
+        }
+        <span style="color:#66d9ef">return</span> graph;
+    }
+};</code></pre></div>
+<p><center></p>
+
+<p>$\cdots$ <strong>end</strong> $\cdots$</p>
+
+<p></center></p>
+
+    </div>
+    <div class="post-copyright">
+            
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>ANY_ME </span>
+                </p>
+            
+
+            
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://shishuochen.github.io/2023/z3ekdp0wl/>https://shishuochen.github.io/2023/z3ekdp0wl/</span>
+            </p>
+            
+            
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://shishuochen.github.io/tags/c&#43;&#43;/">
+                    #C&#43;&#43;</a></span>
+            
+            <span class="tag"><a href="https://shishuochen.github.io/tags/leetcode/">
+                    #LeetCode</a></span>
+            
+            <span class="tag"><a href="https://shishuochen.github.io/tags/%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86%E5%8F%8A%E5%BA%94%E7%94%A8/">
+                    #图的遍历及应用</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> ·
+                <span><a href="https://shishuochen.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://shishuochen.github.io/2023/tw24pswjo/" class="prev" rel="prev" title="扁平化嵌套列表迭代器"><i class="fas fa-caret-left"></i>&nbsp;扁平化嵌套列表迭代器</a>
+        
+        
+    </div>
+	        <style>
+    .utterances {
+      position: relative;
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .utterances-frame {
+      color-scheme: light;
+      position: absolute;
+      left: 0;
+      right: 0;
+      width: 1px;
+      min-width: 100%;
+      max-width: 100%;
+      height: 100%;
+      border: 0;
+    }
+  </style>
+    <div class="post-comment">
+        
+            
+                <script src="https://utteranc.es/client.js"
+    repo="shishuochen/Bolg-comments"
+    issue-term="title"
+    label="Comment"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+</script>
+<style>
+    .utterances {
+        max-width: 99%;
+    }
+</style>
+            
+        
+
+    </div>
+</article>
+                </div>
+                <link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+            </main>
+            
+<div class="footer-box">
+<footer class="footer">
+   <div class="copyright">
+      &copy;
+      
+      <span itemprop="copyrightYear">2019 - 2023</span>
+      
+      <span class="with-love">
+         <i class="fas fa-heart"></i>
+      </span>
+      
+      <span class="author" itemprop="copyrightHolder"><a href="https://shishuochen.github.io">ANY_ME</a> |
+      </span>
+      
+      
+	  <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+      <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a
+            href="https://github.com/Mogeko/Mogege" target="_blank" rel="external nofollow">Mogege</a></span>
+</footer>
+
+      <div class="back-to-top" id="back_to_top">
+         
+         <span><i class="fas fa-arrow-up"></i></span>
+         
+         <span class="scrollpercent">
+            <span id="back_to_top_text">0</span>%
+         </span>
+      </div>
+</div>
+<script>
+
+   let sideBarOpen = 'sidebar-open';
+   let body = document.body;
+   let back2Top = document.querySelector('#back_to_top'),
+      back2TopText = document.querySelector('#back_to_top_text'),
+      drawerBox = document.querySelector('#drawer_box'),
+      rightSideBar = document.querySelector('.sidebar'),
+      viewport = document.querySelector('body');
+
+   function scrollAnimation(currentY, targetY) {
+
+      let needScrollTop = targetY - currentY
+      let _currentY = currentY
+      setTimeout(() => {
+         const dist = Math.ceil(needScrollTop / 10)
+         _currentY += dist
+         window.scrollTo(_currentY, currentY)
+         if (needScrollTop > 10 || needScrollTop < -10) {
+            scrollAnimation(_currentY, targetY)
+         } else {
+            window.scrollTo(_currentY, targetY)
+         }
+      }, 1)
+   }
+
+   back2Top.addEventListener("click", function (e) {
+      scrollAnimation(document.scrollingElement.scrollTop, 0);
+      e.stopPropagation();
+      return false;
+   });
+
+   window.addEventListener('scroll', function (e) {
+      let percent = document.scrollingElement.scrollTop / (document.scrollingElement.scrollHeight - document.scrollingElement.clientHeight) * 100;
+      if (percent > 1 && !back2Top.classList.contains('back-top-active')) {
+         back2Top.classList.add('back-top-active');
+      }
+      if (percent == 0) {
+         back2Top.classList.remove('back-top-active');
+      }
+      if (back2TopText) {
+         back2TopText.textContent = Math.floor(percent);
+      }
+   });
+</script>
+
+
+
+
+
+
+<script defer src="/js/vendor_main.min.js"></script>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/love.min.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha256-V8SV2MO1FUb63Bwht5Wx9x6PVHNa02gv8BgH/uH3ung=" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha256-F/Xda58SPdcUCr+xhSGz9MA2zQBPb0ASEYKohl8UCHc=" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha256-90d2pnfw0r4K8CZAWPko4rpFXQsZvJhTBGYNkipDprI=" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+           delimiters: [
+     {left: "$$", right: "$$", display: true},
+     {left: "$", right: "$", display: false},
+   ],
+        });
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/jmnote/plantuml-encoder@1.2.4/dist/plantuml-encoder.min.js"></script>
+<script>
+(function(){
+    let plantumlPrefix = "language-plantuml";
+    Array.prototype.forEach.call(document.querySelectorAll("[class^=" + plantumlPrefix + "]"), function(code){
+        let image = document.createElement("IMG");
+        image.loading = 'lazy'; 
+        image.src = 'http://www.plantuml.com/plantuml/svg/~1' + plantumlEncoder.encode(code.innerText);
+        code.parentNode.insertBefore(image, code);
+        code.style.display = 'none'
+    });
+})();
+</script>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script> pangu.spacingPage();</script>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+        </div>
+    </body>
+</html>
+

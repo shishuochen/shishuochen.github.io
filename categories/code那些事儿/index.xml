@@ -6,7 +6,16 @@
     <description>Recent content in Code那些事儿 on shishuoCh&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 17 Jun 2023 22:53:15 +0800</lastBuildDate><atom:link href="https://shishuochen.github.io/categories/code%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 19 Jun 2023 21:07:47 +0800</lastBuildDate><atom:link href="https://shishuochen.github.io/categories/code%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>图的基本遍历、有向环检测、拓扑排序</title>
+      <link>https://shishuochen.github.io/2023/z3ekdp0wl/</link>
+      <pubDate>Mon, 19 Jun 2023 21:07:47 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2023/z3ekdp0wl/</guid>
+      <description>写在前面 主要分为两种思路：利用visited数组与onpath数组的DFS遍历（逆后序排列）、利用队列的BFS遍历（需要用到节点的入度信息）</description>
+    </item>
+    
     <item>
       <title>扁平化嵌套列表迭代器</title>
       <link>https://shishuochen.github.io/2023/tw24pswjo/</link>
