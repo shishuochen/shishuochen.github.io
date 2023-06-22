@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HZXHKZW7E0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HZXHKZW7E0');
+</script>
+<meta name="google-site-verification" content="PgRvRggX4FPNmBfLmc_IBoedK_gPlyCB_p49I3DfNSA" />
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="ANY_ME">
+    <meta name="description" content="shishuoCh的个人博客">
+    
+    <meta name="google-site-verification" content=" " />
+    <link rel="prev" href="https://shishuochen.github.io/2023/bi_kocjis/" />
+    <link rel="next" href="https://shishuochen.github.io/2023/sgdkfm6rd/" />
+    <link rel="canonical" href="https://shishuochen.github.io/2023/eujqvjda2/" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+        
+        
+            并查集(Union-Find)算法及使用 | shishuoCh&#39;s Blog
+        
+    </title>
+    <meta name="title" content="并查集(Union-Find)算法及使用 | shishuoCh&#39;s Blog">
+    
+<link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/shishuochen.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "并查集(Union-Find)算法及使用",
+    "headline" : "并查集(Union-Find)算法及使用",
+    "description" : "写在前面 并查集（Union-Find）算法是一个专门针对「动态连通性」的算法。连通指的是一种等价关系：自反性、对称性、传递性。并查集算法提供",
+    "inLanguage" : "zh-cn",
+    "author" : "ANY_ME",
+    "creator" : "ANY_ME",
+    "publisher": "ANY_ME",
+    "accountablePerson" : "ANY_ME",
+    "copyrightHolder" : "ANY_ME",
+    "copyrightYear" : "2023",
+    "datePublished": "2023-06-22 20:24:12 \u002b0800 CST",
+    "dateModified" : "2023-06-22 20:24:12 \u002b0800 CST",
+    "url" : "https:\/\/shishuochen.github.io\/2023\/eujqvjda2\/",
+    "wordCount" : "1177",
+    "keywords" : [ "C\u002b\u002b","LeetCode","图的遍历及应用","广度优先搜索(BFS)","并查集(Union-Find)算法", "shishuoCh\u0027s Blog"]
+}
+</script>
+
+	<link rel="stylesheet" href=
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
+</link>
+    
+    <script src="https://kit.fontawesome.com/860bffd803.js" crossorigin="anonymous"></script>
+	
+
+
+  </head>
+    <body class="">
+        <div class="wrapper">
+            <nav class="navbar">
+    
+        <progress class="content_progress" max="0" value="0"></progress>
+    
+    <div class="container">
+        
+            <div class="navbar-header header-back2home-logo">
+                <span class="logo_mark" >>$</span>
+                <a href="https://shishuochen.github.io">
+                    <span class="logo_text" >cd /home/</span>
+                    <span class="logo_cursor" ></span>
+                </a>
+            </div>
+        
+        <div class="navbar-right">
+                
+                <span class="menu">
+                
+                <a class="menu-item" href="/posts/" title="">📖Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">📁Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">🎨Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">💬About</a>
+                
+                <a class="menu-item" href="/about/" title="">ANY_ME</a>
+                
+                <span class="divide"></span>
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-dark-mode"></i></a>
+                </span>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display:none">
+    
+        <progress class="content_progress" max="0" value="0"></progress>
+    
+     <div class="container">
+        <div class="navbar">
+            <div class="navbar-header header-logo">
+                    <a href="https://shishuochen.github.io">shishuoCh&#39;s Blog</a>
+            </div>
+            <div class="navbar-right">
+                <div><a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-dark-mode"></i></a></div>
+                <div class="menu-toggle">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                <nav class="mb-md">
+                    
+                    
+                        <a class="menu-item" href="/posts/" title="" white-space="nowrap">
+						<nobr>📖Blog</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/categories/" title="" white-space="nowrap">
+						<nobr>📁Categories</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/tags/" title="" white-space="nowrap">
+						<nobr>🎨Tags</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/about/" title="" white-space="nowrap">
+						<nobr>💬About</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/about/" title="" white-space="nowrap">
+						<nobr>ANY_ME</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                </nav>
+        </div>
+    </div>
+</nav>
+            <main class="main">
+                <div class="container">
+                    
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">并查集(Union-Find)算法及使用</h1>
+        <div class="post-meta">
+                <i class="fas fa-user-circle"></i> <a itemprop="name" href="https://shishuochen.github.io" rel="author">ANY_ME</a> 
+				&thinsp;$\bm\vert$&thinsp; 
+				<i class="fas fa-calendar-check "></i>
+				发布:2023-06-22
+				
+                </span>
+                
+				&thinsp;$\bm\vert$&thinsp; 
+				
+				
+                
+				&thinsp;$\bm\vert$&thinsp; 
+                
+                <i class="fas fa-folder-open "></i>
+                <span class="post-category">
+                        
+                        
+                        
+                          <a href="https://shishuochen.github.io/categories/code%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/"> Code那些事儿</a>
+                        
+                        
+                </span>
+				
+				&thinsp;$\bm\vert$&thinsp; 
+				<i class="fas fa-file-word "></i>
+				
+                <span class="post-word-count">1177字</span>
+				
+				&thinsp;$\bm\vert$&thinsp;   
+				<i class="fas fa-coffee "></i>
+				
+                <span class="post-word-count">3分钟</span>
+				
+        </div>
+    </header>
+	  
+     
+          <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title"></h2>
+  
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#写在前面">写在前面</a></li>
+<li><a href="#union-find-算法实现">Union-Find 算法实现</a>
+<ul>
+<li><a href="#初始化状态">初始化状态</a></li>
+<li><a href="#连接两个节点">连接两个节点</a></li>
+<li><a href="#判断节点是否连通">判断节点是否连通</a></li>
+<li><a href="#路径压缩-find函数">路径压缩、find函数</a></li>
+<li><a href="#优化思路总结">优化思路总结</a></li>
+</ul></li>
+<li><a href="#对应到题目">对应到题目</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+<script type="text/javascript">
+  window.onload = function () {
+    var fix = $('.post-toc');
+    var end = $('.post-comment');
+    var fixTop = fix.offset().top, fixHeight = fix.height();
+    var endTop, miss;
+    var offsetTop = fix[0].offsetTop;
+    $(window).scroll(function () {
+      var docTop = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
+      if (end.length > 0) {
+        endTop = end.offset().top;
+        miss = endTop - docTop - fixHeight;
+      }
+      if (fixTop < docTop) {
+        fix.css({ 'position': 'fixed' });
+        if ((end.length > 0) && (endTop < (docTop + fixHeight))) {
+          fix.css({ top: miss });
+        } else {
+          fix.css({ top: 0 });
+        }
+      } else {
+        fix.css({ 'position': 'absolute' });
+        fix.css({ top: offsetTop });
+      }
+    })
+  }
+</script> 
+	
+	<hr class="hr-twill-colorful">
+    <div class="post-content">
+        
+        
+        
+        
+        
+        
+        
+        
+
+        
+        
+        
+        
+
+<h2 id="写在前面">写在前面</h2>
+
+<blockquote>
+<p>并查集（Union-Find）算法是一个专门针对「动态连通性」的算法。连通指的是一种等价关系：自反性、对称性、传递性。并查集算法提供的API可以有很多操作：<strong>将两个节点连通</strong>、<strong>判断两节点是否连通</strong>或者有多少个连通分量等。</p>
+</blockquote>
+
+<h2 id="union-find-算法实现">Union-Find 算法实现</h2>
+
+<blockquote>
+<p><strong><code>Union-Find</code> 算法的关键就在于 <code>union</code> 和 <code>connected</code> 函数的效率</strong>。我们使用森林（若干棵树）来表示图的动态连通性，用数组来具体实现这个森林。</p>
+</blockquote>
+
+<ul>
+<li><strong>写成类的形式</strong>：
+
+<ul>
+<li><strong>根节点数组</strong>、连通分量计数（options）</li>
+<li><strong>初始化函数</strong>：构造数组记录初始根节点（自身）</li>
+<li><strong>连接函数</strong>：如果二者不连通，则将其中一个的根节点接到另一个的根节点上</li>
+<li><strong>判断是否连接</strong>：计算各自根节点进行比较</li>
+<li><strong>查找根节点函数</strong>：压缩路径的最好方法（递归），避免树的不平衡。</li>
+</ul></li>
+</ul>
+
+<h3 id="初始化状态">初始化状态</h3>
+
+<blockquote>
+<p><strong>对于初始化状态时，所有节点都是不连通的，各自指向的都是自己</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UF</span> {
+    <span style="color:#75715e">// 记录连通分量
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+        <span style="color:#66d9ef">int</span> count;
+        <span style="color:#75715e">// 节点 x 的父节点是 parent[x]
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">int</span><span style="color:#f92672">*</span> parent;
+    <span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+        <span style="color:#75715e">/* 构造函数，n 为图的节点总数 */</span>
+        UF(<span style="color:#66d9ef">int</span> n) {
+            <span style="color:#75715e">// 一开始互不连通
+</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>count <span style="color:#f92672">=</span> n;
+            <span style="color:#75715e">// 父节点指针初始指向自己
+</span><span style="color:#75715e"></span>            parent <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span>[n];
+            <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> n; i<span style="color:#f92672">++</span>)
+                parent[i] <span style="color:#f92672">=</span> i;
+        }
+        <span style="color:#75715e">/* 其他函数 */</span>
+};</code></pre></div>
+<h3 id="连接两个节点">连接两个节点</h3>
+
+<p>让其中的（任意）一个节点的<strong>根节点</strong>接到另一个节点的<strong>根节点</strong>上（<strong>注意这里是根节点接到另一个根节点上</strong>）</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">union</span>(<span style="color:#66d9ef">int</span> p, <span style="color:#66d9ef">int</span> q) {
+    <span style="color:#66d9ef">int</span> rootP <span style="color:#f92672">=</span> find(p);
+    <span style="color:#66d9ef">int</span> rootQ <span style="color:#f92672">=</span> find(q);
+    <span style="color:#66d9ef">if</span> (rootP <span style="color:#f92672">==</span> rootQ)
+        <span style="color:#66d9ef">return</span>;
+    <span style="color:#75715e">// 将两棵树合并为一棵
+</span><span style="color:#75715e"></span>    parent[rootP] <span style="color:#f92672">=</span> rootQ;
+    <span style="color:#75715e">// parent[rootQ] = rootP 也一样
+</span><span style="color:#75715e"></span>    count<span style="color:#f92672">--</span>; <span style="color:#75715e">// 两个分量合二为一
+</span><span style="color:#75715e"></span>}</code></pre></div>
+<h3 id="判断节点是否连通">判断节点是否连通</h3>
+
+<blockquote>
+<p>根据<code>parent</code>数组计算各自的根节点，相等则说明二者是连通的，反之则是不连通的。</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">connected</span>(<span style="color:#66d9ef">int</span> p, <span style="color:#66d9ef">int</span> q) {
+        <span style="color:#66d9ef">int</span> rootP <span style="color:#f92672">=</span> find(p);
+        <span style="color:#66d9ef">int</span> rootQ <span style="color:#f92672">=</span> find(q);
+        <span style="color:#66d9ef">return</span> rootP <span style="color:#f92672">==</span> rootQ;
+    }</code></pre></div>
+<h3 id="路径压缩-find函数">路径压缩、find函数</h3>
+
+<blockquote>
+<p>find 主要功能就是从某个节点向上遍历到树根，其时间复杂度就是树的高度。因此，尽可能的保持树比较低，每次访问的时间复杂度也就低。</p>
+</blockquote>
+
+<ul>
+<li>其实我们并不在乎每棵树的结构长什么样，只在乎根节点。</li>
+
+<li><p><strong>精妙的递归写法：那个递归过程中把路径上的所有结点的父节点都设置为根结点。</strong>也就是先找到最根节点，然后把这条路径上的节点都接到根节点，每个子树高度都是1了。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">find</span>(<span style="color:#66d9ef">int</span> x) {
+    <span style="color:#66d9ef">if</span> (parent[x] <span style="color:#f92672">!=</span> x) {
+        parent[x] <span style="color:#f92672">=</span> find(parent[x]);
+    }
+    <span style="color:#66d9ef">return</span> parent[x];
+}</code></pre></div></li>
+</ul>
+
+<h3 id="优化思路总结">优化思路总结</h3>
+
+<blockquote>
+<p>来自<a href="https://labuladong.github.io/algo/di-yi-zhan-da78c/shou-ba-sh-03a72/bing-cha-j-323f3/" rel="nofollow noreferrer" target="_blank">labuladong</a></p>
+</blockquote>
+
+<ol>
+<li><p>用 <code>parent</code> 数组记录每个节点的父节点，相当于指向父节点的指针，所以 <code>parent</code> 数组内实际存储着一个森林（若干棵多叉树）。</p></li>
+
+<li><p>用 <code>size</code> 数组记录着每棵树的重量，目的是让 <code>union</code> 后树依然拥有平衡性，保证各个 API 时间复杂度为 $O(logN)$，而不会退化成链表影响操作效率。</p></li>
+
+<li><p>在 <code>find</code> 函数中进行路径压缩，保证任意树的高度保持在常数，使得各个 API 时间复杂度为 O(1)。使用了路径压缩之后，可以不使用 <code>size</code> 数组的平衡优化。</p></li>
+</ol>
+
+<h2 id="对应到题目">对应到题目</h2>
+
+<p><a href="https://leetcode.cn/problems/satisfiability-of-equality-equations/description/" rel="nofollow noreferrer" target="_blank">990. 等式方程的可满足性</a></p>
+
+<ul>
+<li><p>先把所有相等的连通起来，再判定那些不连通的，根据判断结果返回。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UF</span> {
+<span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> parent;
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+<span style="color:#75715e">// 构造函数
+</span><span style="color:#75715e"></span>UF(<span style="color:#66d9ef">int</span> n) {
+    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;i<span style="color:#f92672">&lt;</span>n;i<span style="color:#f92672">++</span>) {
+        parent.push_back(i);
+    }
+}
+<span style="color:#75715e">// 连通两个点
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">union_</span>(<span style="color:#66d9ef">int</span> x,<span style="color:#66d9ef">int</span> y) {
+    <span style="color:#66d9ef">int</span> rootX<span style="color:#f92672">=</span>find(x);
+    <span style="color:#66d9ef">int</span> rootY<span style="color:#f92672">=</span>find(y);
+    <span style="color:#66d9ef">if</span>(rootX<span style="color:#f92672">==</span>rootY)
+        <span style="color:#66d9ef">return</span>;
+    parent[rootX]<span style="color:#f92672">=</span>rootY;  <span style="color:#75715e">// 是把它的根节点接到另一个上面
+</span><span style="color:#75715e"></span>}
+<span style="color:#75715e">// 判断是否连通
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">isconnected</span>(<span style="color:#66d9ef">int</span> x,<span style="color:#66d9ef">int</span> y) {
+    <span style="color:#66d9ef">int</span> rootX<span style="color:#f92672">=</span>find(x);
+    <span style="color:#66d9ef">int</span> rootY<span style="color:#f92672">=</span>find(y);
+    <span style="color:#66d9ef">if</span>(rootX<span style="color:#f92672">==</span>rootY) {
+        <span style="color:#66d9ef">return</span> true;
+    }
+    <span style="color:#66d9ef">return</span> false;
+}
+<span style="color:#75715e">// 查找根节点
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">find</span>(<span style="color:#66d9ef">int</span> x) {
+    <span style="color:#66d9ef">if</span>(parent[x]<span style="color:#f92672">!=</span>x){
+        parent[x]<span style="color:#f92672">=</span>find(parent[x]);
+    }
+    <span style="color:#66d9ef">return</span> parent[x];
+}
+};
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+<span style="color:#66d9ef">bool</span> equationsPossible(vector<span style="color:#f92672">&lt;</span>string<span style="color:#f92672">&gt;&amp;</span> equations) {
+    UF <span style="color:#a6e22e">uf</span>(<span style="color:#ae81ff">26</span>); <span style="color:#75715e">// 26个字母
+</span><span style="color:#75715e"></span>    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> flag;
+    <span style="color:#75715e">// 空间换时间
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;i<span style="color:#f92672">&lt;</span>equations.size();i<span style="color:#f92672">++</span>) {
+        flag.push_back(i);
+        <span style="color:#66d9ef">if</span>(equations[i][<span style="color:#ae81ff">1</span>]<span style="color:#f92672">==</span><span style="color:#e6db74">&#39;=&#39;</span>) {
+            uf.union_(equations[i][<span style="color:#ae81ff">0</span>]<span style="color:#f92672">-</span><span style="color:#ae81ff">97</span>,equations[i][<span style="color:#ae81ff">3</span>]<span style="color:#f92672">-</span><span style="color:#ae81ff">97</span>);
+            flag.pop_back();
+        }
+    }
+    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">auto</span> s:flag){
+        <span style="color:#66d9ef">int</span> x<span style="color:#f92672">=</span>equations[s][<span style="color:#ae81ff">0</span>]<span style="color:#f92672">-</span><span style="color:#ae81ff">97</span>,y<span style="color:#f92672">=</span>equations[s][<span style="color:#ae81ff">3</span>]<span style="color:#f92672">-</span><span style="color:#ae81ff">97</span>;
+        <span style="color:#66d9ef">if</span>(uf.isconnected(x,y)){
+            <span style="color:#66d9ef">return</span> false;
+        }
+    }   
+    <span style="color:#66d9ef">return</span> true;
+}
+};</code></pre></div></li>
+</ul>
+
+<p><center></p>
+
+<p>$\cdots$ <strong>end</strong> $\cdots$</p>
+
+<p></center></p>
+
+    </div>
+    <div class="post-copyright">
+            
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>ANY_ME </span>
+                </p>
+            
+
+            
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://shishuochen.github.io/2023/eujqvjda2/>https://shishuochen.github.io/2023/eujqvjda2/</span>
+            </p>
+            
+            
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://shishuochen.github.io/tags/c&#43;&#43;/">
+                    #C&#43;&#43;</a></span>
+            
+            <span class="tag"><a href="https://shishuochen.github.io/tags/leetcode/">
+                    #LeetCode</a></span>
+            
+            <span class="tag"><a href="https://shishuochen.github.io/tags/%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86%E5%8F%8A%E5%BA%94%E7%94%A8/">
+                    #图的遍历及应用</a></span>
+            
+            <span class="tag"><a href="https://shishuochen.github.io/tags/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2bfs/">
+                    #广度优先搜索(BFS)</a></span>
+            
+            <span class="tag"><a href="https://shishuochen.github.io/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86union-find%E7%AE%97%E6%B3%95/">
+                    #并查集(Union-Find)算法</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> ·
+                <span><a href="https://shishuochen.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://shishuochen.github.io/2023/bi_kocjis/" class="prev" rel="prev" title="二分图遍历染色"><i class="fas fa-caret-left"></i>&nbsp;二分图遍历染色</a>
+        
+        
+        <a href="https://shishuochen.github.io/2023/sgdkfm6rd/" class="next" rel="next" title="最小生成树：Kruskal &amp; Prim 算法">最小生成树：Kruskal &amp; Prim 算法&nbsp;<i class="fas fas fa-caret-right"></i></a>
+        
+    </div>
+	        <style>
+    .utterances {
+      position: relative;
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .utterances-frame {
+      color-scheme: light;
+      position: absolute;
+      left: 0;
+      right: 0;
+      width: 1px;
+      min-width: 100%;
+      max-width: 100%;
+      height: 100%;
+      border: 0;
+    }
+  </style>
+    <div class="post-comment">
+        
+            
+                <script src="https://utteranc.es/client.js"
+    repo="shishuochen/Bolg-comments"
+    issue-term="title"
+    label="Comment"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+</script>
+<style>
+    .utterances {
+        max-width: 99%;
+    }
+</style>
+            
+        
+
+    </div>
+</article>
+                </div>
+                <link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+            </main>
+            
+<div class="footer-box">
+<footer class="footer">
+   <div class="copyright">
+      &copy;
+      
+      <span itemprop="copyrightYear">2019 - 2023</span>
+      
+      <span class="with-love">
+         <i class="fas fa-heart"></i>
+      </span>
+      
+      <span class="author" itemprop="copyrightHolder"><a href="https://shishuochen.github.io">ANY_ME</a> |
+      </span>
+      
+      
+	  <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+      <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a
+            href="https://github.com/Mogeko/Mogege" target="_blank" rel="external nofollow">Mogege</a></span>
+</footer>
+
+      <div class="back-to-top" id="back_to_top">
+         
+         <span><i class="fas fa-arrow-up"></i></span>
+         
+         <span class="scrollpercent">
+            <span id="back_to_top_text">0</span>%
+         </span>
+      </div>
+</div>
+<script>
+
+   let sideBarOpen = 'sidebar-open';
+   let body = document.body;
+   let back2Top = document.querySelector('#back_to_top'),
+      back2TopText = document.querySelector('#back_to_top_text'),
+      drawerBox = document.querySelector('#drawer_box'),
+      rightSideBar = document.querySelector('.sidebar'),
+      viewport = document.querySelector('body');
+
+   function scrollAnimation(currentY, targetY) {
+
+      let needScrollTop = targetY - currentY
+      let _currentY = currentY
+      setTimeout(() => {
+         const dist = Math.ceil(needScrollTop / 10)
+         _currentY += dist
+         window.scrollTo(_currentY, currentY)
+         if (needScrollTop > 10 || needScrollTop < -10) {
+            scrollAnimation(_currentY, targetY)
+         } else {
+            window.scrollTo(_currentY, targetY)
+         }
+      }, 1)
+   }
+
+   back2Top.addEventListener("click", function (e) {
+      scrollAnimation(document.scrollingElement.scrollTop, 0);
+      e.stopPropagation();
+      return false;
+   });
+
+   window.addEventListener('scroll', function (e) {
+      let percent = document.scrollingElement.scrollTop / (document.scrollingElement.scrollHeight - document.scrollingElement.clientHeight) * 100;
+      if (percent > 1 && !back2Top.classList.contains('back-top-active')) {
+         back2Top.classList.add('back-top-active');
+      }
+      if (percent == 0) {
+         back2Top.classList.remove('back-top-active');
+      }
+      if (back2TopText) {
+         back2TopText.textContent = Math.floor(percent);
+      }
+   });
+</script>
+
+
+
+
+
+
+<script defer src="/js/vendor_main.min.js"></script>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/love.min.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha256-V8SV2MO1FUb63Bwht5Wx9x6PVHNa02gv8BgH/uH3ung=" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha256-F/Xda58SPdcUCr+xhSGz9MA2zQBPb0ASEYKohl8UCHc=" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha256-90d2pnfw0r4K8CZAWPko4rpFXQsZvJhTBGYNkipDprI=" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+           delimiters: [
+     {left: "$$", right: "$$", display: true},
+     {left: "$", right: "$", display: false},
+   ],
+        });
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/jmnote/plantuml-encoder@1.2.4/dist/plantuml-encoder.min.js"></script>
+<script>
+(function(){
+    let plantumlPrefix = "language-plantuml";
+    Array.prototype.forEach.call(document.querySelectorAll("[class^=" + plantumlPrefix + "]"), function(code){
+        let image = document.createElement("IMG");
+        image.loading = 'lazy'; 
+        image.src = 'http://www.plantuml.com/plantuml/svg/~1' + plantumlEncoder.encode(code.innerText);
+        code.parentNode.insertBefore(image, code);
+        code.style.display = 'none'
+    });
+})();
+</script>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script> pangu.spacingPage();</script>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+        </div>
+    </body>
+</html>
+

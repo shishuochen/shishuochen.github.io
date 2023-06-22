@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HZXHKZW7E0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HZXHKZW7E0');
+</script>
+<meta name="google-site-verification" content="PgRvRggX4FPNmBfLmc_IBoedK_gPlyCB_p49I3DfNSA" />
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="ANY_ME">
+    <meta name="description" content="shishuoCh的个人博客">
+    
+    <meta name="google-site-verification" content=" " />
+    <link rel="prev" href="https://shishuochen.github.io/2023/sgdkfm6rd/" />
+    
+    <link rel="canonical" href="https://shishuochen.github.io/2023/klkfgguu9/" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+        
+        
+            Dijkstra 算法：最小路径或者最大路径 | shishuoCh&#39;s Blog
+        
+    </title>
+    <meta name="title" content="Dijkstra 算法：最小路径或者最大路径 | shishuoCh&#39;s Blog">
+    
+<link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/shishuochen.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "Dijkstra 算法：最小路径或者最大路径",
+    "headline" : "Dijkstra 算法：最小路径或者最大路径",
+    "description" : "写在前面 Dijkstra 算法实质上就是 BFS 算法的加强版，算法的模拟过程就是BFS，只不过 Dijkstra 算法一般来说是有固定的起止位置的，然后计算这两点之间的最大或者最小",
+    "inLanguage" : "zh-cn",
+    "author" : "ANY_ME",
+    "creator" : "ANY_ME",
+    "publisher": "ANY_ME",
+    "accountablePerson" : "ANY_ME",
+    "copyrightHolder" : "ANY_ME",
+    "copyrightYear" : "2023",
+    "datePublished": "2023-06-22 20:24:56 \u002b0800 CST",
+    "dateModified" : "2023-06-22 20:24:56 \u002b0800 CST",
+    "url" : "https:\/\/shishuochen.github.io\/2023\/klkfgguu9\/",
+    "wordCount" : "1084",
+    "keywords" : [ "C\u002b\u002b","LeetCode","图的遍历及应用","广度优先搜索(BFS)","最优路径", "shishuoCh\u0027s Blog"]
+}
+</script>
+
+	<link rel="stylesheet" href=
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
+</link>
+    
+    <script src="https://kit.fontawesome.com/860bffd803.js" crossorigin="anonymous"></script>
+	
+
+
+  </head>
+    <body class="">
+        <div class="wrapper">
+            <nav class="navbar">
+    
+        <progress class="content_progress" max="0" value="0"></progress>
+    
+    <div class="container">
+        
+            <div class="navbar-header header-back2home-logo">
+                <span class="logo_mark" >>$</span>
+                <a href="https://shishuochen.github.io">
+                    <span class="logo_text" >cd /home/</span>
+                    <span class="logo_cursor" ></span>
+                </a>
+            </div>
+        
+        <div class="navbar-right">
+                
+                <span class="menu">
+                
+                <a class="menu-item" href="/posts/" title="">📖Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">📁Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">🎨Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">💬About</a>
+                
+                <a class="menu-item" href="/about/" title="">ANY_ME</a>
+                
+                <span class="divide"></span>
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-dark-mode"></i></a>
+                </span>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display:none">
+    
+        <progress class="content_progress" max="0" value="0"></progress>
+    
+     <div class="container">
+        <div class="navbar">
+            <div class="navbar-header header-logo">
+                    <a href="https://shishuochen.github.io">shishuoCh&#39;s Blog</a>
+            </div>
+            <div class="navbar-right">
+                <div><a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-dark-mode"></i></a></div>
+                <div class="menu-toggle">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                <nav class="mb-md">
+                    
+                    
+                        <a class="menu-item" href="/posts/" title="" white-space="nowrap">
+						<nobr>📖Blog</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/categories/" title="" white-space="nowrap">
+						<nobr>📁Categories</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/tags/" title="" white-space="nowrap">
+						<nobr>🎨Tags</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/about/" title="" white-space="nowrap">
+						<nobr>💬About</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/about/" title="" white-space="nowrap">
+						<nobr>ANY_ME</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                </nav>
+        </div>
+    </div>
+</nav>
+            <main class="main">
+                <div class="container">
+                    
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Dijkstra 算法：最小路径或者最大路径</h1>
+        <div class="post-meta">
+                <i class="fas fa-user-circle"></i> <a itemprop="name" href="https://shishuochen.github.io" rel="author">ANY_ME</a> 
+				&thinsp;$\bm\vert$&thinsp; 
+				<i class="fas fa-calendar-check "></i>
+				发布:2023-06-22
+				
+                </span>
+                
+				&thinsp;$\bm\vert$&thinsp; 
+				
+				
+                
+				&thinsp;$\bm\vert$&thinsp; 
+                
+                <i class="fas fa-folder-open "></i>
+                <span class="post-category">
+                        
+                        
+                        
+                          <a href="https://shishuochen.github.io/categories/code%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/"> Code那些事儿</a>
+                        
+                        
+                </span>
+				
+				&thinsp;$\bm\vert$&thinsp; 
+				<i class="fas fa-file-word "></i>
+				
+                <span class="post-word-count">1084字</span>
+				
+				&thinsp;$\bm\vert$&thinsp;   
+				<i class="fas fa-coffee "></i>
+				
+                <span class="post-word-count">3分钟</span>
+				
+        </div>
+    </header>
+	  
+     
+          <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title"></h2>
+  
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#写在前面">写在前面</a>
+<ul>
+<li><a href="#优先队列-贪心">优先队列（贪心）</a></li>
+<li><a href="#距离数组-最优权重">距离数组（最优权重）</a></li>
+<li><a href="#最优权重更新机制">最优权重更新机制</a></li>
+<li><a href="#visited数组">visited数组？</a></li>
+</ul></li>
+<li><a href="#dijkstra算法">Dijkstra算法</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+<script type="text/javascript">
+  window.onload = function () {
+    var fix = $('.post-toc');
+    var end = $('.post-comment');
+    var fixTop = fix.offset().top, fixHeight = fix.height();
+    var endTop, miss;
+    var offsetTop = fix[0].offsetTop;
+    $(window).scroll(function () {
+      var docTop = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
+      if (end.length > 0) {
+        endTop = end.offset().top;
+        miss = endTop - docTop - fixHeight;
+      }
+      if (fixTop < docTop) {
+        fix.css({ 'position': 'fixed' });
+        if ((end.length > 0) && (endTop < (docTop + fixHeight))) {
+          fix.css({ top: miss });
+        } else {
+          fix.css({ top: 0 });
+        }
+      } else {
+        fix.css({ 'position': 'absolute' });
+        fix.css({ top: offsetTop });
+      }
+    })
+  }
+</script> 
+	
+	<hr class="hr-twill-colorful">
+    <div class="post-content">
+        
+        
+        
+        
+        
+        
+        
+        
+
+        
+        
+        
+        
+
+<h2 id="写在前面">写在前面</h2>
+
+<blockquote>
+<p>Dijkstra 算法实质上就是 BFS 算法的加强版，<strong>算法的模拟过程就是BFS</strong>，只不过 Dijkstra 算法一般来说是有固定的起止位置的，然后计算这两点之间的最大或者最小路径或者其他“权重”（例如<a href="https://leetcode.cn/problems/path-with-minimum-effort/" rel="nofollow noreferrer" target="_blank">1631. 最小体力消耗路径</a> 中的<strong>高度差</strong>）。也就是说Dijkstra计算的是<strong>对图中的一条路径进行最优计算</strong>，而前面的 Kruskal和Prim算法都是对整个图的最优计算（最小生成树权重）。 Dijkstra 计算最短路径的正确性依赖一个前提：路径中每增加一条边，路径的总权重就会增加，反之也可以；有时候也可以不是最短或者最长。就是计算一条最优路径也是可以的，根据情况而定。</p>
+</blockquote>
+
+<h3 id="优先队列-贪心">优先队列（贪心）</h3>
+
+<ul>
+<li><strong>优先队列</strong>辅助计算，它的作用就是<strong>贪心</strong>，它能保证你第一次到达<code>end</code>的结果就是题目要求的。<strong>队列中元素一定包含两个信息：位置及状态值</strong>，所谓状态值就是和题目所求相关的变量，可以用<code>pair</code>对保存，也可以用<code>class</code>类保存.</li>
+<li>另外<strong>优先队列的排序方法</strong>应该根据题目来定，如果是计算最小相关则应该使用最小堆，反之则使用最大堆。</li>
+</ul>
+
+<h3 id="距离数组-最优权重">距离数组（最优权重）</h3>
+
+<ul>
+<li><strong>距离数组</strong>的初始化：这个要特别注意，应该设置为较大的值还是较小的值，根据题目而定，因为这涉及到BFS的更新过程。</li>
+</ul>
+
+<h3 id="最优权重更新机制">最优权重更新机制</h3>
+
+<ul>
+<li>另外就是，注意dist数组（<strong>dist中的值都是起始位置到node的最优值</strong>）的<strong>更新机制</strong>，以本题最大概率为例，假设当前到达节点为<code>n1</code>,<code>n1</code>的邻接点有<code>n2</code>，则<code>dist[n2]</code>的更新机制应该是过往的<code>dist[n2]</code>结果小于dist[n1]与n1到n2的综合结果（也就是$dist[n1]*prob(n1,n2)$）；再比如<a href="https://leetcode.cn/problems/path-with-minimum-effort/" rel="nofollow noreferrer" target="_blank">1631. 最小体力消耗路径</a>，对应的更新机制应该是<code>dist[n2]</code>与综合结果（$max(dist[n1],height(n1,n2))$），也从侧面说明了Dijkstra 算法解决的最优是多方面，不一定最短或者最长，也有可能是其他权重。</li>
+</ul>
+
+<h3 id="visited数组">visited数组？</h3>
+
+<ul>
+<li><strong>会不会走回头路</strong>？感觉不会，因为走回头路只会增加相应的权重，而且<strong>只有能够更新<code>dist[n]</code>时才会将可能最优路径加入队列</strong>。</li>
+</ul>
+
+<h2 id="dijkstra算法">Dijkstra算法</h2>
+
+<blockquote>
+<p>以<a href="https://leetcode.cn/problems/path-with-minimum-effort/" rel="nofollow noreferrer" target="_blank">1631. 最小体力消耗路径</a> 为例</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">state</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    state(<span style="color:#66d9ef">int</span> node,<span style="color:#66d9ef">double</span> prob){
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>node<span style="color:#f92672">=</span>node;
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>prob<span style="color:#f92672">=</span>prob;
+    }
+    <span style="color:#66d9ef">int</span> node;
+    <span style="color:#66d9ef">double</span> prob;
+};
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">double</span> maxProbability(<span style="color:#66d9ef">int</span> n, vector<span style="color:#f92672">&lt;</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&gt;&amp;</span> edges, vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">double</span><span style="color:#f92672">&gt;&amp;</span> su<span style="color:#960050;background-color:#1e0010">＊＊＊</span>rob, <span style="color:#66d9ef">int</span> start, <span style="color:#66d9ef">int</span> end) {
+        vector<span style="color:#f92672">&lt;</span>vector<span style="color:#f92672">&lt;</span>pair<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span>,<span style="color:#66d9ef">double</span><span style="color:#f92672">&gt;&gt;&gt;</span> graph<span style="color:#f92672">=</span>buildGraph(n,edges,su<span style="color:#960050;background-color:#1e0010">＊＊＊</span>rob);
+        vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">double</span><span style="color:#f92672">&gt;</span> dist(n,<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>);
+        dist[start]<span style="color:#f92672">=</span><span style="color:#ae81ff">0.0</span>;   <span style="color:#75715e">// start2start设置为零
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">// BFS优先队列
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">auto</span> cmp<span style="color:#f92672">=</span>[](<span style="color:#66d9ef">const</span> state<span style="color:#f92672">&amp;</span>s1,<span style="color:#66d9ef">const</span> state<span style="color:#f92672">&amp;</span>s2){<span style="color:#66d9ef">return</span> s1.prob <span style="color:#f92672">&lt;</span> s2.prob;};
+        priority_queue<span style="color:#f92672">&lt;</span>state,vector<span style="color:#f92672">&lt;</span>state<span style="color:#f92672">&gt;</span>,<span style="color:#66d9ef">decltype</span>(cmp)<span style="color:#f92672">&gt;</span> Q(cmp);
+        <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">auto</span> s:graph[start]) {
+            <span style="color:#66d9ef">int</span> ed<span style="color:#f92672">=</span>s.first;
+            <span style="color:#66d9ef">double</span> prob<span style="color:#f92672">=</span>s.second;
+            dist[ed]<span style="color:#f92672">=</span>prob;
+            Q.push(state(ed,prob));
+        }
+        <span style="color:#66d9ef">while</span>(<span style="color:#f92672">!</span>Q.empty()) {
+            state cur<span style="color:#f92672">=</span>Q.top();
+            Q.pop();
+            <span style="color:#66d9ef">int</span> ed<span style="color:#f92672">=</span>cur.node;
+            <span style="color:#66d9ef">double</span> prob<span style="color:#f92672">=</span>cur.prob;
+            <span style="color:#66d9ef">if</span>(ed<span style="color:#f92672">==</span>end)
+                <span style="color:#66d9ef">return</span> dist[ed];
+            <span style="color:#66d9ef">if</span>(dist[ed]<span style="color:#f92672">&gt;</span>prob) <span style="color:#66d9ef">continue</span>;
+            <span style="color:#75715e">// 更新概率值
+</span><span style="color:#75715e"></span>            dist[ed]<span style="color:#f92672">=</span>prob;
+            <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">auto</span> s:graph[ed]){
+                <span style="color:#66d9ef">int</span> nod<span style="color:#f92672">=</span>s.first;
+                <span style="color:#66d9ef">double</span> prob<span style="color:#f92672">=</span>s.second;
+                <span style="color:#66d9ef">if</span>(dist[nod]<span style="color:#f92672">&lt;</span>dist[ed]<span style="color:#f92672">*</span>prob){
+                    dist[nod]<span style="color:#f92672">=</span>dist[ed]<span style="color:#f92672">*</span>prob;
+                    Q.push(state(nod,dist[nod]));
+                }
+            }
+        }
+        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+    }
+    <span style="color:#75715e">// 有向无向不重要？
+</span><span style="color:#75715e"></span>    vector<span style="color:#f92672">&lt;</span>vector<span style="color:#f92672">&lt;</span>pair<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span>,<span style="color:#66d9ef">double</span><span style="color:#f92672">&gt;&gt;&gt;</span> buildGraph(<span style="color:#66d9ef">int</span> n,vector<span style="color:#f92672">&lt;</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&gt;&amp;</span> edges, vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">double</span><span style="color:#f92672">&gt;&amp;</span> su<span style="color:#960050;background-color:#1e0010">＊＊＊</span>rob) {
+        vector<span style="color:#f92672">&lt;</span>vector<span style="color:#f92672">&lt;</span>pair<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span>,<span style="color:#66d9ef">double</span><span style="color:#f92672">&gt;&gt;&gt;</span> graph(n);
+        <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;i<span style="color:#f92672">&lt;</span>edges.size();i<span style="color:#f92672">++</span>){
+            <span style="color:#75715e">// 起始位置
+</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">int</span> start<span style="color:#f92672">=</span>edges[i][<span style="color:#ae81ff">0</span>],end<span style="color:#f92672">=</span>edges[i][<span style="color:#ae81ff">1</span>];
+            <span style="color:#75715e">// 到达最大概率
+</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">double</span> prob<span style="color:#f92672">=</span>su<span style="color:#960050;background-color:#1e0010">＊＊＊</span>rob[i];
+            graph[start].push_back(make_pair(end,prob));
+            graph[end].push_back(make_pair(start,prob));
+        }
+        <span style="color:#66d9ef">return</span> graph;
+    }
+};</code></pre></div>
+<p><center></p>
+
+<p>$\cdots$ <strong>end</strong> $\cdots$</p>
+
+<p></center></p>
+
+    </div>
+    <div class="post-copyright">
+            
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>ANY_ME </span>
+                </p>
+            
+
+            
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://shishuochen.github.io/2023/klkfgguu9/>https://shishuochen.github.io/2023/klkfgguu9/</span>
+            </p>
+            
+            
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://shishuochen.github.io/tags/c&#43;&#43;/">
+                    #C&#43;&#43;</a></span>
+            
+            <span class="tag"><a href="https://shishuochen.github.io/tags/leetcode/">
+                    #LeetCode</a></span>
+            
+            <span class="tag"><a href="https://shishuochen.github.io/tags/%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86%E5%8F%8A%E5%BA%94%E7%94%A8/">
+                    #图的遍历及应用</a></span>
+            
+            <span class="tag"><a href="https://shishuochen.github.io/tags/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2bfs/">
+                    #广度优先搜索(BFS)</a></span>
+            
+            <span class="tag"><a href="https://shishuochen.github.io/tags/%E6%9C%80%E4%BC%98%E8%B7%AF%E5%BE%84/">
+                    #最优路径</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> ·
+                <span><a href="https://shishuochen.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://shishuochen.github.io/2023/sgdkfm6rd/" class="prev" rel="prev" title="最小生成树：Kruskal &amp; Prim 算法"><i class="fas fa-caret-left"></i>&nbsp;最小生成树：Kruskal &amp; Prim 算法</a>
+        
+        
+    </div>
+	        <style>
+    .utterances {
+      position: relative;
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .utterances-frame {
+      color-scheme: light;
+      position: absolute;
+      left: 0;
+      right: 0;
+      width: 1px;
+      min-width: 100%;
+      max-width: 100%;
+      height: 100%;
+      border: 0;
+    }
+  </style>
+    <div class="post-comment">
+        
+            
+                <script src="https://utteranc.es/client.js"
+    repo="shishuochen/Bolg-comments"
+    issue-term="title"
+    label="Comment"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+</script>
+<style>
+    .utterances {
+        max-width: 99%;
+    }
+</style>
+            
+        
+
+    </div>
+</article>
+                </div>
+                <link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+            </main>
+            
+<div class="footer-box">
+<footer class="footer">
+   <div class="copyright">
+      &copy;
+      
+      <span itemprop="copyrightYear">2019 - 2023</span>
+      
+      <span class="with-love">
+         <i class="fas fa-heart"></i>
+      </span>
+      
+      <span class="author" itemprop="copyrightHolder"><a href="https://shishuochen.github.io">ANY_ME</a> |
+      </span>
+      
+      
+	  <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+      <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a
+            href="https://github.com/Mogeko/Mogege" target="_blank" rel="external nofollow">Mogege</a></span>
+</footer>
+
+      <div class="back-to-top" id="back_to_top">
+         
+         <span><i class="fas fa-arrow-up"></i></span>
+         
+         <span class="scrollpercent">
+            <span id="back_to_top_text">0</span>%
+         </span>
+      </div>
+</div>
+<script>
+
+   let sideBarOpen = 'sidebar-open';
+   let body = document.body;
+   let back2Top = document.querySelector('#back_to_top'),
+      back2TopText = document.querySelector('#back_to_top_text'),
+      drawerBox = document.querySelector('#drawer_box'),
+      rightSideBar = document.querySelector('.sidebar'),
+      viewport = document.querySelector('body');
+
+   function scrollAnimation(currentY, targetY) {
+
+      let needScrollTop = targetY - currentY
+      let _currentY = currentY
+      setTimeout(() => {
+         const dist = Math.ceil(needScrollTop / 10)
+         _currentY += dist
+         window.scrollTo(_currentY, currentY)
+         if (needScrollTop > 10 || needScrollTop < -10) {
+            scrollAnimation(_currentY, targetY)
+         } else {
+            window.scrollTo(_currentY, targetY)
+         }
+      }, 1)
+   }
+
+   back2Top.addEventListener("click", function (e) {
+      scrollAnimation(document.scrollingElement.scrollTop, 0);
+      e.stopPropagation();
+      return false;
+   });
+
+   window.addEventListener('scroll', function (e) {
+      let percent = document.scrollingElement.scrollTop / (document.scrollingElement.scrollHeight - document.scrollingElement.clientHeight) * 100;
+      if (percent > 1 && !back2Top.classList.contains('back-top-active')) {
+         back2Top.classList.add('back-top-active');
+      }
+      if (percent == 0) {
+         back2Top.classList.remove('back-top-active');
+      }
+      if (back2TopText) {
+         back2TopText.textContent = Math.floor(percent);
+      }
+   });
+</script>
+
+
+
+
+
+
+<script defer src="/js/vendor_main.min.js"></script>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/love.min.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha256-V8SV2MO1FUb63Bwht5Wx9x6PVHNa02gv8BgH/uH3ung=" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha256-F/Xda58SPdcUCr+xhSGz9MA2zQBPb0ASEYKohl8UCHc=" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha256-90d2pnfw0r4K8CZAWPko4rpFXQsZvJhTBGYNkipDprI=" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+           delimiters: [
+     {left: "$$", right: "$$", display: true},
+     {left: "$", right: "$", display: false},
+   ],
+        });
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/jmnote/plantuml-encoder@1.2.4/dist/plantuml-encoder.min.js"></script>
+<script>
+(function(){
+    let plantumlPrefix = "language-plantuml";
+    Array.prototype.forEach.call(document.querySelectorAll("[class^=" + plantumlPrefix + "]"), function(code){
+        let image = document.createElement("IMG");
+        image.loading = 'lazy'; 
+        image.src = 'http://www.plantuml.com/plantuml/svg/~1' + plantumlEncoder.encode(code.innerText);
+        code.parentNode.insertBefore(image, code);
+        code.style.display = 'none'
+    });
+})();
+</script>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script> pangu.spacingPage();</script>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+        </div>
+    </body>
+</html>
+

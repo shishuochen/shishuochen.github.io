@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>最优路径 on shishuoCh&#39;s Blog</title>
+    <link>https://shishuochen.github.io/tags/%E6%9C%80%E4%BC%98%E8%B7%AF%E5%BE%84/</link>
+    <description>Recent content in 最优路径 on shishuoCh&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 22 Jun 2023 20:24:56 +0800</lastBuildDate><atom:link href="https://shishuochen.github.io/tags/%E6%9C%80%E4%BC%98%E8%B7%AF%E5%BE%84/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Dijkstra 算法：最小路径或者最大路径</title>
+      <link>https://shishuochen.github.io/2023/klkfgguu9/</link>
+      <pubDate>Thu, 22 Jun 2023 20:24:56 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2023/klkfgguu9/</guid>
+      <description>写在前面 Dijkstra 算法实质上就是 BFS 算法的加强版，算法的模拟过程就是BFS，只不过 Dijkstra 算法一般来说是有固定的起止位置的，然后计算这两点之间的最大或者最小</description>
+    </item>
+    
+  </channel>
+</rss>

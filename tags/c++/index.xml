@@ -6,7 +6,43 @@
     <description>Recent content in C&#43;&#43; on shishuoCh&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 19 Jun 2023 21:07:47 +0800</lastBuildDate><atom:link href="https://shishuochen.github.io/tags/c++/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 22 Jun 2023 20:24:56 +0800</lastBuildDate><atom:link href="https://shishuochen.github.io/tags/c++/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Dijkstra 算法：最小路径或者最大路径</title>
+      <link>https://shishuochen.github.io/2023/klkfgguu9/</link>
+      <pubDate>Thu, 22 Jun 2023 20:24:56 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2023/klkfgguu9/</guid>
+      <description>写在前面 Dijkstra 算法实质上就是 BFS 算法的加强版，算法的模拟过程就是BFS，只不过 Dijkstra 算法一般来说是有固定的起止位置的，然后计算这两点之间的最大或者最小</description>
+    </item>
+    
+    <item>
+      <title>最小生成树：Kruskal &amp; Prim 算法</title>
+      <link>https://shishuochen.github.io/2023/sgdkfm6rd/</link>
+      <pubDate>Thu, 22 Jun 2023 20:24:33 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2023/sgdkfm6rd/</guid>
+      <description>写在前面 总结摘抄自labuladong 「树」和「图」的根本区别：树不会包含环，图可以包含环。一幅图可以有很多不同的生成树, 在所有可能的生成树</description>
+    </item>
+    
+    <item>
+      <title>并查集(Union-Find)算法及使用</title>
+      <link>https://shishuochen.github.io/2023/eujqvjda2/</link>
+      <pubDate>Thu, 22 Jun 2023 20:24:12 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2023/eujqvjda2/</guid>
+      <description>写在前面 并查集（Union-Find）算法是一个专门针对「动态连通性」的算法。连通指的是一种等价关系：自反性、对称性、传递性。并查集算法提供</description>
+    </item>
+    
+    <item>
+      <title>二分图遍历染色</title>
+      <link>https://shishuochen.github.io/2023/bi_kocjis/</link>
+      <pubDate>Thu, 22 Jun 2023 20:12:07 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2023/bi_kocjis/</guid>
+      <description>写在前面 从简单实用的角度来看，二分图结构在某些场景可以更高效地存储数据。不同于哈希表的一对一的映射；二分图可以做到一到多的映射，想象二分图中</description>
+    </item>
+    
     <item>
       <title>图的基本遍历、有向环检测、拓扑排序</title>
       <link>https://shishuochen.github.io/2023/z3ekdp0wl/</link>
