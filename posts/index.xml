@@ -6,7 +6,16 @@
     <description>Recent content in Posts on shishuoCh&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 24 Jun 2023 15:47:57 +0800</lastBuildDate><atom:link href="https://shishuochen.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 24 Jun 2023 22:21:54 +0800</lastBuildDate><atom:link href="https://shishuochen.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LFU（Least Frequency Used）算法数据结构总结</title>
+      <link>https://shishuochen.github.io/2023/q41afejy9/</link>
+      <pubDate>Sat, 24 Jun 2023 22:21:54 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2023/q41afejy9/</guid>
+      <description>写在前面 LFU（Least Frequency Used）算法也是一种缓存淘汰策略，顾名思义就是淘汰掉使用频次最少的数据，如果多个最低频次使用的就删除最久远的呢</description>
+    </item>
+    
     <item>
       <title>LRU（Least Recently Used）算法</title>
       <link>https://shishuochen.github.io/2023/qnwpygokg/</link>
