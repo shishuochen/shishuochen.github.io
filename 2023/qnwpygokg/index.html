@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HZXHKZW7E0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HZXHKZW7E0');
+</script>
+<meta name="google-site-verification" content="PgRvRggX4FPNmBfLmc_IBoedK_gPlyCB_p49I3DfNSA" />
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="ANY_ME">
+    <meta name="description" content="shishuoCh的个人博客">
+    
+    <meta name="google-site-verification" content=" " />
+    <link rel="prev" href="https://shishuochen.github.io/2023/klkfgguu9/" />
+    
+    <link rel="canonical" href="https://shishuochen.github.io/2023/qnwpygokg/" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+        
+        
+            LRU（Least Recently Used）算法 | shishuoCh&#39;s Blog
+        
+    </title>
+    <meta name="title" content="LRU（Least Recently Used）算法 | shishuoCh&#39;s Blog">
+    
+<link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/shishuochen.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "LRU（Least Recently Used）算法",
+    "headline" : "LRU（Least Recently Used）算法",
+    "description" : "写在前面 LRU (Least Recently Used) 算法就是一种缓存淘汰策略, 见名知意就是删除掉最久未使用的内存。题目要求get和put在$O(1)$时间内完成，哈希表可以做到",
+    "inLanguage" : "zh-cn",
+    "author" : "ANY_ME",
+    "creator" : "ANY_ME",
+    "publisher": "ANY_ME",
+    "accountablePerson" : "ANY_ME",
+    "copyrightHolder" : "ANY_ME",
+    "copyrightYear" : "2023",
+    "datePublished": "2023-06-24 15:47:57 \u002b0800 CST",
+    "dateModified" : "2023-06-24 15:47:57 \u002b0800 CST",
+    "url" : "https:\/\/shishuochen.github.io\/2023\/qnwpygokg\/",
+    "wordCount" : "1340",
+    "keywords" : [ "C\u002b\u002b","LeetCode","LRU算法","缓存淘汰策略", "shishuoCh\u0027s Blog"]
+}
+</script>
+
+	<link rel="stylesheet" href=
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
+</link>
+    
+    <script src="https://kit.fontawesome.com/860bffd803.js" crossorigin="anonymous"></script>
+	
+
+
+  </head>
+    <body class="">
+        <div class="wrapper">
+            <nav class="navbar">
+    
+        <progress class="content_progress" max="0" value="0"></progress>
+    
+    <div class="container">
+        
+            <div class="navbar-header header-back2home-logo">
+                <span class="logo_mark" >>$</span>
+                <a href="https://shishuochen.github.io">
+                    <span class="logo_text" >cd /home/</span>
+                    <span class="logo_cursor" ></span>
+                </a>
+            </div>
+        
+        <div class="navbar-right">
+                
+                <span class="menu">
+                
+                <a class="menu-item" href="/posts/" title="">📖Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">📁Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">🎨Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">💬About</a>
+                
+                <a class="menu-item" href="/about/" title="">ANY_ME</a>
+                
+                <span class="divide"></span>
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-dark-mode"></i></a>
+                </span>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display:none">
+    
+        <progress class="content_progress" max="0" value="0"></progress>
+    
+     <div class="container">
+        <div class="navbar">
+            <div class="navbar-header header-logo">
+                    <a href="https://shishuochen.github.io">shishuoCh&#39;s Blog</a>
+            </div>
+            <div class="navbar-right">
+                <div><a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-dark-mode"></i></a></div>
+                <div class="menu-toggle">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                <nav class="mb-md">
+                    
+                    
+                        <a class="menu-item" href="/posts/" title="" white-space="nowrap">
+						<nobr>📖Blog</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/categories/" title="" white-space="nowrap">
+						<nobr>📁Categories</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/tags/" title="" white-space="nowrap">
+						<nobr>🎨Tags</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/about/" title="" white-space="nowrap">
+						<nobr>💬About</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                        <a class="menu-item" href="/about/" title="" white-space="nowrap">
+						<nobr>ANY_ME</nobr>
+                            <div class="menu-active"></div>
+							</a>
+                    
+                </nav>
+        </div>
+    </div>
+</nav>
+            <main class="main">
+                <div class="container">
+                    
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">LRU（Least Recently Used）算法</h1>
+        <div class="post-meta">
+                <i class="fas fa-user-circle"></i> <a itemprop="name" href="https://shishuochen.github.io" rel="author">ANY_ME</a> 
+				&thinsp;$\bm\vert$&thinsp; 
+				<i class="fas fa-calendar-check "></i>
+				发布:2023-06-24
+				
+                </span>
+                
+				&thinsp;$\bm\vert$&thinsp; 
+				
+				
+                
+				&thinsp;$\bm\vert$&thinsp; 
+                
+                <i class="fas fa-folder-open "></i>
+                <span class="post-category">
+                        
+                        
+                        
+                          <a href="https://shishuochen.github.io/categories/code%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/"> Code那些事儿</a>
+                        
+                        
+                </span>
+				
+				&thinsp;$\bm\vert$&thinsp; 
+				<i class="fas fa-file-word "></i>
+				
+                <span class="post-word-count">1340字</span>
+				
+				&thinsp;$\bm\vert$&thinsp;   
+				<i class="fas fa-coffee "></i>
+				
+                <span class="post-word-count">4分钟</span>
+				
+        </div>
+    </header>
+	  
+     
+          <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title"></h2>
+  
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#写在前面">写在前面</a></li>
+<li><a href="#具体分步实现">具体分步实现</a>
+<ul>
+<li><a href="#节点类-结构体">节点类（结构体）</a></li>
+<li><a href="#双向链表">双向链表</a></li>
+</ul></li>
+<li><a href="#lru算法">LRU算法</a>
+<ul>
+<li><a href="#成员变量及构造函数">成员变量及构造函数</a></li>
+<li><a href="#对链表的操作">对链表的操作</a></li>
+<li><a href="#具体的成员函数实现">具体的成员函数实现</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+<script type="text/javascript">
+  window.onload = function () {
+    var fix = $('.post-toc');
+    var end = $('.post-comment');
+    var fixTop = fix.offset().top, fixHeight = fix.height();
+    var endTop, miss;
+    var offsetTop = fix[0].offsetTop;
+    $(window).scroll(function () {
+      var docTop = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
+      if (end.length > 0) {
+        endTop = end.offset().top;
+        miss = endTop - docTop - fixHeight;
+      }
+      if (fixTop < docTop) {
+        fix.css({ 'position': 'fixed' });
+        if ((end.length > 0) && (endTop < (docTop + fixHeight))) {
+          fix.css({ top: miss });
+        } else {
+          fix.css({ top: 0 });
+        }
+      } else {
+        fix.css({ 'position': 'absolute' });
+        fix.css({ top: offsetTop });
+      }
+    })
+  }
+</script> 
+	
+	<hr class="hr-twill-colorful">
+    <div class="post-content">
+        
+        
+        
+            
+        
+        
+        
+        
+        
+        
+
+        
+        
+        
+        
+
+<h2 id="写在前面">写在前面</h2>
+
+<blockquote>
+<p>LRU (Least Recently Used) 算法就是一种缓存淘汰策略, 见名知意就是删除掉最久未使用的内存。题目要求<code>get</code>和<code>put</code>在$O(1)$时间内完成，哈希表可以做到快速的存取，但是还需要涉及到更新关键字的位置（最近使用时间），就需要做到快速的插入和删除，这个链表可以做到。总的来说，<strong>链表和哈希表的结合</strong>就可以实现该算法。</p>
+</blockquote>
+
+<ul>
+<li><strong>哈希表</strong>：需要快速找到并更新值，因此<code>pair</code>对的<code>key</code>对应着关键字，<code>value</code>就对应着链表中的一个节点（<code>Node*</code>）
+
+<ul>
+<li><code>unordered_map&lt;int,Node*&gt; map</code></li>
+</ul></li>
+<li><strong>链表</strong>：<strong>单向 or 双向</strong>？
+
+<ul>
+<li><strong>其实都可以</strong>，只不过就是空间换时间，时间换空间。</li>
+<li><strong>先考虑为什么可能需要考虑双向</strong>？因为我们删除节点时，需要将<strong>当前节点的前驱节点</strong>与后驱节点连接起来。因此可能需要对节点增加一个前向指针，从而使用双向链表。</li>
+<li><strong>单向链表也可以做到</strong>，只不过需要一个虚拟头结点，这样也可以获取当前节点的前驱节点，从前往后遍历即可找到。</li>
+</ul></li>
+<li><strong>为了方便，使用双向链表，同时增加虚拟头尾节点</strong>（<code>dummy head,tail</code>）</li>
+<li><strong>为什么node需要包含<code>key</code></strong>？
+
+<ul>
+<li>因为，当超出容量需要删除时，需要用到<code>key</code>信息去删除map中的键值对
+<a data-fancybox="gallery" href="https://pic.leetcode.cn/1687534163-kxpkaJ-QQ%E5%9B%BE%E7%89%8720230623223924.jpg" pcked="1"><img src="https://pic.leetcode.cn/1687534163-kxpkaJ-QQ%E5%9B%BE%E7%89%8720230623223924.jpg" style="zoom: 30%;">
+</a>
+<figcaption class="image-caption">手写小笔记</figcaption></li>
+</ul></li>
+</ul>
+
+<h2 id="具体分步实现">具体分步实现</h2>
+
+<blockquote>
+<p>从需求出发，列出所需要的数据结构和构造方法</p>
+</blockquote>
+
+<h3 id="节点类-结构体">节点类（结构体）</h3>
+
+<ul>
+<li><strong>节点包含内容</strong>：
+
+<ul>
+<li><code>key</code>,<code>value</code>信息</li>
+<li>前驱后驱指针： <code>Node* prev</code>，<code>Node* next</code></li>
+<li>构造函数:<code>Node(int k,int v):key(k),value(v),prev(nullptr),next(nullptr){}</code></li>
+</ul></li>
+</ul>
+
+<h3 id="双向链表">双向链表</h3>
+
+<ul>
+<li>头尾虚拟节点：<code>head,tail</code></li>
+<li>初始化函数：<strong>特别注意对虚拟节点的初始化操作</strong></li>
+
+<li><p>对应的插入、删除、移动等操作</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DoubleList</span>{
+<span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+Node<span style="color:#f92672">*</span> head,<span style="color:#f92672">*</span>tail;
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+DoubleList(){
+    Node<span style="color:#f92672">*</span> head<span style="color:#f92672">=</span><span style="color:#66d9ef">new</span> Node(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>);
+    Node<span style="color:#f92672">*</span> tail<span style="color:#f92672">=</span><span style="color:#66d9ef">new</span> Node(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>); <span style="color:#75715e">// 根绝题目范围确定初始值
+</span><span style="color:#75715e"></span>    head<span style="color:#f92672">-&gt;</span>next<span style="color:#f92672">=</span>tail;  <span style="color:#75715e">// 前驱在初始化时已经置空
+</span><span style="color:#75715e"></span>    tail<span style="color:#f92672">-&gt;</span>prev<span style="color:#f92672">=</span>next;  <span style="color:#75715e">// 后驱在初始化时已经置空
+</span><span style="color:#75715e"></span>}
+<span style="color:#75715e">// other operations 
+</span><span style="color:#75715e"></span>};</code></pre></div></li>
+</ul>
+
+<h2 id="lru算法">LRU算法</h2>
+
+<blockquote>
+<p>将上述的类节点、双向链表以及哈希表结合起来，实现LRU算法的数据结构</p>
+</blockquote>
+
+<h3 id="成员变量及构造函数">成员变量及构造函数</h3>
+
+<ul>
+<li>结构体节点以及记录最大容量的<code>capicity</code></li>
+<li>哈希表、将双向链表中的成员提取出来</li>
+
+<li><p>构造函数</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LRUCache</span> {
+<span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+<span style="color:#75715e">// 节点：结构体
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Node</span>{
+    <span style="color:#66d9ef">int</span> key,val;
+    Node<span style="color:#f92672">*</span> prev,<span style="color:#f92672">*</span>next;
+    Node(<span style="color:#66d9ef">int</span> k,<span style="color:#66d9ef">int</span> v)<span style="color:#f92672">:</span>key(k),val(v),next(<span style="color:#66d9ef">nullptr</span>),prev(<span style="color:#66d9ef">nullptr</span>){}
+};
+<span style="color:#75715e">// DoubleList相关的两个虚拟头尾
+</span><span style="color:#75715e"></span>Node<span style="color:#f92672">*</span> head,<span style="color:#f92672">*</span>tail;
+<span style="color:#75715e">// hashmap
+</span><span style="color:#75715e"></span>unordered_map<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span>, Node<span style="color:#f92672">*&gt;</span>map;
+<span style="color:#75715e">// 容量
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> capacity;
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+LRUCache(<span style="color:#66d9ef">int</span> capacity) {
+    <span style="color:#75715e">// 容量
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>capacity<span style="color:#f92672">=</span>capacity;
+    <span style="color:#75715e">// 初始化双向链表
+</span><span style="color:#75715e"></span>    head<span style="color:#f92672">=</span><span style="color:#66d9ef">new</span> Node(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>);
+    tail<span style="color:#f92672">=</span><span style="color:#66d9ef">new</span> Node(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>);
+    head<span style="color:#f92672">-&gt;</span>next<span style="color:#f92672">=</span>tail;
+    tail<span style="color:#f92672">-&gt;</span>prev<span style="color:#f92672">=</span>head;
+}
+<span style="color:#75715e">// get 和 put 方法
+</span><span style="color:#75715e"></span>};</code></pre></div></li>
+</ul>
+
+<h3 id="对链表的操作">对链表的操作</h3>
+
+<blockquote>
+<p>就是插入、删除操作，或者移动，需要注意的是<strong>插入和删除操作，同时需要对哈希表中的键值对进行操作</strong>。</p>
+</blockquote>
+
+<ul>
+<li>插入、移动及删除操作</li>
+<li>注意删除时，尽量删除对应的堆内存，切记对hashmap也要<code>erase</code>操作</li>
+
+<li><p>写的比较杂，可以拆分操作的</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">// 更新位置
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">moveToEnd</span>(Node<span style="color:#f92672">*</span> node){
+<span style="color:#75715e">// node的前后节点
+</span><span style="color:#75715e"></span>Node<span style="color:#f92672">*</span> left<span style="color:#f92672">=</span>node<span style="color:#f92672">-&gt;</span>prev;
+Node<span style="color:#f92672">*</span> right<span style="color:#f92672">=</span>node<span style="color:#f92672">-&gt;</span>next;
+<span style="color:#75715e">// 连接前后
+</span><span style="color:#75715e"></span>left<span style="color:#f92672">-&gt;</span>next<span style="color:#f92672">=</span>right;
+right<span style="color:#f92672">-&gt;</span>prev<span style="color:#f92672">=</span>left;
+<span style="color:#75715e">// 插入末尾
+</span><span style="color:#75715e"></span>Node<span style="color:#f92672">*</span> endLeft<span style="color:#f92672">=</span>tail<span style="color:#f92672">-&gt;</span>prev;
+endLeft<span style="color:#f92672">-&gt;</span>next<span style="color:#f92672">=</span>node;
+node<span style="color:#f92672">-&gt;</span>prev<span style="color:#f92672">=</span>endLeft;
+node<span style="color:#f92672">-&gt;</span>next<span style="color:#f92672">=</span>tail;
+tail<span style="color:#f92672">-&gt;</span>prev<span style="color:#f92672">=</span>node;
+}
+<span style="color:#75715e">// 删除头部元素
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">deleteHead</span>(){
+<span style="color:#75715e">// 删除链表中的节点
+</span><span style="color:#75715e"></span>Node<span style="color:#f92672">*</span> node<span style="color:#f92672">=</span>head<span style="color:#f92672">-&gt;</span>next;
+Node<span style="color:#f92672">*</span> nodeRight<span style="color:#f92672">=</span>node<span style="color:#f92672">-&gt;</span>next;
+head<span style="color:#f92672">-&gt;</span>next<span style="color:#f92672">=</span>nodeRight;
+nodeRight<span style="color:#f92672">-&gt;</span>prev<span style="color:#f92672">=</span>head;
+<span style="color:#75715e">// 删除map中的key,value
+</span><span style="color:#75715e"></span>map.erase(node<span style="color:#f92672">-&gt;</span>key);
+<span style="color:#75715e">// 删除节点对应的内存
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">delete</span>(node);
+}
+<span style="color:#75715e">// 添加新节点到到末尾
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">addToend</span>(<span style="color:#66d9ef">int</span> key,<span style="color:#66d9ef">int</span> value){
+Node<span style="color:#f92672">*</span> node<span style="color:#f92672">=</span><span style="color:#66d9ef">new</span> Node(key,value);
+Node<span style="color:#f92672">*</span> endLeft<span style="color:#f92672">=</span>tail<span style="color:#f92672">-&gt;</span>prev;
+<span style="color:#75715e">// 插入链表末尾
+</span><span style="color:#75715e"></span>endLeft<span style="color:#f92672">-&gt;</span>next<span style="color:#f92672">=</span>node;
+node<span style="color:#f92672">-&gt;</span>prev<span style="color:#f92672">=</span>endLeft;
+node<span style="color:#f92672">-&gt;</span>next<span style="color:#f92672">=</span>tail;
+tail<span style="color:#f92672">-&gt;</span>prev<span style="color:#f92672">=</span>node;
+<span style="color:#75715e">// 增加hashMap中的值
+</span><span style="color:#75715e">// map.insert(make_pair(key,node));
+</span><span style="color:#75715e"></span>map[key]<span style="color:#f92672">=</span>node;
+}</code></pre></div></li>
+</ul>
+
+<h3 id="具体的成员函数实现">具体的成员函数实现</h3>
+
+<blockquote>
+<p><code>get</code> 和 <code>put</code> 方法实现，<strong>在双向链表中，这里默认向链表尾添加元素，链表头删除元素，也就是说越往后数据越新，越靠近头结点越旧。</strong></p>
+</blockquote>
+
+<ul>
+<li><strong>对于<code>get</code>方法</strong>
+
+<ul>
+<li>如果存在，则直接返回，并且更新位置（移动到末尾）</li>
+<li>如果不存在，则返回-1（比较简单）</li>
+</ul></li>
+
+<li><p><strong>对于<code>put</code>方法</strong></p>
+
+<ul>
+<li>如果存在：更新值，并更新位置</li>
+
+<li><p>不存在，则<code>put</code>；<code>put</code>时要判断容量：不够，则先删除，再<code>put</code>,够了，直接<code>put</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">get</span>(<span style="color:#66d9ef">int</span> key) {
+<span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span>map.count(key))
+    <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+Node<span style="color:#f92672">*</span> node<span style="color:#f92672">=</span>map[key];
+<span style="color:#75715e">// 注意要更新该node的位置
+</span><span style="color:#75715e"></span>moveToEnd(node);   
+<span style="color:#66d9ef">return</span> node<span style="color:#f92672">-&gt;</span>val;
+}
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">put</span>(<span style="color:#66d9ef">int</span> key, <span style="color:#66d9ef">int</span> value) {
+<span style="color:#66d9ef">if</span>(map.count(key)){
+<span style="color:#75715e">// 更新值
+</span><span style="color:#75715e"></span>Node<span style="color:#f92672">*</span> node<span style="color:#f92672">=</span>map[key];
+node<span style="color:#f92672">-&gt;</span>val<span style="color:#f92672">=</span>value;
+<span style="color:#75715e">// 更新位置
+</span><span style="color:#75715e"></span>moveToEnd(node);
+}
+<span style="color:#66d9ef">else</span>{
+<span style="color:#75715e">// 判断是否满了
+</span><span style="color:#75715e">// yes-&gt;删除头元素后插入到最后
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">if</span>(map.size()<span style="color:#f92672">==</span>capacity){
+    deleteHead(); 
+}
+addToend(key,value);
+}
+}</code></pre></div></li>
+</ul></li>
+</ul>
+
+<p><center></p>
+
+<p>$\cdots$ <strong>end</strong> $\cdots$</p>
+
+<p></center></p>
+
+    </div>
+    <div class="post-copyright">
+            
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>ANY_ME </span>
+                </p>
+            
+
+            
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://shishuochen.github.io/2023/qnwpygokg/>https://shishuochen.github.io/2023/qnwpygokg/</span>
+            </p>
+            
+            
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://shishuochen.github.io/tags/c&#43;&#43;/">
+                    #C&#43;&#43;</a></span>
+            
+            <span class="tag"><a href="https://shishuochen.github.io/tags/leetcode/">
+                    #LeetCode</a></span>
+            
+            <span class="tag"><a href="https://shishuochen.github.io/tags/lru%E7%AE%97%E6%B3%95/">
+                    #LRU算法</a></span>
+            
+            <span class="tag"><a href="https://shishuochen.github.io/tags/%E7%BC%93%E5%AD%98%E6%B7%98%E6%B1%B0%E7%AD%96%E7%95%A5/">
+                    #缓存淘汰策略</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> ·
+                <span><a href="https://shishuochen.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://shishuochen.github.io/2023/klkfgguu9/" class="prev" rel="prev" title="Dijkstra 算法：最小路径或者最大路径"><i class="fas fa-caret-left"></i>&nbsp;Dijkstra 算法：最小路径或者最大路径</a>
+        
+        
+    </div>
+	        <style>
+    .utterances {
+      position: relative;
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .utterances-frame {
+      color-scheme: light;
+      position: absolute;
+      left: 0;
+      right: 0;
+      width: 1px;
+      min-width: 100%;
+      max-width: 100%;
+      height: 100%;
+      border: 0;
+    }
+  </style>
+    <div class="post-comment">
+        
+            
+                <script src="https://utteranc.es/client.js"
+    repo="shishuochen/Bolg-comments"
+    issue-term="title"
+    label="Comment"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+</script>
+<style>
+    .utterances {
+        max-width: 99%;
+    }
+</style>
+            
+        
+
+    </div>
+</article>
+                </div>
+                <link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+            </main>
+            
+<div class="footer-box">
+<footer class="footer">
+   <div class="copyright">
+      &copy;
+      
+      <span itemprop="copyrightYear">2019 - 2023</span>
+      
+      <span class="with-love">
+         <i class="fas fa-heart"></i>
+      </span>
+      
+      <span class="author" itemprop="copyrightHolder"><a href="https://shishuochen.github.io">ANY_ME</a> |
+      </span>
+      
+      
+	  <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+      <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a
+            href="https://github.com/Mogeko/Mogege" target="_blank" rel="external nofollow">Mogege</a></span>
+</footer>
+
+      <div class="back-to-top" id="back_to_top">
+         
+         <span><i class="fas fa-arrow-up"></i></span>
+         
+         <span class="scrollpercent">
+            <span id="back_to_top_text">0</span>%
+         </span>
+      </div>
+</div>
+<script>
+
+   let sideBarOpen = 'sidebar-open';
+   let body = document.body;
+   let back2Top = document.querySelector('#back_to_top'),
+      back2TopText = document.querySelector('#back_to_top_text'),
+      drawerBox = document.querySelector('#drawer_box'),
+      rightSideBar = document.querySelector('.sidebar'),
+      viewport = document.querySelector('body');
+
+   function scrollAnimation(currentY, targetY) {
+
+      let needScrollTop = targetY - currentY
+      let _currentY = currentY
+      setTimeout(() => {
+         const dist = Math.ceil(needScrollTop / 10)
+         _currentY += dist
+         window.scrollTo(_currentY, currentY)
+         if (needScrollTop > 10 || needScrollTop < -10) {
+            scrollAnimation(_currentY, targetY)
+         } else {
+            window.scrollTo(_currentY, targetY)
+         }
+      }, 1)
+   }
+
+   back2Top.addEventListener("click", function (e) {
+      scrollAnimation(document.scrollingElement.scrollTop, 0);
+      e.stopPropagation();
+      return false;
+   });
+
+   window.addEventListener('scroll', function (e) {
+      let percent = document.scrollingElement.scrollTop / (document.scrollingElement.scrollHeight - document.scrollingElement.clientHeight) * 100;
+      if (percent > 1 && !back2Top.classList.contains('back-top-active')) {
+         back2Top.classList.add('back-top-active');
+      }
+      if (percent == 0) {
+         back2Top.classList.remove('back-top-active');
+      }
+      if (back2TopText) {
+         back2TopText.textContent = Math.floor(percent);
+      }
+   });
+</script>
+
+
+
+
+
+
+<script defer src="/js/vendor_main.min.js"></script>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/love.min.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha256-V8SV2MO1FUb63Bwht5Wx9x6PVHNa02gv8BgH/uH3ung=" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha256-F/Xda58SPdcUCr+xhSGz9MA2zQBPb0ASEYKohl8UCHc=" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha256-90d2pnfw0r4K8CZAWPko4rpFXQsZvJhTBGYNkipDprI=" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+           delimiters: [
+     {left: "$$", right: "$$", display: true},
+     {left: "$", right: "$", display: false},
+   ],
+        });
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/jmnote/plantuml-encoder@1.2.4/dist/plantuml-encoder.min.js"></script>
+<script>
+(function(){
+    let plantumlPrefix = "language-plantuml";
+    Array.prototype.forEach.call(document.querySelectorAll("[class^=" + plantumlPrefix + "]"), function(code){
+        let image = document.createElement("IMG");
+        image.loading = 'lazy'; 
+        image.src = 'http://www.plantuml.com/plantuml/svg/~1' + plantumlEncoder.encode(code.innerText);
+        code.parentNode.insertBefore(image, code);
+        code.style.display = 'none'
+    });
+})();
+</script>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script> pangu.spacingPage();</script>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+        </div>
+    </body>
+</html>
+
