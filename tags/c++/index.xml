@@ -6,7 +6,16 @@
     <description>Recent content in C&#43;&#43; on shishuoCh&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 24 Jun 2023 22:21:54 +0800</lastBuildDate><atom:link href="https://shishuochen.github.io/tags/c++/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 10 Jul 2023 21:30:55 +0800</lastBuildDate><atom:link href="https://shishuochen.github.io/tags/c++/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LC-2771. 构造最长非递减子数组（记忆化dfs的自我解惑）</title>
+      <link>https://shishuochen.github.io/2023/a51ag9mj/</link>
+      <pubDate>Mon, 10 Jul 2023 21:30:55 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2023/a51ag9mj/</guid>
+      <description>写在前面 感觉这道题很适合记录一下，打破了我对 $dfs$ 的思维范式~ 2771. 构造最长非递减子数组 想不通的点 递归的传参怎样设置？ 递归的 $base$ $case$ 怎么写？ 如何进入下一</description>
+    </item>
+    
     <item>
       <title>LFU（Least Frequency Used）算法数据结构总结</title>
       <link>https://shishuochen.github.io/2023/q41afejy9/</link>
