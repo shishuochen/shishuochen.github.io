@@ -66,7 +66,7 @@
     "datePublished": "2024-04-14 16:17:22 \u002b0800 CST",
     "dateModified" : "2024-04-14 16:17:22 \u002b0800 CST",
     "url" : "https:\/\/shishuochen.github.io\/2024\/p5zazebsd\/",
-    "wordCount" : "868",
+    "wordCount" : "1208",
     "keywords" : [ "Python","mri可视化", "shishuoCh\u0027s Blog"]
 }
 </script>
@@ -183,7 +183,7 @@
 				&thinsp;$\bm\vert$&thinsp; 
 				
 				
-				<i class="fas fa-history"></i> 更新:2024-04-18
+				<i class="fas fa-history"></i> 更新:2024-04-22
 				
                 
 				&thinsp;$\bm\vert$&thinsp; 
@@ -206,12 +206,12 @@
 				&thinsp;$\bm\vert$&thinsp; 
 				<i class="fas fa-file-word "></i>
 				
-                <span class="post-word-count">868字</span>
+                <span class="post-word-count">1208字</span>
 				
 				&thinsp;$\bm\vert$&thinsp;   
 				<i class="fas fa-coffee "></i>
 				
-                <span class="post-word-count">2分钟</span>
+                <span class="post-word-count">4分钟</span>
 				
         </div>
     </header>
@@ -230,9 +230,9 @@
 <li><a href="#如何裁剪特定区域">如何裁剪特定区域</a></li>
 <li><a href="#翻转矢状面切片">翻转矢状面切片</a></li>
 <li><a href="#自定义colorbar范围">自定义Colorbar范围</a></li>
+<li><a href="#展示不同区域">展示不同区域</a></li>
 </ul></li>
 </ul></li>
-<li><a href="#新的cmap-这样就可以直接使用了">新的cmap，这样就可以直接使用了</a></li>
 </ul>
 </nav>
   </div>
@@ -332,6 +332,11 @@ disp <span style="color:#f92672">=</span> plotting<span style="color:#f92672">.<
 disp<span style="color:#f92672">.</span>axes[<span style="color:#e6db74">&#34;x&#34;</span>]<span style="color:#f92672">.</span>ax<span style="color:#f92672">.</span>set_xlim(<span style="color:#f92672">-</span><span style="color:#ae81ff">30</span>, <span style="color:#ae81ff">30</span>)   <span style="color:#75715e"># 主要是这两行代码</span>
 disp<span style="color:#f92672">.</span>axes[<span style="color:#e6db74">&#34;x&#34;</span>]<span style="color:#f92672">.</span>ax<span style="color:#f92672">.</span>set_ylim(<span style="color:#f92672">-</span><span style="color:#ae81ff">30</span>, <span style="color:#ae81ff">30</span>)
 plotting<span style="color:#f92672">.</span>show()</code></pre></div></li>
+
+<li><p><strong>结果展示</strong>（这种情况只能通过可视化软件一点点尝试想要裁剪的区域）
+<a data-fancybox="gallery" href="https://neurostars.org/uploads/default/original/2X/a/a85b51b380065d1c95505dfef272b9c59734af5b.png" pcked="1"><img src="https://neurostars.org/uploads/default/original/2X/a/a85b51b380065d1c95505dfef272b9c59734af5b.png" style="zoom: 75%;">
+</a>
+<figcaption class="image-caption">Nilearn可视化示例结果</figcaption></p></li>
 </ol>
 
 <h3 id="翻转矢状面切片">翻转矢状面切片</h3>
@@ -341,9 +346,9 @@ plotting<span style="color:#f92672">.</span>show()</code></pre></div></li>
 
 <ul>
 <li>在Nilearn中，矢状面的显示为前部（Anterior）在右侧，后部（Posterior）在左侧，如下例图所示。
-<a data-fancybox="gallery" href="https://nilearn.github.io/stable/_images/sphx_glr_plot_demo_plotting_001.png" pcked="1"><img src="https://nilearn.github.io/stable/_images/sphx_glr_plot_demo_plotting_001.png" style="zoom: 70%;">
+<a data-fancybox="gallery" href="https://nilearn.github.io/stable/_images/sphx_glr_plot_demo_plotting_001.png" pcked="1"><img src="https://nilearn.github.io/stable/_images/sphx_glr_plot_demo_plotting_001.png" style="zoom: 75%;">
 </a>
-<figcaption class="image-caption">Nilearn可视化示例结果</figcaption></li>
+<figcaption class="image-caption">裁剪特定区域</figcaption></li>
 </ul></li>
 
 <li><p><strong>基本需求</strong></p>
@@ -383,25 +388,64 @@ ax<span style="color:#f92672">.</span>set_xlim(<span style="color:#f92672">*</sp
 <p>主要原理就是截取范围内的Colorbar，然后生成新的Cmap</p>
 
 <p>示例代码：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> matplotlib.colors <span style="color:#66d9ef">as</span> colors
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+<span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
 
-<p>```python
-import matplotlib.colors as colors
-import matplotlib.pyplot as plt
-import numpy as np</p>
-
-<p>def truncate_colormap(cmap, minval=0.0, maxval=1.0, n=100):
-    new_cmap = colors.LinearSegmentedColormap.from_list(
-        &ldquo;trunc({n},{a:.2f},{b:.2f})&ldquo;.format(n=cmap.name, a=minval, b=maxval),
-        cmap(np.linspace(minval, maxval, n)),
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">truncate_colormap</span>(cmap, minval<span style="color:#f92672">=</span><span style="color:#ae81ff">0.0</span>, maxval<span style="color:#f92672">=</span><span style="color:#ae81ff">1.0</span>, n<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>):
+    new_cmap <span style="color:#f92672">=</span> colors<span style="color:#f92672">.</span>LinearSegmentedColormap<span style="color:#f92672">.</span>from_list(
+        <span style="color:#e6db74">&#34;trunc(</span><span style="color:#e6db74">{n}</span><span style="color:#e6db74">,</span><span style="color:#e6db74">{a:.2f}</span><span style="color:#e6db74">,</span><span style="color:#e6db74">{b:.2f}</span><span style="color:#e6db74">)&#34;</span><span style="color:#f92672">.</span>format(n<span style="color:#f92672">=</span>cmap<span style="color:#f92672">.</span>name, a<span style="color:#f92672">=</span>minval, b<span style="color:#f92672">=</span>maxval),
+        cmap(np<span style="color:#f92672">.</span>linspace(minval, maxval, n)),
     )
-    return new_cmap</p>
+    <span style="color:#66d9ef">return</span> new_cmap
 
-<p>cmap = plt.get_cmap(&ldquo;Spectral&rdquo;)</p>
+cmap <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>get_cmap(<span style="color:#e6db74">&#34;Spectral&#34;</span>)　
+<span style="color:#75715e"># 新的cmap，这样就可以直接使用了</span>
+trunc_cmap <span style="color:#f92672">=</span> truncate_colormap(cmap, <span style="color:#ae81ff">0.2</span>, <span style="color:#ae81ff">0.8</span>)</code></pre></div>
+<h3 id="展示不同区域">展示不同区域</h3>
 
-<h1 id="新的cmap-这样就可以直接使用了">新的cmap，这样就可以直接使用了</h1>
+<ol>
+<li><strong>基本需求介绍</strong>
 
-<p>trunc_cmap = truncate_colormap(cmap, 0.2, 0.8)
-···</p>
+<ul>
+<li>你的MRI数据中的结果是离散的，而且不同的值代表了不同的含义</li>
+<li>含义可以是各种各样的，比如这一连串离散值代表了不同的区域，样本etc.</li>
+</ul></li>
+
+<li><p><strong>直接上代码</strong>（链接：<a href="https://rec.ustc.edu.cn/share/a8366fa0-0077-11ef-91de-c127b1bf6ec8" rel="nofollow noreferrer" target="_blank">https://rec.ustc.edu.cn/share/a8366fa0-0077-11ef-91de-c127b1bf6ec8</a> 密码：<span class="spoiler" > wtk8 </span>，有效期到2026-06-31）</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+<span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+<span style="color:#f92672">from</span> matplotlib <span style="color:#f92672">import</span> cm
+<span style="color:#f92672">import</span> matplotlib <span style="color:#66d9ef">as</span> mpl
+<span style="color:#f92672">from</span> nilearn <span style="color:#f92672">import</span> plotting
+<span style="color:#f92672">from</span> matplotlib.colors <span style="color:#f92672">import</span> ListedColormap
+stat_img <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;your mri file dic&#34;</span>
+
+fig1 <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">3</span>),dpi <span style="color:#f92672">=</span> <span style="color:#ae81ff">300</span>)
+<span style="color:#75715e"># 如果你有多个你就可以罗列多个（没有试过，如果有需求可以试试</span>
+legend_elements <span style="color:#f92672">=</span> [plt<span style="color:#f92672">.</span>Line2D([<span style="color:#ae81ff">0</span>], [<span style="color:#ae81ff">0</span>], marker<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;s&#39;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;w&#39;</span>, markerfacecolor<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;#00FFFF&#39;</span>, markersize<span style="color:#f92672">=</span><span style="color:#ae81ff">14</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;DoG-1&#39;</span>),
+                 plt<span style="color:#f92672">.</span>Line2D([<span style="color:#ae81ff">0</span>], [<span style="color:#ae81ff">0</span>], marker<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;s&#39;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;w&#39;</span>, markerfacecolor<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;#FF0000&#39;</span>, markersize<span style="color:#f92672">=</span><span style="color:#ae81ff">14</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;DoG-2&#39;</span>)]
+plotting<span style="color:#f92672">.</span>plot_stat_map(
+  stat_img,
+  display_mode<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;z&#34;</span>,
+  cut_coords<span style="color:#f92672">=</span>[<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">8</span>,<span style="color:#ae81ff">12</span>],
+  cmap<span style="color:#f92672">=</span>cm<span style="color:#f92672">.</span>get_cmap(<span style="color:#e6db74">&#39;hsv&#39;</span>,<span style="color:#ae81ff">2045</span>),
+  colorbar <span style="color:#f92672">=</span> <span style="color:#66d9ef">False</span>, 
+  cbar_tick_format <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">%.3g</span><span style="color:#e6db74">&#34;</span>,
+  figure <span style="color:#f92672">=</span> fig1,
+  threshold <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.9999</span>,
+  <span style="color:#75715e"># output_file = &#34;dog1.pdf&#34;,</span>
+)
+fig1<span style="color:#f92672">.</span>legend(handles<span style="color:#f92672">=</span>legend_elements, loc<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;upper left&#39;</span>,ncol <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>, bbox_to_anchor<span style="color:#f92672">=</span>(<span style="color:#ae81ff">0.005</span>, <span style="color:#ae81ff">1</span>))                               
+plt<span style="color:#f92672">.</span>show() <span style="color:#75715e"># Replace with plt.savefig if you want to save a file</span></code></pre></div></li>
+
+<li><p><strong>结果展示</strong>
+<a data-fancybox="gallery" href="https://s21.ax1x.com/2024/04/22/pkphHje.png" pcked="1"><img src="https://s21.ax1x.com/2024/04/22/pkphHje.png" style="zoom: 30%;">
+</a>
+<figcaption class="image-caption">示例结果</figcaption></p></li>
+</ol>
+
+<hr />
 
 <p><center></p>
 
