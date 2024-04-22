@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mri可视化 on shishuoCh&#39;s Blog</title>
+    <link>https://shishuochen.github.io/tags/mri%E5%8F%AF%E8%A7%86%E5%8C%96/</link>
+    <description>Recent content in mri可视化 on shishuoCh&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 14 Apr 2024 16:17:22 +0800</lastBuildDate><atom:link href="https://shishuochen.github.io/tags/mri%E5%8F%AF%E8%A7%86%E5%8C%96/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Nilearn：Python可视化MRI工具</title>
+      <link>https://shishuochen.github.io/2024/p5zazebsd/</link>
+      <pubDate>Sun, 14 Apr 2024 16:17:22 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2024/p5zazebsd/</guid>
+      <description>一般的MRI数据分析软件（例如AFNI、FSL等）都有可视化的功能，但是往往只能通过另存为的方法导出，且对于Colorbar、图片比例等设置</description>
+    </item>
+    
+  </channel>
+</rss>
