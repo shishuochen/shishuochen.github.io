@@ -6,7 +6,16 @@
     <description>Recent content in Posts on shishuoCh&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 14 Apr 2024 16:17:22 +0800</lastBuildDate><atom:link href="https://shishuochen.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 23 Apr 2024 14:26:33 +0800</lastBuildDate><atom:link href="https://shishuochen.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Python科研绘图系列</title>
+      <link>https://shishuochen.github.io/2024/ucfmxndck/</link>
+      <pubDate>Tue, 23 Apr 2024 14:26:33 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2024/ucfmxndck/</guid>
+      <description>大论文也算是写完交了，每次自己要画图的时候也是满世界找方案。虽然以后99%不会再画这些图了，但是还是想总结记录在此~ $\cdots$ 什么都略懂一点，生活更</description>
+    </item>
+    
     <item>
       <title>Nilearn：Python可视化MRI工具</title>
       <link>https://shishuochen.github.io/2024/p5zazebsd/</link>
