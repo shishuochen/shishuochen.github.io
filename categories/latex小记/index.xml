@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>LaTeX小记 on shishuoCh&#39;s Blog</title>
+    <title>Latex小记 on shishuoCh&#39;s Blog</title>
     <link>https://shishuochen.github.io/categories/latex%E5%B0%8F%E8%AE%B0/</link>
-    <description>Recent content in LaTeX小记 on shishuoCh&#39;s Blog</description>
+    <description>Recent content in Latex小记 on shishuoCh&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 07 Feb 2020 22:03:21 +0000</lastBuildDate><atom:link href="https://shishuochen.github.io/categories/latex%E5%B0%8F%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 06 May 2024 17:39:40 +0800</lastBuildDate><atom:link href="https://shishuochen.github.io/categories/latex%E5%B0%8F%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LaTeX需求总结</title>
+      <link>https://shishuochen.github.io/2024/l-ynlu7br/</link>
+      <pubDate>Mon, 06 May 2024 17:39:40 +0800</pubDate>
+      
+      <guid>https://shishuochen.github.io/2024/l-ynlu7br/</guid>
+      <description>写在开始 每次遇到重复的需求，我都要重新再找一遍方法，简单的还能记住，我真是受够了😅😅😅，所以从今天起记住每个曾经的需求，虽然以后可能也很少用</description>
+    </item>
+    
     <item>
       <title>Compile Chinese documents with pdfLaTeX compiler</title>
       <link>https://shishuochen.github.io/2020/yen-2yhvj/</link>
