@@ -66,7 +66,7 @@
     "datePublished": "2024-05-06 17:39:40 \u002b0800 CST",
     "dateModified" : "2024-05-06 17:39:40 \u002b0800 CST",
     "url" : "https:\/\/shishuochen.github.io\/2024\/l-ynlu7br\/",
-    "wordCount" : "1216",
+    "wordCount" : "1712",
     "keywords" : [ "latex","科研学术", "shishuoCh\u0027s Blog"]
 }
 </script>
@@ -183,6 +183,8 @@
 				&thinsp;$\bm\vert$&thinsp; 
 				
 				
+				<i class="fas fa-history"></i> 更新:2024-05-07
+				
                 
 				&thinsp;$\bm\vert$&thinsp; 
                 
@@ -199,12 +201,12 @@
 				&thinsp;$\bm\vert$&thinsp; 
 				<i class="fas fa-file-word "></i>
 				
-                <span class="post-word-count">1216字</span>
+                <span class="post-word-count">1712字</span>
 				
 				&thinsp;$\bm\vert$&thinsp;   
 				<i class="fas fa-coffee "></i>
 				
-                <span class="post-word-count">4分钟</span>
+                <span class="post-word-count">5分钟</span>
 				
         </div>
     </header>
@@ -223,6 +225,8 @@
 <ul>
 <li><a href="#常见的字号命令">常见的字号命令</a></li>
 <li><a href="#免费可用的字体">免费可用的字体</a></li>
+<li><a href="#如何使用系统-自定义-字体">如何使用系统（自定义）字体</a></li>
+<li><a href="#文字添加下划线-波浪线等">文字添加下划线、波浪线等</a></li>
 </ul></li>
 <li><a href="#i-class-fa-solid-fa-image-style-color-2d96bd-i-图片"><i class="fa-solid fa-image" style="color: #2D96BD;"></i> <strong>图片</strong></a>
 <ul>
@@ -400,6 +404,55 @@
 <li>可视化了免费好用的字体</li>
 <li>你可以找到不同类型的字体（衬线非衬线字体、用于显示的等等）</li>
 </ul></li>
+<li><a href="https://fonts.google.com/" rel="nofollow noreferrer" target="_blank">谷歌字体</a>
+
+<ul>
+<li>所有 Google Fonts 都是开源的，并且免费</li>
+<li>字体有多种粗细和宽度，支持 Sans、Serif等多种样式</li>
+<li><a href="https://github.com/google/fonts" rel="nofollow noreferrer" target="_blank">字体文件下载</a></li>
+</ul></li>
+<li><a href="https://www.wfonts.com/" rel="nofollow noreferrer" target="_blank">wFonts.com</a>
+
+<ul>
+<li>应用场景分类齐全：艺术、不同设备、样式等</li>
+<li>下载也很方便</li>
+</ul></li>
+<li><a href="http://xiazaiziti.com/" rel="nofollow noreferrer" target="_blank">下载字体</a></li>
+<li><a href="https://www.dafontfree.net/" rel="nofollow noreferrer" target="_blank">LoginDafont Free | Download fonts</a></li>
+</ol>
+
+<h3 id="如何使用系统-自定义-字体">如何使用系统（自定义）字体</h3>
+
+<ol>
+<li>首先这个使用是需要用 XeLaTeX编译</li>
+<li>主要就是在导言区设置字体名称，然后设置字体命令，就可以使用<code>{\字体名称 正文内容}</code>来设定字体
+
+<ul>
+<li>中英文的设定命令有所不同</li>
+<li>英文：<code>\newfontinstance{自定义名}{字体名称}</code></li>
+<li>中文：<code>\setCJKfamilyfont{自定义的CJK名称}{字体名称}</code>，然后重设命令<code>\newcommand{自定义命令}{自定义的CJK名称}</code></li>
+</ul></li>
+<li>具体内容来自很早之前OneNote的笔记： <a href="https://1drv.ms/o/s!AtKdyvnLWLDd70thZ6DTX-kelW4i?e=VZzKSi" rel="nofollow noreferrer" target="_blank">调用系统字体</a>，里面的图片内容来自哪里也暂时不知道了</li>
+</ol>
+
+<h3 id="文字添加下划线-波浪线等">文字添加下划线、波浪线等</h3>
+
+<ol>
+<li>使用 <code>ulem</code> 宏包</li>
+<li>下划线一般可以使用 <code>\underline</code> 命令，但是这个不能自动换行，因此宏包里面的 <code>\uline</code> 命令就很合适</li>
+
+<li><p>示例代码，更多可以查看宏包手册</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-latex" data-lang="latex"><span style="color:#66d9ef">\documentclass</span>{article}
+<span style="color:#66d9ef">\usepackage</span>{ulem}
+<span style="color:#66d9ef">\usepackage</span>{ctex}
+<span style="color:#66d9ef">\begin</span>{document}
+<span style="color:#66d9ef">\uuline</span>{双下划线}<span style="color:#66d9ef">\par</span>
+<span style="color:#66d9ef">\uwave</span>{波浪线}<span style="color:#66d9ef">\par</span>
+<span style="color:#66d9ef">\sout</span>{中间删除线}<span style="color:#66d9ef">\par</span>
+<span style="color:#66d9ef">\xout</span>{斜删除线}<span style="color:#66d9ef">\par</span>
+<span style="color:#66d9ef">\dashuline</span>{虚线}<span style="color:#66d9ef">\par</span>
+<span style="color:#66d9ef">\dotuline</span>{加点}
+<span style="color:#66d9ef">\end</span>{document}</code></pre></div></li>
 </ol>
 
 <h2 id="i-class-fa-solid-fa-image-style-color-2d96bd-i-图片"><i class="fa-solid fa-image" style="color: #2D96BD;"></i> <strong>图片</strong></h2>
