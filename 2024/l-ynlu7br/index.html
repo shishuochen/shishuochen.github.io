@@ -66,7 +66,7 @@
     "datePublished": "2024-05-06 17:39:40 \u002b0800 CST",
     "dateModified" : "2024-05-06 17:39:40 \u002b0800 CST",
     "url" : "https:\/\/shishuochen.github.io\/2024\/l-ynlu7br\/",
-    "wordCount" : "1712",
+    "wordCount" : "2290",
     "keywords" : [ "latex","科研学术", "shishuoCh\u0027s Blog"]
 }
 </script>
@@ -201,12 +201,12 @@
 				&thinsp;$\bm\vert$&thinsp; 
 				<i class="fas fa-file-word "></i>
 				
-                <span class="post-word-count">1712字</span>
+                <span class="post-word-count">2290字</span>
 				
 				&thinsp;$\bm\vert$&thinsp;   
 				<i class="fas fa-coffee "></i>
 				
-                <span class="post-word-count">5分钟</span>
+                <span class="post-word-count">7分钟</span>
 				
         </div>
     </header>
@@ -227,6 +227,10 @@
 <li><a href="#免费可用的字体">免费可用的字体</a></li>
 <li><a href="#如何使用系统-自定义-字体">如何使用系统（自定义）字体</a></li>
 <li><a href="#文字添加下划线-波浪线等">文字添加下划线、波浪线等</a></li>
+</ul></li>
+<li><a href="#i-class-fa-solid-fa-table-style-color-2d96bd-i-表格"><i class="fa-solid fa-table" style="color: #2D96BD;"></i> <strong>表格</strong></a>
+<ul>
+<li><a href="#三线表进阶">三线表进阶</a></li>
 </ul></li>
 <li><a href="#i-class-fa-solid-fa-image-style-color-2d96bd-i-图片"><i class="fa-solid fa-image" style="color: #2D96BD;"></i> <strong>图片</strong></a>
 <ul>
@@ -284,6 +288,8 @@
     <div class="post-content">
         
         
+        
+            
         
         
         
@@ -455,6 +461,66 @@
 <span style="color:#66d9ef">\end</span>{document}</code></pre></div></li>
 </ol>
 
+<h2 id="i-class-fa-solid-fa-table-style-color-2d96bd-i-表格"><i class="fa-solid fa-table" style="color: #2D96BD;"></i> <strong>表格</strong></h2>
+
+<h3 id="三线表进阶">三线表进阶</h3>
+
+<blockquote>
+<p>写硕士论文想要画个表，还好本科论文的代码还在，不然还真得找半天；主要需求就是合并一些列，然后toprule中添加一些细分的行。</p>
+</blockquote>
+
+<ol>
+<li>首先三线表的宏包是<code>booktabs</code>（另外提下，如果想添加注释，可以使用<code>threeparttable</code>宏包）</li>
+<li>基本命令：<code>\toprule</code>, <code>\midrule</code>, <code>\bottomrule</code>，其他命令如下
+
+<ul>
+<li>Trimming命令：<code>cmidrule</code>，其实就是多绘制一条线，而这条线长度并不是表宽，而是几个特定列宽</li>
+<li>增加行距（put an extra space between certain rows ）：<code>\addlinespace[&lt;hwd&gt;]</code></li>
+</ul></li>
+<li><a href="https://tug.ctan.org/macros/latex/contrib/booktabs/booktabs.pdf" rel="nofollow noreferrer" target="_blank">宏包手册</a>里面讲的应该是蛮详细的，根据示例一般都是可以改出来的，最后也会提供一个带有注释的MWE作为参考。</li>
+
+<li><p>一般的需求还需要用到合并行（<code>multirow</code>宏包）和合并列（<code>multicolumn</code>），下面两个图分别是合并行和合并列的用法介绍，手册中应该也是有写的。
+<a data-fancybox="gallery" href="https://s21.ax1x.com/2024/05/07/pkEv2jK.png" pcked="1"><img src="https://s21.ax1x.com/2024/05/07/pkEv2jK.png" style="zoom: 70%;">
+</a>
+<figcaption class="image-caption">合并行命令解释</figcaption>
+<a data-fancybox="gallery" href="https://s21.ax1x.com/2024/05/07/pkEvWnO.png" pcked="1"><img src="https://s21.ax1x.com/2024/05/07/pkEvWnO.png" style="zoom: 85%;">
+</a>
+<figcaption class="image-caption">合并列命令解释</figcaption></p></li>
+
+<li><p>给个示例代码，仅供自己参考，需要自己跑出来对应着看会好很多，代码精简了一下，只写了第一行的内容。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-latex" data-lang="latex"><span style="color:#66d9ef">\documentclass</span>{article}
+<span style="color:#66d9ef">\usepackage</span>{threeparttable,booktabs,multirow,multicol}
+<span style="color:#66d9ef">\begin</span>{document}
+<span style="color:#66d9ef">\begin</span>{table}[ht]
+    <span style="color:#66d9ef">\centering</span>
+    <span style="color:#66d9ef">\caption</span>{The results of the ANOVA analysis }<span style="color:#66d9ef">\label</span>{table2}
+    <span style="color:#66d9ef">\footnotesize</span>
+    <span style="color:#66d9ef">\begin</span>{threeparttable}[c]
+    <span style="color:#66d9ef">\begin</span>{tabular}{*{11}{c}}<span style="color:#66d9ef">\toprule</span>
+        <span style="color:#66d9ef">\multirow</span>{3}[6]{*}{ } &amp; <span style="color:#66d9ef">\multicolumn</span>{6}{c}{<span style="color:#66d9ef">\bfseries</span> ANOVA} &amp; <span style="color:#66d9ef">\multicolumn</span>{4}{c}{<span style="color:#66d9ef">\bfseries</span> Post-hoc tests}<span style="color:#66d9ef">\\</span>
+        <span style="color:#75715e">% 第二行
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">\cmidrule</span>(r){2-7}  <span style="color:#66d9ef">\cmidrule</span>(r){8-11} &amp; <span style="color:#66d9ef">\multicolumn</span>{2}{c}{<span style="color:#66d9ef">\bfseries</span> Group} &amp; <span style="color:#66d9ef">\multicolumn</span>{2}{c}{<span style="color:#66d9ef">\bfseries</span> Time}           &amp; <span style="color:#66d9ef">\multicolumn</span>{2}{c}{<span style="color:#66d9ef">\bfseries</span> Interaction} &amp; {<span style="color:#66d9ef">\bfseries</span> a<span style="color:#66d9ef">\tnote</span>{1}} &amp; {<span style="color:#66d9ef">\bfseries</span> b<span style="color:#66d9ef">\tnote</span>{2}} &amp; {<span style="color:#66d9ef">\bfseries</span> c<span style="color:#66d9ef">\tnote</span>{3}} &amp; {<span style="color:#66d9ef">\bfseries</span> d<span style="color:#66d9ef">\tnote</span>{4}}  <span style="color:#66d9ef">\\</span>
+        <span style="color:#75715e">% 第三行
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">\cmidrule</span>(r){2-3} <span style="color:#66d9ef">\cmidrule</span>(r){4-5}  <span style="color:#66d9ef">\cmidrule</span>(r){6-7} <span style="color:#66d9ef">\cmidrule</span>(r){8-8} <span style="color:#66d9ef">\cmidrule</span>(r){9-9} <span style="color:#66d9ef">\cmidrule</span>(r){10-10} <span style="color:#66d9ef">\cmidrule</span>(r){11-11} &amp; F                                   &amp; {<span style="color:#66d9ef">\textit</span>{P}}                                    &amp; F                                         &amp; {<span style="color:#66d9ef">\textit</span>{P}}           &amp; F                      &amp; {<span style="color:#66d9ef">\textit</span>{P}}           &amp; {<span style="color:#66d9ef">\textit</span>{P}}           &amp; {<span style="color:#66d9ef">\textit</span>{P}} &amp; {<span style="color:#66d9ef">\textit</span>{P}} &amp; {<span style="color:#66d9ef">\textit</span>{P}} <span style="color:#66d9ef">\\</span>
+            <span style="color:#66d9ef">\midrule</span>
+            {<span style="color:#66d9ef">\bfseries</span> BMI}       &amp; 2.230                               &amp; 0.143                                        &amp; 427.23                                    &amp; &lt;0.001                 &amp; 4.673                  &amp; 0.037                  &amp; &lt;0.001                 &amp; &lt;0.001       &amp; 0.707        &amp; 0.014        <span style="color:#66d9ef">\\</span>
+            <span style="color:#66d9ef">\bottomrule</span>
+        <span style="color:#66d9ef">\end</span>{tabular}
+        <span style="color:#66d9ef">\begin</span>{tablenotes}
+            <span style="color:#66d9ef">\item</span> [1] ACpreLSG vs ACpostLSG
+            <span style="color:#66d9ef">\item</span> [2] CCpreLSG vs CCpostLSG
+            <span style="color:#66d9ef">\item</span> [3] ACpreLSG vs CCpreLSG
+            <span style="color:#66d9ef">\item</span> [4] ACpostLSG vs CCpostLSG
+        <span style="color:#66d9ef">\end</span>{tablenotes}
+    <span style="color:#66d9ef">\end</span>{threeparttable}
+<span style="color:#66d9ef">\end</span>{table}
+<span style="color:#66d9ef">\end</span>{document}</code></pre></div></li>
+</ol>
+
+<p><a data-fancybox="gallery" href="https://s21.ax1x.com/2024/05/07/pkEvhHe.png" pcked="1"><img src="https://s21.ax1x.com/2024/05/07/pkEvhHe.png" style="zoom: 60%;">
+</a>
+<figcaption class="image-caption">示例代码结果</figcaption></p>
+
 <h2 id="i-class-fa-solid-fa-image-style-color-2d96bd-i-图片"><i class="fa-solid fa-image" style="color: #2D96BD;"></i> <strong>图片</strong></h2>
 
 <h3 id="图片格式转换">图片格式转换</h3>
@@ -471,7 +537,7 @@
 
 <ul>
 <li>见名知意，其实这一类操作 Adobe DC也是可以很容易做到的</li>
-<li>该网址下面有很多图片格式之间转换的网址（<a href="https://www.onlineconverter.com/image" rel="nofollow noreferrer" target="_blank">最全的网址聚合</a>），这里不在列举</li>
+<li>该网址下面有很多图片格式之间转换的网址（<a href="https://www.onlineconverter.com/image" rel="nofollow noreferrer" target="_blank">最全的网址聚合</a>），这里不再列举</li>
 </ul></li>
 </ol>
 
